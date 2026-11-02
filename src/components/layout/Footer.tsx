@@ -29,6 +29,11 @@ export default function Footer() {
                   LLC vs Sole Proprietorship
                 </Link>
               </li>
+              <li>
+                <Link href="/asset-protection" className="hover:text-[#1769AA]">
+                  Asset Protection
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
@@ -52,9 +57,21 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-[#102A43]">Important</h3>
-            <p className="mt-2 text-sm text-slate-600">
-              This site provides educational information only. It is not legal, tax, or financial advice. Always verify fees on the official state website before filing.
+            <h3 className="text-sm font-semibold text-[#102A43]">Legal</h3>
+            <ul className="mt-2 space-y-1 text-sm text-slate-600">
+              <li>
+                <Link href="/privacy" className="hover:text-[#1769AA]">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="hover:text-[#1769AA]">
+                  Terms of Use
+                </Link>
+              </li>
+            </ul>
+            <p className="mt-4 text-xs text-slate-500">
+              Educational information only. Not legal, tax, or financial advice.
             </p>
           </div>
         </div>
