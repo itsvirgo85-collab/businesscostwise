@@ -1,34 +1,32 @@
 # BusinessCostWise
 
-US-focused educational website for LLC formation costs, business structure comparisons, and small-business asset protection.
+US-focused educational website for **LLC formation costs**, business structure comparisons, and small-business asset protection.
 
-## Stack
+**Live-ready Next.js 15 + TypeScript + Tailwind site.**
 
-- Next.js 15 (App Router) + TypeScript
-- Tailwind CSS
-- Browser-based LLC cost calculator
-- Official government source links for every published state fee
+## Status (Phase 2 complete)
 
-## Features
+- Homepage with clear CTAs
+- Interactive **LLC Cost Calculator** (state select, 1/3/5 year, optional registered agent / name reservation / expedite)
+- **20 verified states + DC** with official government source links and verification dates
+- Dynamic state detail pages (`/llc-cost-by-state/[state]`)
+- LLC Costs by State comparison table
+- LLC vs Sole Proprietorship comparison guide
+- Asset Protection educational checklist
+- About, Sources & Methodology, Disclaimer pages
+- SEO: metadata, sitemap, robots.txt
 
-- **LLC Cost Calculator** – Select verified states, optional registered agent / name reservation / expedite, 1/3/5 year estimates
-- **Costs by State** – Table of formation + recurring fees with source URLs and verification dates
-- **LLC vs Sole Proprietorship** – Side-by-side comparison with IRS/SBA references
-- **Asset Protection** – Educational checklist (not legal advice)
-- SEO: metadata, sitemap, robots, clean URLs
+Every published state fee is tied to an official source. Unverified fees are never shown as $0.
 
-## Important rules
+## Deploy to Vercel (live)
 
-- No fee is published without an official source URL
-- Unverified fees are never shown as $0
-- Content is educational only — not legal or tax advice
+1. Go to [vercel.com](https://vercel.com) and sign in with GitHub
+2. **Add New Project** → Import `itsvirgo85-collab/businesscostwise`
+3. Framework Preset: **Next.js** (auto-detected)
+4. Click **Deploy**
+5. You will get a live `*.vercel.app` URL in under a minute
 
-## Deploy to Vercel
-
-1. Import this repository in [Vercel](https://vercel.com)
-2. Framework preset: Next.js
-3. Deploy — you get a live `*.vercel.app` URL immediately
-4. Optional: add a custom domain later
+Optional later: add a custom domain in Vercel project settings.
 
 ## Local development
 
@@ -41,4 +39,20 @@ Open http://localhost:3000
 
 ## Expanding state data
 
-Edit `src/data/stateFees.ts`. Every new record must include `sourceUrl`, `sourceName`, `verifiedAt`, and `status`.
+Edit `src/data/stateFees.ts`. Every new record **must** include:
+- `sourceUrl` (official government page)
+- `sourceName`
+- `verifiedAt` (ISO date)
+- `status: "verified"`
+
+## Important
+
+This is an educational resource only. It is **not** legal, tax, or financial advice. Always confirm current fees on the official state website before filing.
+
+## Next phase ideas
+
+- Add remaining states with official sources
+- Privacy Policy + Terms pages
+- More comparison content (LLC vs Corporation, etc.)
+- Performance & accessibility polish
+- Optional Supabase for fee history / admin verification workflow
