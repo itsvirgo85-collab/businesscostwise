@@ -17,6 +17,7 @@ export default function Footer() {
               <li><Link href="/llc-cost-calculator" className="hover:text-[#1769AA]">LLC Cost Calculator</Link></li>
               <li><Link href="/llc-cost-by-state" className="hover:text-[#1769AA]">Costs by State</Link></li>
               <li><Link href="/cheapest-states-to-form-an-llc" className="hover:text-[#1769AA]">Cheapest States</Link></li>
+              <li><Link href="/most-expensive-states-to-form-an-llc" className="hover:text-[#1769AA]">Most Expensive States</Link></li>
               <li><Link href="/hidden-costs-of-forming-an-llc" className="hover:text-[#1769AA]">Hidden Costs</Link></li>
               <li><Link href="/annual-report-requirements-by-state" className="hover:text-[#1769AA]">Annual Reports by State</Link></li>
             </ul>
