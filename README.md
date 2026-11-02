@@ -4,11 +4,11 @@ US-focused educational website for **LLC formation costs**, business structure c
 
 **Live-ready Next.js 15 + TypeScript + Tailwind site.**
 
-## Status (Phase 2 complete)
+## Status
 
-- Homepage with clear CTAs
+- Homepage with hero + tools + trust section
 - Interactive **LLC Cost Calculator** (state select, 1/3/5 year, optional registered agent / name reservation / expedite)
-- **20 verified states + DC** with official government source links and verification dates
+- **30 verified states + DC** with official government source links and verification dates
 - Dynamic state detail pages (`/llc-cost-by-state/[state]`)
 - LLC Costs by State comparison table
 - LLC vs Sole Proprietorship comparison guide
@@ -17,6 +17,10 @@ US-focused educational website for **LLC formation costs**, business structure c
 - SEO: metadata, sitemap, robots.txt
 
 Every published state fee is tied to an official source. Unverified fees are never shown as $0.
+
+### States covered (30 + DC)
+
+AL, AZ, AR, CA, CO, DE, FL, GA, HI, ID, IL, IN, KY, MA, MI, MO, MT, NV, NM, NY, NC, OH, PA, SC, TX, UT, VA, WA, WY + DC
 
 ## Deploy to Vercel (live)
 
@@ -48,11 +52,3 @@ Edit `src/data/stateFees.ts`. Every new record **must** include:
 ## Important
 
 This is an educational resource only. It is **not** legal, tax, or financial advice. Always confirm current fees on the official state website before filing.
-
-## Next phase ideas
-
-- Add remaining states with official sources
-- Privacy Policy + Terms pages
-- More comparison content (LLC vs Corporation, etc.)
-- Performance & accessibility polish
-- Optional Supabase for fee history / admin verification workflow
