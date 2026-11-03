@@ -14,6 +14,7 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-[#102A43]">Tools & Guides</h3>
             <ul className="mt-2 space-y-1 text-sm text-slate-600">
+              <li><Link href="/how-much-does-it-cost-to-start-an-llc" className="hover:text-[#1769AA]">How Much Does an LLC Cost?</Link></li>
               <li><Link href="/llc-cost-calculator" className="hover:text-[#1769AA]">LLC Cost Calculator</Link></li>
               <li><Link href="/llc-cost-by-state" className="hover:text-[#1769AA]">Costs by State</Link></li>
               <li><Link href="/cheapest-states-to-form-an-llc" className="hover:text-[#1769AA]">Cheapest States</Link></li>
