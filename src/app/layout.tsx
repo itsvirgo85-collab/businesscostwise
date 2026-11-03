@@ -12,16 +12,16 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "BusinessCostWise — US LLC Formation Costs & Business Tools",
-    template: "%s | BusinessCostWise",
+    default: "Get LLC Cost Calculator — Free US LLC Filing Fees by State",
+    template: "%s | Get LLC Cost Calculator",
   },
   description:
-    "Free LLC formation cost calculator by state, LLC vs sole proprietorship comparison, and practical guides for US small-business owners. Source-backed fees and educational resources.",
-  metadataBase: new URL("https://businesscostwise.com"),
+    "Free LLC cost calculator for all 50 states. See formation fees, annual reports, franchise taxes, and multi-year totals with official government source links.",
+  metadataBase: new URL("https://getllccostcalculator.com"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "BusinessCostWise",
+    siteName: "Get LLC Cost Calculator",
   },
   robots: {
     index: true,

@@ -2,11 +2,11 @@ import type { MetadataRoute } from "next";
 import { STATE_FEES } from "@/data/stateFees";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://businesscostwise.com";
+  const base = "https://getllccostcalculator.com";
   const staticPages: MetadataRoute.Sitemap = [
     { url: base, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
     { url: `${base}/how-much-does-it-cost-to-start-an-llc`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.95 },
-    { url: `${base}/llc-cost-calculator`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
+    { url: `${base}/llc-cost-calculator`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.95 },
     { url: `${base}/llc-cost-by-state`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/business-structures/llc-vs-sole-proprietorship`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/business-structures/llc-vs-corporation`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },

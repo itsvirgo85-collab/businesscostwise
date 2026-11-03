@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://businesscostwise.com/sitemap.xml",
-    host: "https://businesscostwise.com",
+    sitemap: "https://getllccostcalculator.com/sitemap.xml",
+    host: "https://getllccostcalculator.com",
   };
 }

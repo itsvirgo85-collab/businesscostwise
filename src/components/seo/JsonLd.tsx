@@ -4,19 +4,19 @@ export default function JsonLd() {
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://businesscostwise.com/#website",
-        url: "https://businesscostwise.com",
-        name: "BusinessCostWise",
+        "@id": "https://getllccostcalculator.com/#website",
+        url: "https://getllccostcalculator.com",
+        name: "Get LLC Cost Calculator",
         description:
-          "US LLC formation costs by state, calculators, and educational business structure guides with official source links.",
-        publisher: { "@id": "https://businesscostwise.com/#organization" },
+          "Free LLC cost calculator for all 50 US states. Formation fees, annual reports, franchise taxes, and multi-year totals with official source links.",
+        publisher: { "@id": "https://getllccostcalculator.com/#organization" },
         inLanguage: "en-US",
       },
       {
         "@type": "Organization",
-        "@id": "https://businesscostwise.com/#organization",
-        name: "BusinessCostWise",
-        url: "https://businesscostwise.com",
+        "@id": "https://getllccostcalculator.com/#organization",
+        name: "Get LLC Cost Calculator",
+        url: "https://getllccostcalculator.com",
         description:
           "Educational resource for US LLC formation costs, state fee data, and small-business structure comparisons.",
       },
