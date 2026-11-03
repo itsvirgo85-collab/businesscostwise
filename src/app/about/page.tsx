@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About BusinessCostWise",
+  title: "About Get LLC Cost Calculator",
   description: "Mission, editorial approach, and how we handle official state fee data.",
 };
 
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
-      <h1 className="text-3xl font-bold text-[#102A43]">About BusinessCostWise</h1>
+      <h1 className="text-3xl font-bold text-[#102A43]">About Get LLC Cost Calculator</h1>
       <p className="mt-4 text-slate-600">
-        BusinessCostWise is an independent educational resource focused on US LLC formation costs,
+        Get LLC Cost Calculator is an independent educational resource focused on US LLC formation costs,
         business structure comparisons, and practical small-business topics. Our goal is to help
         entrepreneurs understand government fees and basic structural trade-offs with clear source links.
       </p>
