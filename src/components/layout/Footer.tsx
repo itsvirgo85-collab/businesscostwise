@@ -6,9 +6,9 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h3 className="text-sm font-semibold text-[#102A43]">BusinessCostWise</h3>
+            <h3 className="text-sm font-semibold text-[#102A43]">Get LLC Cost Calculator</h3>
             <p className="mt-2 text-sm text-slate-600">
-              Practical, source-backed information on US LLC formation costs, business structures, and small-business asset protection.
+              Free LLC cost calculator for all 50 states. Official filing fees, annual reports, and multi-year totals — educational only.
             </p>
           </div>
           <div>
@@ -47,7 +47,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-10 border-t border-slate-200 pt-6 text-center text-xs text-slate-500">
-          © {new Date().getFullYear()} BusinessCostWise. All rights reserved. · Educational resource · Not affiliated with any government agency.
+          © {new Date().getFullYear()} Get LLC Cost Calculator. All rights reserved. · Educational resource · Not affiliated with any government agency.
         </div>
       </div>
     </footer>
