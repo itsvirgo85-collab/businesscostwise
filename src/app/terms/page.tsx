@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Terms of Use — BusinessCostWise",
-  description: "Terms governing use of the BusinessCostWise educational website and calculators.",
+  title: "Terms of Use — Get LLC Cost Calculator",
+  description: "Terms governing use of the Get LLC Cost Calculator educational website and calculators.",
 };
 
 export default function TermsPage() {
@@ -22,7 +22,7 @@ export default function TermsPage() {
         <section>
           <h2 className="text-lg font-semibold text-[#102A43]">Acceptance</h2>
           <p className="mt-2">
-            By using BusinessCostWise you agree to these Terms of Use. If you do not agree, please do not use the site.
+            By using Get LLC Cost Calculator you agree to these Terms of Use. If you do not agree, please do not use the site.
           </p>
         </section>
 
@@ -56,7 +56,7 @@ export default function TermsPage() {
         <section>
           <h2 className="text-lg font-semibold text-[#102A43]">Limitation of liability</h2>
           <p className="mt-2">
-            To the fullest extent permitted by law, BusinessCostWise and its operators are not liable for any loss,
+            To the fullest extent permitted by law, Get LLC Cost Calculator and its operators are not liable for any loss,
             damage, or expense arising from your use of (or reliance on) the site, including any decisions made on
             the basis of the calculators or content.
           </p>
