@@ -4,11 +4,16 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "BusinessCostWise — US LLC Costs, Calculators & Business Guides",
   description:
-    "Calculate LLC formation costs by state with official source links. Compare structures, see cheapest and most expensive states, and understand hidden costs. Educational tools for US entrepreneurs.",
+    "How much does it cost to start an LLC in 2026? Free calculator, all 50 states fees, cheapest & most expensive rankings, hidden costs, and structure guides. Official source links.",
 };
 
 export default function HomePage() {
   const tools = [
+    {
+      href: "/how-much-does-it-cost-to-start-an-llc",
+      title: "How Much Does It Cost to Start an LLC?",
+      desc: "Complete 2026 breakdown: filing fees, annual reports, franchise taxes, and hidden extras — with free calculator.",
+    },
     {
       href: "/llc-cost-calculator",
       title: "LLC Cost Calculator",
@@ -69,12 +74,12 @@ export default function HomePage() {
       <section className="bg-gradient-to-b from-[#102A43] to-[#1769AA] text-white">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
           <h1 className="max-w-3xl text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            Know the real cost of forming an LLC in the US
+            How much does it cost to start an LLC in 2026?
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-blue-100">
-            Free state-by-state LLC cost calculator with official government sources,
-            cheapest and most expensive state rankings, structure comparisons, and practical
-            guides for small-business owners.
+            Get the real number before you file. Free calculator for all 50 states + DC,
+            official government source links, cheapest and most expensive rankings,
+            and clear guides on hidden costs and business structures.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
