@@ -5,7 +5,7 @@ import { STATE_FEES } from "@/data/stateFees";
 export const metadata: Metadata = {
   title: "LLC Costs by State — Filing Fees & Annual Reports",
   description:
-    "Compare LLC formation filing fees and recurring annual or biennial costs across US states. Every figure linked to official government sources.",
+    "Compare LLC formation filing fees and recurring annual or biennial costs across all 50 US states and DC. Every figure linked to official government sources.",
 };
 
 export default function LLCCostByStatePage() {
@@ -25,8 +25,8 @@ export default function LLCCostByStatePage() {
         LLC Formation Costs by State
       </h1>
       <p className="mt-3 max-w-3xl text-slate-600">
-        Verified filing fees and recurring charges for selected US states and the District of Columbia.
-        Each row links to the official source used for verification. More states will be added as records are confirmed.
+        Verified filing fees and recurring charges for all 50 US states and the District of Columbia.
+        Each row links to the official government source used for verification. Always re-check current fees before filing.
       </p>
 
       <div className="mt-8 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
