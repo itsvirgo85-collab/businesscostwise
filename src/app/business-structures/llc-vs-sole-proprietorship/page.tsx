@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import FaqJsonLd from "@/components/seo/FaqJsonLd";
 
 export const metadata: Metadata = {
   title: "LLC vs Sole Proprietorship — Comparison Guide",
@@ -8,12 +9,36 @@ export const metadata: Metadata = {
 };
 
 export default function LLCvsSolePropPage() {
+  const faqs = [
+    {
+      question: "Is an LLC better than a sole proprietorship?",
+      answer:
+        "An LLC provides limited liability protection that a sole proprietorship does not. A sole proprietorship is simpler and usually cheaper to start, but the owner is generally personally liable for business debts and claims. The better choice depends on risk, growth plans, and tax situation.",
+    },
+    {
+      question: "Does a sole proprietorship cost anything to form?",
+      answer:
+        "Usually there is no state formation filing fee for a sole proprietorship. You may still need local licenses, a DBA (trade name) registration, or permits depending on your city and industry.",
+    },
+    {
+      question: "Can I switch from sole proprietorship to LLC later?",
+      answer:
+        "Yes. Many owners start as sole proprietors and form an LLC later. You will need to file formation documents with the state, obtain a new EIN in most cases, and update bank accounts, contracts, and licenses.",
+    },
+    {
+      question: "Does an LLC always protect personal assets?",
+      answer:
+        "No. Limited liability can fail if you mix personal and business finances, undercapitalize the company, commit fraud, or sign personal guarantees. Proper formalities and insurance remain important.",
+    },
+  ];
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
+      <FaqJsonLd faqs={faqs} />
       <nav className="mb-6 text-sm text-slate-500">
         <Link href="/" className="hover:text-[#1769AA]">Home</Link>
         <span className="mx-2">/</span>
-        <Link href="/business-structures/llc-vs-sole-proprietorship" className="hover:text-[#1769AA]">Business Structures</Link>
+        <span className="text-slate-500">Business Structures</span>
         <span className="mx-2">/</span>
         <span className="text-slate-800">LLC vs Sole Proprietorship</span>
       </nav>
@@ -50,12 +75,12 @@ export default function LLCvsSolePropPage() {
             <tr>
               <td className="px-4 py-3 font-medium">Personal liability</td>
               <td className="px-4 py-3">Owner is generally personally liable for business debts and claims</td>
-              <td className="px-4 py-3">Limited liability for members, subject to important exceptions (veil piercing, personal guarantees, professional malpractice, etc.)</td>
+              <td className="px-4 py-3">Limited liability for members, subject to important exceptions</td>
             </tr>
             <tr>
               <td className="px-4 py-3 font-medium">Federal income tax (default)</td>
               <td className="px-4 py-3">Reported on owner’s personal return (Schedule C)</td>
-              <td className="px-4 py-3">Single-member LLC usually disregarded; multi-member usually partnership. Can elect corporate treatment</td>
+              <td className="px-4 py-3">Single-member LLC usually disregarded; multi-member usually partnership</td>
             </tr>
             <tr>
               <td className="px-4 py-3 font-medium">Ongoing state filings</td>
@@ -75,41 +100,28 @@ export default function LLCvsSolePropPage() {
         <h2 className="text-xl font-semibold text-[#102A43]">When people choose an LLC</h2>
         <p>
           Common reasons include wanting a clearer separation between personal and business assets, the ability to
-          add members later, and the perception of greater professionalism. Limited liability is not absolute —
-          maintaining separate finances, proper records, and adequate insurance remain important.
+          add members later, and the perception of greater professionalism. Limited liability is not absolute.
         </p>
-
         <h2 className="text-xl font-semibold text-[#102A43]">When a sole proprietorship may be enough</h2>
         <p>
           Very small, low-risk activities with minimal liability exposure sometimes start as sole proprietorships
           to avoid formation and annual report costs. Local licensing and tax obligations still apply.
         </p>
+      </section>
 
-        <h2 className="text-xl font-semibold text-[#102A43]">Taxes note</h2>
-        <p>
-          The IRS treats a single-member LLC as a disregarded entity for federal income tax purposes by default
-          (unless it elects to be taxed as a corporation). Multi-member LLCs are generally treated as partnerships.
-          See the IRS Limited Liability Company page for official guidance.
-        </p>
-
-        <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
-          <p className="font-medium text-slate-800">Primary references</p>
-          <ul className="mt-2 list-disc space-y-1 pl-5">
-            <li>
-              <a href="https://www.irs.gov/businesses/small-businesses-self-employed/limited-liability-company-llc" target="_blank" rel="noopener noreferrer" className="text-[#1769AA] hover:underline">
-                IRS — Limited Liability Company (LLC)
-              </a>
-            </li>
-            <li>
-              <a href="https://www.sba.gov/business-guide/launch-your-business/choose-business-structure" target="_blank" rel="noopener noreferrer" className="text-[#1769AA] hover:underline">
-                SBA — Choose a business structure
-              </a>
-            </li>
-          </ul>
+      <section className="mt-12">
+        <h2 className="text-xl font-semibold text-[#102A43]">Frequently asked questions</h2>
+        <div className="mt-6 space-y-4">
+          {faqs.map((f, i) => (
+            <div key={i} className="rounded-xl border border-slate-200 bg-white p-5">
+              <h3 className="font-semibold text-[#102A43] text-sm">{f.question}</h3>
+              <p className="mt-2 text-sm text-slate-600 leading-relaxed">{f.answer}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      <p className="mt-8 text-sm text-slate-500">
+      <p className="mt-10 text-xs text-slate-500">
         This comparison is educational. State rules, tax elections, and individual circumstances vary. Consult a
         qualified attorney or tax professional for advice specific to your situation.
       </p>
