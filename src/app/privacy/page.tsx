@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — BusinessCostWise",
-  description: "How BusinessCostWise handles information when you use the site and calculators.",
+  title: "Privacy Policy — Get LLC Cost Calculator",
+  description: "How Get LLC Cost Calculator handles information when you use the site and calculators.",
 };
 
 export default function PrivacyPage() {
@@ -22,7 +22,7 @@ export default function PrivacyPage() {
         <section>
           <h2 className="text-lg font-semibold text-[#102A43]">Overview</h2>
           <p className="mt-2">
-            BusinessCostWise (“we”, “the site”) is an educational website about US LLC formation costs and related topics.
+            Get LLC Cost Calculator (“we”, “the site”) is an educational website about US LLC formation costs and related topics.
             We aim to collect as little personal information as possible.
           </p>
         </section>
