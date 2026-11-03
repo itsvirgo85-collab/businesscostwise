@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "BusinessCostWise — US LLC Costs, Calculators & Business Guides",
+  title: "Get LLC Cost Calculator — Free US LLC Filing Fees by State (2026)",
   description:
     "How much does it cost to start an LLC in 2026? Free calculator, all 50 states fees, cheapest & most expensive rankings, hidden costs, and structure guides. Official source links.",
 };
