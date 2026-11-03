@@ -18,15 +18,15 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
         <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#102A43] text-sm font-bold text-white">
-            BC
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#102A43] text-xs font-bold text-white">
+            LLC
           </div>
           <div>
             <span className="text-lg font-semibold tracking-tight text-[#102A43]">
-              BusinessCostWise
+              Get LLC Cost Calculator
             </span>
             <span className="ml-2 hidden text-xs text-slate-500 sm:inline">
-              US LLC & Business Costs
+              Free US LLC fees by state
             </span>
           </div>
         </Link>
