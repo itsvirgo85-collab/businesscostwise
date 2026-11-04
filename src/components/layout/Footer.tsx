@@ -16,6 +16,9 @@ export default function Footer() {
             <ul className="mt-2 space-y-1 text-sm text-slate-600">
               <li><Link href="/how-much-does-it-cost-to-start-an-llc" className="hover:text-[#1769AA]">How Much Does an LLC Cost?</Link></li>
               <li><Link href="/llc-cost-calculator" className="hover:text-[#1769AA]">LLC Cost Calculator</Link></li>
+              <li><Link href="/how-to-form-an-llc" className="hover:text-[#1769AA]">How to Form an LLC</Link></li>
+              <li><Link href="/how-to-get-an-ein-for-free" className="hover:text-[#1769AA]">Get an EIN for Free</Link></li>
+              <li><Link href="/how-long-does-it-take-to-start-an-llc" className="hover:text-[#1769AA]">How Long to Start an LLC</Link></li>
               <li><Link href="/llc-cost-by-state" className="hover:text-[#1769AA]">Costs by State</Link></li>
               <li><Link href="/cheapest-states-to-form-an-llc" className="hover:text-[#1769AA]">Cheapest States</Link></li>
               <li><Link href="/most-expensive-states-to-form-an-llc" className="hover:text-[#1769AA]">Most Expensive States</Link></li>
@@ -28,6 +31,7 @@ export default function Footer() {
             <ul className="mt-2 space-y-1 text-sm text-slate-600">
               <li><Link href="/business-structures/llc-vs-sole-proprietorship" className="hover:text-[#1769AA]">LLC vs Sole Proprietorship</Link></li>
               <li><Link href="/business-structures/llc-vs-corporation" className="hover:text-[#1769AA]">LLC vs Corporation</Link></li>
+              <li><Link href="/business-structures/llc-vs-s-corp" className="hover:text-[#1769AA]">LLC vs S Corp</Link></li>
               <li><Link href="/business-structures/single-member-vs-multi-member-llc" className="hover:text-[#1769AA]">Single vs Multi-Member LLC</Link></li>
               <li><Link href="/asset-protection" className="hover:text-[#1769AA]">Asset Protection</Link></li>
               <li><Link href="/about" className="hover:text-[#1769AA]">About</Link></li>
