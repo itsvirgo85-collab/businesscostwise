@@ -38,6 +38,8 @@ export default function LLCCostCalculator() {
     return <p className="text-slate-600">Loading calculator…</p>;
   }
 
+  const recurring = years === 1 ? result.firstYearRecurring : result.multiYearRecurring;
+
   return (
     <div className="grid gap-8 lg:grid-cols-5">
       <div className="lg:col-span-2 space-y-5 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -83,75 +85,40 @@ export default function LLCCostCalculator() {
 
         <div className="space-y-3 border-t border-slate-100 pt-4">
           <label className="flex items-start gap-3">
-            <input
-              type="checkbox"
-              checked={includeRA}
-              onChange={(e) => setIncludeRA(e.target.checked)}
-              className="mt-1"
-            />
+            <input type="checkbox" checked={includeRA} onChange={(e) => setIncludeRA(e.target.checked)} className="mt-1" />
             <span className="text-sm text-slate-700">
               Add commercial registered agent
               {state.formationIncludesRA && (
-                <span className="block text-xs text-slate-500">
-                  (Formation fee already includes state RA designation)
-                </span>
+                <span className="block text-xs text-slate-500">(Formation fee already includes state RA designation)</span>
               )}
             </span>
           </label>
           {includeRA && (
             <div className="ml-7">
               <label className="mb-1 block text-xs text-slate-500">Annual agent cost ($)</label>
-              <input
-                type="number"
-                min={0}
-                value={raCost}
-                onChange={(e) => setRaCost(Number(e.target.value) || 0)}
-                className="w-28 rounded border border-slate-300 px-2 py-1 text-sm"
-              />
+              <input type="number" min={0} value={raCost} onChange={(e) => setRaCost(Number(e.target.value) || 0)} className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
             </div>
           )}
 
           <label className="flex items-start gap-3">
-            <input
-              type="checkbox"
-              checked={includeNameRes}
-              onChange={(e) => setIncludeNameRes(e.target.checked)}
-              className="mt-1"
-            />
+            <input type="checkbox" checked={includeNameRes} onChange={(e) => setIncludeNameRes(e.target.checked)} className="mt-1" />
             <span className="text-sm text-slate-700">Name reservation (optional)</span>
           </label>
           {includeNameRes && (
             <div className="ml-7">
               <label className="mb-1 block text-xs text-slate-500">Reservation fee ($)</label>
-              <input
-                type="number"
-                min={0}
-                value={nameResCost}
-                onChange={(e) => setNameResCost(Number(e.target.value) || 0)}
-                className="w-28 rounded border border-slate-300 px-2 py-1 text-sm"
-              />
+              <input type="number" min={0} value={nameResCost} onChange={(e) => setNameResCost(Number(e.target.value) || 0)} className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
             </div>
           )}
 
           <label className="flex items-start gap-3">
-            <input
-              type="checkbox"
-              checked={expedited}
-              onChange={(e) => setExpedited(e.target.checked)}
-              className="mt-1"
-            />
+            <input type="checkbox" checked={expedited} onChange={(e) => setExpedited(e.target.checked)} className="mt-1" />
             <span className="text-sm text-slate-700">Expedited processing (if available)</span>
           </label>
           {expedited && (
             <div className="ml-7">
               <label className="mb-1 block text-xs text-slate-500">Expedite fee ($)</label>
-              <input
-                type="number"
-                min={0}
-                value={expeditedCost}
-                onChange={(e) => setExpeditedCost(Number(e.target.value) || 0)}
-                className="w-28 rounded border border-slate-300 px-2 py-1 text-sm"
-              />
+              <input type="number" min={0} value={expeditedCost} onChange={(e) => setExpeditedCost(Number(e.target.value) || 0)} className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
             </div>
           )}
         </div>
@@ -159,7 +126,7 @@ export default function LLCCostCalculator() {
 
       <div className="lg:col-span-3 space-y-4">
         <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-          <div className="flex items-baseline justify-between">
+          <div className="flex items-baseline justify-between gap-2">
             <h2 className="text-lg font-semibold text-[#102A43]">
               Estimated {years}-year cost — {state.state}
             </h2>
@@ -182,7 +149,7 @@ export default function LLCCostCalculator() {
             </div>
             {result.registeredAgent > 0 && (
               <div className="flex justify-between">
-                <dt className="text-slate-600">Registered agent (selected period)</dt>
+                <dt className="text-slate-600">Registered agent ({years} yr)</dt>
                 <dd className="font-medium">${result.registeredAgent.toFixed(2)}</dd>
               </div>
             )}
@@ -199,15 +166,18 @@ export default function LLCCostCalculator() {
               </div>
             )}
             <div className="flex justify-between">
-              <dt className="text-slate-600">
-                Recurring / franchise fees ({years} yr)
-              </dt>
-              <dd className="font-medium">
-                $
-                {(years === 1 ? result.firstYearRecurring : result.multiYearRecurring).toFixed(2)}
-              </dd>
+              <dt className="text-slate-600">Recurring / franchise fees ({years} yr)</dt>
+              <dd className="font-medium">${recurring.toFixed(2)}</dd>
             </div>
           </dl>
+
+          {recurring === 0 && (
+            <p className="mt-3 rounded-lg bg-slate-50 px-3 py-2 text-xs text-slate-600">
+              This state has no annual report fee or franchise tax in our dataset for the selected period.
+              That is why 1-, 3-, and 5-year totals can match when optional extras are off (formation fee only).
+              Always confirm on the official state site before filing.
+            </p>
+          )}
 
           {result.notes.length > 0 && (
             <ul className="mt-4 space-y-1 border-t border-slate-100 pt-4 text-xs text-slate-600">
@@ -222,12 +192,7 @@ export default function LLCCostCalculator() {
           <p className="font-medium">Official source</p>
           <p className="mt-1">
             Fees for {state.state} are linked to:{" "}
-            <a
-              href={state.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline hover:text-amber-700"
-            >
+            <a href={state.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-amber-700">
               {state.sourceName}
             </a>
             . Last verified: {state.verifiedAt}. Always confirm current amounts on the state website before filing.
