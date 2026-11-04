@@ -24,11 +24,24 @@ export interface CostBreakdown {
   sources: { name: string; url: string }[];
 }
 
+/**
+ * Educational cost estimate from official state fee fields.
+ * Does NOT include: publication, local licenses, federal taxes, professional fees.
+ */
 export function calculateLLCCost(inputs: CalculatorInputs): CostBreakdown {
-  const { state, years, includeRegisteredAgent, registeredAgentCost, includeNameReservation, nameReservationCost, expedited, expeditedCost } = inputs;
+  const {
+    state,
+    years,
+    includeRegisteredAgent,
+    registeredAgentCost,
+    includeNameReservation,
+    nameReservationCost,
+    expedited,
+    expeditedCost,
+  } = inputs;
 
   const formation = state.formationFee ?? 0;
-  const ra = includeRegisteredAgent ? registeredAgentCost : 0;
+  const ra = includeRegisteredAgent ? registeredAgentCost * years : 0;
   const nameRes = includeNameReservation ? nameReservationCost : 0;
   const exp = expedited ? expeditedCost : 0;
 
@@ -36,34 +49,41 @@ export function calculateLLCCost(inputs: CalculatorInputs): CostBreakdown {
   let multiYearRecurring = 0;
   const notes: string[] = [];
 
-  if (state.annualFee != null && state.annualFrequency === "annual") {
-    firstYearRecurring = state.annualFee;
-    multiYearRecurring = state.annualFee * years;
+  if (state.annualFee != null && state.annualFee > 0 && state.annualFrequency === "annual") {
+    firstYearRecurring += state.annualFee;
+    multiYearRecurring += state.annualFee * years;
     notes.push(`Annual report / recurring fee: $${state.annualFee} per year.`);
-  } else if (state.annualFee != null && state.annualFrequency === "biennial") {
-    firstYearRecurring = 0;
-    multiYearRecurring = state.annualFee * Math.ceil(years / 2);
-    notes.push(`Biennial fee: $${state.annualFee} every two years (estimate based on ${years}-year period).`);
+  } else if (state.annualFee != null && state.annualFee > 0 && state.annualFrequency === "biennial") {
+    const payments = Math.ceil(years / 2);
+    firstYearRecurring += 0;
+    multiYearRecurring += state.annualFee * payments;
+    notes.push(
+      `Biennial fee: $${state.annualFee} every two years (~${payments} payment(s) over ${years} years).`
+    );
   } else {
-    notes.push("No annual report fee required for this state (or not included).");
+    notes.push("No annual report fee required for this state (or not included in this estimate).");
   }
 
   if (state.franchiseTax != null && state.franchiseTax > 0) {
     firstYearRecurring += state.franchiseTax;
     multiYearRecurring += state.franchiseTax * years;
-    notes.push(`Franchise / entity tax: $${state.franchiseTax} per year (applies even with zero income in many cases).`);
+    notes.push(
+      `Franchise / entity tax: $${state.franchiseTax} per year (often applies even with $0 income).`
+    );
   }
 
   if (state.formationIncludesRA) {
-    notes.push("Formation fee already includes the required registered agent designation fee.");
+    notes.push("Formation fee already includes the required registered agent designation with the state.");
   }
 
-  const total =
-    formation +
-    ra +
-    nameRes +
-    exp +
-    (years === 1 ? firstYearRecurring : multiYearRecurring);
+  if (includeRegisteredAgent && registeredAgentCost > 0) {
+    notes.push(
+      `Commercial registered agent estimated at $${registeredAgentCost}/year × ${years} year(s).`
+    );
+  }
+
+  const recurringForPeriod = years === 1 ? firstYearRecurring : multiYearRecurring;
+  const total = formation + ra + nameRes + exp + recurringForPeriod;
 
   return {
     formationFee: formation,
