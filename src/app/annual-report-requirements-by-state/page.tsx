@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { STATE_FEES } from "@/data/stateFees";
+import FaqJsonLd from "@/components/seo/FaqJsonLd";
 
 export const metadata: Metadata = {
   title: "LLC Annual Report Requirements by State 2026 — Fees & Frequency",
@@ -27,37 +28,82 @@ export default function AnnualReportPage() {
 
   const withFranchise = verified.filter((s) => (s.franchiseTax ?? 0) > 0);
 
+  const faqs = [
+    {
+      question: "What is an LLC annual report?",
+      answer:
+        "An annual report (sometimes called a statement of information, annual registration, or periodic report) is a filing most states require LLCs to submit to keep the entity in good standing. It usually updates the company’s address, registered agent, and officer or member information and is accompanied by a fee in many states.",
+    },
+    {
+      question: "Do all states require annual reports for LLCs?",
+      answer:
+        "No. Requirements vary. Some states require annual filings, some biennial (every two years), and a smaller group currently charge little or nothing for the report itself. Always confirm the current rule for your formation state.",
+    },
+    {
+      question: "What happens if I miss the annual report deadline?",
+      answer:
+        "Late fees are common. Continued failure can lead to loss of good standing and eventually administrative dissolution of the LLC. Restoring good standing usually costs more than filing on time.",
+    },
+    {
+      question: "Is a franchise tax the same as an annual report fee?",
+      answer:
+        "Not always. Some states charge a simple report fee. Others impose a franchise tax, privilege tax, or minimum tax that can be much larger. California’s $800 annual franchise tax is the best-known example of a recurring cost that goes well beyond a basic report fee.",
+    },
+    {
+      question: "How can I stay on top of annual report deadlines?",
+      answer:
+        "Calendar the deadline as soon as you form the LLC. Keep your registered agent information current, and consider using a commercial registered agent service that tracks filing deadlines for you.",
+    },
+  ];
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
-      <nav className="mb-6 text-sm text-slate-500">
-        <Link href="/" className="hover:text-[#1769AA]">Home</Link>
+      <FaqJsonLd faqs={faqs} />
+
+      <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
+        <Link href="/" className="hover:text-[#1769AA]">
+          Home
+        </Link>
         <span className="mx-2">/</span>
-        <Link href="/llc-cost-by-state" className="hover:text-[#1769AA]">LLC Costs by State</Link>
+        <Link href="/how-much-does-it-cost-to-start-an-llc" className="hover:text-[#1769AA]">
+          LLC Costs
+        </Link>
         <span className="mx-2">/</span>
         <span className="text-slate-800">Annual Reports</span>
       </nav>
 
-      <h1 className="text-3xl font-bold tracking-tight text-[#102A43]">
+      <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         LLC Annual Report Requirements by State (2026)
       </h1>
-      <p className="mt-3 text-slate-600 leading-relaxed">
-        Most US states require LLCs to file an annual or biennial report (sometimes called a statement of
-        information, annual registration, or periodic report) and to pay a fee. A smaller group of states
-        currently charge little or nothing for the report itself. This page groups states by frequency and
-        highlights material franchise or privilege taxes that often accompany (or replace) a simple report fee.
+
+      <p className="mt-4 text-lg text-slate-600 leading-relaxed">
+        Most U.S. states require LLCs to file an annual or biennial report (sometimes called a statement of information, annual registration, or periodic report) and to pay a fee. A smaller group of states currently charge little or nothing for the report itself. This page groups states by frequency and highlights material franchise or privilege taxes that often accompany (or replace) a simple report fee.
       </p>
 
       <div className="mt-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
-        <strong>Always verify.</strong> Rules and fees change. Some states still require a filing even when
-        the fee is $0. Confirm deadlines and current amounts on the official Secretary of State (or equivalent)
-        website before relying on any figure.
+        <strong>Always verify.</strong> Rules and fees change. Some states still require a filing even when the fee is $0. Confirm deadlines and current amounts on the official Secretary of State (or equivalent) website before relying on any figure.
+      </div>
+
+      <div className="mt-6 flex flex-wrap gap-3">
+        <Link
+          href="/llc-cost-calculator"
+          className="rounded-lg bg-[#102A43] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1769AA]"
+        >
+          Free Cost Calculator
+        </Link>
+        <Link
+          href="/hidden-costs-of-forming-an-llc"
+          className="rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-700 transition hover:border-[#1769AA]"
+        >
+          Hidden costs
+        </Link>
       </div>
 
       <section className="mt-12">
-        <h2 className="text-xl font-semibold text-[#102A43]">
+        <h2 className="text-2xl font-bold text-[#102A43]">
           States with no (or $0) recurring report fee
         </h2>
-        <p className="mt-2 text-sm text-slate-600">
+        <p className="mt-2 text-slate-600">
           Based on currently verified data. Some of these states may still require other filings or taxes.
         </p>
         <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
@@ -65,20 +111,22 @@ export default function AnnualReportPage() {
             <Link
               key={s.slug}
               href={`/llc-cost-by-state/${s.slug}`}
-              className="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-[#102A43] hover:border-[#1769AA] hover:text-[#1769AA] transition"
+              className="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-[#102A43] transition hover:border-[#1769AA] hover:text-[#1769AA]"
             >
               {s.state}
             </Link>
           ))}
           {noRecurring.length === 0 && (
-            <p className="text-sm text-slate-500 col-span-full">Check individual state pages for the latest verified status.</p>
+            <p className="col-span-full text-sm text-slate-500">
+              Check individual state pages for the latest verified status.
+            </p>
           )}
         </div>
       </section>
 
       <section className="mt-12">
-        <h2 className="text-xl font-semibold text-[#102A43]">Annual report states (sample)</h2>
-        <p className="mt-2 text-sm text-slate-600">
+        <h2 className="text-2xl font-bold text-[#102A43]">Annual report states (sample)</h2>
+        <p className="mt-2 text-slate-600">
           Sorted by report fee (lowest first). Franchise taxes are listed separately where applicable.
         </p>
         <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
@@ -100,9 +148,7 @@ export default function AnnualReportPage() {
                     </Link>
                   </td>
                   <td className="px-4 py-3">${s.annualFee}</td>
-                  <td className="px-4 py-3">
-                    {s.franchiseTax ? `$${s.franchiseTax}` : "—"}
-                  </td>
+                  <td className="px-4 py-3">{s.franchiseTax ? `$${s.franchiseTax}` : "—"}</td>
                   <td className="px-4 py-3">
                     <Link href={`/llc-cost-by-state/${s.slug}`} className="text-xs text-[#1769AA] hover:underline">
                       View →
@@ -116,8 +162,8 @@ export default function AnnualReportPage() {
       </section>
 
       <section className="mt-12">
-        <h2 className="text-xl font-semibold text-[#102A43]">Biennial report states</h2>
-        <p className="mt-2 text-sm text-slate-600">
+        <h2 className="text-2xl font-bold text-[#102A43]">Biennial report states</h2>
+        <p className="mt-2 text-slate-600">
           Report due every two years. The fee below is the amount charged per filing (not annualized).
         </p>
         <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
@@ -147,7 +193,7 @@ export default function AnnualReportPage() {
               ))}
               {biennial.length === 0 && (
                 <tr>
-                  <td colSpan={3} className="px-4 py-6 text-center text-slate-500 text-sm">
+                  <td colSpan={3} className="px-4 py-6 text-center text-sm text-slate-500">
                     Check individual state pages — some states use different labeling in the dataset.
                   </td>
                 </tr>
@@ -158,11 +204,9 @@ export default function AnnualReportPage() {
       </section>
 
       <section className="mt-12">
-        <h2 className="text-xl font-semibold text-[#102A43]">Franchise & privilege taxes</h2>
-        <p className="mt-3 text-sm text-slate-700 leading-relaxed">
-          Several states impose a franchise tax, privilege tax, or minimum tax that can be much larger than
-          the report fee itself. California’s $800 annual franchise tax is the most widely discussed example.
-          Always read the notes on the individual state page and confirm on the official tax or Secretary of State site.
+        <h2 className="text-2xl font-bold text-[#102A43]">Franchise & privilege taxes</h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          Several states impose a franchise tax, privilege tax, or minimum tax that can be much larger than the report fee itself. California’s $800 annual franchise tax is the most widely discussed example. Always read the notes on the individual state page and confirm on the official tax or Secretary of State site.
         </p>
         {withFranchise.length > 0 && (
           <ul className="mt-4 space-y-1 text-sm">
@@ -179,32 +223,70 @@ export default function AnnualReportPage() {
       </section>
 
       <section className="mt-12">
-        <h2 className="text-xl font-semibold text-[#102A43]">Why deadlines matter</h2>
-        <p className="mt-3 text-sm text-slate-700 leading-relaxed">
-          Failure to file required reports on time can result in late fees, loss of good standing, and
-          eventual administrative dissolution of the LLC. Restoring good standing usually costs more than
-          filing on time. Calendar the deadline and keep your registered agent information current.
+        <h2 className="text-2xl font-bold text-[#102A43]">Why deadlines matter</h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          Failure to file required reports on time can result in late fees, loss of good standing, and eventual administrative dissolution of the LLC. Restoring good standing usually costs more than filing on time. Calendar the deadline and keep your registered agent information current.
+        </p>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          For a broader view of ongoing costs beyond the report fee, see{" "}
+          <Link href="/hidden-costs-of-forming-an-llc" className="text-[#1769AA] hover:underline">
+            Hidden Costs of Forming an LLC
+          </Link>
+          .
         </p>
       </section>
 
+      <section className="mt-12">
+        <h2 className="text-2xl font-bold text-[#102A43]">Frequently asked questions</h2>
+        <div className="mt-6 space-y-4">
+          {faqs.map((f, i) => (
+            <details key={i} className="group rounded-xl border border-slate-200 bg-white p-5">
+              <summary className="cursor-pointer list-none font-semibold text-[#102A43]">
+                <span className="flex items-center justify-between">
+                  {f.question}
+                  <span className="ml-4 text-slate-400 transition group-open:rotate-180">▼</span>
+                </span>
+              </summary>
+              <p className="mt-3 text-slate-600 leading-relaxed">{f.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
       <section className="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-6">
-        <h2 className="text-lg font-semibold text-[#102A43]">Related tools</h2>
+        <h2 className="text-lg font-semibold text-[#102A43]">Related tools & guides</h2>
         <ul className="mt-3 space-y-2 text-sm">
           <li>
-            <Link href="/llc-cost-calculator" className="text-[#1769AA] hover:underline">LLC Cost Calculator</Link>
+            <Link href="/llc-cost-calculator" className="text-[#1769AA] hover:underline">
+              LLC Cost Calculator
+            </Link>
             {" "}— project multi-year totals including report fees
           </li>
           <li>
-            <Link href="/hidden-costs-of-forming-an-llc" className="text-[#1769AA] hover:underline">Hidden Costs of Forming an LLC</Link>
+            <Link href="/hidden-costs-of-forming-an-llc" className="text-[#1769AA] hover:underline">
+              Hidden Costs of Forming an LLC
+            </Link>
           </li>
           <li>
-            <Link href="/llc-cost-by-state" className="text-[#1769AA] hover:underline">Full Costs by State table</Link>
+            <Link href="/how-much-does-it-cost-to-start-an-llc" className="text-[#1769AA] hover:underline">
+              How Much Does It Cost to Start an LLC?
+            </Link>
+          </li>
+          <li>
+            <Link href="/llc-cost-by-state" className="text-[#1769AA] hover:underline">
+              Full Costs by State table
+            </Link>
+          </li>
+          <li>
+            <Link href="/cheapest-states-to-form-an-llc" className="text-[#1769AA] hover:underline">
+              Cheapest States to Form an LLC
+            </Link>
           </li>
         </ul>
       </section>
 
-      <p className="mt-10 text-xs text-slate-500">
-        Educational resource only. Not legal or tax advice. Verify every fee and deadline on the official state website.
+      <p className="mt-10 text-xs leading-relaxed text-slate-500">
+        Educational resource only. Not legal or tax advice. Verify every fee and deadline on the official state website. This site is not affiliated with any government agency.
       </p>
     </div>
   );
