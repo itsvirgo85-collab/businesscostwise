@@ -36,6 +36,7 @@ export default async function StateCostPage({ params }: Props) {
 
   const yearlyApprox = calculateRecurringStateFees(s, 5) / 5;
   const fiveYear = calculateFiveYearStateCost(s);
+  const firstYearStateCost = (s.formationFee ?? 0) + calculateRecurringStateFees(s, 1);
 
     const jsonLd = {
     "@context": "https://schema.org",
@@ -95,13 +96,14 @@ export default async function StateCostPage({ params }: Props) {
                 : "$0 / none"}
           </p>
           <p className="mt-1 text-xs text-slate-500">
-            {s.annualFrequency === "biennial"
-              ? "Biennial report"
-              : s.annualFrequency === "annual"
-                ? "Annual report"
-                : s.franchiseTax
-                  ? "Franchise / privilege tax"
-                  : "No standard report fee"}
+            {s.recurringFeeLabel ??
+              (s.annualFrequency === "biennial"
+                ? "Biennial report"
+                : s.annualFrequency === "annual"
+                  ? "Annual report"
+                  : s.franchiseTax
+                    ? "Franchise / privilege tax"
+                    : "No standard report fee")}
           </p>
         </div>
       </div>
@@ -129,8 +131,8 @@ export default async function StateCostPage({ params }: Props) {
             </thead>
             <tbody className="divide-y divide-slate-100">
               <tr>
-                <td className="px-4 py-3">Year 1 (formation only)</td>
-                <td className="px-4 py-3 font-semibold">${s.formationFee ?? "—"}</td>
+                <td className="px-4 py-3">Year 1 (formation + recurring)</td>
+                <td className="px-4 py-3 font-semibold">${Math.round(firstYearStateCost).toLocaleString()}</td>
               </tr>
               <tr>
                 <td className="px-4 py-3">Est. yearly ongoing</td>
