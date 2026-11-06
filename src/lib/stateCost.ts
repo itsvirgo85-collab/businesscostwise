@@ -10,7 +10,8 @@ export function calculateRecurringStateFees(state: StateFee, years: 1 | 3 | 5): 
   const currentYear = new Date().getFullYear();
   let annualReportOrFee = 0;
   if (state.annualFrequency === "annual") {
-    for (let offset = 0; offset < years; offset += 1) {
+    const firstBillableYear = state.annualFeeFirstYearExempt ? 1 : 0;
+    for (let offset = firstBillableYear; offset < years; offset += 1) {
       const projectedYear = currentYear + offset;
       const waiverApplies =
         state.annualFeeWaiverThroughYear != null &&
