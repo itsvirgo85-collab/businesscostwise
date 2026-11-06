@@ -78,11 +78,12 @@ export default function CheapestStatesPage() {
                     ${s.formationFee}
                   </td>
                   <td className="px-4 py-3">
-                    {s.annualFrequency !== "none"
-                      ? `${s.annualFee == null ? "Variable" : `${s.annualFee}`} ${s.annualFrequency}`
-                      : s.franchiseTax
-                        ? `${s.franchiseTax} franchise tax`
-                        : "No fixed recurring filing fee"}
+                    {[
+                      s.annualFrequency !== "none"
+                        ? `${s.annualFee == null ? "Variable" : `${s.annualFee}`} ${s.annualFrequency}`
+                        : null,
+                      s.franchiseTax != null && s.franchiseTax > 0 ? `${s.franchiseTax} franchise/entity tax` : null,
+                    ].filter(Boolean).join(" · ") || "No fixed recurring filing fee"}
                   </td>
                   <td className="px-4 py-3">
                     <Link href={`/llc-cost-by-state/${s.slug}`} className="text-[#1769AA] hover:underline text-xs">
