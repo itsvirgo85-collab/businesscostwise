@@ -17,6 +17,10 @@ export interface StateFee {
   recurringFeeLabel?: string;
   /** True when the first biennial filing is due within year one after formation. */
   biennialInitialPayment?: boolean;
+  /** Calendar year through which a temporary annual filing fee waiver applies. */
+  annualFeeWaiverThroughYear?: number;
+  /** Annual report fee after the temporary waiver expires. */
+  annualFeeAfterWaiver?: number;
   additionalSources?: { name: string; url: string }[];
 }
 
