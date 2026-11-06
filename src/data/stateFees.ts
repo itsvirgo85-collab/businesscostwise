@@ -92,7 +92,7 @@ export const STATE_FEES: StateFee[] = [
     annualFee: 20,
     annualFrequency: "biennial",
     franchiseTax: 800,
-    notes: "Articles of Organization (LLC-1) $70. Initial Statement of Information is $20 and due within 90 days of registration; a further $20 statement is due every two years. The standard annual LLC tax is $800. A 2026 start-year estimate uses $800; for taxable years beginning on or after January 1, 2027 and before January 1, 2030, qualifying LLCs required to file a California return receive a first-tax-year reduction to $400. Additional California LLC fees may apply when California-source total income reaches $250,000. These income-based fees and statutory exceptions are not included in the fixed-fee estimate.",
+    notes: "Articles of Organization (LLC-1) $70. Initial Statement of Information is $20 and due within 90 days of registration; a further $20 statement is due every two years. The standard annual LLC tax is $800. Additional California LLC fees may apply when California-source total income reaches $250,000. Certain statutory exceptions and tax-year-specific rules may apply. Income-based fees and exceptions are not included in the fixed-fee estimate; confirm the current treatment with the Franchise Tax Board.",
     sourceUrl: "https://www.sos.ca.gov/business-programs/business-entities/forms/limited-liability-companies-california-domestic",
     sourceName: "California Secretary of State",
     verifiedAt: "2026-11-06",
