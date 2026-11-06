@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { STATE_FEES } from "@/data/stateFees";
+import { calculateFiveYearStateCost, calculateRecurringStateFees } from "@/lib/stateCost";
 
 export const metadata: Metadata = {
   title: "Cheapest States to Form an LLC 2026 — Lowest Filing Fees Ranked",
@@ -13,21 +14,9 @@ export default function CheapestStatesPage() {
 
   const byFormation = [...verified].sort((a, b) => (a.formationFee ?? 999) - (b.formationFee ?? 999));
 
-  const withFiveYear = verified.map((s) => {
-    const formation = s.formationFee ?? 0;
-    let yearly = 0;
-    if (s.annualFrequency === "annual") {
-      yearly = s.annualFee ?? 0;
-      if (s.franchiseTax) yearly += s.franchiseTax;
-    } else if (s.annualFrequency === "biennial") {
-      yearly = (s.annualFee ?? 0) / 2;
-    }
-    if (s.slug === "california" && s.franchiseTax) yearly = s.franchiseTax + (s.annualFee ?? 0);
-    const fiveYear = formation + yearly * 5;
-    return { ...s, yearlyApprox: yearly, fiveYear };
-  });
+  const withFiveYear = verified.map((s) => ({ ...s, yearlyApprox: calculateRecurringStateFees(s, 5) / 5, fiveYear: calculateFiveYearStateCost(s) }));
 
-  const byFiveYear = [...withFiveYear].sort((a, b) => a.fiveYear - b.fiveYear).slice(0, 12);
+    const byFiveYear = [...withFiveYear].sort((a, b) => a.fiveYear - b.fiveYear).slice(0, 12);
   const topCheapestFormation = byFormation.slice(0, 10);
 
   return (
