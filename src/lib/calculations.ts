@@ -65,7 +65,10 @@ export function calculateLLCCost(inputs: CalculatorInputs): CostBreakdown {
         notes.push(`${state.recurringFeeLabel ?? "Annual filing"}: required annually; $0 state filing fee in this estimate.`);
       }
     } else {
-      notes.push(`${state.recurringFeeLabel ?? "Annual report / recurring fee"}: $${state.annualFee} per year.`);
+      notes.push(`${state.recurringFeeLabel ?? "Annual report / recurring fee"}: ${state.annualFee} per year.`);
+      if (state.annualFeeFirstYearExempt) {
+        notes.push("The first annual report is not due in the formation year; this fee is excluded from the year-one estimate.");
+      }
     }
   } else if (state.annualFrequency === "biennial" && (state.annualFee ?? 0) > 0) {
     const payments = state.biennialInitialPayment ? Math.ceil(years / 2) : Math.floor(years / 2);
