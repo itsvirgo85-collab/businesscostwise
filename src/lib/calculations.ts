@@ -1,4 +1,5 @@
 import { StateFee } from "@/data/stateFees";
+import { calculateRecurringStateFees } from "@/lib/stateCost";
 
 export interface CalculatorInputs {
   state: StateFee;
@@ -52,16 +53,16 @@ export function calculateLLCCost(inputs: CalculatorInputs): CostBreakdown {
   if (state.annualFee != null && state.annualFee > 0 && state.annualFrequency === "annual") {
     firstYearRecurring += state.annualFee;
     multiYearRecurring += state.annualFee * years;
-    notes.push(`Annual report / recurring fee: $${state.annualFee} per year.`);
+    notes.push(`${state.recurringFeeLabel ?? "Annual report / recurring fee"}: ${state.annualFee} per year.`);
   } else if (state.annualFee != null && state.annualFee > 0 && state.annualFrequency === "biennial") {
-    const payments = Math.ceil(years / 2);
+    const payments = Math.floor(years / 2);
     firstYearRecurring += 0;
     multiYearRecurring += state.annualFee * payments;
     notes.push(
-      `Biennial fee: $${state.annualFee} every two years (~${payments} payment(s) over ${years} years).`
+      `Biennial fee: ${state.annualFee} every two years (${payments} estimated payment(s) after the first year over ${years} years).`
     );
   } else {
-    notes.push("No annual report fee required for this state (or not included in this estimate).");
+    notes.push(state.annualFee == null && state.franchiseTax == null ? "A recurring state fee has not been verified and is not included in this estimate." : "No standard annual or biennial report fee is listed for this state.");
   }
 
   if (state.franchiseTax != null && state.franchiseTax > 0) {
@@ -82,6 +83,7 @@ export function calculateLLCCost(inputs: CalculatorInputs): CostBreakdown {
     );
   }
 
+  multiYearRecurring = calculateRecurringStateFees(state, years);
   const recurringForPeriod = years === 1 ? firstYearRecurring : multiYearRecurring;
   const total = formation + ra + nameRes + exp + recurringForPeriod;
 
