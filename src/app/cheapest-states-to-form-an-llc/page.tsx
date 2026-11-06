@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Cheapest States to Form an LLC 2026 — Lowest Filing Fees Ranked",
   description:
     "See the cheapest states to form an LLC in 2026 ranked by official formation fees and ongoing costs. Includes Montana, Kentucky, Arkansas and more with source links.",
+  alternates: { canonical: "/cheapest-states-to-form-an-llc" },
 };
 
 export default function CheapestStatesPage() {
