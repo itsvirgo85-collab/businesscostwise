@@ -4,6 +4,11 @@ import { useMemo, useState } from "react";
 import { STATE_FEES, StateFee } from "@/data/stateFees";
 import { calculateLLCCost } from "@/lib/calculations";
 
+function parseNonNegativeAmount(value: string): number {
+  const amount = Number(value);
+  return Number.isFinite(amount) ? Math.max(0, amount) : 0;
+}
+
 export default function LLCCostCalculator() {
   const verified = useMemo(() => STATE_FEES.filter((s) => s.status === "verified"), []);
   const [selectedSlug, setSelectedSlug] = useState(verified[0]?.slug || "florida");
@@ -96,7 +101,7 @@ export default function LLCCostCalculator() {
           {includeRA && (
             <div className="ml-7">
               <label className="mb-1 block text-xs text-slate-500">Annual agent cost ($)</label>
-              <input type="number" min={0} value={raCost} onChange={(e) => setRaCost(Number(e.target.value) || 0)} className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
+              <input type="number" min={0} value={raCost} onChange={(e) => setRaCost(parseNonNegativeAmount(e.target.value))} min={0} step="0.01" aria-label="Annual commercial registered agent cost in dollars" className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
             </div>
           )}
 
@@ -107,7 +112,7 @@ export default function LLCCostCalculator() {
           {includeNameRes && (
             <div className="ml-7">
               <label className="mb-1 block text-xs text-slate-500">Reservation fee ($)</label>
-              <input type="number" min={0} value={nameResCost} onChange={(e) => setNameResCost(Number(e.target.value) || 0)} className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
+              <input type="number" min={0} value={nameResCost} onChange={(e) => setNameResCost(parseNonNegativeAmount(e.target.value))} min={0} step="0.01" aria-label="Name reservation fee in dollars" className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
             </div>
           )}
 
@@ -118,7 +123,7 @@ export default function LLCCostCalculator() {
           {expedited && (
             <div className="ml-7">
               <label className="mb-1 block text-xs text-slate-500">Expedite fee ($)</label>
-              <input type="number" min={0} value={expeditedCost} onChange={(e) => setExpeditedCost(Number(e.target.value) || 0)} className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
+              <input type="number" min={0} value={expeditedCost} onChange={(e) => setExpeditedCost(parseNonNegativeAmount(e.target.value))} min={0} step="0.01" aria-label="Expedited processing fee in dollars" className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
             </div>
           )}
         </div>
