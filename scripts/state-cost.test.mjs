@@ -253,5 +253,6 @@ test("Washington deferred initial report fee is optional and never double-counte
   assert.equal(wa.deferredInitialReportFee, 10);
   assert.equal(calculateDeferredInitialReportFee(wa, false), 0);
   assert.equal(calculateDeferredInitialReportFee(wa, true), 10);
-  assert.equal(calculateFiveYearStateCost(wa), 460);
+  assert.equal(calculateDeferredInitialReportFee(state("Florida"), true), 0);
+  assert.equal(calculateFiveYearStateCost(wa), 530);
 });
