@@ -217,7 +217,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "Articles of Organization $150. Annual report $75.",
     sourceUrl: "https://www.ilsos.gov/publications/business-services/llc.html",
     sourceName: "Illinois Secretary of State",
-    additionalSources: [{ name: "Illinois Secretary of State — Articles of Organization filing form", url: "https://www.ilsos.gov/content/dam/publications/pdf_publications/llc55.pdf" }]
+    additionalSources: [{ name: "Illinois Secretary of State — Articles of Organization filing form", url: "https://www.ilsos.gov/content/dam/publications/pdf_publications/llc55.pdf" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
@@ -232,7 +232,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "As of the January 2026 Indiana forms, Articles of Organization filing fee is $100. LLCs file a $50 Business Entity Report biennially in the anniversary month of formation.",
     sourceUrl: "https://forms.in.gov/Download.aspx?id=16989",
     sourceName: "Indiana Secretary of State",
-    additionalSources: [{ name: "Indiana Secretary of State — 2026 Business Entity Report form and fee", url: "https://forms.in.gov/Download.aspx?id=16988" }]
+    additionalSources: [{ name: "Indiana Secretary of State — 2026 Business Entity Report form and fee", url: "https://forms.in.gov/Download.aspx?id=16988" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
@@ -247,7 +247,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "Certificate of Organization $50. Biennial report $30.",
     sourceUrl: "https://sos.iowa.gov/businesses/business-entity-forms-and-fees",
     sourceName: "Iowa Secretary of State",
-    additionalSources: [{ name: "Iowa Secretary of State — Biennial report filing guidance", url: "https://help.sos.iowa.gov/how-do-i-file-biennial-report" }]
+    additionalSources: [{ name: "Iowa Secretary of State — Biennial report filing guidance", url: "https://help.sos.iowa.gov/how-do-i-file-biennial-report" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
@@ -262,7 +262,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "Online Articles of Organization filing fee is $85 ($90 paper). Kansas LLCs file a biennial Information Report; online fee is $90 ($110 paper). For-profit reports are due April 15 in the applicable odd- or even-numbered filing year. This calculator uses online filing amounts.",
     sourceUrl: "https://sos.ks.gov/forms/business_services/dl.pdf",
     sourceName: "Kansas Secretary of State",
-    additionalSources: [{ name: "Kansas Secretary of State — Information Report form and fee", url: "https://sos.ks.gov/forms/business_services/IFP.pdf" }, { name: "Kansas Secretary of State — Biennial Information Report due dates", url: "https://www.sos.ks.gov/businesses/information-reports.html" }]
+    additionalSources: [{ name: "Kansas Secretary of State — Information Report form and fee", url: "https://sos.ks.gov/forms/business_services/IFP.pdf" }, { name: "Kansas Secretary of State — Biennial Information Report due dates", url: "https://www.sos.ks.gov/businesses/information-reports.html" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
@@ -277,7 +277,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "Articles of Organization $40. Annual report $15.",
     sourceUrl: "https://web.sos.ky.gov/forms/corp/KLC-Articles%20of%20Organization-Profit%20Limited%20Liability%20Company.pdf",
     sourceName: "Kentucky Secretary of State",
-    additionalSources: [{ name: "Kentucky Secretary of State — Annual report filing fee and deadline", url: "https://www.sos.ky.gov/bus/business-filings/Pages/Annual-Reports.aspx" }]
+    additionalSources: [{ name: "Kentucky Secretary of State — Annual report filing fee and deadline", url: "https://www.sos.ky.gov/bus/business-filings/Pages/Annual-Reports.aspx" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
@@ -306,7 +306,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "Certificate of Formation $175. Annual report $85.",
     sourceUrl: "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc6.pdf",
     sourceName: "Maine Secretary of State",
-    additionalSources: [{ name: "Maine Legislature — LLC annual report fee", url: "https://legislature.maine.gov/statutes/31/title31sec1680.html" }, { name: "Maine Legislature — LLC annual report deadline", url: "https://www.legislature.maine.gov/statutes/31/title31sec1665.pdf" }]
+    additionalSources: [{ name: "Maine Legislature — LLC annual report fee", url: "https://legislature.maine.gov/statutes/31/title31sec1680.html" }, { name: "Maine Legislature — LLC annual report deadline", url: "https://www.legislature.maine.gov/statutes/31/title31sec1665.pdf" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
@@ -321,7 +321,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "Certificate of Organization filing fee is $100. The 2026 Form 1 Annual Report / Business Personal Property Return lists a $300 fee for domestic and foreign LLCs, due April 15, 2026. Eligible entities with a MarylandSaves fee waiver may be exempt for that filing year; the calculator assumes no waiver.",
     sourceUrl: "https://dat.maryland.gov/SiteAssets/Pages/sdatforms/2026_Form1%20Final%20%286%29.pdf",
     sourceName: "Maryland State Department of Assessments and Taxation",
-    additionalSources: [{ name: "Maryland SDAT — 2026 Annual Report filing instructions", url: "https://dat.maryland.gov/SiteAssets/Pages/sdatforms/2026%20Form%201%20Instructions%20%20FINAL.pdf" }, { name: "Maryland SDAT — Articles of Organization filing fee", url: "https://dat.maryland.gov/SDAT%20Forms/artorgan.pdf" }]
+    additionalSources: [{ name: "Maryland SDAT — 2026 Annual Report filing instructions", url: "https://dat.maryland.gov/SiteAssets/Pages/sdatforms/2026%20Form%201%20Instructions%20%20FINAL.pdf" }, { name: "Maryland SDAT — Articles of Organization filing fee", url: "https://dat.maryland.gov/SDAT%20Forms/artorgan.pdf" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
@@ -336,7 +336,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "Certificate of Organization $500. Annual report $500.",
     sourceUrl: "https://www.sec.state.ma.us/divisions/corporations/pdf-html/950_cmr_112_limited_liability_companies.htm",
     sourceName: "Massachusetts Secretary of the Commonwealth",
-    additionalSources: [{ name: "Mass.gov — Starting a Massachusetts LLC", url: "https://www.mass.gov/info-details/starting-a-limited-liability-company-llc-in-massachusetts" }]
+    additionalSources: [{ name: "Mass.gov — Starting a Massachusetts LLC", url: "https://www.mass.gov/info-details/starting-a-limited-liability-company-llc-in-massachusetts" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
@@ -367,7 +367,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "Articles of Organization $155. Minnesota LLCs must file an annual renewal once each calendar year. The filing is free while the entity is active and in good standing; reinstatement and expedited services can cost extra.",
     sourceUrl: "https://www.sos.mn.gov/business-liens/business-filing-and-certification-fee-schedule/",
     sourceName: "Minnesota Secretary of State",
-    additionalSources: [{ name: "Minnesota Secretary of State — LLC annual renewal form", url: "https://www.sos.state.mn.us/media/1569/llcdomesticforeignrenewal.pdf" }]
+    additionalSources: [{ name: "Minnesota Secretary of State — LLC annual renewal form", url: "https://www.sos.state.mn.us/media/1569/llcdomesticforeignrenewal.pdf" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
@@ -383,7 +383,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "Certificate of Formation $50. Domestic LLCs must file an annual report by April 15 each year; the Mississippi Secretary of State states that domestic LLC annual reports can be filed at no cost. Foreign LLC fees differ.",
     sourceUrl: "https://www.sos.ms.gov/content/documents/Business/FeeSchedule.pdf",
     sourceName: "Mississippi Secretary of State",
-    additionalSources: [{ name: "Mississippi Secretary of State — Annual report instructions and deadline", url: "https://www.sos.ms.gov/business-services/business-faqs" }]
+    additionalSources: [{ name: "Mississippi Secretary of State — Annual report instructions and deadline", url: "https://www.sos.ms.gov/business-services/business-faqs" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
@@ -398,7 +398,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "The Missouri statute sets the online filing fee for original LLC Articles of Organization at $45; paper filing is $100. Missouri LLCs do not file a routine annual report with the Secretary of State. Other tax filings may still apply.",
     sourceUrl: "https://revisor.mo.gov/main/OneSection.aspx?section=347.179&bid=49444",
     sourceName: "Missouri Revisor of Statutes",
-    additionalSources: [{ name: "Missouri Secretary of State — Business Services", url: "https://www.sos.mo.gov/business" }]
+    additionalSources: [{ name: "Missouri Secretary of State — Business Services", url: "https://www.sos.mo.gov/business" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
@@ -430,7 +430,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "Certificate of Organization is $100 online ($110 in-office). The LLC biennial report filing fee is $30. LLC reports are due in the first odd-numbered year following the calendar year of formation, then every other odd-numbered year. Publication requirements may apply.",
     sourceUrl: "https://sos.nebraska.gov/sites/default/files/doc/business-services/Corporations/Forms/CertificateOfOrganization.pdf",
     sourceName: "Nebraska Secretary of State",
-    additionalSources: [{ name: "Nebraska Secretary of State — LLC biennial report filing and fee", url: "https://sos.nebraska.gov/business-services/annualbiennial-reporting" }, { name: "Nebraska Secretary of State — 2025–2026 LLC biennial report form", url: "https://sos.nebraska.gov/sites/default/files/doc/business-services/Corporations/Reinstatement/DLLCReinstatement.pdf" }]
+    additionalSources: [{ name: "Nebraska Secretary of State — LLC biennial report filing and fee", url: "https://sos.nebraska.gov/business-services/annualbiennial-reporting" }, { name: "Nebraska Secretary of State — 2025–2026 LLC biennial report form", url: "https://sos.nebraska.gov/sites/default/files/doc/business-services/Corporations/Reinstatement/DLLCReinstatement.pdf" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
@@ -445,7 +445,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "Articles of Organization $75 + initial list $150 + business license $200 = $425 typical initial. Annual list/license around $350.",
     sourceUrl: "https://www.nvsos.gov/businesses/commercial-recordings/forms-fees/all-business-forms",
     sourceName: "Nevada Secretary of State",
-    additionalSources: [{ name: "Nevada Secretary of State — LLC fee schedule", url: "https://www.nvsos.gov/sos/home/showpublisheddocument?id=1047" }, { name: "Nevada Secretary of State — State Business License FAQ", url: "https://www.nvsos.gov/licensing/state-business-license/state-business-license-faq" }]
+    additionalSources: [{ name: "Nevada Secretary of State — LLC fee schedule", url: "https://www.nvsos.gov/sos/home/showpublisheddocument?id=1047" }, { name: "Nevada Secretary of State — State Business License FAQ", url: "https://www.nvsos.gov/licensing/state-business-license/state-business-license-faq" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
@@ -460,7 +460,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "Certificate of Formation $100. Annual report $100.",
     sourceUrl: "https://www.sos.nh.gov/corporations-0/forms-and-fees/limited-liability-companies",
     sourceName: "New Hampshire Secretary of State",
-    additionalSources: [{ name: "New Hampshire Revised Statutes — LLC annual report deadline", url: "https://gc.nh.gov/rsa/html/XXVIII/304-C/304-C-194.htm" }]
+    additionalSources: [{ name: "New Hampshire Revised Statutes — LLC annual report deadline", url: "https://gc.nh.gov/rsa/html/XXVIII/304-C/304-C-194.htm" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
@@ -475,7 +475,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "The New Jersey Division of Revenue fee schedule lists a $100 LLC Certificate of Formation and a $75 annual report. The annual report is due on the last day of the formation month each year.",
     sourceUrl: "https://www.nj.gov/treasury/revenue/fees.shtml",
     sourceName: "New Jersey Division of Revenue and Enterprise Services",
-    additionalSources: [{ name: "New Jersey Business Portal — Annual report due date", url: "https://business.nj.gov/pages/filings-and-accounting" }]
+    additionalSources: [{ name: "New Jersey Business Portal — Annual report due date", url: "https://business.nj.gov/pages/filings-and-accounting" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
@@ -490,7 +490,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "Articles of Organization $50. No annual report fee for LLCs.",
     sourceUrl: "https://enterprise.sos.nm.gov/",
     sourceName: "New Mexico Secretary of State",
-    additionalSources: [{ name: "New Mexico Secretary of State — Business services and statutes", url: "https://www.sos.nm.gov/business-services/statutes-governing-business-in-nm/" }]
+    additionalSources: [{ name: "New Mexico Secretary of State — Business services and statutes", url: "https://www.sos.nm.gov/business-services/statutes-governing-business-in-nm/" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
