@@ -48,7 +48,7 @@ export function calculateLLCCost(inputs: CalculatorInputs): CostBreakdown {
   const multiYearRecurring = calculateRecurringStateFees(state, years);
   const recurringForPeriod = years === 1 ? firstYearRecurring : multiYearRecurring;
   const total = formation + ra + nameRes + exp + recurringForPeriod;
-  const notes: string[] = [];
+  const notes: string[] = [state.notes];
 
   if (state.annualFrequency === "annual") {
     if (state.annualFee == null) {
