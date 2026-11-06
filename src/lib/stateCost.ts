@@ -71,3 +71,9 @@ export function calculateRecurringStateFees(state: StateFee, years: 1 | 3 | 5): 
 export function calculateFiveYearStateCost(state: StateFee): number {
   return (state.formationFee ?? 0) + calculateRecurringStateFees(state, 5);
 }
+
+/** Include Washington's $10 initial-report fee only when the filer defers it. */
+export function calculateDeferredInitialReportFee(state: StateFee, includeDeferredInitialReport: boolean): number {
+  if (!includeDeferredInitialReport) return 0;
+  return safeNonNegativeAmount(state.deferredInitialReportFee ?? 0);
+}
