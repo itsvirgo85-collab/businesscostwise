@@ -25,8 +25,7 @@ export default function LLCCostByStatePage() {
         LLC Formation Costs by State
       </h1>
       <p className="mt-3 max-w-3xl text-slate-600">
-        Verified filing fees and recurring charges for all 50 US states and the District of Columbia.
-        Each row links to the official government source used for verification. Always re-check current fees before filing.
+        Verified filing fees and recurring charges for 49 US states and the District of Columbia. Alabama is temporarily excluded while its variable Business Privilege Tax is reviewed. Each row links to the official government source used for verification. Always re-check current fees before filing.
       </p>
 
       <div className="mt-8 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
