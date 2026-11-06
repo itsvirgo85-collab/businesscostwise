@@ -1,5 +1,5 @@
 import type { StateFee } from "@/data/stateFees";
-import { calculateRecurringStateFees } from "@/lib/stateCost";
+import { calculateRecurringStateFees } from "./stateCost";
 
 export interface CalculatorInputs {
   state: StateFee;
