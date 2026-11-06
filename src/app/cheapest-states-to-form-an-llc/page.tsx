@@ -6,7 +6,7 @@ import { calculateFiveYearStateCost, calculateRecurringStateFees } from "@/lib/s
 export const metadata: Metadata = {
   title: "Cheapest States to Form an LLC 2026 — Lowest Filing Fees Ranked",
   description:
-    "See the cheapest states to form an LLC in 2026 ranked by official formation fees and ongoing costs. Includes Montana, Kentucky, Arkansas and more with source links.",
+    "Compare fixed state formation and recurring fees across verified states. Variable tax liabilities, foreign qualification and local costs are not fully modeled.",
   alternates: { canonical: "/cheapest-states-to-form-an-llc" },
 };
 
@@ -35,6 +35,9 @@ export default function CheapestStatesPage() {
       </h1>
       <p className="mt-3 text-slate-600">
         States are ranked separately by official one-time formation fees and estimated five-year state costs. Montana currently has the lowest listed formation fee at $35. Long-term costs also depend on annual or biennial reports and franchise taxes. Alabama is temporarily excluded while its variable Business Privilege Tax is reviewed.
+      </p>
+      <p className="mt-3 text-sm text-slate-600">
+        These rankings compare listed fixed state charges, not every possible tax. Revenue-, income-, net-worth- or member-count-based taxes may increase the real cost and are excluded where they cannot be calculated from a simple flat fee. Texas franchise tax is revenue-based and is not included in its fixed-fee estimate. Forming outside the state where you operate can also require foreign qualification and extra fees.
       </p>
 
       <div className="mt-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
