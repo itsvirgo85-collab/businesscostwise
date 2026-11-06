@@ -101,7 +101,7 @@ export default function LLCCostCalculator() {
           {includeRA && (
             <div className="ml-7">
               <label className="mb-1 block text-xs text-slate-500">Annual agent cost ($)</label>
-              <input type="number" min={0} value={raCost} onChange={(e) => setRaCost(parseNonNegativeAmount(e.target.value))} min={0} step="0.01" aria-label="Annual commercial registered agent cost in dollars" className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
+              <input type="number" min={0} value={raCost} onChange={(e) => setRaCost(parseNonNegativeAmount(e.target.value))} step="0.01" aria-label="Annual commercial registered agent cost in dollars" className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
             </div>
           )}
 
@@ -112,7 +112,7 @@ export default function LLCCostCalculator() {
           {includeNameRes && (
             <div className="ml-7">
               <label className="mb-1 block text-xs text-slate-500">Reservation fee ($)</label>
-              <input type="number" min={0} value={nameResCost} onChange={(e) => setNameResCost(parseNonNegativeAmount(e.target.value))} min={0} step="0.01" aria-label="Name reservation fee in dollars" className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
+              <input type="number" min={0} value={nameResCost} onChange={(e) => setNameResCost(parseNonNegativeAmount(e.target.value))} step="0.01" aria-label="Name reservation fee in dollars" className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
             </div>
           )}
 
@@ -123,7 +123,7 @@ export default function LLCCostCalculator() {
           {expedited && (
             <div className="ml-7">
               <label className="mb-1 block text-xs text-slate-500">Expedite fee ($)</label>
-              <input type="number" min={0} value={expeditedCost} onChange={(e) => setExpeditedCost(parseNonNegativeAmount(e.target.value))} min={0} step="0.01" aria-label="Expedited processing fee in dollars" className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
+              <input type="number" min={0} value={expeditedCost} onChange={(e) => setExpeditedCost(parseNonNegativeAmount(e.target.value))} step="0.01" aria-label="Expedited processing fee in dollars" className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
             </div>
           )}
         </div>
