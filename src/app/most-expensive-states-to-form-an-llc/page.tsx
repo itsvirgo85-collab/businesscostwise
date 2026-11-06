@@ -6,7 +6,7 @@ import { calculateFiveYearStateCost, calculateRecurringStateFees } from "@/lib/s
 export const metadata: Metadata = {
   title: "Most Expensive States to Form & Keep an LLC 2026",
   description:
-    "Ranked list of the most expensive US states to form and maintain an LLC in 2026, including high formation fees, annual reports, and franchise taxes like California’s $800.",
+    "Compare verified fixed state filing costs, annual reports and minimum taxes. Variable tax liabilities and local costs are disclosed separately when not fully calculable.",
   alternates: { canonical: "/most-expensive-states-to-form-an-llc" },
 };
 
@@ -40,6 +40,9 @@ export default function MostExpensiveStatesPage() {
         costly over time because of annual reports, franchise taxes, or both. This page ranks states
         by formation fee, by estimated yearly state cost, and by approximate five-year total using
         verified official data.
+      </p>
+      <p className="mt-3 text-sm text-slate-600">
+        Five-year totals include listed fixed charges only. Variable taxes based on revenue, income, net worth or member count are not fully modeled, and local licenses, publication and foreign qualification can add costs. Use these rankings as a comparison of the published fee fields, not as legal or tax advice about where to register.
       </p>
 
       <div className="mt-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
