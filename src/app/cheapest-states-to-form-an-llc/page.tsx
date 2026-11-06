@@ -33,10 +33,7 @@ export default function CheapestStatesPage() {
         Cheapest States to Form an LLC in 2026
       </h1>
       <p className="mt-3 text-slate-600">
-        The cheapest states to form an LLC are ranked by official formation filing fees.
-        Montana currently leads at $35. However, the real long-term cost depends heavily on
-        annual or biennial report fees and any franchise tax. This page shows both views
-        using verified official source data.
+        States are ranked separately by official one-time formation fees and estimated five-year state costs. Montana currently has the lowest listed formation fee at $35. Long-term costs also depend on annual or biennial reports and franchise taxes. Alabama is temporarily excluded while its variable Business Privilege Tax is reviewed.
       </p>
 
       <div className="mt-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
