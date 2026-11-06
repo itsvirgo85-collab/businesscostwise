@@ -192,7 +192,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "Certificate of Organization $100. Idaho LLCs must file an annual report; the report has no filing fee.",
     sourceUrl: "https://sos.idaho.gov/business-resources/business-faq/",
     sourceName: "Idaho Secretary of State",
-    verifiedAt: "2026-10-15",
+    verifiedAt: "2026-11-06",
     status: "verified",
   },
   {
@@ -347,7 +347,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "Articles of Organization $155. Minnesota LLCs must file an annual renewal once each calendar year. The filing is free while the entity is active and in good standing; reinstatement and expedited services can cost extra.",
     sourceUrl: "https://www.sos.state.mn.us/media/1569/llcdomesticforeignrenewal.pdf",
     sourceName: "Minnesota Secretary of State",
-    verifiedAt: "2026-10-15",
+    verifiedAt: "2026-11-06",
     status: "verified",
   },
   {
@@ -362,7 +362,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "Certificate of Formation $50. Domestic LLCs must file an annual report by April 15 each year; the Mississippi Secretary of State states that domestic LLC annual reports can be filed at no cost. Foreign LLC fees differ.",
     sourceUrl: "https://sos.ms.gov/business-services/annual-reports",
     sourceName: "Mississippi Secretary of State",
-    verifiedAt: "2026-10-15",
+    verifiedAt: "2026-11-06",
     status: "verified",
   },
   {
@@ -617,7 +617,7 @@ export const STATE_FEES: StateFee[] = [
     sourceUrl: "https://capitol.tn.gov/bills/100/Chapter/PC0421.pdf",
     additionalSources: [{ name: "Tennessee Department of Revenue — Franchise & Excise Tax", url: "https://www.tn.gov/content/tn/revenue/taxes/franchise---excise-tax.html" }],
     sourceName: "Tennessee Secretary of State",
-    verifiedAt: "2026-10-15",
+    verifiedAt: "2026-11-06",
     status: "verified",
   },
   {
@@ -633,7 +633,7 @@ export const STATE_FEES: StateFee[] = [
     sourceUrl: "https://comptroller.texas.gov/taxes/franchise/pir-oir-filing-req.php",
     additionalSources: [{ name: "Texas Comptroller — Franchise Tax Rates & Thresholds", url: "https://comptroller.texas.gov/taxes/franchise/" }, { name: "Texas Secretary of State — Business Filing Fees", url: "https://www.sos.state.tx.us/corp/fees.shtml" }],
     sourceName: "Texas Secretary of State",
-    verifiedAt: "2026-10-15",
+    verifiedAt: "2026-11-06",
     status: "verified",
   },
   {
