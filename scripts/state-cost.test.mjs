@@ -256,3 +256,12 @@ test("Washington deferred initial report fee is optional and never double-counte
   assert.equal(calculateDeferredInitialReportFee(state("Florida"), true), 0);
   assert.equal(calculateFiveYearStateCost(wa), 530);
 });
+
+
+test("West Virginia online filing and annual report include the $1 portal fee", () => {
+  const wv = state("West Virginia");
+  assert.equal(wv.formationFee, 101);
+  assert.equal(wv.annualFee, 26);
+  assert.equal(calculateRecurringStateFees(wv, 1), 26);
+  assert.equal(calculateFiveYearStateCost(wv), 231);
+});
