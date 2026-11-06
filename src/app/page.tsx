@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "How Much Does It Cost to Start an LLC in 2026? Free Calculator + Complete Guide",
   description:
     "Get the real cost to form an LLC in any state. Free interactive calculator, official fees, hidden costs, cheapest states ranking, step-by-step formation guide, and business structure comparisons. Updated for 2026.",
+  alternates: { canonical: "/" },
 };
 
 export default function HomePage() {
