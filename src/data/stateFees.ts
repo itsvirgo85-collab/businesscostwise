@@ -19,6 +19,8 @@ export interface StateFee {
   biennialInitialPayment?: boolean;
   /** Calendar year through which a temporary annual filing fee waiver applies. */
   annualFeeWaiverThroughYear?: number;
+  /** True when the state annual report is not due in the formation year. */
+  annualFeeFirstYearExempt?: boolean;
   /** Annual report fee after the temporary waiver expires. */
   annualFeeAfterWaiver?: number;
   additionalSources?: { name: string; url: string }[];
@@ -607,11 +609,12 @@ export const STATE_FEES: StateFee[] = [
     formationFee: 150,
     annualFee: 50,
     annualFrequency: "annual",
+    annualFeeFirstYearExempt: true,
     franchiseTax: 400,
-    notes: "Articles of Organization filing fee is $150. The Secretary of State annual report fee is $50. Separately, Rhode Island requires LLCs to file an annual tax return and pay a $400 annual charge when taxed as a pass-through or S corporation; an LLC taxed as a C corporation pays corporate income tax or the $400 minimum charge, whichever is greater. The $400 charge applies to single-member and multi-member LLCs, including the formation year.",
-    sourceUrl: "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-02/Notice_2025_01_LLC_filing_requirements.pdf",
+    notes: "Articles of Organization filing fee is $150. The Secretary of State annual report fee is $50; the annual report is due each calendar year excluding the year of formation. Separately, Rhode Island requires LLCs to file an annual tax return and pay a $400 annual charge when taxed as a pass-through or S corporation; an LLC taxed as a C corporation pays corporate income tax or the $400 minimum charge, whichever is greater. The $400 charge applies to single-member and multi-member LLCs, including the formation year.",
+    sourceUrl: "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-02/Notice_2026_01_LLC_filing_requirements.pdf",
     sourceName: "Rhode Island Division of Taxation",
-    additionalSources: [{ name: "Rhode Island Secretary of State — Business filing fee schedule", url: "https://www.sos.ri.gov/divisions/business-services/fee-schedule" }],
+    additionalSources: [{ name: "Rhode Island Secretary of State — 2026 Articles of Organization form and annual-report timing", url: "https://docs.sos.ri.gov/documents/BusinessServices/400-articles-of-organization.pdf" }, { name: "Rhode Island Secretary of State — Business filing fee schedule", url: "https://www.sos.ri.gov/divisions/business-services/fee-schedule" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
