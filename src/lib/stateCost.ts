@@ -1,5 +1,38 @@
 import type { StateFee } from "@/data/stateFees";
 
+export interface OptionalCostInputs {
+  years: 1 | 3 | 5;
+  includeRegisteredAgent: boolean;
+  registeredAgentCost: number;
+  includeNameReservation: boolean;
+  nameReservationCost: number;
+  expedited: boolean;
+  expeditedCost: number;
+}
+
+export interface OptionalCostBreakdown {
+  registeredAgent: number;
+  nameReservation: number;
+  expedited: number;
+}
+
+function safeNonNegativeAmount(value: number): number {
+  return Number.isFinite(value) ? Math.max(0, value) : 0;
+}
+
+/** Calculate optional user-entered costs without allowing negative or non-finite amounts. */
+export function calculateOptionalCosts(inputs: OptionalCostInputs): OptionalCostBreakdown {
+  return {
+    registeredAgent: inputs.includeRegisteredAgent
+      ? safeNonNegativeAmount(inputs.registeredAgentCost) * inputs.years
+      : 0,
+    nameReservation: inputs.includeNameReservation
+      ? safeNonNegativeAmount(inputs.nameReservationCost)
+      : 0,
+    expedited: inputs.expedited ? safeNonNegativeAmount(inputs.expeditedCost) : 0,
+  };
+}
+
 /**
  * Estimate fixed state-level charges over a selected horizon.
  * Biennial filings are counted after year one unless the state requires an
