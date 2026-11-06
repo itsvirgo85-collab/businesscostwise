@@ -115,8 +115,19 @@ export default function HomePage() {
     },
   ];
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       {/* Hero */}
       <section className="bg-gradient-to-b from-[#102A43] to-[#1769AA] text-white">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
