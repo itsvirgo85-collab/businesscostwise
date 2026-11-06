@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "LLC Annual Report Requirements by State 2026 — Fees & Frequency",
   description:
     "See which states require annual or biennial LLC reports, typical fees, and which states currently have no recurring report fee. Educational overview with official source links.",
+  alternates: { canonical: "/annual-report-requirements-by-state" },
 };
 
 export default function AnnualReportPage() {
