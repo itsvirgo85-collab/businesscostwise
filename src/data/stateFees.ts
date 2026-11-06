@@ -23,6 +23,9 @@ export interface StateFee {
   annualFeeFirstYearExempt?: boolean;
   /** Annual report fee after the temporary waiver expires. */
   annualFeeAfterWaiver?: number;
+  /** Optional fee if an initial report is filed after formation instead of with it. */
+  deferredInitialReportFee?: number;
+  deferredInitialReportLabel?: string;
   additionalSources?: { name: string; url: string }[];
 }
 
@@ -612,9 +615,9 @@ export const STATE_FEES: StateFee[] = [
     annualFeeFirstYearExempt: true,
     franchiseTax: 400,
     notes: "Articles of Organization filing fee is $150. The Secretary of State annual report fee is $50; the annual report is due each calendar year excluding the year of formation. Separately, Rhode Island requires LLCs to file an annual tax return and pay a $400 annual charge when taxed as a pass-through or S corporation; an LLC taxed as a C corporation pays corporate income tax or the $400 minimum charge, whichever is greater. The $400 charge applies to single-member and multi-member LLCs, including the formation year.",
-    sourceUrl: "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-02/Notice_2026_01_LLC_filing_requirements.pdf",
-    sourceName: "Rhode Island Division of Taxation",
-    additionalSources: [{ name: "Rhode Island Secretary of State — 2026 Articles of Organization form and annual-report timing", url: "https://docs.sos.ri.gov/documents/BusinessServices/400-articles-of-organization.pdf" }, { name: "Rhode Island Secretary of State — Business filing fee schedule", url: "https://www.sos.ri.gov/divisions/business-services/fee-schedule" }],
+    sourceUrl: "https://www.sos.ri.gov/divisions/business-services/business-basics/costs-and-fees",
+    sourceName: "Rhode Island Department of State — Costs & Fees",
+    additionalSources: [{ name: "Rhode Island Secretary of State — LLC Articles of Organization filing guide", url: "https://docs.sos.ri.gov/documents/BusinessServices/LLCArticlesOfOrganizationFilingGuide.pdf" }, { name: "Rhode Island Secretary of State — LLC annual report form and $50 fee", url: "https://docs.sos.ri.gov/documents/BusinessServices/632-limited-liability-company-annual-report.pdf" }, { name: "Rhode Island Division of Taxation — 2026 LLC filing requirements and $400 annual charge", url: "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-02/Notice_2026_01_LLC_filing_requirements.pdf" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
@@ -733,10 +736,12 @@ export const STATE_FEES: StateFee[] = [
     annualFee: 70,
     annualFrequency: "annual",
     franchiseTax: null,
-    notes: "Washington current fee schedule lists a $180 Certificate of Formation. An initial report can be filed with formation at no additional fee; if deferred, it is due within 120 days and the separate filing fee is $10. The recurring annual report fee for profit entities, including LLCs, is $70 and is due by the last day of the formation month.",
-    sourceUrl: "https://www.sos.wa.gov/corporations-charities/business-entities/download-forms-online-filing-instructions",
-    sourceName: "Washington Secretary of State",
-    additionalSources: [{ name: "Washington Secretary of State — LLC filing resource and initial report rules", url: "https://www.sos.wa.gov/corporations-charities/business-entities/limited-liability-company-llc-professional-llc-pllc-filing-resource-page" }, { name: "Washington Secretary of State — Annual report filing fees", url: "https://www.sos.wa.gov/corporations-charities/business-entities/maintain-business-compliance/annual-reports" }],
+    notes: "Washington Certificate of Formation is $180. The initial report is free when filed with formation; if filed separately within the first 120 days, the fee is $10. This calculator includes that $10 only when the user selects the deferred-filing option. The recurring annual report fee for LLCs is $70 and is due by the last day of the formation month.",
+    sourceUrl: "https://www.sos.wa.gov/corporations-charities/business-entities/limited-liability-company-llc-professional-llc-pllc-filing-resource-page",
+    sourceName: "Washington Secretary of State — LLC Filing Resource",
+    deferredInitialReportFee: 10,
+    deferredInitialReportLabel: "Deferred initial report filing fee",
+    additionalSources: [{ name: "Washington Secretary of State — Fee schedules and $10 initial report / $70 annual report fees", url: "https://www.sos.wa.gov/corporations-charities/frequently-asked-questions-faqs/fee-schedules-priority-services" }, { name: "Washington Secretary of State — Business entity filings and annual report requirements", url: "https://www.sos.wa.gov/corporations-charities/business-entities/business-entities-filings-forms-information" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
