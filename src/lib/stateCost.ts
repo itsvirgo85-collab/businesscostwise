@@ -7,8 +7,20 @@ import type { StateFee } from "@/data/stateFees";
  * of Information due within 90 days). Variable taxes are not guessed.
  */
 export function calculateRecurringStateFees(state: StateFee, years: 1 | 3 | 5): number {
-  const annualReportOrFee =
-    state.annualFrequency === "annual" ? (state.annualFee ?? 0) * years : 0;
+  const currentYear = new Date().getFullYear();
+  let annualReportOrFee = 0;
+  if (state.annualFrequency === "annual") {
+    for (let offset = 0; offset < years; offset += 1) {
+      const projectedYear = currentYear + offset;
+      const waiverApplies =
+        state.annualFeeWaiverThroughYear != null &&
+        projectedYear <= state.annualFeeWaiverThroughYear;
+      const fee = waiverApplies
+        ? (state.annualFee ?? 0)
+        : (state.annualFeeAfterWaiver ?? state.annualFee ?? 0);
+      annualReportOrFee += fee;
+    }
+  }
 
   const biennialPayments =
     state.annualFrequency === "biennial"
