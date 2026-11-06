@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "How to Get an EIN for Free (IRS) — No Third-Party Fees",
   description:
     "How to get an EIN for free directly from the IRS. Online application steps, who needs an EIN, and how to avoid paid third-party services.",
+  alternates: { canonical: "/how-to-get-an-ein-for-free" },
 };
 
 export default function GetEINFreePage() {
