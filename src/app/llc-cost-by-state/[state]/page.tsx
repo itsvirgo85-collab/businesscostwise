@@ -119,8 +119,7 @@ export default async function StateCostPage({ params }: Props) {
       <section className="mt-10">
         <h2 className="text-xl font-semibold text-[#102A43]">Estimated multi-year state cost</h2>
         <p className="mt-2 text-sm text-slate-600">
-          Approximate total of formation fee + recurring state charges. Does not include registered agent,
-          publication, local licenses, or professional fees.
+          Approximate total of formation fee + recurring state charges. The annualized figure divides the five-year recurring charges by five; actual filing dates depend on the formation date and state deadlines. Does not include registered agent, publication, local licenses, or professional fees.
         </p>
         <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white">
           <table className="min-w-full text-left text-sm">
@@ -136,7 +135,7 @@ export default async function StateCostPage({ params }: Props) {
                 <td className="px-4 py-3 font-semibold">${Math.round(firstYearStateCost).toLocaleString()}</td>
               </tr>
               <tr>
-                <td className="px-4 py-3">Est. yearly ongoing</td>
+                <td className="px-4 py-3">Average recurring cost per year (5-year estimate)</td>
                 <td className="px-4 py-3 font-semibold">${Math.round(yearlyApprox)}</td>
               </tr>
               <tr>
