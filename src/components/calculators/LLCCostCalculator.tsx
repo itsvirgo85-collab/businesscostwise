@@ -20,6 +20,7 @@ export default function LLCCostCalculator() {
   const [raCost, setRaCost] = useState("125");
   const [includeNameRes, setIncludeNameRes] = useState(false);
   const [nameResCost, setNameResCost] = useState("25");
+  const [includeDeferredInitialReport, setIncludeDeferredInitialReport] = useState(false);
   const [expedited, setExpedited] = useState(false);
   const [expeditedCost, setExpeditedCost] = useState("50");
 
@@ -38,9 +39,10 @@ export default function LLCCostCalculator() {
       includeNameReservation: includeNameRes,
       nameReservationCost: parseNonNegativeAmount(nameResCost),
       expedited,
+      includeDeferredInitialReport,
       expeditedCost: parseNonNegativeAmount(expeditedCost),
     });
-  }, [state, years, includeRA, raCost, includeNameRes, nameResCost, expedited, expeditedCost]);
+  }, [state, years, includeRA, raCost, includeNameRes, nameResCost, includeDeferredInitialReport, expedited, expeditedCost]);
 
   if (!state || !result) {
     return <p className="text-slate-600">Loading calculator…</p>;
@@ -58,7 +60,7 @@ export default function LLCCostCalculator() {
           <select
             id="llc-state"
             value={selectedSlug}
-            onChange={(e) => setSelectedSlug(e.target.value)}
+            onChange={(e) => { setSelectedSlug(e.target.value); setIncludeDeferredInitialReport(false); }}
             className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-[#1769AA] focus:outline-none focus:ring-1 focus:ring-[#1769AA]"
           >
             {verified.map((s) => (
@@ -95,6 +97,15 @@ export default function LLCCostCalculator() {
         </div>
 
         <div className="space-y-3 border-t border-slate-100 pt-4">
+          {state.deferredInitialReportFee != null && (
+            <label className="flex items-start gap-3">
+              <input type="checkbox" checked={includeDeferredInitialReport} onChange={(e) => setIncludeDeferredInitialReport(e.target.checked)} className="mt-1" />
+              <span className="text-sm text-slate-700">
+                File Washington initial report separately within 120 days (+${state.deferredInitialReportFee})
+                <span className="block text-xs text-slate-500">Leave unchecked if you file it together with formation, which has no additional fee.</span>
+              </span>
+            </label>
+          )}
           <label className="flex items-start gap-3">
             <input type="checkbox" checked={includeRA} onChange={(e) => setIncludeRA(e.target.checked)} className="mt-1" />
             <span className="text-sm text-slate-700">
@@ -158,6 +169,12 @@ export default function LLCCostCalculator() {
               <dt className="text-slate-600">Formation / filing fee</dt>
               <dd className="font-medium">${result.formationFee.toFixed(2)}</dd>
             </div>
+            {result.deferredInitialReport > 0 && (
+              <div className="flex justify-between">
+                <dt className="text-slate-600">Deferred initial report</dt>
+                <dd className="font-medium">${result.deferredInitialReport.toFixed(2)}</dd>
+              </div>
+            )}
             {result.registeredAgent > 0 && (
               <div className="flex justify-between">
                 <dt className="text-slate-600">Registered agent ({years} yr)</dt>
