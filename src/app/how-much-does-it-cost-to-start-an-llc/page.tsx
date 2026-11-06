@@ -4,9 +4,9 @@ import { STATE_FEES } from "@/data/stateFees";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 
 export const metadata: Metadata = {
-  title: "How Much Does It Cost to Start an LLC in 2026? (All 50 States)",
+  title: "How Much Does It Cost to Start an LLC in 2026? (49 Verified States + DC)",
   description:
-    "Real cost to start an LLC in 2026: state filing fees from $35 to $500, annual reports, franchise taxes, registered agent fees, and hidden extras. Free calculator and official source links for every state.",
+    "Real cost to start an LLC in 2026: state filing fees from $35 to $500, annual reports, franchise taxes, registered agent fees, and hidden extras. Free calculator and official government source links for 49 verified states and DC.",
   alternates: { canonical: "/how-much-does-it-cost-to-start-an-llc" },
 };
 
@@ -49,7 +49,7 @@ export default function HowMuchDoesItCostPage() {
     {
       question: "How much does an LLC cost in Texas?",
       answer:
-        "Texas has a $300 formation filing fee and no state franchise tax for most small LLCs that file a No Tax Due report. Use the cost calculator for the latest verified numbers and any optional registered agent cost.",
+        "Texas has a $300 formation filing fee. LLCs still file an annual Public Information Report (PIR) or Ownership Information Report (OIR). Entities below the current no-tax-due revenue threshold generally owe no franchise tax, but the threshold and reporting rules can change. Verify current requirements with the Texas Comptroller.",
     },
     {
       question: "Can I form an LLC for free?",
@@ -92,7 +92,7 @@ export default function HowMuchDoesItCostPage() {
       </p>
 
       <p className="mt-3 text-slate-600 leading-relaxed">
-        Whether you are comparing states, trying to understand “how much is an LLC in Texas,” or simply want a realistic first-year budget, the numbers below come from official state sources and are kept current for 2026.
+        Whether you are comparing states, trying to understand “how much is an LLC in Texas,” or simply want a realistic first-year budget, the figures below are drawn from official government sources and were reviewed for 2026. Alabama is temporarily excluded from verified comparisons while its variable Business Privilege Tax is reviewed.
       </p>
 
       <div className="mt-6 flex flex-wrap gap-3">
@@ -112,7 +112,7 @@ export default function HowMuchDoesItCostPage() {
           href="/llc-cost-by-state"
           className="rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-700 transition hover:border-[#1769AA]"
         >
-          All 50 states table
+          49 states + DC table
         </Link>
       </div>
 

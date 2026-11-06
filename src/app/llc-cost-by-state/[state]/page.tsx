@@ -13,7 +13,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { state: slug } = await params;
   const s = getStateBySlug(slug);
-  if (!s) return { title: "State not found" };
+  if (!s || s.status !== "verified") return { title: "State not found" };
 
   const feeText =
     s.formationFee != null ? `$${s.formationFee} formation fee` : "formation costs";
