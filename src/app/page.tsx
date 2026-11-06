@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "How Much Does It Cost to Start an LLC in 2026? Free Calculator + Complete Guide",
   description:
-    "Get the real cost to form an LLC in any state. Free interactive calculator, official fees, hidden costs, cheapest states ranking, step-by-step formation guide, and business structure comparisons. Updated for 2026.",
+    "Compare LLC formation costs across 49 verified US states and DC. Use the free calculator, official government references, fee rankings, and guides to recurring obligations and additional costs. Updated for 2026.",
   alternates: { canonical: "/" },
 };
 
