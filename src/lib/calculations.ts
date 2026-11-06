@@ -48,7 +48,10 @@ export function calculateLLCCost(inputs: CalculatorInputs): CostBreakdown {
   const multiYearRecurring = calculateRecurringStateFees(state, years);
   const recurringForPeriod = years === 1 ? firstYearRecurring : multiYearRecurring;
   const total = formation + ra + nameRes + exp + recurringForPeriod;
-  const notes: string[] = [state.notes];
+  const notes: string[] = [
+    state.notes,
+    "Timing note: this is a fixed-fee budget estimate, not a filing calendar. Annual and biennial due dates depend on the formation date and state rules; a charge may fall before or after the exact 12-month anniversary. Confirm deadlines with the linked agency.",
+  ];
 
   if (state.annualFrequency === "annual") {
     if (state.annualFee == null) {
