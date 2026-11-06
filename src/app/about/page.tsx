@@ -4,6 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "About Get LLC Cost Calculator",
   description: "Mission, editorial approach, and how we handle official state fee data.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
