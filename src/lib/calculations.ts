@@ -57,7 +57,13 @@ export function calculateLLCCost(inputs: CalculatorInputs): CostBreakdown {
     if (state.annualFee == null) {
       notes.push("An annual filing or fee may apply, but its fixed amount is not verified and is not included.");
     } else if (state.annualFee === 0) {
-      notes.push(`${state.recurringFeeLabel ?? "Annual filing"}: required annually; $0 state filing fee in this estimate.`);
+      if (state.annualFeeAfterWaiver != null && state.annualFeeWaiverThroughYear != null) {
+        notes.push(
+          `${state.recurringFeeLabel ?? "Annual filing"}: $0 through ${state.annualFeeWaiverThroughYear}; this projection assumes ${state.annualFeeAfterWaiver} per year after the waiver expires.`
+        );
+      } else {
+        notes.push(`${state.recurringFeeLabel ?? "Annual filing"}: required annually; $0 state filing fee in this estimate.`);
+      }
     } else {
       notes.push(`${state.recurringFeeLabel ?? "Annual report / recurring fee"}: $${state.annualFee} per year.`);
     }
