@@ -76,11 +76,12 @@ export default function MostExpensiveStatesPage() {
                   </td>
                   <td className="px-4 py-3 font-semibold text-[#102A43]">${s.formationFee}</td>
                   <td className="px-4 py-3 text-xs text-slate-500 max-w-[180px]">
-                    {s.franchiseTax
-                      ? `Franchise ~$${s.franchiseTax}`
-                      : s.annualFee
-                        ? `$${s.annualFee} ${s.annualFrequency}`
-                        : "See state page"}
+                    {s.annualFrequency !== "none" && s.annualFee != null
+                      ? `${s.annualFee} ${s.annualFrequency}`
+                      : s.annualFrequency !== "none"
+                        ? "Variable filing amount"
+                        : "No fixed annual filing fee"}
+                    {s.franchiseTax != null && s.franchiseTax > 0 ? ` · ${s.franchiseTax} franchise/entity tax` : ""}
                   </td>
                   <td className="px-4 py-3">
                     <Link href={`/llc-cost-by-state/${s.slug}`} className="text-xs text-[#1769AA] hover:underline">View →</Link>
