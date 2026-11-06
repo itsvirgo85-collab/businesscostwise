@@ -69,6 +69,31 @@ test("Alabama variable Business Privilege Tax is not presented as verified $0", 
   assert.equal(al.franchiseTax, null);
 });
 
+test("Indiana and Kansas use their current 2026 filing fees and frequencies", () => {
+  const inState = state("Indiana");
+  assert.equal(inState.formationFee, 100);
+  assert.equal(inState.annualFee, 50);
+  assert.equal(inState.annualFrequency, "biennial");
+  assert.equal(calculateFiveYearStateCost(inState), 200);
+
+  const ks = state("Kansas");
+  assert.equal(ks.formationFee, 85);
+  assert.equal(ks.annualFee, 90);
+  assert.equal(ks.annualFrequency, "biennial");
+  assert.equal(calculateFiveYearStateCost(ks), 265);
+});
+
+test("Louisiana 2026 formation fee and Hawaii online report fee are reflected", () => {
+  const la = state("Louisiana");
+  assert.equal(la.formationFee, 125);
+  assert.equal(la.annualFee, 35);
+  assert.equal(calculateFiveYearStateCost(la), 300);
+
+  const hi = state("Hawaii");
+  assert.equal(hi.annualFee, 12.5);
+  assert.equal(calculateFiveYearStateCost(hi), 112.5);
+});
+
 test("biennial reports due after year one are not charged in the first-year estimate", () => {
   const ak = state("Alaska");
   assert.equal(calculateRecurringStateFees(ak, 1), 0);
