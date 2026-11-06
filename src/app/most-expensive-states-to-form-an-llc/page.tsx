@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { STATE_FEES } from "@/data/stateFees";
+import { calculateFiveYearStateCost, calculateRecurringStateFees } from "@/lib/stateCost";
 
 export const metadata: Metadata = {
   title: "Most Expensive States to Form & Keep an LLC 2026",
@@ -15,21 +16,9 @@ export default function MostExpensiveStatesPage() {
     .sort((a, b) => (b.formationFee ?? 0) - (a.formationFee ?? 0))
     .slice(0, 12);
 
-  const withYearly = verified.map((s) => {
-    let yearly = 0;
-    if (s.annualFrequency === "annual") {
-      yearly = (s.annualFee ?? 0) + (s.franchiseTax ?? 0);
-    } else if (s.annualFrequency === "biennial") {
-      yearly = (s.annualFee ?? 0) / 2;
-    }
-    if (s.slug === "california") {
-      yearly = (s.franchiseTax ?? 800) + (s.annualFee ?? 0);
-    }
-    const fiveYear = (s.formationFee ?? 0) + yearly * 5;
-    return { ...s, yearly, fiveYear };
-  });
+  const withYearly = verified.map((s) => ({ ...s, yearly: calculateRecurringStateFees(s, 5) / 5, fiveYear: calculateFiveYearStateCost(s) }));
 
-  const byYearly = [...withYearly].sort((a, b) => b.yearly - a.yearly).slice(0, 12);
+    const byYearly = [...withYearly].sort((a, b) => b.yearly - a.yearly).slice(0, 12);
   const byFiveYear = [...withYearly].sort((a, b) => b.fiveYear - a.fiveYear).slice(0, 12);
 
   return (
