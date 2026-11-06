@@ -5,7 +5,7 @@ import { STATE_FEES, StateFee } from "@/data/stateFees";
 import { calculateLLCCost } from "@/lib/calculations";
 
 export default function LLCCostCalculator() {
-  const verified = STATE_FEES.filter((s) => s.status === "verified");
+  const verified = useMemo(() => STATE_FEES.filter((s) => s.status === "verified"), []);
   const [selectedSlug, setSelectedSlug] = useState(verified[0]?.slug || "florida");
   const [years, setYears] = useState<1 | 3 | 5>(1);
   const [includeRA, setIncludeRA] = useState(false);
@@ -171,11 +171,14 @@ export default function LLCCostCalculator() {
             </div>
           </dl>
 
-          {recurring === 0 && (
+          {recurring === 0 && state.annualFrequency === "biennial" && (
             <p className="mt-3 rounded-lg bg-slate-50 px-3 py-2 text-xs text-slate-600">
-              This state has no annual report fee or franchise tax in our dataset for the selected period.
-              That is why 1-, 3-, and 5-year totals can match when optional extras are off (formation fee only).
-              Always confirm on the official state site before filing.
+              A biennial filing is required, but no payment falls within this selected estimate under the standard filing schedule. Check the state page for the exact due-date rule.
+            </p>
+          )}
+          {recurring === 0 && state.annualFrequency === "none" && state.franchiseTax == null && (
+            <p className="mt-3 rounded-lg bg-slate-50 px-3 py-2 text-xs text-slate-600">
+              No fixed recurring state charge is included in the verified dataset for this period. Separate taxes, local fees, publication, or conditional filings may still apply.
             </p>
           )}
 
@@ -195,6 +198,9 @@ export default function LLCCostCalculator() {
             <a href={state.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-amber-700">
               {state.sourceName}
             </a>
+            {state.additionalSources?.map((source) => (
+              <span key={source.url}> · <a href={source.url} target="_blank" rel="noopener noreferrer" className="underline hover:text-amber-700">{source.name}</a></span>
+            ))}
             . Last verified: {state.verifiedAt}. Always confirm current amounts on the state website before filing.
           </p>
         </div>
