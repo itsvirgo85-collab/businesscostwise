@@ -94,6 +94,36 @@ test("Louisiana 2026 formation fee and Hawaii online report fee are reflected", 
   assert.equal(calculateFiveYearStateCost(hi), 112.5);
 });
 
+test("Missouri, Nebraska and New Jersey use current online state filing fees", () => {
+  const mo = state("Missouri");
+  assert.equal(mo.formationFee, 45);
+  assert.equal(mo.annualFrequency, "none");
+  assert.equal(calculateFiveYearStateCost(mo), 45);
+
+  const ne = state("Nebraska");
+  assert.equal(ne.annualFee, 30);
+  assert.equal(ne.annualFrequency, "biennial");
+  assert.equal(calculateFiveYearStateCost(ne), 160);
+
+  const nj = state("New Jersey");
+  assert.equal(nj.formationFee, 100);
+  assert.equal(nj.annualFee, 75);
+  assert.equal(calculateFiveYearStateCost(nj), 475);
+});
+
+test("Montana annual report waiver applies through 2027 and standard fee resumes afterward", () => {
+  const mt = state("Montana");
+  assert.equal(mt.annualFee, 0);
+  assert.equal(mt.annualFeeWaiverThroughYear, 2027);
+  assert.equal(mt.annualFeeAfterWaiver, 35);
+  const currentYear = new Date().getFullYear();
+  const expected = (years) => Array.from({ length: years }, (_, i) => currentYear + i)
+    .reduce((sum, year) => sum + (year <= 2027 ? 0 : 35), 0);
+  assert.equal(calculateRecurringStateFees(mt, 1), expected(1));
+  assert.equal(calculateRecurringStateFees(mt, 3), expected(3));
+  assert.equal(calculateRecurringStateFees(mt, 5), expected(5));
+});
+
 test("biennial reports due after year one are not charged in the first-year estimate", () => {
   const ak = state("Alaska");
   assert.equal(calculateRecurringStateFees(ak, 1), 0);
