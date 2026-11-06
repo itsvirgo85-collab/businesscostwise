@@ -551,7 +551,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "Articles of Organization $99. No annual report for LLCs.",
     sourceUrl: "https://www.ohiosos.gov/businesses/filing-forms--fee-schedule",
     sourceName: "Ohio Secretary of State",
-    additionalSources: [{ name: "Ohio Secretary of State — LLC Articles of Organization form", url: "https://www.ohiosos.gov/assets/610.pdf" }]
+    additionalSources: [{ name: "Ohio Secretary of State — LLC Articles of Organization form", url: "https://www.ohiosos.gov/assets/610.pdf" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
@@ -566,7 +566,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "Articles of Organization $100. Annual certificate $25.",
     sourceUrl: "https://www.sos.ok.gov/business/fees.aspx",
     sourceName: "Oklahoma Secretary of State",
-    additionalSources: [{ name: "Oklahoma Statutes — Annual LLC certificate", url: "https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os18.pdf?section=18-2055.2" }, { name: "Oklahoma Statutes — LLC filing fees", url: "https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os18.pdf?section=18-2055" }]
+    additionalSources: [{ name: "Oklahoma Statutes — Annual LLC certificate", url: "https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os18.pdf?section=18-2055.2" }, { name: "Oklahoma Statutes — LLC filing fees", url: "https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os18.pdf?section=18-2055" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
@@ -581,7 +581,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "Articles of Organization $100. Annual report $100.",
     sourceUrl: "https://sos.oregon.gov/business/register/pages/domestic-limited-liability-companies-forms.aspx",
     sourceName: "Oregon Secretary of State",
-    additionalSources: [{ name: "Oregon Secretary of State — Business filing fee schedule", url: "https://sos.oregon.gov/business/Pages/fees.aspx" }, { name: "Oregon Revised Statutes — LLC annual reports", url: "https://www.oregonlegislature.gov/bills_laws/ors/ors063.html" }]
+    additionalSources: [{ name: "Oregon Secretary of State — Business filing fee schedule", url: "https://sos.oregon.gov/business/Pages/fees.aspx" }, { name: "Oregon Revised Statutes — LLC annual reports", url: "https://www.oregonlegislature.gov/bills_laws/ors/ors063.html" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
@@ -612,7 +612,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "Articles of Organization filing fee is $150. The Secretary of State annual report fee is $50. Separately, Rhode Island requires LLCs to file an annual tax return and pay a $400 annual charge when taxed as a pass-through or S corporation; an LLC taxed as a C corporation pays corporate income tax or the $400 minimum charge, whichever is greater. The $400 charge applies to single-member and multi-member LLCs, including the formation year.",
     sourceUrl: "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-02/Notice_2025_01_LLC_filing_requirements.pdf",
     sourceName: "Rhode Island Division of Taxation",
-    additionalSources: [{ name: "Rhode Island Secretary of State — Business filing fee schedule", url: "https://www.sos.ri.gov/divisions/business-services/fee-schedule" }]
+    additionalSources: [{ name: "Rhode Island Secretary of State — Business filing fee schedule", url: "https://www.sos.ri.gov/divisions/business-services/fee-schedule" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
@@ -627,7 +627,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "Domestic LLC Articles of Organization filing fee is $110. An LLC taxed as a pass-through generally does not file the corporate CL-1 annual report; an LLC electing corporate tax treatment must file the CL-1 initial annual report within 60 days of commencing business and comply with corporate tax-return requirements.",
     sourceUrl: "https://businessfilings.sc.gov/BusinessFiling/Entity/DownloadForm?formName=F0006&entityType=2&filingType=Articles%20of%20Organization",
     sourceName: "South Carolina Secretary of State",
-    additionalSources: [{ name: "South Carolina Department of Revenue — LLC filing requirements", url: "https://dor.sc.gov/business-income-taxes/corporate/corporate-faqs" }]
+    additionalSources: [{ name: "South Carolina Department of Revenue — LLC filing requirements", url: "https://dor.sc.gov/business-income-taxes/corporate/corporate-faqs" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
@@ -642,7 +642,7 @@ export const STATE_FEES: StateFee[] = [
     notes: "Domestic LLC Articles of Organization are $150 online ($165 paper). Annual reports are $55 online ($70 paper). This calculator uses online filing amounts; paper filings include an additional $15 processing fee.",
     sourceUrl: "https://sdsos.gov/general-information/filing-fees.aspx",
     sourceName: "South Dakota Secretary of State",
-    additionalSources: [{ name: "South Dakota Codified Law — LLC filing and annual report fees", url: "https://sdlegislature.gov/Statutes/47-34A-212" }]
+    additionalSources: [{ name: "South Dakota Codified Law — LLC filing and annual report fees", url: "https://sdlegislature.gov/Statutes/47-34A-212" }],
     verifiedAt: "2026-11-06",
     status: "verified",
   },
@@ -687,7 +687,7 @@ export const STATE_FEES: StateFee[] = [
     annualFrequency: "annual",
     franchiseTax: null,
     notes: "Certificate of Organization $59 online. Annual report $18.",
-    sourceUrl: "https://corporations.utah.gov//wp-content/uploads/2023/04/llcdomestic-1.pdf",
+    sourceUrl: "https://corporations.utah.gov/wp-content/uploads/2023/04/llcdomestic-1.pdf",
     sourceName: "Utah Division of Corporations and Commercial Code",
     additionalSources: [{ name: "Utah Division of Corporations — Annual LLC renewal fee", url: "https://commerce.utah.gov/wp-content/uploads/2021/10/renewal.pdf" }],
     verifiedAt: "2026-11-06",
