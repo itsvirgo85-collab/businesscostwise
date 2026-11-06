@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getStateBySlug, getVerifiedStates } from "@/data/stateFees";
+import { calculateFiveYearStateCost, calculateRecurringStateFees } from "@/lib/stateCost";
 
 type Props = { params: Promise<{ state: string }> };
 
@@ -33,16 +34,10 @@ export default async function StateCostPage({ params }: Props) {
   const s = getStateBySlug(slug);
   if (!s || s.status !== "verified") notFound();
 
-  const yearlyApprox = (() => {
-    if (s.slug === "california") return (s.franchiseTax ?? 800) + (s.annualFee ?? 0);
-    if (s.annualFrequency === "annual") return (s.annualFee ?? 0) + (s.franchiseTax ?? 0);
-    if (s.annualFrequency === "biennial") return ((s.annualFee ?? 0) / 2) + (s.franchiseTax ?? 0);
-    return s.franchiseTax ?? 0;
-  })();
+  const yearlyApprox = calculateRecurringStateFees(s, 5) / 5;
+  const fiveYear = calculateFiveYearStateCost(s);
 
-  const fiveYear = (s.formationFee ?? 0) + yearlyApprox * 5;
-
-  const jsonLd = {
+    const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: `LLC Cost in ${s.state}`,
