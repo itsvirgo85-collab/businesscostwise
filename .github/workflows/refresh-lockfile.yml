@@ -29,10 +29,13 @@ jobs:
         run: npm install --package-lock-only --ignore-scripts --no-audit --no-fund
 
       - name: Apply non-breaking security updates
-        run: npm audit fix --package-lock-only --ignore-scripts --no-fund
+        run: npm audit fix --ignore-scripts --no-fund
+
+      - name: Verify lockfile supports a clean install
+        run: npm ci --no-audit --no-fund
 
       - name: Require clean dependency audit
-        run: npm audit --audit-level=moderate
+        run: npm run audit
 
       - name: Commit refreshed lockfile
         env:
