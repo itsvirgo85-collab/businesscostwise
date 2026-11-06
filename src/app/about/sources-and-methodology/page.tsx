@@ -52,7 +52,7 @@ export default function SourcesPage() {
         </li>
       </ul>
       <p className="mt-8 text-sm text-slate-600">
-        If you find an outdated fee, please contact us so we can re-verify against the official source.
+        If a listed amount appears outdated, compare it with the linked government source before relying on the estimate. This site does not provide individual filing or legal advice.
       </p>
     </div>
   );
