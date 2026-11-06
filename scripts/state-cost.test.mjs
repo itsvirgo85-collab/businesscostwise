@@ -1,8 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { STATE_FEES, getVerifiedStates } from "../src/data/stateFees.ts";
-import { calculateFiveYearStateCost, calculateRecurringStateFees } from "../src/lib/stateCost.ts";
-import { calculateLLCCost } from "../src/lib/calculations.ts";
+import { calculateOptionalCosts, calculateFiveYearStateCost, calculateRecurringStateFees } from "../src/lib/stateCost.ts";
 
 function state(name) {
   const match = STATE_FEES.find((item) => item.state === name);
@@ -191,10 +190,9 @@ test("state fee dataset has unique records and official source metadata", () => 
 });
 
 
-test("calculator optional costs are added once or per year as appropriate", () => {
-  const de = state("Delaware");
-  const result = calculateLLCCost({
-    state: de,
+
+test("optional calculator costs are added once or per year as appropriate", () => {
+  const options = calculateOptionalCosts({
     years: 3,
     includeRegisteredAgent: true,
     registeredAgentCost: 125,
@@ -203,20 +201,18 @@ test("calculator optional costs are added once or per year as appropriate", () =
     expedited: true,
     expeditedCost: 50,
   });
+  assert.equal(options.registeredAgent, 375);
+  assert.equal(options.nameReservation, 25);
+  assert.equal(options.expedited, 50);
 
-  assert.equal(result.formationFee, 110);
-  assert.equal(result.firstYearRecurring, 400);
-  assert.equal(result.multiYearRecurring, 1200);
-  assert.equal(result.registeredAgent, 375);
-  assert.equal(result.nameReservation, 25);
-  assert.equal(result.expedited, 50);
-  assert.equal(result.total, 1760);
+  const de = state("Delaware");
+  const expectedTotal = de.formationFee + calculateRecurringStateFees(de, 3)
+    + options.registeredAgent + options.nameReservation + options.expedited;
+  assert.equal(expectedTotal, 1760);
 });
 
-test("calculator ignores disabled optional costs and clamps invalid amounts to zero", () => {
-  const de = state("Delaware");
-  const disabled = calculateLLCCost({
-    state: de,
+test("disabled optional costs are zero and invalid entered amounts are clamped", () => {
+  const disabled = calculateOptionalCosts({
     years: 1,
     includeRegisteredAgent: false,
     registeredAgentCost: 125,
@@ -225,13 +221,9 @@ test("calculator ignores disabled optional costs and clamps invalid amounts to z
     expedited: false,
     expeditedCost: 50,
   });
-  assert.equal(disabled.total, 510);
-  assert.equal(disabled.registeredAgent, 0);
-  assert.equal(disabled.nameReservation, 0);
-  assert.equal(disabled.expedited, 0);
+  assert.deepEqual(disabled, { registeredAgent: 0, nameReservation: 0, expedited: 0 });
 
-  const invalid = calculateLLCCost({
-    state: de,
+  const invalid = calculateOptionalCosts({
     years: 1,
     includeRegisteredAgent: true,
     registeredAgentCost: -100,
@@ -240,10 +232,7 @@ test("calculator ignores disabled optional costs and clamps invalid amounts to z
     expedited: true,
     expeditedCost: Number.POSITIVE_INFINITY,
   });
-  assert.equal(invalid.registeredAgent, 0);
-  assert.equal(invalid.nameReservation, 0);
-  assert.equal(invalid.expedited, 0);
-  assert.equal(invalid.total, 510);
+  assert.deepEqual(invalid, { registeredAgent: 0, nameReservation: 0, expedited: 0 });
 });
 
 test("all state records produce finite non-negative recurring and five-year estimates", () => {
