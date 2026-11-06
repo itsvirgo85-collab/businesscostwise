@@ -1,7 +1,7 @@
 import type { StateFee } from "@/data/stateFees";
 import { calculateOptionalCosts, calculateRecurringStateFees } from "@/lib/stateCost";
 
-function safeNonNegativeAgentCost(value: number): number {
+function safeNonNegativeAmount(value: number): number {
   return Number.isFinite(value) ? Math.max(0, value) : 0;
 }
 
@@ -91,7 +91,7 @@ export function calculateLLCCost(inputs: CalculatorInputs): CostBreakdown {
     notes.push("The state formation fee includes the registered-agent designation filing; it does not necessarily include a commercial agent service.");
   }
   if (inputs.includeRegisteredAgent && ra > 0) {
-    notes.push(`Commercial registered agent estimate: ${safeNonNegativeAgentCost(inputs.registeredAgentCost)}/year × ${years} year(s).`);
+    notes.push(`Commercial registered agent estimate: ${safeNonNegativeAmount(inputs.registeredAgentCost)}/year × ${years} year(s).`);
   }
   if (inputs.includeNameReservation && nameRes > 0) {
     notes.push(`Optional name reservation entered by user: $${nameRes}.`);
