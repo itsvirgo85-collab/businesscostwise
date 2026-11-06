@@ -1,24 +1,27 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { STATE_FEES, StateFee } from "@/data/stateFees";
+import { STATE_FEES, type StateFee } from "@/data/stateFees";
 import { calculateLLCCost } from "@/lib/calculations";
 
 function parseNonNegativeAmount(value: string): number {
+  if (value.trim() === "") return 0;
   const amount = Number(value);
   return Number.isFinite(amount) ? Math.max(0, amount) : 0;
 }
 
 export default function LLCCostCalculator() {
   const verified = useMemo(() => STATE_FEES.filter((s) => s.status === "verified"), []);
-  const [selectedSlug, setSelectedSlug] = useState(verified[0]?.slug || "florida");
+  const [selectedSlug, setSelectedSlug] = useState(
+    verified.some((s) => s.slug === "florida") ? "florida" : verified[0]?.slug || ""
+  );
   const [years, setYears] = useState<1 | 3 | 5>(1);
   const [includeRA, setIncludeRA] = useState(false);
-  const [raCost, setRaCost] = useState(125);
+  const [raCost, setRaCost] = useState("125");
   const [includeNameRes, setIncludeNameRes] = useState(false);
-  const [nameResCost, setNameResCost] = useState(25);
+  const [nameResCost, setNameResCost] = useState("25");
   const [expedited, setExpedited] = useState(false);
-  const [expeditedCost, setExpeditedCost] = useState(50);
+  const [expeditedCost, setExpeditedCost] = useState("50");
 
   const state = useMemo(
     () => verified.find((s) => s.slug === selectedSlug) as StateFee,
@@ -31,11 +34,11 @@ export default function LLCCostCalculator() {
       state,
       years,
       includeRegisteredAgent: includeRA,
-      registeredAgentCost: raCost,
+      registeredAgentCost: parseNonNegativeAmount(raCost),
       includeNameReservation: includeNameRes,
-      nameReservationCost: nameResCost,
+      nameReservationCost: parseNonNegativeAmount(nameResCost),
       expedited,
-      expeditedCost,
+      expeditedCost: parseNonNegativeAmount(expeditedCost),
     });
   }, [state, years, includeRA, raCost, includeNameRes, nameResCost, expedited, expeditedCost]);
 
@@ -51,8 +54,9 @@ export default function LLCCostCalculator() {
         <h2 className="text-lg font-semibold text-[#102A43]">Estimate your costs</h2>
 
         <div>
-          <label className="mb-1 block text-sm font-medium text-slate-700">State</label>
+          <label htmlFor="llc-state" className="mb-1 block text-sm font-medium text-slate-700">State</label>
           <select
+            id="llc-state"
             value={selectedSlug}
             onChange={(e) => setSelectedSlug(e.target.value)}
             className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-[#1769AA] focus:outline-none focus:ring-1 focus:ring-[#1769AA]"
@@ -69,13 +73,15 @@ export default function LLCCostCalculator() {
         </div>
 
         <div>
-          <label className="mb-1 block text-sm font-medium text-slate-700">Time period</label>
+          <span className="mb-1 block text-sm font-medium text-slate-700" id="llc-period-label">Time period</span>
           <div className="flex gap-2">
             {([1, 3, 5] as const).map((y) => (
               <button
                 key={y}
                 type="button"
                 onClick={() => setYears(y)}
+                aria-pressed={years === y}
+                aria-describedby="llc-period-label"
                 className={`flex-1 rounded-lg border px-3 py-2 text-sm font-medium transition ${
                   years === y
                     ? "border-[#1769AA] bg-[#1769AA] text-white"
@@ -101,7 +107,7 @@ export default function LLCCostCalculator() {
           {includeRA && (
             <div className="ml-7">
               <label className="mb-1 block text-xs text-slate-500">Annual agent cost ($)</label>
-              <input type="number" min={0} value={raCost} onChange={(e) => setRaCost(parseNonNegativeAmount(e.target.value))} step="0.01" aria-label="Annual commercial registered agent cost in dollars" className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
+              <input type="number" min={0} value={raCost} onChange={(e) => setRaCost(e.target.value)} onBlur={() => setRaCost(String(parseNonNegativeAmount(raCost)))} step="0.01" aria-label="Annual commercial registered agent cost in dollars" className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
             </div>
           )}
 
@@ -112,7 +118,7 @@ export default function LLCCostCalculator() {
           {includeNameRes && (
             <div className="ml-7">
               <label className="mb-1 block text-xs text-slate-500">Reservation fee ($)</label>
-              <input type="number" min={0} value={nameResCost} onChange={(e) => setNameResCost(parseNonNegativeAmount(e.target.value))} step="0.01" aria-label="Name reservation fee in dollars" className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
+              <input type="number" min={0} value={nameResCost} onChange={(e) => setNameResCost(e.target.value)} onBlur={() => setNameResCost(String(parseNonNegativeAmount(nameResCost)))} step="0.01" aria-label="Name reservation fee in dollars" className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
             </div>
           )}
 
@@ -123,7 +129,7 @@ export default function LLCCostCalculator() {
           {expedited && (
             <div className="ml-7">
               <label className="mb-1 block text-xs text-slate-500">Expedite fee ($)</label>
-              <input type="number" min={0} value={expeditedCost} onChange={(e) => setExpeditedCost(parseNonNegativeAmount(e.target.value))} step="0.01" aria-label="Expedited processing fee in dollars" className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
+              <input type="number" min={0} value={expeditedCost} onChange={(e) => setExpeditedCost(e.target.value)} onBlur={() => setExpeditedCost(String(parseNonNegativeAmount(expeditedCost)))} step="0.01" aria-label="Expedited processing fee in dollars" className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
             </div>
           )}
         </div>
