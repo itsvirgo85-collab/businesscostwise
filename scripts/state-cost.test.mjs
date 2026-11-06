@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { STATE_FEES, getVerifiedStates } from "../src/data/stateFees.ts";
-import { calculateOptionalCosts, calculateFiveYearStateCost, calculateRecurringStateFees } from "../src/lib/stateCost.ts";
+import { calculateDeferredInitialReportFee, calculateOptionalCosts, calculateFiveYearStateCost, calculateRecurringStateFees } from "../src/lib/stateCost.ts";
 
 function state(name) {
   const match = STATE_FEES.find((item) => item.state === name);
@@ -244,4 +244,14 @@ test("all state records produce finite non-negative recurring and five-year esti
     const fiveYear = calculateFiveYearStateCost(item);
     assert.ok(Number.isFinite(fiveYear) && fiveYear >= 0, `Invalid five-year estimate for ${item.state}`);
   }
+});
+
+
+test("Washington deferred initial report fee is optional and never double-counted by default", () => {
+  const wa = state("Washington");
+  assert.equal(wa.formationFee, 180);
+  assert.equal(wa.deferredInitialReportFee, 10);
+  assert.equal(calculateDeferredInitialReportFee(wa, false), 0);
+  assert.equal(calculateDeferredInitialReportFee(wa, true), 10);
+  assert.equal(calculateFiveYearStateCost(wa), 460);
 });
