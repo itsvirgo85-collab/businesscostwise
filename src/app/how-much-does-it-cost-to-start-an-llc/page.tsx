@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "How Much Does It Cost to Start an LLC in 2026? (All 50 States)",
   description:
     "Real cost to start an LLC in 2026: state filing fees from $35 to $500, annual reports, franchise taxes, registered agent fees, and hidden extras. Free calculator and official source links for every state.",
+  alternates: { canonical: "/how-much-does-it-cost-to-start-an-llc" },
 };
 
 export default function HowMuchDoesItCostPage() {
