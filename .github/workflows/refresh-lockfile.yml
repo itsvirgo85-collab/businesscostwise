@@ -25,8 +25,14 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Regenerate package lock without running install scripts
+      - name: Regenerate lockfile without install scripts
         run: npm install --package-lock-only --ignore-scripts --no-audit --no-fund
+
+      - name: Apply non-breaking security updates
+        run: npm audit fix --package-lock-only --ignore-scripts --no-fund
+
+      - name: Require clean dependency audit
+        run: npm audit --audit-level=moderate
 
       - name: Commit refreshed lockfile
         env:
@@ -40,6 +46,6 @@ jobs:
             echo "Lockfile already up to date."
             exit 0
           fi
-          git commit -m "chore: refresh lockfile for patched React dependencies"
+          git commit -m "chore: patch dependency audit findings"
           AUTH="$(printf 'x-access-token:%s' "$GITHUB_TOKEN" | base64 -w0)"
           git -c http.https://github.com/.extraheader="AUTHORIZATION: basic $AUTH" push origin "HEAD:$BRANCH_NAME"
