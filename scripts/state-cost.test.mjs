@@ -136,9 +136,9 @@ test("Vermont, Washington and Wisconsin use current state fee schedules", () => 
   assert.equal(calculateFiveYearStateCost(wa), 530);
 
   const wi = state("Wisconsin");
-  assert.equal(wi.formationFee, 170);
+  assert.equal(wi.formationFee, 130);
   assert.equal(wi.annualFee, 25);
-  assert.equal(calculateFiveYearStateCost(wi), 295);
+  assert.equal(calculateFiveYearStateCost(wi), 255);
 });
 
 test("South Dakota and District of Columbia report charges are calculated on their correct cycles", () => {
