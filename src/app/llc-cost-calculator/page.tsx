@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "LLC Cost Calculator by State — Formation & Annual Fees",
   description:
     "Estimate LLC formation costs by US state. Includes filing fees, annual reports, and franchise taxes where applicable. Every figure linked to official government sources.",
+  alternates: { canonical: "/llc-cost-calculator" },
 };
 
 export default function LLCCostCalculatorPage() {
