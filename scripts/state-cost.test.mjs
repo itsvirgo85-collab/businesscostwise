@@ -124,6 +124,36 @@ test("Montana annual report waiver applies through 2027 and standard fee resumes
   assert.equal(calculateRecurringStateFees(mt, 5), expected(5));
 });
 
+test("Vermont, Washington and Wisconsin use current state fee schedules", () => {
+  const vt = state("Vermont");
+  assert.equal(vt.formationFee, 155);
+  assert.equal(vt.annualFee, 45);
+  assert.equal(calculateFiveYearStateCost(vt), 380);
+
+  const wa = state("Washington");
+  assert.equal(wa.formationFee, 180);
+  assert.equal(wa.annualFee, 70);
+  assert.equal(calculateFiveYearStateCost(wa), 530);
+
+  const wi = state("Wisconsin");
+  assert.equal(wi.formationFee, 170);
+  assert.equal(wi.annualFee, 25);
+  assert.equal(calculateFiveYearStateCost(wi), 295);
+});
+
+test("South Dakota and District of Columbia report charges are calculated on their correct cycles", () => {
+  const sd = state("South Dakota");
+  assert.equal(sd.formationFee, 150);
+  assert.equal(sd.annualFee, 55);
+  assert.equal(calculateFiveYearStateCost(sd), 425);
+
+  const dc = state("Washington DC");
+  assert.equal(dc.formationFee, 99);
+  assert.equal(dc.annualFee, 300);
+  assert.equal(dc.annualFrequency, "biennial");
+  assert.equal(calculateFiveYearStateCost(dc), 699);
+});
+
 test("biennial reports due after year one are not charged in the first-year estimate", () => {
   const ak = state("Alaska");
   assert.equal(calculateRecurringStateFees(ak, 1), 0);
