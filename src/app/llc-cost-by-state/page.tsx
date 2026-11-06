@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "LLC Costs by State — Filing Fees & Annual Reports",
   description:
     "Compare LLC formation filing fees and recurring annual or biennial costs across 49 currently verified US states and DC. Alabama is excluded until its variable Business Privilege Tax is fully modeled.",
+  alternates: { canonical: "/llc-cost-by-state" },
 };
 
 export default function LLCCostByStatePage() {
