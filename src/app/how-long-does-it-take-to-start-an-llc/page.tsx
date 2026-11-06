@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "How Long Does It Take to Start an LLC? (Filing + EIN Timeline)",
   description:
     "How long does it take to form an LLC and get an EIN? Typical state processing times, expedited options, and what slows approval down in 2026.",
+  alternates: { canonical: "/how-long-does-it-take-to-start-an-llc" },
 };
 
 export default function HowLongPage() {

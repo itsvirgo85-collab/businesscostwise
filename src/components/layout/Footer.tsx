@@ -8,7 +8,7 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-[#102A43]">Get LLC Cost Calculator</h3>
             <p className="mt-2 text-sm text-slate-600">
-              Free LLC cost calculator for all 50 states. Official filing fees, annual reports, and multi-year totals — educational only.
+              Free LLC cost calculator for 49 verified states and DC. Official filing fees, annual reports, and multi-year totals — educational only.
             </p>
           </div>
           <div>

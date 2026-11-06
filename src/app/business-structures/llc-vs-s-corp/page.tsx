@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "LLC vs S Corp — Key Differences, Taxes & When to Elect",
   description:
     "LLC vs S corp explained: default taxation, self-employment tax, ownership limits, formalities, and when an LLC might elect S-corporation status.",
+  alternates: { canonical: "/business-structures/llc-vs-s-corp" },
 };
 
 export default function LLCvsSCorpPage() {

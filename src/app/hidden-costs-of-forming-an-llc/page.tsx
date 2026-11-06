@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Hidden Costs of Forming an LLC 2026 — Franchise Tax, Publication & More",
   description:
     "Beyond the filing fee: annual reports, franchise taxes, publication requirements, registered agent costs, and other expenses that raise the real cost of an LLC. Educational guide with examples.",
+  alternates: { canonical: "/hidden-costs-of-forming-an-llc" },
 };
 
 export default function HiddenCostsPage() {

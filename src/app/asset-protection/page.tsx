@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Does an LLC Protect Personal Assets? Realistic Limits Explained",
   description:
     "Educational guide on how LLC limited liability works, when courts may pierce the veil, and practical steps small-business owners can take to strengthen asset protection.",
+  alternates: { canonical: "/asset-protection" },
 };
 
 export default function AssetProtectionPage() {

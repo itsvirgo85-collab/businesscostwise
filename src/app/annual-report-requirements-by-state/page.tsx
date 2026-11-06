@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "LLC Annual Report Requirements by State 2026 — Fees & Frequency",
   description:
     "See which states require annual or biennial LLC reports, typical fees, and which states currently have no recurring report fee. Educational overview with official source links.",
+  alternates: { canonical: "/annual-report-requirements-by-state" },
 };
 
 export default function AnnualReportPage() {
@@ -18,8 +19,8 @@ export default function AnnualReportPage() {
   );
 
   const annual = verified
-    .filter((s) => s.annualFrequency === "annual" && (s.annualFee ?? 0) > 0)
-    .sort((a, b) => (a.annualFee ?? 0) - (b.annualFee ?? 0));
+    .filter((s) => s.annualFrequency === "annual")
+    .sort((a, b) => (a.annualFee ?? Number.MAX_SAFE_INTEGER) - (b.annualFee ?? Number.MAX_SAFE_INTEGER));
 
   const biennial = verified
     .filter((s) => s.annualFrequency === "biennial")
@@ -55,10 +56,10 @@ export default function AnnualReportPage() {
 
       <section className="mt-12">
         <h2 className="text-xl font-semibold text-[#102A43]">
-          States with no (or $0) recurring report fee
+          States with no fixed recurring fee or a $0 report filing
         </h2>
         <p className="mt-2 text-sm text-slate-600">
-          Based on currently verified data. Some of these states may still require other filings or taxes.
+          This group includes states with $0 annual report filings as well as states with no fixed report fee in this dataset. A $0 fee does not mean the filing is optional.
         </p>
         <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
           {noRecurring.map((s) => (
@@ -99,7 +100,7 @@ export default function AnnualReportPage() {
                       {s.state}
                     </Link>
                   </td>
-                  <td className="px-4 py-3">${s.annualFee}</td>
+                  <td className="px-4 py-3">{s.annualFee == null ? "Variable / not included" : s.annualFee === 0 ? "$0 (filing required)" : `${s.annualFee}`}</td>
                   <td className="px-4 py-3">
                     {s.franchiseTax ? `$${s.franchiseTax}` : "—"}
                   </td>

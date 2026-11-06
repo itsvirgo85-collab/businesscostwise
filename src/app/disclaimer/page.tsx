@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Disclaimer",
   description: "Educational use only — not legal, tax, or financial advice.",
+  alternates: { canonical: "/disclaimer" },
 };
 
 export default function DisclaimerPage() {

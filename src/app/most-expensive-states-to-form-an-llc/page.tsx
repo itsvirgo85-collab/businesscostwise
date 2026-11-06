@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { STATE_FEES } from "@/data/stateFees";
+import { calculateFiveYearStateCost, calculateRecurringStateFees } from "@/lib/stateCost";
 
 export const metadata: Metadata = {
   title: "Most Expensive States to Form & Keep an LLC 2026",
   description:
-    "Ranked list of the most expensive US states to form and maintain an LLC in 2026, including high formation fees, annual reports, and franchise taxes like California’s $800.",
+    "Compare verified fixed state filing costs, annual reports and minimum taxes. Variable tax liabilities and local costs are disclosed separately when not fully calculable.",
+  alternates: { canonical: "/most-expensive-states-to-form-an-llc" },
 };
 
 export default function MostExpensiveStatesPage() {
@@ -15,21 +17,9 @@ export default function MostExpensiveStatesPage() {
     .sort((a, b) => (b.formationFee ?? 0) - (a.formationFee ?? 0))
     .slice(0, 12);
 
-  const withYearly = verified.map((s) => {
-    let yearly = 0;
-    if (s.annualFrequency === "annual") {
-      yearly = (s.annualFee ?? 0) + (s.franchiseTax ?? 0);
-    } else if (s.annualFrequency === "biennial") {
-      yearly = (s.annualFee ?? 0) / 2;
-    }
-    if (s.slug === "california") {
-      yearly = (s.franchiseTax ?? 800) + (s.annualFee ?? 0);
-    }
-    const fiveYear = (s.formationFee ?? 0) + yearly * 5;
-    return { ...s, yearly, fiveYear };
-  });
+  const withYearly = verified.map((s) => ({ ...s, yearly: calculateRecurringStateFees(s, 5) / 5, fiveYear: calculateFiveYearStateCost(s) }));
 
-  const byYearly = [...withYearly].sort((a, b) => b.yearly - a.yearly).slice(0, 12);
+    const byYearly = [...withYearly].sort((a, b) => b.yearly - a.yearly).slice(0, 12);
   const byFiveYear = [...withYearly].sort((a, b) => b.fiveYear - a.fiveYear).slice(0, 12);
 
   return (
@@ -50,6 +40,9 @@ export default function MostExpensiveStatesPage() {
         costly over time because of annual reports, franchise taxes, or both. This page ranks states
         by formation fee, by estimated yearly state cost, and by approximate five-year total using
         verified official data.
+      </p>
+      <p className="mt-3 text-sm text-slate-600">
+        Five-year totals include listed fixed charges only. Variable taxes based on revenue, income, net worth or member count are not fully modeled, and local licenses, publication and foreign qualification can add costs. Use these rankings as a comparison of the published fee fields, not as legal or tax advice about where to register.
       </p>
 
       <div className="mt-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
@@ -86,11 +79,12 @@ export default function MostExpensiveStatesPage() {
                   </td>
                   <td className="px-4 py-3 font-semibold text-[#102A43]">${s.formationFee}</td>
                   <td className="px-4 py-3 text-xs text-slate-500 max-w-[180px]">
-                    {s.franchiseTax
-                      ? `Franchise ~$${s.franchiseTax}`
-                      : s.annualFee
-                        ? `$${s.annualFee} ${s.annualFrequency}`
-                        : "See state page"}
+                    {s.annualFrequency !== "none" && s.annualFee != null
+                      ? `${s.annualFee} ${s.annualFrequency}`
+                      : s.annualFrequency !== "none"
+                        ? "Variable filing amount"
+                        : "No fixed annual filing fee"}
+                    {s.franchiseTax != null && s.franchiseTax > 0 ? ` · ${s.franchiseTax} franchise/entity tax` : ""}
                   </td>
                   <td className="px-4 py-3">
                     <Link href={`/llc-cost-by-state/${s.slug}`} className="text-xs text-[#1769AA] hover:underline">View →</Link>

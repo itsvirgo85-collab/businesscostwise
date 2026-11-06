@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getStateBySlug, getVerifiedStates } from "@/data/stateFees";
+import { calculateFiveYearStateCost, calculateRecurringStateFees } from "@/lib/stateCost";
 
 type Props = { params: Promise<{ state: string }> };
 
@@ -12,7 +13,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { state: slug } = await params;
   const s = getStateBySlug(slug);
-  if (!s) return { title: "State not found" };
+  if (!s || s.status !== "verified") return { title: "State not found" };
 
   const feeText =
     s.formationFee != null ? `$${s.formationFee} formation fee` : "formation costs";
@@ -20,6 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `LLC Cost in ${s.state} ${new Date().getFullYear()} — Filing Fee & Annual Costs`,
     description: `How much does it cost to form an LLC in ${s.state}? ${feeText}, recurring report fees, and official ${s.sourceName} source links. Verified data.`,
+    alternates: { canonical: `/llc-cost-by-state/${s.slug}` },
     openGraph: {
       title: `LLC Cost in ${s.state} — Filing & Annual Fees`,
       description: `Official ${s.state} LLC formation and recurring costs with government source links.`,
@@ -33,16 +35,11 @@ export default async function StateCostPage({ params }: Props) {
   const s = getStateBySlug(slug);
   if (!s || s.status !== "verified") notFound();
 
-  const yearlyApprox = (() => {
-    if (s.slug === "california") return (s.franchiseTax ?? 800) + (s.annualFee ?? 0);
-    if (s.annualFrequency === "annual") return (s.annualFee ?? 0) + (s.franchiseTax ?? 0);
-    if (s.annualFrequency === "biennial") return ((s.annualFee ?? 0) / 2) + (s.franchiseTax ?? 0);
-    return s.franchiseTax ?? 0;
-  })();
+  const yearlyApprox = calculateRecurringStateFees(s, 5) / 5;
+  const fiveYear = calculateFiveYearStateCost(s);
+  const firstYearStateCost = (s.formationFee ?? 0) + calculateRecurringStateFees(s, 1);
 
-  const fiveYear = (s.formationFee ?? 0) + yearlyApprox * 5;
-
-  const jsonLd = {
+    const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: `LLC Cost in ${s.state}`,
@@ -91,23 +88,24 @@ export default async function StateCostPage({ params }: Props) {
           <p className="mt-1 text-xs text-slate-500">One-time state filing</p>
         </div>
         <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-          <p className="text-xs font-medium uppercase tracking-wide text-slate-500">Recurring / annual</p>
-          <p className="mt-1 text-3xl font-bold text-[#102A43]">
-            {s.annualFee != null && s.annualFee > 0
-              ? `$${s.annualFee}`
-              : s.franchiseTax
-                ? `$${s.franchiseTax}`
-                : "$0 / none"}
-          </p>
-          <p className="mt-1 text-xs text-slate-500">
-            {s.annualFrequency === "biennial"
-              ? "Biennial report"
-              : s.annualFrequency === "annual"
-                ? "Annual report"
-                : s.franchiseTax
-                  ? "Franchise / privilege tax"
-                  : "No standard report fee"}
-          </p>
+          <p className="text-xs font-medium uppercase tracking-wide text-slate-500">Recurring state obligations</p>
+          <div className="mt-2 space-y-2 text-sm font-semibold text-[#102A43]">
+            {s.annualFrequency !== "none" && (
+              <p>
+                {s.annualFee != null ? `${s.annualFee}` : "Variable / not included"}
+                <span className="ml-2 text-xs font-normal text-slate-500">
+                  {s.recurringFeeLabel ?? (s.annualFrequency === "biennial" ? "Biennial filing" : "Annual filing")}
+                </span>
+              </p>
+            )}
+            {s.franchiseTax != null && s.franchiseTax > 0 && (
+              <p>
+                ${s.franchiseTax}/year
+                <span className="ml-2 text-xs font-normal text-slate-500">Franchise / entity tax minimum or fixed amount</span>
+              </p>
+            )}
+            {s.annualFrequency === "none" && !s.franchiseTax && <p>No fixed recurring filing fee listed</p>}
+          </div>
         </div>
       </div>
 
@@ -121,8 +119,7 @@ export default async function StateCostPage({ params }: Props) {
       <section className="mt-10">
         <h2 className="text-xl font-semibold text-[#102A43]">Estimated multi-year state cost</h2>
         <p className="mt-2 text-sm text-slate-600">
-          Approximate total of formation fee + recurring state charges. Does not include registered agent,
-          publication, local licenses, or professional fees.
+          Approximate total of formation fee + recurring state charges. The annualized figure divides the five-year recurring charges by five; actual filing dates depend on the formation date and state deadlines. Does not include registered agent, publication, local licenses, or professional fees.
         </p>
         <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white">
           <table className="min-w-full text-left text-sm">
@@ -134,11 +131,11 @@ export default async function StateCostPage({ params }: Props) {
             </thead>
             <tbody className="divide-y divide-slate-100">
               <tr>
-                <td className="px-4 py-3">Year 1 (formation only)</td>
-                <td className="px-4 py-3 font-semibold">${s.formationFee ?? "—"}</td>
+                <td className="px-4 py-3">Year 1 (formation + recurring)</td>
+                <td className="px-4 py-3 font-semibold">${Math.round(firstYearStateCost).toLocaleString()}</td>
               </tr>
               <tr>
-                <td className="px-4 py-3">Est. yearly ongoing</td>
+                <td className="px-4 py-3">Average recurring cost per year (5-year estimate)</td>
                 <td className="px-4 py-3 font-semibold">${Math.round(yearlyApprox)}</td>
               </tr>
               <tr>
@@ -163,6 +160,9 @@ export default async function StateCostPage({ params }: Props) {
           <a href={s.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline">
             {s.sourceName}
           </a>
+          {s.additionalSources?.map((source) => (
+            <span key={source.url}> · <a href={source.url} target="_blank" rel="noopener noreferrer" className="underline">{source.name}</a></span>
+          ))}
           {" · "}Verified {s.verifiedAt}. Always re-check the current fee schedule before filing or budgeting.
         </p>
       </div>
