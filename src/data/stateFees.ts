@@ -633,7 +633,6 @@ export const STATE_FEES: StateFee[] = [
     sourceUrl: "https://comptroller.texas.gov/taxes/franchise/pir-oir-filing-req.php",
     sourceName: "Texas Comptroller of Public Accounts",
     additionalSources: [{ name: "Texas Comptroller — Franchise Tax Rates & Thresholds", url: "https://comptroller.texas.gov/taxes/franchise/" }, { name: "Texas Secretary of State — Business Filing Fees", url: "https://www.sos.state.tx.us/corp/fees.shtml" }],
-    sourceName: "Texas Secretary of State",
     verifiedAt: "2026-11-06",
     status: "verified",
   },
