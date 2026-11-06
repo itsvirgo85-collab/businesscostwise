@@ -5,6 +5,7 @@ import { STATE_FEES } from "@/data/stateFees";
 export const metadata: Metadata = {
   title: "Sources & Methodology",
   description: "How BusinessCostWise verifies state LLC fees and presents educational content.",
+  alternates: { canonical: "/about/sources-and-methodology" },
 };
 
 export default function SourcesPage() {
