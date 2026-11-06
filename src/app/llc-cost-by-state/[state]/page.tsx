@@ -87,24 +87,24 @@ export default async function StateCostPage({ params }: Props) {
           <p className="mt-1 text-xs text-slate-500">One-time state filing</p>
         </div>
         <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-          <p className="text-xs font-medium uppercase tracking-wide text-slate-500">Recurring / annual</p>
-          <p className="mt-1 text-3xl font-bold text-[#102A43]">
-            {s.annualFee != null && s.annualFee > 0
-              ? `$${s.annualFee}`
-              : s.franchiseTax
-                ? `$${s.franchiseTax}`
-                : "$0 / none"}
-          </p>
-          <p className="mt-1 text-xs text-slate-500">
-            {s.recurringFeeLabel ??
-              (s.annualFrequency === "biennial"
-                ? "Biennial report"
-                : s.annualFrequency === "annual"
-                  ? "Annual report"
-                  : s.franchiseTax
-                    ? "Franchise / privilege tax"
-                    : "No standard report fee")}
-          </p>
+          <p className="text-xs font-medium uppercase tracking-wide text-slate-500">Recurring state obligations</p>
+          <div className="mt-2 space-y-2 text-sm font-semibold text-[#102A43]">
+            {s.annualFrequency !== "none" && (
+              <p>
+                {s.annualFee != null ? `${s.annualFee}` : "Variable / not included"}
+                <span className="ml-2 text-xs font-normal text-slate-500">
+                  {s.recurringFeeLabel ?? (s.annualFrequency === "biennial" ? "Biennial filing" : "Annual filing")}
+                </span>
+              </p>
+            )}
+            {s.franchiseTax != null && s.franchiseTax > 0 && (
+              <p>
+                ${s.franchiseTax}/year
+                <span className="ml-2 text-xs font-normal text-slate-500">Franchise / entity tax minimum or fixed amount</span>
+              </p>
+            )}
+            {s.annualFrequency === "none" && !s.franchiseTax && <p>No fixed recurring filing fee listed</p>}
+          </div>
         </div>
       </div>
 
@@ -160,6 +160,9 @@ export default async function StateCostPage({ params }: Props) {
           <a href={s.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline">
             {s.sourceName}
           </a>
+          {s.additionalSources?.map((source) => (
+            <span key={source.url}> · <a href={source.url} target="_blank" rel="noopener noreferrer" className="underline">{source.name}</a></span>
+          ))}
           {" · "}Verified {s.verifiedAt}. Always re-check the current fee schedule before filing or budgeting.
         </p>
       </div>
