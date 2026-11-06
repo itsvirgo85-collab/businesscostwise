@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `LLC Cost in ${s.state} ${new Date().getFullYear()} — Filing Fee & Annual Costs`,
     description: `How much does it cost to form an LLC in ${s.state}? ${feeText}, recurring report fees, and official ${s.sourceName} source links. Verified data.`,
+    alternates: { canonical: `/llc-cost-by-state/${s.slug}` },
     openGraph: {
       title: `LLC Cost in ${s.state} — Filing & Annual Fees`,
       description: `Official ${s.state} LLC formation and recurring costs with government source links.`,
