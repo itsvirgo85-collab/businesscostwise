@@ -4,6 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Terms of Use — Get LLC Cost Calculator",
   description: "Terms governing use of the Get LLC Cost Calculator educational website and calculators.",
+  alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {
