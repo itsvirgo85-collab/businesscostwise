@@ -1,5 +1,9 @@
 import type { StateFee } from "@/data/stateFees";
-import { calculateRecurringStateFees } from "./stateCost";
+import { calculateOptionalCosts, calculateRecurringStateFees } from "@/lib/stateCost";
+
+function safeNonNegativeAgentCost(value: number): number {
+  return Number.isFinite(value) ? Math.max(0, value) : 0;
+}
 
 export interface CalculatorInputs {
   state: StateFee;
@@ -25,9 +29,6 @@ export interface CostBreakdown {
   sources: { name: string; url: string }[];
 }
 
-function safeNonNegativeAmount(value: number): number {
-  return Number.isFinite(value) ? Math.max(0, value) : 0;
-}
 
 /**
  * Educational estimate based on fixed state fee fields.
@@ -37,12 +38,10 @@ function safeNonNegativeAmount(value: number): number {
 export function calculateLLCCost(inputs: CalculatorInputs): CostBreakdown {
   const { state, years } = inputs;
   const formation = safeNonNegativeAmount(state.formationFee ?? 0);
-  const agentAnnual = safeNonNegativeAmount(inputs.registeredAgentCost);
-  const ra = inputs.includeRegisteredAgent ? agentAnnual * years : 0;
-  const nameRes = inputs.includeNameReservation
-    ? safeNonNegativeAmount(inputs.nameReservationCost)
-    : 0;
-  const exp = inputs.expedited ? safeNonNegativeAmount(inputs.expeditedCost) : 0;
+  const optionalCosts = calculateOptionalCosts(inputs);
+  const ra = optionalCosts.registeredAgent;
+  const nameRes = optionalCosts.nameReservation;
+  const exp = optionalCosts.expedited;
 
   const firstYearRecurring = calculateRecurringStateFees(state, 1);
   const multiYearRecurring = calculateRecurringStateFees(state, years);
@@ -92,7 +91,7 @@ export function calculateLLCCost(inputs: CalculatorInputs): CostBreakdown {
     notes.push("The state formation fee includes the registered-agent designation filing; it does not necessarily include a commercial agent service.");
   }
   if (inputs.includeRegisteredAgent && ra > 0) {
-    notes.push(`Commercial registered agent estimate: $${agentAnnual}/year × ${years} year(s).`);
+    notes.push(`Commercial registered agent estimate: ${safeNonNegativeAgentCost(inputs.registeredAgentCost)}/year × ${years} year(s).`);
   }
   if (inputs.includeNameReservation && nameRes > 0) {
     notes.push(`Optional name reservation entered by user: $${nameRes}.`);
