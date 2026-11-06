@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Most Expensive States to Form & Keep an LLC 2026",
   description:
     "Ranked list of the most expensive US states to form and maintain an LLC in 2026, including high formation fees, annual reports, and franchise taxes like California’s $800.",
+  alternates: { canonical: "/most-expensive-states-to-form-an-llc" },
 };
 
 export default function MostExpensiveStatesPage() {
