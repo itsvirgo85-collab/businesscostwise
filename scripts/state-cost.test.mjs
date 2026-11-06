@@ -19,6 +19,9 @@ test("Pennsylvania annual report is counted once per year", () => {
 
 test("Delaware annual LLC tax is counted in every projected year", () => {
   const de = state("Delaware");
+  assert.equal(de.annualFrequency, "none");
+  assert.equal(de.annualFee, null);
+  assert.equal(de.franchiseTax, 400);
   assert.equal(calculateRecurringStateFees(de, 1), 400);
   assert.equal(calculateRecurringStateFees(de, 3), 1200);
   assert.equal(calculateRecurringStateFees(de, 5), 2000);
@@ -35,7 +38,8 @@ test("California initial biennial statement is counted in year one and then ever
 
 test("Arkansas franchise tax is counted once, not duplicated", () => {
   const ar = state("Arkansas");
-  assert.equal(ar.annualFee, null);
+  assert.equal(ar.annualFee, 0);
+  assert.equal(ar.annualFrequency, "annual");
   assert.equal(ar.franchiseTax, 150);
   assert.equal(calculateRecurringStateFees(ar, 1), 150);
   assert.equal(calculateRecurringStateFees(ar, 5), 750);
