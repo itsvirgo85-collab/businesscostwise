@@ -1,5 +1,5 @@
 import type { StateFee } from "@/data/stateFees";
-import { calculateOptionalCosts, calculateRecurringStateFees } from "@/lib/stateCost";
+import { calculateDeferredInitialReportFee, calculateOptionalCosts, calculateRecurringStateFees } from "@/lib/stateCost";
 
 function safeNonNegativeAmount(value: number): number {
   return Number.isFinite(value) ? Math.max(0, value) : 0;
@@ -14,6 +14,7 @@ export interface CalculatorInputs {
   nameReservationCost: number;
   expedited: boolean;
   expeditedCost: number;
+  includeDeferredInitialReport?: boolean;
 }
 
 export interface CostBreakdown {
@@ -21,6 +22,7 @@ export interface CostBreakdown {
   registeredAgent: number;
   nameReservation: number;
   expedited: number;
+  deferredInitialReport: number;
   firstYearRecurring: number;
   multiYearRecurring: number;
   total: number;
@@ -42,11 +44,12 @@ export function calculateLLCCost(inputs: CalculatorInputs): CostBreakdown {
   const ra = optionalCosts.registeredAgent;
   const nameRes = optionalCosts.nameReservation;
   const exp = optionalCosts.expedited;
+  const deferredInitialReport = calculateDeferredInitialReportFee(state, inputs.includeDeferredInitialReport ?? false);
 
   const firstYearRecurring = calculateRecurringStateFees(state, 1);
   const multiYearRecurring = calculateRecurringStateFees(state, years);
   const recurringForPeriod = years === 1 ? firstYearRecurring : multiYearRecurring;
-  const total = formation + ra + nameRes + exp + recurringForPeriod;
+  const total = formation + ra + nameRes + exp + deferredInitialReport + recurringForPeriod;
   const notes: string[] = [
     state.notes,
     "Timing note: this is a fixed-fee budget estimate, not a filing calendar. Annual and biennial due dates depend on the formation date and state rules; a charge may fall before or after the exact 12-month anniversary. Confirm deadlines with the linked agency.",
@@ -87,6 +90,9 @@ export function calculateLLCCost(inputs: CalculatorInputs): CostBreakdown {
       `Franchise / entity tax minimum or fixed amount: $${state.franchiseTax} per year. Any variable amount above this figure is not estimated.`
     );
   }
+  if (deferredInitialReport > 0) {
+    notes.push(`${state.deferredInitialReportLabel ?? "Deferred initial report"}: ${deferredInitialReport}.`);
+  }
   if (state.formationIncludesRA) {
     notes.push("The state formation fee includes the registered-agent designation filing; it does not necessarily include a commercial agent service.");
   }
@@ -105,6 +111,7 @@ export function calculateLLCCost(inputs: CalculatorInputs): CostBreakdown {
     registeredAgent: ra,
     nameReservation: nameRes,
     expedited: exp,
+    deferredInitialReport,
     firstYearRecurring,
     multiYearRecurring,
     total,
