@@ -72,9 +72,9 @@ test("Alabama variable Business Privilege Tax is not presented as verified $0", 
 test("Indiana and Kansas use their current 2026 filing fees and frequencies", () => {
   const inState = state("Indiana");
   assert.equal(inState.formationFee, 100);
-  assert.equal(inState.annualFee, 50);
+  assert.equal(inState.annualFee, 20);
   assert.equal(inState.annualFrequency, "biennial");
-  assert.equal(calculateFiveYearStateCost(inState), 200);
+  assert.equal(calculateFiveYearStateCost(inState), 140);
 
   const ks = state("Kansas");
   assert.equal(ks.formationFee, 85);
