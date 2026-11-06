@@ -14,6 +14,7 @@ export interface StateFee {
   verifiedAt: string;
   status: FeeStatus;
   formationIncludesRA?: boolean;
+  recurringFeeLabel?: string;
 }
 
 export const STATE_FEES: StateFee[] = [
@@ -22,14 +23,14 @@ export const STATE_FEES: StateFee[] = [
     slug: "alabama",
     abbreviation: "AL",
     formationFee: 200,
-    annualFee: 0,
+    annualFee: null,
     annualFrequency: "none",
     franchiseTax: null,
-    notes: "Certificate of Formation $200. Business Privilege Tax may apply but often $0 when calculated tax ≤ $100. Name reservation may be required separately.",
-    sourceUrl: "https://www.sos.alabama.gov/business-entities",
-    sourceName: "Alabama Secretary of State",
-    verifiedAt: "2026-10-15",
-    status: "verified",
+    notes: "Certificate of Formation $200. Alabama requires a Business Privilege Tax return for LLCs and other limited-liability entities unless the calculated tax is $100 or less, in which case the entity is exempt from the tax and return. The amount depends on the entity's net worth and apportionment, so no flat recurring amount is included until the calculation is verified.",
+    sourceUrl: "https://www.revenue.alabama.gov/individual-corporate/alabama-business-privilege-tax-and-corporate-share-tax/",
+    sourceName: "Alabama Department of Revenue",
+    verifiedAt: "2026-11-06",
+    status: "pending",
   },
   {
     state: "Alaska",
@@ -120,13 +121,14 @@ export const STATE_FEES: StateFee[] = [
     slug: "delaware",
     abbreviation: "DE",
     formationFee: 110,
-    annualFee: 0,
-    annualFrequency: "none",
-    franchiseTax: 400,
-    notes: "Certificate of Formation $110. Annual LLC tax $400 due June 1 (no annual report form for most LLCs).",
-    sourceUrl: "https://corp.delaware.gov/",
+    annualFee: 400,
+    annualFrequency: "annual",
+    franchiseTax: null,
+    recurringFeeLabel: "Annual LLC tax",
+    notes: "Certificate of Formation $110. Annual LLC tax $400 due June 1. Delaware LLCs do not file an annual franchise tax report; the $400 tax is still due every year.",
+    sourceUrl: "https://corp.delaware.gov/alt-entitytaxinstructions/",
     sourceName: "Delaware Division of Corporations",
-    verifiedAt: "2026-10-20",
+    verifiedAt: "2026-11-06",
     status: "verified",
   },
   {
@@ -541,13 +543,14 @@ export const STATE_FEES: StateFee[] = [
     slug: "pennsylvania",
     abbreviation: "PA",
     formationFee: 125,
-    annualFee: 70,
+    annualFee: 7,
     annualFrequency: "annual",
     franchiseTax: null,
-    notes: "Certificate of Organization $125. Decennial registration / annual report fees apply (often $70 range).",
-    sourceUrl: "https://www.dos.pa.gov/BusinessCharities/",
+    recurringFeeLabel: "Annual report",
+    notes: "Certificate of Organization $125. For-profit LLCs file a $7 annual report by September 30 each year. The former decennial report requirement was repealed.",
+    sourceUrl: "https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports",
     sourceName: "Pennsylvania Department of State",
-    verifiedAt: "2026-10-15",
+    verifiedAt: "2026-11-06",
     status: "verified",
   },
   {
