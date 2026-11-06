@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { STATE_FEES } from "../src/data/stateFees.ts";
+import { STATE_FEES, getVerifiedStates } from "../src/data/stateFees.ts";
 import { calculateFiveYearStateCost, calculateRecurringStateFees } from "../src/lib/stateCost.ts";
 
 function state(name) {
@@ -159,4 +159,32 @@ test("biennial reports due after year one are not charged in the first-year esti
   assert.equal(calculateRecurringStateFees(ak, 1), 0);
   assert.equal(calculateRecurringStateFees(ak, 3), 100);
   assert.equal(calculateRecurringStateFees(ak, 5), 200);
+});
+
+test("Rhode Island annual report is not charged in the formation year", () => {
+  const ri = state("Rhode Island");
+  assert.equal(ri.annualFeeFirstYearExempt, true);
+  assert.equal(calculateRecurringStateFees(ri, 1), 400);
+  assert.equal(calculateRecurringStateFees(ri, 5), 2200);
+  assert.equal(calculateFiveYearStateCost(ri), 2350);
+});
+
+test("state fee dataset has unique records and official source metadata", () => {
+  assert.equal(STATE_FEES.length, 51, "Expected 50 states plus Washington DC");
+  assert.equal(new Set(STATE_FEES.map((item) => item.slug)).size, STATE_FEES.length, "State slugs must be unique");
+  assert.equal(new Set(STATE_FEES.map((item) => item.abbreviation)).size, STATE_FEES.length, "State abbreviations must be unique");
+  assert.equal(getVerifiedStates().length, 50, "Expected 49 states plus DC to be verified");
+  for (const item of STATE_FEES) {
+    assert.ok(item.sourceName.trim(), `Missing source name for ${item.state}`);
+    assert.match(item.sourceUrl, /^https:\/\//, `Source URL must use HTTPS for ${item.state}`);
+    assert.ok(Number.isFinite(Date.parse(item.verifiedAt)), `Invalid verification date for ${item.state}`);
+    for (const amount of [item.formationFee, item.annualFee, item.franchiseTax]) {
+      assert.ok(amount === null || (Number.isFinite(amount) && amount >= 0), `Invalid fee amount for ${item.state}`);
+    }
+    for (const source of item.additionalSources ?? []) {
+      assert.ok(source.name.trim(), `Missing additional source name for ${item.state}`);
+      assert.match(source.url, /^https:\/\//, `Additional source URL must use HTTPS for ${item.state}`);
+    }
+    assert.ok(calculateFiveYearStateCost(item) >= (item.formationFee ?? 0), `Five-year cost below formation fee for ${item.state}`);
+  }
 });
