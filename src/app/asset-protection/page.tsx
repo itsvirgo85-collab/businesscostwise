@@ -3,7 +3,7 @@ import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 
 export const metadata: Metadata = {
-  title: "Does an LLC Protect Personal Assets? Realistic Limits Explained",
+  title: "Does an LLC Protect Personal Assets? Realistic Limits Explained (2026)",
   description:
     "Educational guide on how LLC limited liability works, when courts may pierce the veil, and practical steps small-business owners can take to strengthen asset protection.",
 };
@@ -73,40 +73,87 @@ export default function AssetProtectionPage() {
       answer:
         "Single-member LLCs can provide limited liability, but some courts scrutinize them more closely. Maintaining strict separation of finances and proper formalities is especially important.",
     },
+    {
+      question: "Can I lose limited liability if I sign a personal guarantee?",
+      answer:
+        "Yes for that specific obligation. A personal guarantee makes you personally responsible for the debt or contract even if the LLC is properly maintained. Many landlords and lenders require personal guarantees from small-business owners.",
+    },
+    {
+      question: "Does forming an LLC in a different state give stronger protection?",
+      answer:
+        "Asset protection rules are largely governed by the law of the state where the lawsuit is brought and where the LLC operates. Forming in a different state does not automatically create stronger protection and often adds foreign registration costs.",
+    },
   ];
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
-      <nav className="mb-6 text-sm text-slate-500">
-        <Link href="/" className="hover:text-[#1769AA]">Home</Link>
+
+      <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
+        <Link href="/" className="hover:text-[#1769AA]">
+          Home
+        </Link>
+        <span className="mx-2">/</span>
+        <Link href="/what-is-an-llc" className="hover:text-[#1769AA]">
+          What is an LLC
+        </Link>
         <span className="mx-2">/</span>
         <span className="text-slate-800">Asset Protection</span>
       </nav>
 
-      <h1 className="text-3xl font-bold tracking-tight text-[#102A43]">
+      <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         Does an LLC Protect Your Personal Assets?
       </h1>
-      <p className="mt-3 text-slate-600 leading-relaxed">
-        One of the main reasons people form a limited liability company is to create a legal separation
-        between business liabilities and personal assets. In many ordinary commercial situations an LLC
-        can help achieve that goal. However, limited liability is not absolute. Courts can pierce the
-        corporate veil in certain circumstances, and personal guarantees, professional malpractice,
-        and inadequate insurance can still expose personal assets.
+
+      <p className="mt-4 text-lg text-slate-600 leading-relaxed">
+        One of the main reasons people form a limited liability company is to create a legal separation between business liabilities and personal assets. In many ordinary commercial situations an LLC can help achieve that goal. However, limited liability is not absolute.
       </p>
 
+      <p className="mt-3 text-slate-600 leading-relaxed">
+        Courts can pierce the corporate veil in certain circumstances, and personal guarantees, professional malpractice, and inadequate insurance can still expose personal assets. This page explains how limited liability is supposed to work and the practical steps that strengthen it.
+      </p>
+
+      <div className="mt-6 flex flex-wrap gap-3">
+        <Link
+          href="/what-is-an-llc"
+          className="rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-700 transition hover:border-[#1769AA]"
+        >
+          What is an LLC?
+        </Link>
+        <Link
+          href="/how-to-form-an-llc"
+          className="rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-700 transition hover:border-[#1769AA]"
+        >
+          How to form an LLC
+        </Link>
+        <Link
+          href="/business-structures/llc-vs-sole-proprietorship"
+          className="rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-700 transition hover:border-[#1769AA]"
+        >
+          LLC vs Sole Proprietorship
+        </Link>
+      </div>
+
       <section className="mt-12">
-        <h2 className="text-xl font-semibold text-[#102A43]">How limited liability is supposed to work</h2>
-        <p className="mt-3 text-sm text-slate-700 leading-relaxed">
-          When you properly form and maintain an LLC, the company is treated as a separate legal entity.
-          In general, creditors of the business are expected to look to the company’s assets, not the
-          personal house, car, or savings of the members.
+        <h2 className="text-2xl font-bold text-[#102A43]">How limited liability is supposed to work</h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          When you properly form and maintain an LLC, the company is treated as a separate legal entity. In general, creditors of the business are expected to look to the company’s assets, not the personal house, car, or savings of the members.
+        </p>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          This separation is one of the main advantages of an LLC compared with a sole proprietorship, where there is no legal distinction between the owner and the business. See{" "}
+          <Link href="/business-structures/llc-vs-sole-proprietorship" className="text-[#1769AA] hover:underline">
+            LLC vs Sole Proprietorship
+          </Link>
+          .
         </p>
       </section>
 
       <section className="mt-12">
-        <h2 className="text-xl font-semibold text-[#102A43]">When limited liability can fail</h2>
-        <ul className="mt-4 space-y-2 text-sm text-slate-700">
+        <h2 className="text-2xl font-bold text-[#102A43]">When limited liability can fail</h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          Courts may “pierce the corporate veil” and hold owners personally liable when the LLC is not treated as a real separate entity or is used improperly. Common risk factors include:
+        </p>
+        <ul className="mt-4 space-y-2 text-slate-700">
           <li className="flex gap-2"><span className="text-[#1769AA]">•</span> Mixing personal and business funds or assets</li>
           <li className="flex gap-2"><span className="text-[#1769AA]">•</span> Failing to keep basic records or observe entity formalities</li>
           <li className="flex gap-2"><span className="text-[#1769AA]">•</span> Undercapitalizing the company relative to its risks</li>
@@ -116,7 +163,10 @@ export default function AssetProtectionPage() {
       </section>
 
       <section className="mt-12">
-        <h2 className="text-xl font-semibold text-[#102A43]">Practical checklist to strengthen protection</h2>
+        <h2 className="text-2xl font-bold text-[#102A43]">Practical checklist to strengthen protection</h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          Limited liability works best when the LLC is treated as a real business. The steps below are practical habits that support the separation between you and the company.
+        </p>
         <div className="mt-6 space-y-4">
           {checklist.map((item, i) => (
             <div key={i} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -135,13 +185,25 @@ export default function AssetProtectionPage() {
       </section>
 
       <section className="mt-12">
-        <h2 className="text-xl font-semibold text-[#102A43]">Frequently asked questions</h2>
+        <h2 className="text-2xl font-bold text-[#102A43]">Insurance still matters</h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          An LLC is a legal structure, not an insurance policy. Many claims are handled first through business liability or professional liability insurance. Maintaining adequate coverage is often the most practical way to protect both the company and the owners.
+        </p>
+      </section>
+
+      <section className="mt-12">
+        <h2 className="text-2xl font-bold text-[#102A43]">Frequently asked questions</h2>
         <div className="mt-6 space-y-4">
           {faqs.map((f, i) => (
-            <div key={i} className="rounded-xl border border-slate-200 bg-white p-5">
-              <h3 className="font-semibold text-[#102A43] text-sm">{f.question}</h3>
-              <p className="mt-2 text-sm text-slate-600 leading-relaxed">{f.answer}</p>
-            </div>
+            <details key={i} className="group rounded-xl border border-slate-200 bg-white p-5">
+              <summary className="cursor-pointer list-none font-semibold text-[#102A43]">
+                <span className="flex items-center justify-between">
+                  {f.question}
+                  <span className="ml-4 text-slate-400 transition group-open:rotate-180">▼</span>
+                </span>
+              </summary>
+              <p className="mt-3 text-slate-600 leading-relaxed">{f.answer}</p>
+            </details>
           ))}
         </div>
       </section>
@@ -149,15 +211,36 @@ export default function AssetProtectionPage() {
       <section className="mt-12 rounded-xl border border-slate-200 bg-slate-50 p-6">
         <h2 className="text-lg font-semibold text-[#102A43]">Related resources</h2>
         <ul className="mt-4 space-y-2 text-sm">
-          <li><Link href="/llc-cost-calculator" className="text-[#1769AA] hover:underline">LLC Cost Calculator</Link></li>
-          <li><Link href="/business-structures/llc-vs-sole-proprietorship" className="text-[#1769AA] hover:underline">LLC vs Sole Proprietorship</Link></li>
-          <li><Link href="/llc-cost-by-state" className="text-[#1769AA] hover:underline">LLC Costs by State</Link></li>
+          <li>
+            <Link href="/what-is-an-llc" className="text-[#1769AA] hover:underline">
+              What is an LLC?
+            </Link>
+          </li>
+          <li>
+            <Link href="/business-structures/llc-vs-sole-proprietorship" className="text-[#1769AA] hover:underline">
+              LLC vs Sole Proprietorship
+            </Link>
+          </li>
+          <li>
+            <Link href="/how-to-form-an-llc" className="text-[#1769AA] hover:underline">
+              How to Form an LLC
+            </Link>
+          </li>
+          <li>
+            <Link href="/how-much-does-it-cost-to-start-an-llc" className="text-[#1769AA] hover:underline">
+              How Much Does It Cost to Start an LLC?
+            </Link>
+          </li>
+          <li>
+            <Link href="/llc-cost-calculator" className="text-[#1769AA] hover:underline">
+              LLC Cost Calculator
+            </Link>
+          </li>
         </ul>
       </section>
 
-      <p className="mt-10 text-xs text-slate-500 leading-relaxed">
-        This page is for educational purposes only. It is not a substitute for advice from a licensed attorney
-        in your jurisdiction. Consult a qualified professional before making decisions.
+      <p className="mt-10 text-xs leading-relaxed text-slate-500">
+        This page is for educational purposes only. It is not a substitute for advice from a licensed attorney in your jurisdiction. Consult a qualified professional before making decisions. This site is not affiliated with any government agency.
       </p>
     </div>
   );
