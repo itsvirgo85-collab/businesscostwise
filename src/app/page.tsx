@@ -22,7 +22,7 @@ export default function HomePage() {
     {
       href: "/llc-cost-by-state",
       title: "LLC Costs by State",
-      desc: "Full table of formation and recurring fees for all 50 states + DC, each linked to official government sources.",
+      desc: "Full table of formation and recurring fees for 49 verified states + DC, each linked to official government sources.",
     },
     {
       href: "/cheapest-states-to-form-an-llc",
@@ -123,8 +123,8 @@ export default function HomePage() {
             How much does it cost to start an LLC in 2026?
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-blue-100">
-            Get the real number before you file. Free calculator for all 50 states + DC,
-            official government source links, cheapest and most expensive rankings,
+            Get the real number before you file. Free calculator for 49 verified states + DC,
+            official government source references, cheapest and most expensive rankings,
             and clear guides on hidden costs and business structures.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
