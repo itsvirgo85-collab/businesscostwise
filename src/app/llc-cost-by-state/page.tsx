@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { STATE_FEES } from "@/data/stateFees";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
-import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "LLC Costs by State — Filing Fees & Annual Reports",
