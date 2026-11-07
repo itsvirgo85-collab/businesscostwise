@@ -25,7 +25,6 @@ export default function LLCCostCalculatorPage() {
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorJsonLd) }} />
       <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"LLC Cost Calculator","item":"/llc-cost-calculator"}]} />
-      <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"LLC Cost Calculator","item":"/llc-cost-calculator"}]} />
       <nav className="mb-6 text-sm text-slate-500">
         <Link href="/" className="hover:text-[#1769AA]">Home</Link>
         <span className="mx-2">/</span>
