@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "What is an LLC? Limited Liability Company Explained Simply (2026)",
@@ -57,13 +58,7 @@ export default function WhatIsAnLLCPage() {
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
 
-      <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-[#1769AA]">
-          Home
-        </Link>
-        <span className="mx-2">/</span>
-        <span className="text-slate-800">What is an LLC</span>
-      </nav>
+      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"What is an LLC","item":"/what-is-an-llc"}]} />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         What is an LLC? Limited Liability Company Explained

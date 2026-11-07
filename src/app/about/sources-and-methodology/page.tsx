@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { STATE_FEES } from "@/data/stateFees";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Sources & Methodology",
@@ -13,11 +13,7 @@ export default function SourcesPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
-      <nav className="mb-6 text-sm text-slate-500">
-        <Link href="/about" className="hover:text-[#1769AA]">About</Link>
-        <span className="mx-2">/</span>
-        <span className="text-slate-800">Sources & Methodology</span>
-      </nav>
+      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"About","item":"/about"},{"name":"Sources & Methodology","item":"/about/sources-and-methodology"}]} />
       <h1 className="text-3xl font-bold text-[#102A43]">Sources & Methodology</h1>
       <p className="mt-4 text-slate-600">
         State LLC filing fees and recurring charges change. We only publish figures that have been

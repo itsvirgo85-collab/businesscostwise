@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — Get LLC Cost Calculator",
@@ -10,11 +10,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
-      <nav className="mb-6 text-sm text-slate-500">
-        <Link href="/" className="hover:text-[#1769AA]">Home</Link>
-        <span className="mx-2">/</span>
-        <span className="text-slate-800">Privacy Policy</span>
-      </nav>
+      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"Privacy Policy","item":"/privacy"}]} />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43]">Privacy Policy</h1>
       <p className="mt-2 text-sm text-slate-500">Last updated: November 2026</p>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "LLC vs Sole Proprietorship: Key Differences, Pros & Cons (2026)",
@@ -57,17 +58,7 @@ export default function LLCvsSolePropPage() {
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
 
-      <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-[#1769AA]">
-          Home
-        </Link>
-        <span className="mx-2">/</span>
-        <Link href="/what-is-an-llc" className="hover:text-[#1769AA]">
-          What is an LLC
-        </Link>
-        <span className="mx-2">/</span>
-        <span className="text-slate-800">LLC vs Sole Proprietorship</span>
-      </nav>
+      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"LLC vs Sole Proprietorship","item":"/business-structures/llc-vs-sole-proprietorship"}]} />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         LLC vs Sole Proprietorship: Key Differences (2026)
