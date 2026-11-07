@@ -66,7 +66,7 @@ export default function HiddenCostsPage() {
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
 
-      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"LLC Costs","item":"/how-much-does-it-cost-to-start-an-llc"},{"name":"Hidden Costs","item":"/hidden-costs-of-forming-an-llc"}]} />
+      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"LLC Cost Guide","item":"/how-much-does-it-cost-to-start-an-llc"},{"name":"Hidden Costs","item":"/hidden-costs-of-forming-an-llc"}]} />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         Hidden Costs of Forming an LLC in 2026
