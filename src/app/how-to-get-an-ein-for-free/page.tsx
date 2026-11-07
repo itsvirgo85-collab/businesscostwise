@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
-import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "How to Get an EIN for Free (IRS) — No Third-Party Fees (2026)",
@@ -47,19 +47,8 @@ export default function GetEINFreePage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
-      <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"How to Form an LLC","item":"/how-to-form-an-llc"},{"name":"Get an EIN for Free","item":"/how-to-get-an-ein-for-free"}]} />
+      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"How to Form an LLC","item":"/how-to-form-an-llc"},{"name":"Get an EIN for Free","item":"/how-to-get-an-ein-for-free"}]} />
 
-      <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-[#1769AA]">
-          Home
-        </Link>
-        <span className="mx-2">/</span>
-        <Link href="/how-to-form-an-llc" className="hover:text-[#1769AA]">
-          How to Form an LLC
-        </Link>
-        <span className="mx-2">/</span>
-        <span className="text-slate-800">Get an EIN for Free</span>
-      </nav>
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         How to Get an EIN for Free
