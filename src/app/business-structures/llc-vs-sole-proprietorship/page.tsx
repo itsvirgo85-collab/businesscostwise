@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "LLC vs Sole Proprietorship: Key Differences, Pros & Cons (2026)",
   description:
     "Clear side-by-side comparison of LLC vs sole proprietorship. Liability, taxes, formation cost, ongoing requirements, and when each structure makes sense. Educational guide for 2026.",
+  alternates: { canonical: "/business-structures/llc-vs-sole-proprietorship" },
 };
 
 export default function LLCvsSolePropPage() {
