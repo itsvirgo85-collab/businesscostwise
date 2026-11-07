@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "About Get LLC Cost Calculator",
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"About","item":"/about"}]} />
       <h1 className="text-3xl font-bold text-[#102A43]">About Get LLC Cost Calculator</h1>
       <p className="mt-4 text-slate-600">
         Get LLC Cost Calculator is an independent educational resource focused on US LLC formation costs,
