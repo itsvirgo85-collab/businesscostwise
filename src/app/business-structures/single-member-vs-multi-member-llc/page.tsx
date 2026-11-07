@@ -13,7 +13,6 @@ export default function SingleVsMultiMemberPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"Single-Member vs Multi-Member LLC","item":"/business-structures/single-member-vs-multi-member-llc"}]} />
-      <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"Single-Member vs Multi-Member LLC","item":"/business-structures/single-member-vs-multi-member-llc"}]} />
       <nav className="mb-6 text-sm text-slate-500">
         <Link href="/" className="hover:text-[#1769AA]">Home</Link>
         <span className="mx-2">/</span>
