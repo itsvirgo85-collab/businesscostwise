@@ -58,14 +58,10 @@ export default function LLCvsSolePropPage() {
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
 
-      <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"What is an LLC","item":"/what-is-an-llc"},{"name":"LLC vs Sole Proprietorship","item":"/business-structures/llc-vs-sole-proprietorship"}]} />
+      <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"LLC vs Sole Proprietorship","item":"/business-structures/llc-vs-sole-proprietorship"}]} />
       <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-[#1769AA]">
           Home
-        </Link>
-        <span className="mx-2">/</span>
-        <Link href="/what-is-an-llc" className="hover:text-[#1769AA]">
-          What is an LLC
         </Link>
         <span className="mx-2">/</span>
         <span className="text-slate-800">LLC vs Sole Proprietorship</span>
