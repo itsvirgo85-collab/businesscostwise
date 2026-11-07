@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import LLCCostCalculator from "@/components/calculators/LLCCostCalculator";
 import Link from "next/link";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
-import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "LLC Cost Calculator by State — Formation & Annual Fees",
