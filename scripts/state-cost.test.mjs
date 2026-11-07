@@ -235,6 +235,17 @@ test("disabled optional costs are zero and invalid entered amounts are clamped",
   assert.deepEqual(invalid, { registeredAgent: 0, nameReservation: 0, expedited: 0 });
 });
 
+test("Vermont conditional minimum entity tax and Wyoming asset-based license tax are disclosed", () => {
+  const vt = state("Vermont");
+  assert.match(vt.notes, /\$250 annual minimum entity tax/i);
+  assert.match(vt.notes, /not included in the fixed-fee calculator total/i);
+  assert.ok(vt.additionalSources?.some((source) => source.url.includes("32/151/05921")));
+
+  const wy = state("Wyoming");
+  assert.match(wy.notes, /greater of \$60 or 0\.0002/i);
+  assert.match(wy.notes, /not estimated/i);
+});
+
 test("all state records produce finite non-negative recurring and five-year estimates", () => {
   for (const item of STATE_FEES) {
     for (const years of [1, 3, 5]) {
