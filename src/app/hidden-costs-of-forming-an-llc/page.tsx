@@ -3,6 +3,7 @@ import Link from "next/link";
 import { STATE_FEES } from "@/data/stateFees";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "Hidden Costs of Forming an LLC 2026 — Franchise Tax, Publication & More",
@@ -66,6 +67,7 @@ export default function HiddenCostsPage() {
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
 
+      <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"LLC Costs","item":"/how-much-does-it-cost-to-start-an-llc"},{"name":"Hidden Costs","item":"/hidden-costs-of-forming-an-llc"}]} />
       <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"LLC Costs","item":"/how-much-does-it-cost-to-start-an-llc"},{"name":"Hidden Costs","item":"/hidden-costs-of-forming-an-llc"}]} />
       <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-[#1769AA]">
