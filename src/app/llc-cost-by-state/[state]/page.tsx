@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getStateBySlug, getVerifiedStates } from "@/data/stateFees";
 import { calculateFiveYearStateCost, calculateRecurringStateFees } from "@/lib/stateCost";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 type Props = { params: Promise<{ state: string }> };
 
@@ -62,6 +63,7 @@ export default async function StateCostPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
+      <BreadcrumbJsonLd items={[{ name: "Home", item: "/" }, { name: "Costs by State", item: "/llc-cost-by-state" }, { name: s.state, item: `/llc-cost-by-state/${s.slug}` }]} />
       <nav className="mb-6 text-sm text-slate-500">
         <Link href="/" className="hover:text-[#1769AA]">Home</Link>
         <span className="mx-2">/</span>
