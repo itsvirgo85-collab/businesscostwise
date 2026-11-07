@@ -74,7 +74,6 @@ export default function HowMuchDoesItCostPage() {
       <FaqJsonLd faqs={faqs} />
 
       <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"How Much Does It Cost to Start an LLC","item":"/how-much-does-it-cost-to-start-an-llc"}]} />
-      <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"How Much Does It Cost to Start an LLC","item":"/how-much-does-it-cost-to-start-an-llc"}]} />
       <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-[#1769AA]">
           Home
