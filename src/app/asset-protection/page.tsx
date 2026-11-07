@@ -90,7 +90,7 @@ export default function AssetProtectionPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
-      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"What is an LLC","item":"/what-is-an-llc"},{"name":"Asset Protection","item":"/asset-protection"}]} />
+      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"Asset Protection","item":"/asset-protection"}]} />
 
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
