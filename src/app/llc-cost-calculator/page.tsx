@@ -6,11 +6,23 @@ export const metadata: Metadata = {
   title: "LLC Cost Calculator by State — Formation & Annual Fees",
   description:
     "Estimate LLC formation costs by US state. Includes filing fees, annual reports, and franchise taxes where applicable. Every figure linked to official government sources.",
+  alternates: { canonical: "/llc-cost-calculator" },
 };
 
 export default function LLCCostCalculatorPage() {
+  const calculatorJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "LLC Cost Calculator by State",
+    applicationCategory: "FinanceApplication",
+    operatingSystem: "Web",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    description: "Free educational calculator for estimated LLC formation and fixed recurring state fees across verified US states and DC.",
+  };
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorJsonLd) }} />
       <nav className="mb-6 text-sm text-slate-500">
         <Link href="/" className="hover:text-[#1769AA]">Home</Link>
         <span className="mx-2">/</span>
