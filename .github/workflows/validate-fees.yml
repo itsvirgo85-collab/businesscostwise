@@ -1,0 +1,49 @@
+name: Validate LLC fee data and site build
+
+on:
+  push:
+    branches:
+      - fix/p0-llc-fee-accuracy
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Report dependency advisories
+        run: |
+          npm audit --json > npm-audit.json || true
+          node -e 'const a = JSON.parse(require("node:fs").readFileSync("npm-audit.json", "utf8")); console.log("Dependency vulnerability totals:", JSON.stringify(a.metadata?.vulnerabilities ?? {})); for (const [name, v] of Object.entries(a.vulnerabilities ?? {})) console.log(JSON.stringify({name, severity:v.severity, range:v.range, fixAvailable:v.fixAvailable, via:v.via?.map(x => typeof x === "string" ? x : x.title)}));'
+
+      - name: Require clean dependency audit
+        run: npm audit --audit-level=moderate
+
+      - name: Test state fee calculations
+        run: npm test
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Build Next.js site
+        run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
