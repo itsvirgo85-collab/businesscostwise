@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Disclaimer",
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 export default function DisclaimerPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"Disclaimer","item":"/disclaimer"}]} />
       <h1 className="text-3xl font-bold text-[#102A43]">Disclaimer</h1>
       <div className="mt-6 space-y-4 text-sm text-slate-700">
         <p>
