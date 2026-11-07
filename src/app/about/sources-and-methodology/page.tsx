@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { STATE_FEES } from "@/data/stateFees";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "Sources & Methodology",
@@ -14,6 +15,7 @@ export default function SourcesPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+      <BreadcrumbJsonLd items={[{"name":"About","item":"/about"},{"name":"Sources & Methodology","item":"/about/sources-and-methodology"}]} />
       <BreadcrumbJsonLd items={[{"name":"About","item":"/about"},{"name":"Sources & Methodology","item":"/about/sources-and-methodology"}]} />
       <nav className="mb-6 text-sm text-slate-500">
         <Link href="/about" className="hover:text-[#1769AA]">About</Link>
