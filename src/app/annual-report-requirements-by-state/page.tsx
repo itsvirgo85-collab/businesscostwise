@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { STATE_FEES } from "@/data/stateFees";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "LLC Annual Report Requirements by State 2026 — Fees & Frequency",
   description:
     "See which states require annual or biennial LLC reports, typical fees, and which states currently have no recurring report fee. Educational overview with official source links.",
+  alternates: { canonical: "/annual-report-requirements-by-state" },
 };
 
 export default function AnnualReportPage() {
@@ -59,6 +61,7 @@ export default function AnnualReportPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
+      <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"LLC Costs","item":"/how-much-does-it-cost-to-start-an-llc"},{"name":"Annual Reports","item":"/annual-report-requirements-by-state"}]} />
 
       <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-[#1769AA]">

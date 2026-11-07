@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "Does an LLC Protect Personal Assets? Realistic Limits Explained (2026)",
   description:
     "Educational guide on how LLC limited liability works, when courts may pierce the veil, and practical steps small-business owners can take to strengthen asset protection.",
+  alternates: { canonical: "/asset-protection" },
 };
 
 export default function AssetProtectionPage() {
@@ -88,6 +90,7 @@ export default function AssetProtectionPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
+      <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"What is an LLC","item":"/what-is-an-llc"},{"name":"Asset Protection","item":"/asset-protection"}]} />
 
       <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-[#1769AA]">
