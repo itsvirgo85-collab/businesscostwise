@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { STATE_FEES } from "@/data/stateFees";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "Most Expensive States to Form & Keep an LLC in 2026",
   description:
     "Ranked list of the most expensive US states to form and maintain an LLC in 2026, including high formation fees, annual reports, and franchise taxes like California’s $800. Educational guide.",
+  alternates: { canonical: "/most-expensive-states-to-form-an-llc" },
 };
 
 export default function MostExpensiveStatesPage() {
@@ -64,6 +66,7 @@ export default function MostExpensiveStatesPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
+      <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"LLC Costs","item":"/how-much-does-it-cost-to-start-an-llc"},{"name":"Most Expensive States","item":"/most-expensive-states-to-form-an-llc"}]} />
 
       <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-[#1769AA]">
