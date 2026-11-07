@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { STATE_FEES } from "@/data/stateFees";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
-import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "LLC Annual Report Requirements by State 2026 — Fees & Frequency",
@@ -61,19 +61,8 @@ export default function AnnualReportPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
-      <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"LLC Costs","item":"/how-much-does-it-cost-to-start-an-llc"},{"name":"Annual Reports","item":"/annual-report-requirements-by-state"}]} />
+      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"LLC Costs","item":"/how-much-does-it-cost-to-start-an-llc"},{"name":"Annual Reports","item":"/annual-report-requirements-by-state"}]} />
 
-      <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-[#1769AA]">
-          Home
-        </Link>
-        <span className="mx-2">/</span>
-        <Link href="/how-much-does-it-cost-to-start-an-llc" className="hover:text-[#1769AA]">
-          LLC Costs
-        </Link>
-        <span className="mx-2">/</span>
-        <span className="text-slate-800">Annual Reports</span>
-      </nav>
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         LLC Annual Report Requirements by State (2026)
