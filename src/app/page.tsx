@@ -2,9 +2,10 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "How Much Does It Cost to Start an LLC in 2026? Free Calculator + Complete Guide",
+  title: "Free LLC Cost Calculator by State",
   description:
-    "Get the real cost to form an LLC in any state. Free interactive calculator, official fees, hidden costs, cheapest states ranking, step-by-step formation guide, and business structure comparisons. Updated for 2026.",
+    "Compare LLC formation fees and recurring state obligations across 49 verified states + DC. Use the free 1-, 3-, and 5-year calculator with official government source links.",
+  alternates: { canonical: "/" },
 };
 
 export default function HomePage() {
@@ -22,7 +23,7 @@ export default function HomePage() {
     {
       href: "/llc-cost-by-state",
       title: "LLC Costs by State",
-      desc: "Full table of formation and recurring fees for all 50 states + DC, each linked to official government sources.",
+      desc: "Full table of formation and recurring fees for 49 verified states + DC, each linked to official government sources.",
     },
     {
       href: "/cheapest-states-to-form-an-llc",
@@ -82,7 +83,7 @@ export default function HomePage() {
   const faqs = [
     {
       q: "How much does it cost to start an LLC?",
-      a: "State filing fees typically range from about $35 to $500. Additional costs can include annual reports, franchise taxes, registered agent service, and publication requirements in a few states. Use the free calculator for your state’s full estimate.",
+      a: "State filing fees typically range from about $35 to $500. Your full budget can also include annual reports, franchise taxes, registered agent services, and local costs. See the complete cost guide and use the free calculator for a state-specific estimate.",
     },
     {
       q: "What is the cheapest state to form an LLC?",
@@ -114,17 +115,28 @@ export default function HomePage() {
     },
   ];
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       {/* Hero */}
       <section className="bg-gradient-to-b from-[#102A43] to-[#1769AA] text-white">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
           <h1 className="max-w-3xl text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            How much does it cost to start an LLC in 2026?
+            Compare LLC costs by state with a free calculator
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-blue-100">
-            Get the real number before you file. Free calculator for all 50 states + DC,
-            official government source links, cheapest and most expensive rankings,
+            Get the real number before you file. Free calculator for 49 verified states + DC,
+            official government source references, cheapest and most expensive rankings,
             and clear guides on hidden costs and business structures.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
