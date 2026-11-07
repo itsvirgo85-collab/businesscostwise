@@ -3,7 +3,6 @@ import Link from "next/link";
 import { STATE_FEES } from "@/data/stateFees";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
-import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "Hidden Costs of Forming an LLC 2026 — Franchise Tax, Publication & More",
