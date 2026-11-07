@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "What is an LLC? Limited Liability Company Explained Simply (2026)",
   description:
     "What is an LLC? Clear explanation of a Limited Liability Company, how it works, benefits, taxes, formation basics, and how it compares to sole proprietorships and corporations. Educational guide for 2026.",
+  alternates: { canonical: "/what-is-an-llc" },
 };
 
 export default function WhatIsAnLLCPage() {
