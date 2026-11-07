@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "How to Form an LLC in 2026: Step-by-Step Guide (Any State)",
@@ -102,6 +103,7 @@ export default function HowToFormLLCPage() {
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
 
+      <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"How to Form an LLC","item":"/how-to-form-an-llc"}]} />
       <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-[#1769AA]">
           Home
