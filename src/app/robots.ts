@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://getllccostcalculator.com/sitemap.xml",
-    host: "https://getllccostcalculator.com",
+    sitemap: "https://www.getllccostcalculator.com/sitemap.xml",
+    host: "https://www.getllccostcalculator.com",
   };
 }

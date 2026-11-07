@@ -5,7 +5,8 @@ import { STATE_FEES } from "@/data/stateFees";
 export const metadata: Metadata = {
   title: "LLC Costs by State — Filing Fees & Annual Reports",
   description:
-    "Compare LLC formation filing fees and recurring annual or biennial costs across all 50 US states and DC. Every figure linked to official government sources.",
+    "Compare LLC formation filing fees and recurring annual or biennial costs across 49 currently verified US states and DC. Alabama is excluded until its variable Business Privilege Tax is fully modeled.",
+  alternates: { canonical: "/llc-cost-by-state" },
 };
 
 export default function LLCCostByStatePage() {
@@ -25,8 +26,7 @@ export default function LLCCostByStatePage() {
         LLC Formation Costs by State
       </h1>
       <p className="mt-3 max-w-3xl text-slate-600">
-        Verified filing fees and recurring charges for all 50 US states and the District of Columbia.
-        Each row links to the official government source used for verification. Always re-check current fees before filing.
+        Verified filing fees and recurring charges for 49 US states and the District of Columbia. Alabama is temporarily excluded while its variable Business Privilege Tax is reviewed. Each row links to the official government source used for verification. Always re-check current fees before filing.
       </p>
 
       <div className="mt-8 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
@@ -53,13 +53,17 @@ export default function LLCCostByStatePage() {
                   {s.formationFee != null ? `$${s.formationFee}` : "—"}
                 </td>
                 <td className="px-4 py-3">
-                  {s.annualFee != null && s.annualFee > 0
-                    ? `$${s.annualFee}`
-                    : s.franchiseTax
-                      ? `$${s.franchiseTax} (franchise)`
-                      : "None / $0"}
+                  <div>
+                    {s.annualFrequency !== "none" && (
+                      <div>{s.annualFee != null ? `${s.annualFee}` : "Variable / not included"} <span className="text-xs text-slate-500">({s.recurringFeeLabel ?? (s.annualFrequency === "biennial" ? "biennial filing" : "annual filing")})</span></div>
+                    )}
+                    {s.franchiseTax != null && s.franchiseTax > 0 && (
+                      <div>${s.franchiseTax} <span className="text-xs text-slate-500">(annual franchise / entity tax)</span></div>
+                    )}
+                    {s.annualFrequency === "none" && !s.franchiseTax && "No fixed recurring filing fee"}
+                  </div>
                 </td>
-                <td className="px-4 py-3 capitalize">{s.annualFrequency}</td>
+                <td className="px-4 py-3 capitalize">{s.annualFrequency === "none" ? (s.franchiseTax ? "Annual tax" : "None listed") : s.annualFrequency}</td>
                 <td className="px-4 py-3">
                   <a
                     href={s.sourceUrl}

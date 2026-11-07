@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     template: "%s | Get LLC Cost Calculator",
   },
   description:
-    "Free LLC cost calculator for all 50 states. See formation fees, annual reports, franchise taxes, and multi-year totals with official government source links.",
-  metadataBase: new URL("https://getllccostcalculator.com"),
+    "Free LLC cost calculator for 49 verified US states and DC. Compare formation fees, annual filings, franchise taxes, and multi-year estimates with official government references.",
+  metadataBase: new URL("https://www.getllccostcalculator.com"),
   openGraph: {
     type: "website",
     locale: "en_US",

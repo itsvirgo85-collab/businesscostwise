@@ -1,19 +1,28 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { STATE_FEES, StateFee } from "@/data/stateFees";
+import { STATE_FEES, type StateFee } from "@/data/stateFees";
 import { calculateLLCCost } from "@/lib/calculations";
 
+function parseNonNegativeAmount(value: string): number {
+  if (value.trim() === "") return 0;
+  const amount = Number(value);
+  return Number.isFinite(amount) ? Math.max(0, amount) : 0;
+}
+
 export default function LLCCostCalculator() {
-  const verified = STATE_FEES.filter((s) => s.status === "verified");
-  const [selectedSlug, setSelectedSlug] = useState(verified[0]?.slug || "florida");
+  const verified = useMemo(() => STATE_FEES.filter((s) => s.status === "verified"), []);
+  const [selectedSlug, setSelectedSlug] = useState(
+    verified.some((s) => s.slug === "florida") ? "florida" : verified[0]?.slug || ""
+  );
   const [years, setYears] = useState<1 | 3 | 5>(1);
   const [includeRA, setIncludeRA] = useState(false);
-  const [raCost, setRaCost] = useState(125);
+  const [raCost, setRaCost] = useState("125");
   const [includeNameRes, setIncludeNameRes] = useState(false);
-  const [nameResCost, setNameResCost] = useState(25);
+  const [nameResCost, setNameResCost] = useState("25");
+  const [includeDeferredInitialReport, setIncludeDeferredInitialReport] = useState(false);
   const [expedited, setExpedited] = useState(false);
-  const [expeditedCost, setExpeditedCost] = useState(50);
+  const [expeditedCost, setExpeditedCost] = useState("50");
 
   const state = useMemo(
     () => verified.find((s) => s.slug === selectedSlug) as StateFee,
@@ -26,13 +35,14 @@ export default function LLCCostCalculator() {
       state,
       years,
       includeRegisteredAgent: includeRA,
-      registeredAgentCost: raCost,
+      registeredAgentCost: parseNonNegativeAmount(raCost),
       includeNameReservation: includeNameRes,
-      nameReservationCost: nameResCost,
+      nameReservationCost: parseNonNegativeAmount(nameResCost),
       expedited,
-      expeditedCost,
+      includeDeferredInitialReport,
+      expeditedCost: parseNonNegativeAmount(expeditedCost),
     });
-  }, [state, years, includeRA, raCost, includeNameRes, nameResCost, expedited, expeditedCost]);
+  }, [state, years, includeRA, raCost, includeNameRes, nameResCost, includeDeferredInitialReport, expedited, expeditedCost]);
 
   if (!state || !result) {
     return <p className="text-slate-600">Loading calculator…</p>;
@@ -46,10 +56,11 @@ export default function LLCCostCalculator() {
         <h2 className="text-lg font-semibold text-[#102A43]">Estimate your costs</h2>
 
         <div>
-          <label className="mb-1 block text-sm font-medium text-slate-700">State</label>
+          <label htmlFor="llc-state" className="mb-1 block text-sm font-medium text-slate-700">State</label>
           <select
+            id="llc-state"
             value={selectedSlug}
-            onChange={(e) => setSelectedSlug(e.target.value)}
+            onChange={(e) => { setSelectedSlug(e.target.value); setIncludeDeferredInitialReport(false); }}
             className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-[#1769AA] focus:outline-none focus:ring-1 focus:ring-[#1769AA]"
           >
             {verified.map((s) => (
@@ -64,13 +75,15 @@ export default function LLCCostCalculator() {
         </div>
 
         <div>
-          <label className="mb-1 block text-sm font-medium text-slate-700">Time period</label>
+          <span className="mb-1 block text-sm font-medium text-slate-700" id="llc-period-label">Time period</span>
           <div className="flex gap-2">
             {([1, 3, 5] as const).map((y) => (
               <button
                 key={y}
                 type="button"
                 onClick={() => setYears(y)}
+                aria-pressed={years === y}
+                aria-describedby="llc-period-label"
                 className={`flex-1 rounded-lg border px-3 py-2 text-sm font-medium transition ${
                   years === y
                     ? "border-[#1769AA] bg-[#1769AA] text-white"
@@ -84,6 +97,15 @@ export default function LLCCostCalculator() {
         </div>
 
         <div className="space-y-3 border-t border-slate-100 pt-4">
+          {state.deferredInitialReportFee != null && (
+            <label className="flex items-start gap-3">
+              <input type="checkbox" checked={includeDeferredInitialReport} onChange={(e) => setIncludeDeferredInitialReport(e.target.checked)} className="mt-1" />
+              <span className="text-sm text-slate-700">
+                File Washington initial report separately within 120 days (+${state.deferredInitialReportFee})
+                <span className="block text-xs text-slate-500">Leave unchecked if you file it together with formation, which has no additional fee.</span>
+              </span>
+            </label>
+          )}
           <label className="flex items-start gap-3">
             <input type="checkbox" checked={includeRA} onChange={(e) => setIncludeRA(e.target.checked)} className="mt-1" />
             <span className="text-sm text-slate-700">
@@ -96,7 +118,7 @@ export default function LLCCostCalculator() {
           {includeRA && (
             <div className="ml-7">
               <label className="mb-1 block text-xs text-slate-500">Annual agent cost ($)</label>
-              <input type="number" min={0} value={raCost} onChange={(e) => setRaCost(Number(e.target.value) || 0)} className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
+              <input type="number" min={0} value={raCost} onChange={(e) => setRaCost(e.target.value)} onBlur={() => setRaCost(String(parseNonNegativeAmount(raCost)))} step="0.01" aria-label="Annual commercial registered agent cost in dollars" className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
             </div>
           )}
 
@@ -107,7 +129,7 @@ export default function LLCCostCalculator() {
           {includeNameRes && (
             <div className="ml-7">
               <label className="mb-1 block text-xs text-slate-500">Reservation fee ($)</label>
-              <input type="number" min={0} value={nameResCost} onChange={(e) => setNameResCost(Number(e.target.value) || 0)} className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
+              <input type="number" min={0} value={nameResCost} onChange={(e) => setNameResCost(e.target.value)} onBlur={() => setNameResCost(String(parseNonNegativeAmount(nameResCost)))} step="0.01" aria-label="Name reservation fee in dollars" className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
             </div>
           )}
 
@@ -118,7 +140,7 @@ export default function LLCCostCalculator() {
           {expedited && (
             <div className="ml-7">
               <label className="mb-1 block text-xs text-slate-500">Expedite fee ($)</label>
-              <input type="number" min={0} value={expeditedCost} onChange={(e) => setExpeditedCost(Number(e.target.value) || 0)} className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
+              <input type="number" min={0} value={expeditedCost} onChange={(e) => setExpeditedCost(e.target.value)} onBlur={() => setExpeditedCost(String(parseNonNegativeAmount(expeditedCost)))} step="0.01" aria-label="Expedited processing fee in dollars" className="w-28 rounded border border-slate-300 px-2 py-1 text-sm" />
             </div>
           )}
         </div>
@@ -147,6 +169,12 @@ export default function LLCCostCalculator() {
               <dt className="text-slate-600">Formation / filing fee</dt>
               <dd className="font-medium">${result.formationFee.toFixed(2)}</dd>
             </div>
+            {result.deferredInitialReport > 0 && (
+              <div className="flex justify-between">
+                <dt className="text-slate-600">Deferred initial report</dt>
+                <dd className="font-medium">${result.deferredInitialReport.toFixed(2)}</dd>
+              </div>
+            )}
             {result.registeredAgent > 0 && (
               <div className="flex justify-between">
                 <dt className="text-slate-600">Registered agent ({years} yr)</dt>
@@ -171,11 +199,14 @@ export default function LLCCostCalculator() {
             </div>
           </dl>
 
-          {recurring === 0 && (
+          {recurring === 0 && state.annualFrequency === "biennial" && (
             <p className="mt-3 rounded-lg bg-slate-50 px-3 py-2 text-xs text-slate-600">
-              This state has no annual report fee or franchise tax in our dataset for the selected period.
-              That is why 1-, 3-, and 5-year totals can match when optional extras are off (formation fee only).
-              Always confirm on the official state site before filing.
+              A biennial filing is required, but no payment falls within this selected estimate under the standard filing schedule. Check the state page for the exact due-date rule.
+            </p>
+          )}
+          {recurring === 0 && state.annualFrequency === "none" && state.franchiseTax == null && (
+            <p className="mt-3 rounded-lg bg-slate-50 px-3 py-2 text-xs text-slate-600">
+              No fixed recurring state charge is included in the verified dataset for this period. Separate taxes, local fees, publication, or conditional filings may still apply.
             </p>
           )}
 
@@ -195,6 +226,9 @@ export default function LLCCostCalculator() {
             <a href={state.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-amber-700">
               {state.sourceName}
             </a>
+            {state.additionalSources?.map((source) => (
+              <span key={source.url}> · <a href={source.url} target="_blank" rel="noopener noreferrer" className="underline hover:text-amber-700">{source.name}</a></span>
+            ))}
             . Last verified: {state.verifiedAt}. Always confirm current amounts on the state website before filing.
           </p>
         </div>

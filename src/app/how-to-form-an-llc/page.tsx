@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "How to Form an LLC in 2026: Step-by-Step Guide (Any State)",
   description:
     "Learn how to form an LLC step by step. Choose a name, appoint a registered agent, file Articles of Organization, get a free EIN, and stay compliant. Includes costs, timeline, and common mistakes. Educational guide for 2026.",
+  alternates: { canonical: "/how-to-form-an-llc" },
 };
 
 export default function HowToFormLLCPage() {

@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Single-Member vs Multi-Member LLC — Differences Explained",
   description:
     "How single-member and multi-member LLCs differ in taxation, ownership, operating agreements, liability, and administration for US small businesses.",
+  alternates: { canonical: "/business-structures/single-member-vs-multi-member-llc" },
 };
 
 export default function SingleVsMultiMemberPage() {
