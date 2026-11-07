@@ -38,7 +38,6 @@ export default function LLCvsSCorpPage() {
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
       <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"LLC vs S Corp","item":"/business-structures/llc-vs-s-corp"}]} />
-      <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"LLC vs S Corp","item":"/business-structures/llc-vs-s-corp"}]} />
       <nav className="mb-6 text-sm text-slate-500">
         <Link href="/" className="hover:text-[#1769AA]">Home</Link>
         <span className="mx-2">/</span>
