@@ -61,7 +61,7 @@ export default function AnnualReportPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
-      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"LLC Costs","item":"/how-much-does-it-cost-to-start-an-llc"},{"name":"Annual Reports","item":"/annual-report-requirements-by-state"}]} />
+      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"LLC Cost Guide","item":"/how-much-does-it-cost-to-start-an-llc"},{"name":"Annual Reports","item":"/annual-report-requirements-by-state"}]} />
 
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
