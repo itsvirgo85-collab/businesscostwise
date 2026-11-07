@@ -104,7 +104,6 @@ export default function HowToFormLLCPage() {
       <FaqJsonLd faqs={faqs} />
 
       <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"How to Form an LLC","item":"/how-to-form-an-llc"}]} />
-      <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"How to Form an LLC","item":"/how-to-form-an-llc"}]} />
       <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-[#1769AA]">
           Home
