@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Single-Member vs Multi-Member LLC — Differences Explained",
@@ -12,14 +12,7 @@ export const metadata: Metadata = {
 export default function SingleVsMultiMemberPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
-      <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"Single-Member vs Multi-Member LLC","item":"/business-structures/single-member-vs-multi-member-llc"}]} />
-      <nav className="mb-6 text-sm text-slate-500">
-        <Link href="/" className="hover:text-[#1769AA]">Home</Link>
-        <span className="mx-2">/</span>
-        <span className="text-slate-500">Business Structures</span>
-        <span className="mx-2">/</span>
-        <span className="text-slate-800">Single-Member vs Multi-Member LLC</span>
-      </nav>
+      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"Single-Member vs Multi-Member LLC","item":"/business-structures/single-member-vs-multi-member-llc"}]} />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43]">
         Single-Member vs Multi-Member LLC
