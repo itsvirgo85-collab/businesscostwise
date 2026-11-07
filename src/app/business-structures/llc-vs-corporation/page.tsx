@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "LLC vs Corporation — Key Differences for Small Businesses",
@@ -37,6 +38,7 @@ export default function LLCvsCorporationPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
+      <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"LLC vs Corporation","item":"/business-structures/llc-vs-corporation"}]} />
       <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"LLC vs Corporation","item":"/business-structures/llc-vs-corporation"}]} />
       <nav className="mb-6 text-sm text-slate-500">
         <Link href="/" className="hover:text-[#1769AA]">Home</Link>
