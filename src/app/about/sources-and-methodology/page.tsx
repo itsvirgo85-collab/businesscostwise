@@ -5,6 +5,7 @@ import { STATE_FEES } from "@/data/stateFees";
 export const metadata: Metadata = {
   title: "Sources & Methodology",
   description: "How BusinessCostWise verifies state LLC fees and presents educational content.",
+  alternates: { canonical: "/about/sources-and-methodology" },
 };
 
 export default function SourcesPage() {
@@ -20,7 +21,7 @@ export default function SourcesPage() {
       <h1 className="text-3xl font-bold text-[#102A43]">Sources & Methodology</h1>
       <p className="mt-4 text-slate-600">
         State LLC filing fees and recurring charges change. We only publish figures that have been
-        checked against an official government page and recorded with a verification date and source URL.
+        checked against an official government page and recorded with a verification date and source URL. Variable taxes and state-specific exceptions are excluded from fixed-fee totals unless they can be calculated reliably.
       </p>
       <h2 className="mt-8 text-xl font-semibold text-[#102A43]">Primary sources used</h2>
       <ul className="mt-3 space-y-2 text-sm">
@@ -31,6 +32,9 @@ export default function SourcesPage() {
               {s.sourceName}
             </a>{" "}
             <span className="text-slate-500">(verified {s.verifiedAt})</span>
+            {s.additionalSources?.map((source) => (
+              <span key={source.url}> · <a href={source.url} target="_blank" rel="noopener noreferrer" className="text-[#1769AA] hover:underline">{source.name}</a></span>
+            ))}
           </li>
         ))}
       </ul>
@@ -48,7 +52,7 @@ export default function SourcesPage() {
         </li>
       </ul>
       <p className="mt-8 text-sm text-slate-600">
-        If you find an outdated fee, please contact us so we can re-verify against the official source.
+        If a listed amount appears outdated, compare it with the linked government source before relying on the estimate. This site does not provide individual filing or legal advice.
       </p>
     </div>
   );
