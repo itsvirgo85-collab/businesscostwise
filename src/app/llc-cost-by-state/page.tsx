@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { STATE_FEES } from "@/data/stateFees";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "LLC Costs by State — Filing Fees & Annual Reports",
@@ -17,6 +18,7 @@ export default function LLCCostByStatePage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+      <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"LLC Costs by State","item":"/llc-cost-by-state"}]} />
       <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"LLC Costs by State","item":"/llc-cost-by-state"}]} />
       <nav className="mb-6 text-sm text-slate-500">
         <Link href="/" className="hover:text-[#1769AA]">Home</Link>
