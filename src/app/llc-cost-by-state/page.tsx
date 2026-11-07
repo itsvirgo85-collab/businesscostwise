@@ -18,7 +18,6 @@ export default function LLCCostByStatePage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"LLC Costs by State","item":"/llc-cost-by-state"}]} />
-      <BreadcrumbJsonLd items={[{"name":"Home","item":"/"},{"name":"LLC Costs by State","item":"/llc-cost-by-state"}]} />
       <nav className="mb-6 text-sm text-slate-500">
         <Link href="/" className="hover:text-[#1769AA]">Home</Link>
         <span className="mx-2">/</span>
