@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Sources & Methodology — How We Verify LLC Fees",
   description:
     "How Get LLC Cost Calculator verifies state LLC fees, records sources, and presents educational content. Official government links and verification dates.",
+  alternates: { canonical: "/about/sources-and-methodology" },
 };
 
 export default function SourcesPage() {
@@ -107,6 +108,10 @@ export default function SourcesPage() {
         {" · "}
         <Link href="/llc-cost-by-state" className="text-[#1769AA] hover:underline">
           LLC Costs by State
+        </Link>
+        {" · "}
+        <Link href="/contact" className="text-[#1769AA] hover:underline">
+          Contact
         </Link>
       </p>
     </div>
