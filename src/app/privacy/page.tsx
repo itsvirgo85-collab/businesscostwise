@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
-import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — Get LLC Cost Calculator",
-  description: "How Get LLC Cost Calculator handles information when you use the site and calculators.",
-  alternates: { canonical: "/privacy" },
+  description:
+    "How Get LLC Cost Calculator handles information when you use the site and calculators. Contact: info@getllccostcalculator.com",
 };
 
 export default function PrivacyPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
-      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"Privacy Policy","item":"/privacy"}]} />
+      <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
+        <Link href="/" className="hover:text-[#1769AA]">
+          Home
+        </Link>
+        <span className="mx-2">/</span>
+        <span className="text-slate-800">Privacy Policy</span>
+      </nav>
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43]">Privacy Policy</h1>
       <p className="mt-2 text-sm text-slate-500">Last updated: November 2026</p>
@@ -19,49 +25,68 @@ export default function PrivacyPage() {
         <section>
           <h2 className="text-lg font-semibold text-[#102A43]">Overview</h2>
           <p className="mt-2">
-            Get LLC Cost Calculator (“we”, “the site”) is an educational website about US LLC formation costs and related topics.
-            We aim to collect as little personal information as possible.
+            Get LLC Cost Calculator (“we”, “the site”) is an educational website about US LLC formation costs and related topics. We aim to collect as little personal information as possible.
           </p>
         </section>
 
         <section>
-          <h2 className="text-lg font-semibold text-[#102A43]">Information we do not collect</h2>
+          <h2 className="text-lg font-semibold text-[#102A43]">Information we do not collect by default</h2>
           <p className="mt-2">
-            The LLC Cost Calculator and other tools run entirely in your browser. We do not require an account,
-            do not store your calculator inputs on our servers, and do not sell personal data.
+            The LLC Cost Calculator and other tools are designed to run in your browser. We do not require an account to use the main tools, do not store your calculator inputs on our servers as a user profile, and do not sell personal data.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-semibold text-[#102A43]">Information you choose to send</h2>
+          <p className="mt-2">
+            If you email us at{" "}
+            <a href="mailto:info@getllccostcalculator.com" className="text-[#1769AA] hover:underline">
+              info@getllccostcalculator.com
+            </a>
+            , we receive the content of your message and any contact details you include so we can respond. We use that information only to handle your inquiry.
           </p>
         </section>
 
         <section>
           <h2 className="text-lg font-semibold text-[#102A43]">Server logs and analytics</h2>
           <p className="mt-2">
-            Like most websites, our hosting provider (and any analytics we later enable) may receive standard
-            technical information such as IP address, browser type, pages visited, and approximate location.
-            This is used only for security, performance, and understanding overall traffic patterns.
+            Like most websites, our hosting provider (and any analytics we later enable) may receive standard technical information such as IP address, browser type, pages visited, and approximate location. This is used for security, performance, and understanding overall traffic patterns—not to sell personal profiles.
           </p>
         </section>
 
         <section>
           <h2 className="text-lg font-semibold text-[#102A43]">Cookies</h2>
           <p className="mt-2">
-            We do not currently set non-essential tracking cookies. If we add analytics or advertising in the future,
-            we will update this policy and, where required, provide appropriate consent controls.
+            We do not currently set non-essential tracking cookies. If we add analytics or advertising in the future, we will update this policy and, where required, provide appropriate consent controls.
           </p>
         </section>
 
         <section>
           <h2 className="text-lg font-semibold text-[#102A43]">Third-party links</h2>
           <p className="mt-2">
-            The site links to official government websites and other external resources. Those sites have their own
-            privacy practices. We are not responsible for their content or policies.
+            The site links to official government websites and other external resources. Those sites have their own privacy practices. We are not responsible for their content or policies.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-semibold text-[#102A43]">Children</h2>
+          <p className="mt-2">
+            The site is intended for a general adult audience seeking educational information about business formation costs. It is not directed at children under 13.
           </p>
         </section>
 
         <section>
           <h2 className="text-lg font-semibold text-[#102A43]">Contact</h2>
           <p className="mt-2">
-            For privacy-related questions, please use the contact method listed on the About page (when available)
-            or open an issue in the project repository.
+            For privacy-related questions, email{" "}
+            <a href="mailto:info@getllccostcalculator.com" className="text-[#1769AA] hover:underline">
+              info@getllccostcalculator.com
+            </a>{" "}
+            or visit the{" "}
+            <Link href="/contact" className="text-[#1769AA] hover:underline">
+              Contact
+            </Link>{" "}
+            page.
           </p>
         </section>
 
@@ -71,6 +96,21 @@ export default function PrivacyPage() {
             We may update this policy from time to time. The “Last updated” date at the top will change when we do.
           </p>
         </section>
+
+        <p className="pt-2 text-slate-500">
+          Related:{" "}
+          <Link href="/terms" className="text-[#1769AA] hover:underline">
+            Terms of Use
+          </Link>
+          {" · "}
+          <Link href="/disclaimer" className="text-[#1769AA] hover:underline">
+            Disclaimer
+          </Link>
+          {" · "}
+          <Link href="/about" className="text-[#1769AA] hover:underline">
+            About
+          </Link>
+        </p>
       </div>
     </div>
   );
