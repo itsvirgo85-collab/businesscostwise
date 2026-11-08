@@ -27,6 +27,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `LLC Cost in ${s.state} — Filing & Annual Fees`,
       description: `Official ${s.state} LLC formation and recurring costs with government source links.`,
       type: "article",
+      url: `/llc-cost-by-state/${s.slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `LLC Cost in ${s.state} — Filing & Annual Fees`,
+      description: `Official ${s.state} LLC formation and recurring costs with government source links.`,
     },
   };
 }
