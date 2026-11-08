@@ -125,8 +125,7 @@ export default function ContactPage() {
               info@getllccostcalculator.com
             </a>
             <p className="mt-3 text-sm leading-6 text-slate-600">
-              You can email us directly if your email app is not available for
-              the contact form.
+              Prefer to use your own email account? You can contact us directly at this address.
             </p>
           </section>
 
