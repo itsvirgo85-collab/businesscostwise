@@ -8,25 +8,58 @@ import JsonLd from "@/components/seo/JsonLd";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
 });
 
+const siteUrl = "https://www.getllccostcalculator.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Get LLC Cost Calculator — Free US LLC Filing Fees by State",
     template: "%s | Get LLC Cost Calculator",
   },
   description:
     "Free LLC cost calculator for 49 verified US states and DC. Compare formation fees, annual filings, franchise taxes, and multi-year estimates with official government references.",
-  metadataBase: new URL("https://www.getllccostcalculator.com"),
+  applicationName: "Get LLC Cost Calculator",
+  authors: [{ name: "Get LLC Cost Calculator" }],
+  creator: "Get LLC Cost Calculator",
+  publisher: "Get LLC Cost Calculator",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
+    url: siteUrl,
     siteName: "Get LLC Cost Calculator",
+    title: "Get LLC Cost Calculator — Free US LLC Filing Fees by State",
+    description:
+      "Free LLC cost calculator for 49 verified US states and DC. Formation fees, annual reports, and multi-year totals with official source links.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Get LLC Cost Calculator — Free US LLC Filing Fees by State",
+    description:
+      "Free LLC cost calculator for 49 verified US states and DC. Official source links and multi-year estimates.",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
+  category: "education",
 };
 
 export default function RootLayout({
