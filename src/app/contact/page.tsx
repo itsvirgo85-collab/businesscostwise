@@ -3,33 +3,39 @@ import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 
 export const metadata: Metadata = {
-  title: "Contact — Get LLC Cost Calculator",
+  title: "Contact Get LLC Cost Calculator",
   description:
-    "Contact Get LLC Cost Calculator for general questions about the educational site, fee data sources, or corrections. Email: info@getllccostcalculator.com",
+    "Contact Get LLC Cost Calculator at info@getllccostcalculator.com. Questions about state fees, methodology, or corrections welcome.",
   alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact Get LLC Cost Calculator",
+    description: "Contact Get LLC Cost Calculator at info@getllccostcalculator.com. Questions about state fees, methodology, or corrections welcome.",
+    type: "article",
+    url: "/contact",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Get LLC Cost Calculator",
+    description: "Contact Get LLC Cost Calculator at info@getllccostcalculator.com. Questions about state fees, methodology, or corrections welcome.",
+  },
 };
 
 export default function ContactPage() {
   const faqs = [
     {
-      question: "What email should I use?",
+      question: "What is the best email for fee corrections?",
       answer:
-        "Use info@getllccostcalculator.com for general questions, source corrections, or site feedback. We read messages as time allows.",
+        "Send corrections and source links to info@getllccostcalculator.com. Include the state, the fee type, and a link to the official page when possible.",
     },
     {
-      question: "Can you tell me which state to form in?",
+      question: "Do you provide legal or tax advice?",
       answer:
-        "No. We do not provide personalized legal or tax recommendations. Use the educational cost pages and always confirm rules on official state websites, or consult a licensed professional.",
+        "No. We only publish educational information. For advice specific to your situation, consult a licensed professional in your state.",
     },
     {
-      question: "How do I report a wrong fee?",
+      question: "How quickly do you respond?",
       answer:
-        "Email the state name, the page URL, and a link to the official source if you have one. We will review it against the government site listed on our Sources & Methodology page.",
-    },
-    {
-      question: "Do you offer phone support or filing help?",
-      answer:
-        "No. Get LLC Cost Calculator is an educational website only. We do not file LLCs, act as a registered agent, or provide phone consultations.",
+        "We aim to reply within a few business days. Complex fee verification requests may take longer.",
     },
   ];
 
@@ -38,77 +44,44 @@ export default function ContactPage() {
       <FaqJsonLd faqs={faqs} />
 
       <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-[#1769AA]">
-          Home
-        </Link>
-        <span className="mx-2">/</span>
-        <Link href="/about" className="hover:text-[#1769AA]">
-          About
-        </Link>
+        <Link href="/" className="hover:text-[#1769AA]">Home</Link>
         <span className="mx-2">/</span>
         <span className="text-slate-800">Contact</span>
       </nav>
 
-      <h1 className="text-3xl font-bold tracking-tight text-[#102A43]">Contact</h1>
+      <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">Contact</h1>
 
       <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-        Get LLC Cost Calculator is an independent educational resource. Use the email below for general questions about the site, source corrections, or technical issues.
+        Questions about our data, methodology, or a possible fee correction? Email us. We welcome official source links and clear details.
       </p>
 
-      <p className="mt-3 text-slate-600 leading-relaxed">
-        Learn more about our mission and data approach on the{" "}
-        <Link href="/about" className="text-[#1769AA] hover:underline">
-          About
-        </Link>{" "}
-        page and{" "}
-        <Link href="/about/sources-and-methodology" className="text-[#1769AA] hover:underline">
-          Sources & Methodology
-        </Link>
-        .
-      </p>
-
-      <div className="mt-8 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="text-lg font-semibold text-[#102A43]">Email</h2>
-        <p className="mt-2 text-slate-700">
-          <a
-            href="mailto:info@getllccostcalculator.com"
-            className="font-medium text-[#1769AA] hover:underline"
-          >
-            info@getllccostcalculator.com
-          </a>
-        </p>
+      <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-6">
+        <p className="text-sm font-medium text-slate-500">Email</p>
+        <a
+          href="mailto:info@getllccostcalculator.com"
+          className="mt-1 block text-xl font-semibold text-[#1769AA] hover:underline"
+        >
+          info@getllccostcalculator.com
+        </a>
         <p className="mt-3 text-sm text-slate-600">
-          We read messages as time allows. This inbox is not monitored for urgent legal, tax, or filing deadlines.
+          Please include the state name and a link to the official government page when reporting a fee change.
         </p>
       </div>
 
-      <section className="mt-10">
-        <h2 className="text-xl font-semibold text-[#102A43]">What we can help with</h2>
-        <ul className="mt-3 list-disc space-y-2 pl-5 text-slate-700">
-          <li>Questions about how fee data is sourced or verified</li>
-          <li>Reports of outdated links or possible fee errors on a state page</li>
-          <li>General feedback about the educational content or calculator</li>
+      <section className="mt-12">
+        <h2 className="text-2xl font-bold text-[#102A43]">What we can help with</h2>
+        <ul className="mt-4 space-y-2 text-slate-700">
+          <li className="flex gap-2"><span className="text-[#1769AA]">→</span> Corrections to published state fees</li>
+          <li className="flex gap-2"><span className="text-[#1769AA]">→</span> Questions about our sources and methodology</li>
+          <li className="flex gap-2"><span className="text-[#1769AA]">→</span> General feedback on guides and calculators</li>
         </ul>
-      </section>
-
-      <section className="mt-10">
-        <h2 className="text-xl font-semibold text-[#102A43]">What we cannot provide</h2>
-        <ul className="mt-3 list-disc space-y-2 pl-5 text-slate-700">
-          <li>Legal, tax, accounting, or financial advice</li>
-          <li>Personalized recommendations on where or how to form an entity</li>
-          <li>Filing services, registered agent services, or government processing</li>
-        </ul>
-        <p className="mt-3 text-slate-700 leading-relaxed">
-          For official fees and rules, always use the linked state government sources. For advice specific to your situation, consult a licensed professional in the relevant jurisdiction. See our{" "}
-          <Link href="/disclaimer" className="text-[#1769AA] hover:underline">
-            Disclaimer
-          </Link>
-          .
+        <p className="mt-4 text-slate-600">
+          We cannot provide legal, tax, or filing advice, or process LLC formations on your behalf.
         </p>
       </section>
 
       <section className="mt-12">
-        <h2 className="text-xl font-semibold text-[#102A43]">Frequently asked questions</h2>
+        <h2 className="text-2xl font-bold text-[#102A43]">Frequently asked questions</h2>
         <div className="mt-6 space-y-4">
           {faqs.map((f, i) => (
             <details key={i} className="group rounded-xl border border-slate-200 bg-white p-5">
@@ -124,60 +97,15 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-6">
-        <h2 className="text-lg font-semibold text-[#102A43]">Helpful pages</h2>
+      <section className="mt-12 rounded-xl border border-slate-200 bg-slate-50 p-6">
+        <h2 className="text-lg font-semibold text-[#102A43]">Related pages</h2>
         <ul className="mt-3 space-y-2 text-sm">
-          <li>
-            <Link href="/about" className="text-[#1769AA] hover:underline">
-              About Get LLC Cost Calculator
-            </Link>
-          </li>
-          <li>
-            <Link href="/about/sources-and-methodology" className="text-[#1769AA] hover:underline">
-              Sources & Methodology
-            </Link>
-          </li>
-          <li>
-            <Link href="/llc-cost-calculator" className="text-[#1769AA] hover:underline">
-              LLC Cost Calculator
-            </Link>
-          </li>
-          <li>
-            <Link href="/llc-cost-by-state" className="text-[#1769AA] hover:underline">
-              LLC Costs by State
-            </Link>
-          </li>
-          <li>
-            <Link href="/how-to-form-an-llc" className="text-[#1769AA] hover:underline">
-              How to Form an LLC
-            </Link>
-          </li>
-          <li>
-            <Link href="/what-is-an-llc" className="text-[#1769AA] hover:underline">
-              What is an LLC?
-            </Link>
-          </li>
-          <li>
-            <Link href="/disclaimer" className="text-[#1769AA] hover:underline">
-              Disclaimer
-            </Link>
-          </li>
-          <li>
-            <Link href="/privacy" className="text-[#1769AA] hover:underline">
-              Privacy Policy
-            </Link>
-          </li>
-          <li>
-            <Link href="/terms" className="text-[#1769AA] hover:underline">
-              Terms of Use
-            </Link>
-          </li>
+          <li><Link href="/about" className="text-[#1769AA] hover:underline">About</Link></li>
+          <li><Link href="/about/sources-and-methodology" className="text-[#1769AA] hover:underline">Sources & Methodology</Link></li>
+          <li><Link href="/disclaimer" className="text-[#1769AA] hover:underline">Disclaimer</Link></li>
+          <li><Link href="/llc-cost-calculator" className="text-[#1769AA] hover:underline">LLC Cost Calculator</Link></li>
         </ul>
       </section>
-
-      <p className="mt-10 text-xs leading-relaxed text-slate-500">
-        Educational resource only. Not a law firm, tax advisor, or government agency.
-      </p>
     </div>
   );
 }
