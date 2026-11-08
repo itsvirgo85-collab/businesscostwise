@@ -41,12 +41,21 @@ export const metadata: Metadata = {
     title: "Get LLC Cost Calculator — Free US LLC Filing Fees by State",
     description:
       "Free LLC cost calculator for 49 verified US states and DC. Formation fees, annual reports, and multi-year totals with official source links.",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Get LLC Cost Calculator — Free US LLC filing fees by state",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Get LLC Cost Calculator — Free US LLC Filing Fees by State",
     description:
       "Free LLC cost calculator for 49 verified US states and DC. Official source links and multi-year estimates.",
+    images: ["/twitter-image"],
   },
   robots: {
     index: true,
