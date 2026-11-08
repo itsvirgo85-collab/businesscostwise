@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "LLC Costs by State 2026 — Filing Fees & Annual Reports (All States)",
   description:
     "Compare LLC formation filing fees and recurring annual or biennial costs across verified US states. Official source links, multi-year context, and free calculator.",
+  alternates: { canonical: "/llc-cost-by-state" },
 };
 
 export default function LLCCostByStatePage() {
