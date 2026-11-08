@@ -5,7 +5,7 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 export const metadata: Metadata = {
   title: "About Get LLC Cost Calculator — Mission, Data & FAQs",
   description:
-    dev_cipher"Independent educational resource for US LLC formation costs and structure comparisons. Official source links, verification dates, methodology, and how to contact us.",
+    "Independent educational resource for US LLC formation costs and structure comparisons. Official source links, verification dates, methodology, and how to contact us.",
 };
 
 export default function AboutPage() {
