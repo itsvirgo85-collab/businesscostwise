@@ -59,13 +59,12 @@ export default function AboutPage() {
   const authorJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://www.getllccostcalculator.com/#founder",
     name: "Get LLC Cost Calculator Founder",
     url: "https://www.getllccostcalculator.com/about",
     jobTitle: "Founder & Editor",
     worksFor: {
-      "@type": "Organization",
-      name: "Get LLC Cost Calculator",
-      url: "https://www.getllccostcalculator.com",
+      "@id": "https://www.getllccostcalculator.com/#organization",
     },
     description:
       "Independent researcher and product builder who created Get LLC Cost Calculator to give founders one trustworthy place for verified US LLC formation costs and structure guides.",
