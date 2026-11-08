@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "LLC vs Corporation: Key Differences for Small Businesses (2026)",
   description:
     "Side-by-side comparison of LLC and corporation: formation, liability, taxes, ownership, formalities, and when each structure may fit US small businesses. Educational guide.",
+  alternates: { canonical: "/business-structures/llc-vs-corporation" },
 };
 
 export default function LLCvsCorporationPage() {
