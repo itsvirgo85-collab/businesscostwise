@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Contact — Get LLC Cost Calculator",
   description:
     "Contact Get LLC Cost Calculator for general questions about the educational site, fee data sources, or corrections. Email: info@getllccostcalculator.com",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
