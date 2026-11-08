@@ -7,8 +7,8 @@ const nav = [
   { href: "/llc-cost-calculator", label: "LLC Calculator" },
   { href: "/llc-cost-by-state", label: "Costs by State" },
   { href: "/business-structures/llc-vs-sole-proprietorship", label: "LLC vs Sole Prop" },
-  { href: "/asset-protection", label: "Asset Protection" },
   { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
