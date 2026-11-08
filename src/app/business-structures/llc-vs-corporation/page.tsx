@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
-import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "LLC vs Corporation — Key Differences for Small Businesses",
+  title: "LLC vs Corporation: Key Differences for Small Businesses (2026)",
   description:
-    "Side-by-side comparison of LLC and corporation: formation, liability, taxes, ownership, formalities, and when each structure may fit US small businesses.",
-  alternates: { canonical: "/business-structures/llc-vs-corporation" },
+    "Side-by-side comparison of LLC and corporation: formation, liability, taxes, ownership, formalities, and when each structure may fit US small businesses. Educational guide.",
 };
 
 export default function LLCvsCorporationPage() {
@@ -32,96 +30,205 @@ export default function LLCvsCorporationPage() {
       answer:
         "Formation fees are similar in many states and set by the state. Ongoing formalities are usually lighter for an LLC. Corporations typically require more formal meetings, minutes, and record-keeping.",
     },
+    {
+      question: "Can I convert from an LLC to a corporation later?",
+      answer:
+        "Yes. Many states allow conversion or you can form a new corporation and contribute the LLC assets. The process has legal and tax implications, so professional advice is recommended.",
+    },
+    {
+      question: "Do investors prefer corporations over LLCs?",
+      answer:
+        "Traditional venture capital and institutional investors usually prefer C-Corporations because of familiar stock structures, option plans, and tax treatment. LLCs can still raise capital but may require more custom documentation.",
+    },
   ];
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
-      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"LLC vs Corporation","item":"/business-structures/llc-vs-corporation"}]} />
 
-      <h1 className="text-3xl font-bold tracking-tight text-[#102A43]">
+      <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
+        <Link href="/" className="hover:text-[#1769AA]">
+          Home
+        </Link>
+        <span className="mx-2">/</span>
+        <Link href="/what-is-an-llc" className="hover:text-[#1769AA]">
+          What is an LLC
+        </Link>
+        <span className="mx-2">/</span>
+        <span className="text-slate-800">LLC vs Corporation</span>
+      </nav>
+
+      <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         LLC vs Corporation: Key Differences
       </h1>
-      <p className="mt-3 text-slate-600 leading-relaxed">
-        Both the limited liability company (LLC) and the corporation provide limited liability protection
-        and are formed under state law. They differ significantly in taxation defaults, ownership rules,
-        formalities, and flexibility. This page summarizes the practical differences for educational
-        purposes. It is not legal or tax advice.
+
+      <p className="mt-4 text-lg text-slate-600 leading-relaxed">
+        Both the limited liability company (LLC) and the corporation provide limited liability protection and are formed under state law. They differ significantly in taxation defaults, ownership rules, formalities, and flexibility. This page summarizes the practical differences for educational purposes.
       </p>
 
-      <div className="mt-10 overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
-        <table className="min-w-full text-left text-sm">
-          <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
-            <tr>
-              <th className="px-4 py-3 font-medium">Topic</th>
-              <th className="px-4 py-3 font-medium">LLC</th>
-              <th className="px-4 py-3 font-medium">Corporation (C-Corp default)</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-slate-100 bg-white">
-            <tr>
-              <td className="px-4 py-3 font-medium text-[#102A43]">Formation</td>
-              <td className="px-4 py-3">File Articles / Certificate of Organization with the state + pay filing fee</td>
-              <td className="px-4 py-3">File Articles / Certificate of Incorporation with the state + pay filing fee</td>
-            </tr>
-            <tr>
-              <td className="px-4 py-3 font-medium text-[#102A43]">Separate legal entity</td>
-              <td className="px-4 py-3">Yes</td>
-              <td className="px-4 py-3">Yes</td>
-            </tr>
-            <tr>
-              <td className="px-4 py-3 font-medium text-[#102A43]">Personal liability</td>
-              <td className="px-4 py-3">Limited liability for members (subject to veil-piercing, personal guarantees, etc.)</td>
-              <td className="px-4 py-3">Limited liability for shareholders (same general exceptions apply)</td>
-            </tr>
-            <tr>
-              <td className="px-4 py-3 font-medium text-[#102A43]">Default federal tax</td>
-              <td className="px-4 py-3">Single-member: disregarded entity. Multi-member: partnership. Can elect S-Corp or C-Corp treatment</td>
-              <td className="px-4 py-3">C-Corporation (entity-level tax). Can elect S-Corporation status if eligibility rules are met</td>
-            </tr>
-            <tr>
-              <td className="px-4 py-3 font-medium text-[#102A43]">Ownership flexibility</td>
-              <td className="px-4 py-3">Very flexible. Members can be individuals, other entities, or foreign persons</td>
-              <td className="px-4 py-3">C-Corp: flexible. S-Corp: strict limits on shareholders and stock classes</td>
-            </tr>
-            <tr>
-              <td className="px-4 py-3 font-medium text-[#102A43]">Formalities</td>
-              <td className="px-4 py-3">Generally lighter (operating agreement, annual reports)</td>
-              <td className="px-4 py-3">More formal: bylaws, board meetings, minutes, shareholder meetings</td>
-            </tr>
-            <tr>
-              <td className="px-4 py-3 font-medium text-[#102A43]">Raising capital</td>
-              <td className="px-4 py-3">Possible but less familiar to traditional venture investors</td>
-              <td className="px-4 py-3">Preferred structure for most venture capital and institutional investors</td>
-            </tr>
-          </tbody>
-        </table>
+      <p className="mt-3 text-slate-600 leading-relaxed">
+        It is not legal or tax advice. Entity choice has significant consequences — consult a qualified professional before deciding.
+      </p>
+
+      <div className="mt-6 flex flex-wrap gap-3">
+        <Link
+          href="/business-structures/llc-vs-s-corp"
+          className="rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-700 transition hover:border-[#1769AA]"
+        >
+          LLC vs S-Corp
+        </Link>
+        <Link
+          href="/business-structures/llc-vs-sole-proprietorship"
+          className="rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-700 transition hover:border-[#1769AA]"
+        >
+          LLC vs Sole Proprietorship
+        </Link>
+        <Link
+          href="/llc-cost-calculator"
+          className="rounded-lg bg-[#102A43] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1769AA]"
+        >
+          Cost calculator
+        </Link>
       </div>
 
       <section className="mt-12">
-        <h2 className="text-xl font-semibold text-[#102A43]">Frequently asked questions</h2>
+        <h2 className="text-2xl font-bold text-[#102A43]">Side-by-side comparison</h2>
+        <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+          <table className="min-w-full text-left text-sm">
+            <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
+              <tr>
+                <th className="px-4 py-3 font-medium">Topic</th>
+                <th className="px-4 py-3 font-medium">LLC</th>
+                <th className="px-4 py-3 font-medium">Corporation (C-Corp default)</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100 bg-white">
+              <tr>
+                <td className="px-4 py-3 font-medium text-[#102A43]">Formation</td>
+                <td className="px-4 py-3">File Articles / Certificate of Organization with the state + pay filing fee</td>
+                <td className="px-4 py-3">File Articles / Certificate of Incorporation with the state + pay filing fee</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 font-medium text-[#102A43]">Separate legal entity</td>
+                <td className="px-4 py-3">Yes</td>
+                <td className="px-4 py-3">Yes</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 font-medium text-[#102A43]">Personal liability</td>
+                <td className="px-4 py-3">Limited liability for members (subject to veil-piercing, personal guarantees, etc.)</td>
+                <td className="px-4 py-3">Limited liability for shareholders (same general exceptions apply)</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 font-medium text-[#102A43]">Default federal tax</td>
+                <td className="px-4 py-3">Single-member: disregarded entity. Multi-member: partnership. Can elect S-Corp or C-Corp treatment</td>
+                <td className="px-4 py-3">C-Corporation (entity-level tax). Can elect S-Corporation status if eligibility rules are met</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 font-medium text-[#102A43]">Ownership flexibility</td>
+                <td className="px-4 py-3">Very flexible. Members can be individuals, other entities, or foreign persons</td>
+                <td className="px-4 py-3">C-Corp: flexible. S-Corp: strict limits on shareholders and stock classes</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 font-medium text-[#102A43]">Formalities</td>
+                <td className="px-4 py-3">Generally lighter (operating agreement, annual reports)</td>
+                <td className="px-4 py-3">More formal: bylaws, board meetings, minutes, shareholder meetings</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 font-medium text-[#102A43]">Raising capital</td>
+                <td className="px-4 py-3">Possible but less familiar to traditional venture investors</td>
+                <td className="px-4 py-3">Preferred structure for most venture capital and institutional investors</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section className="mt-12">
+        <h2 className="text-2xl font-bold text-[#102A43]">When an LLC is usually the better fit</h2>
+        <ul className="mt-4 space-y-2 text-slate-700">
+          <li className="flex gap-2"><span className="text-[#1769AA]">→</span> You want simpler ongoing formalities and an operating agreement instead of full corporate governance.</li>
+          <li className="flex gap-2"><span className="text-[#1769AA]">→</span> You prefer default pass-through taxation without entity-level tax.</li>
+          <li className="flex gap-2"><span className="text-[#1769AA]">→</span> Ownership may include other entities or foreign persons.</li>
+          <li className="flex gap-2"><span className="text-[#1769AA]">→</span> You are a small business, freelancer, or closely held company without plans for institutional investment.</li>
+        </ul>
+      </section>
+
+      <section className="mt-12">
+        <h2 className="text-2xl font-bold text-[#102A43]">When a corporation is often preferred</h2>
+        <ul className="mt-4 space-y-2 text-slate-700">
+          <li className="flex gap-2"><span className="text-[#1769AA]">→</span> You plan to raise venture capital or institutional funding.</li>
+          <li className="flex gap-2"><span className="text-[#1769AA]">→</span> You want to issue stock options or multiple classes of stock.</li>
+          <li className="flex gap-2"><span className="text-[#1769AA]">→</span> Investors or partners specifically require a corporate structure.</li>
+          <li className="flex gap-2"><span className="text-[#1769AA]">→</span> You need the more standardized governance framework of a corporation.</li>
+        </ul>
+      </section>
+
+      <section className="mt-12">
+        <h2 className="text-2xl font-bold text-[#102A43]">Tax flexibility note</h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          An LLC can elect to be taxed as a C-Corporation or S-Corporation. A corporation can elect S-Corporation status if it meets eligibility rules. The default tax treatment is different, but the ability to change taxation means the legal structure and the tax classification are related but not identical decisions. See{" "}
+          <Link href="/business-structures/llc-vs-s-corp" className="text-[#1769AA] hover:underline">
+            LLC vs S-Corp
+          </Link>
+          .
+        </p>
+      </section>
+
+      <section className="mt-12">
+        <h2 className="text-2xl font-bold text-[#102A43]">Frequently asked questions</h2>
         <div className="mt-6 space-y-4">
           {faqs.map((f, i) => (
-            <div key={i} className="rounded-xl border border-slate-200 bg-white p-5">
-              <h3 className="font-semibold text-[#102A43] text-sm">{f.question}</h3>
-              <p className="mt-2 text-sm text-slate-600 leading-relaxed">{f.answer}</p>
-            </div>
+            <details key={i} className="group rounded-xl border border-slate-200 bg-white p-5">
+              <summary className="cursor-pointer list-none font-semibold text-[#102A43]">
+                <span className="flex items-center justify-between">
+                  {f.question}
+                  <span className="ml-4 text-slate-400 transition group-open:rotate-180">▼</span>
+                </span>
+              </summary>
+              <p className="mt-3 text-slate-600 leading-relaxed">{f.answer}</p>
+            </details>
           ))}
         </div>
       </section>
 
       <section className="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-6">
-        <h2 className="text-lg font-semibold text-[#102A43]">Related tools</h2>
+        <h2 className="text-lg font-semibold text-[#102A43]">Related tools & guides</h2>
         <div className="mt-4 flex flex-wrap gap-3">
-          <Link href="/llc-cost-calculator" className="rounded-lg bg-[#102A43] px-4 py-2 text-sm font-medium text-white hover:bg-[#1769AA] transition">LLC Cost Calculator</Link>
-          <Link href="/business-structures/llc-vs-sole-proprietorship" className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700">LLC vs Sole Proprietorship</Link>
-          <Link href="/asset-protection" className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700">Asset Protection</Link>
+          <Link
+            href="/llc-cost-calculator"
+            className="rounded-lg bg-[#102A43] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#1769AA]"
+          >
+            LLC Cost Calculator
+          </Link>
+          <Link
+            href="/business-structures/llc-vs-sole-proprietorship"
+            className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700"
+          >
+            LLC vs Sole Proprietorship
+          </Link>
+          <Link
+            href="/business-structures/llc-vs-s-corp"
+            className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700"
+          >
+            LLC vs S-Corp
+          </Link>
+          <Link
+            href="/asset-protection"
+            className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700"
+          >
+            Asset Protection
+          </Link>
+          <Link
+            href="/what-is-an-llc"
+            className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700"
+          >
+            What is an LLC?
+          </Link>
         </div>
       </section>
 
-      <p className="mt-10 text-xs text-slate-500 leading-relaxed">
-        This comparison is educational only. Entity choice has significant legal and tax consequences.
-        Consult a qualified attorney and tax professional before forming any entity or making elections.
+      <p className="mt-10 text-xs leading-relaxed text-slate-500">
+        This comparison is educational only. Entity choice has significant legal and tax consequences. Consult a qualified attorney and tax professional before forming any entity or making elections. This site is not affiliated with any government agency.
       </p>
     </div>
   );
