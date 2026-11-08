@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Terms of Use — Get LLC Cost Calculator",
   description:
     "Terms governing use of the Get LLC Cost Calculator educational website and calculators. Educational information only.",
+  alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {

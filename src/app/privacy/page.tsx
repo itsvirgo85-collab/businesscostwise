@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy — Get LLC Cost Calculator",
   description:
     "How Get LLC Cost Calculator handles information when you use the site and calculators. Contact: info@getllccostcalculator.com",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {
