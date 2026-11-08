@@ -4,113 +4,66 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Terms of Use — Get LLC Cost Calculator",
   description:
-    "Terms governing use of the Get LLC Cost Calculator educational website and calculators. Educational information only.",
+    "Terms of use for Get LLC Cost Calculator. Educational content only. Not legal, tax, or financial advice.",
   alternates: { canonical: "/terms" },
+  openGraph: {
+    title: "Terms of Use — Get LLC Cost Calculator",
+    description: "Terms of use for Get LLC Cost Calculator. Educational content only. Not legal, tax, or financial advice.",
+    type: "article",
+    url: "/terms",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Use — Get LLC Cost Calculator",
+    description: "Terms of use for Get LLC Cost Calculator. Educational content only. Not legal, tax, or financial advice.",
+  },
 };
 
 export default function TermsPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
       <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-[#1769AA]">
-          Home
-        </Link>
+        <Link href="/" className="hover:text-[#1769AA]">Home</Link>
         <span className="mx-2">/</span>
         <span className="text-slate-800">Terms of Use</span>
       </nav>
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43]">Terms of Use</h1>
-      <p className="mt-2 text-sm text-slate-500">Last updated: November 2026</p>
+      <p className="mt-2 text-sm text-slate-500">Last updated: 2026</p>
 
-      <div className="mt-8 space-y-6 text-sm leading-relaxed text-slate-700">
-        <section>
-          <h2 className="text-lg font-semibold text-[#102A43]">Acceptance</h2>
-          <p className="mt-2">
-            By using Get LLC Cost Calculator you agree to these Terms of Use. If you do not agree, please do not use the site.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-lg font-semibold text-[#102A43]">Educational purpose only</h2>
-          <p className="mt-2">
-            All content, calculators, fee tables, and comparisons are provided for general educational and informational purposes. Nothing on this site constitutes legal, tax, accounting, or financial advice. Laws, fees, and requirements change. Always confirm current information on the official state government website before filing or making decisions.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-lg font-semibold text-[#102A43]">No professional relationship</h2>
-          <p className="mt-2">
-            Use of this site does not create an attorney-client, accountant-client, or any other professional relationship. For advice specific to your situation, consult a licensed professional in the relevant jurisdiction.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-lg font-semibold text-[#102A43]">Accuracy and sources</h2>
-          <p className="mt-2">
-            We make reasonable efforts to link published state fees to official government sources and to note verification dates. Despite this care, fees and rules can change without notice. We do not warrant that any information is complete, current, or error-free. See{" "}
-            <Link href="/about/sources-and-methodology" className="text-[#1769AA] hover:underline">
-              Sources & Methodology
-            </Link>
-            .
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-lg font-semibold text-[#102A43]">Acceptable use</h2>
-          <p className="mt-2">
-            You may view and use the information for personal research and education. You may not use the site to misrepresent official government fees, to impersonate a government agency, or to engage in unlawful activity.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-lg font-semibold text-[#102A43]">Limitation of liability</h2>
-          <p className="mt-2">
-            To the fullest extent permitted by law, Get LLC Cost Calculator and its operators are not liable for any loss, damage, or expense arising from your use of (or reliance on) the site, including any decisions made on the basis of the calculators or content.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-lg font-semibold text-[#102A43]">Intellectual property</h2>
-          <p className="mt-2">
-            Site design, original text, and the arrangement of publicly available fee data are protected by applicable law. You may view and use the information for personal, non-commercial research. Systematic scraping or republication of the full dataset without permission is not allowed.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-lg font-semibold text-[#102A43]">Contact</h2>
-          <p className="mt-2">
-            Questions about these terms:{" "}
-            <a href="mailto:info@getllccostcalculator.com" className="text-[#1769AA] hover:underline">
-              info@getllccostcalculator.com
-            </a>{" "}
-            or the{" "}
-            <Link href="/contact" className="text-[#1769AA] hover:underline">
-              Contact
-            </Link>{" "}
-            page.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-lg font-semibold text-[#102A43]">Changes</h2>
-          <p className="mt-2">
-            We may revise these terms at any time. Continued use of the site after changes constitutes acceptance of the updated terms.
-          </p>
-        </section>
-
-        <p className="pt-2 text-slate-500">
-          Related:{" "}
-          <Link href="/disclaimer" className="text-[#1769AA] hover:underline">
-            Disclaimer
-          </Link>
-          {" · "}
-          <Link href="/privacy" className="text-[#1769AA] hover:underline">
-            Privacy Policy
-          </Link>
-          {" · "}
-          <Link href="/about" className="text-[#1769AA] hover:underline">
-            About
-          </Link>
+      <div className="mt-6 space-y-4 text-slate-700 leading-relaxed">
+        <p>
+          By using Get LLC Cost Calculator, you agree to these terms. If you do not agree, please do not use the site.
+        </p>
+        <h2 className="text-xl font-semibold text-[#102A43] pt-4">Educational purpose only</h2>
+        <p>
+          All content, calculators, and tools on this site are for general educational purposes. They are not legal, tax, accounting, or financial advice and do not create a professional relationship with you.
+        </p>
+        <h2 className="text-xl font-semibold text-[#102A43] pt-4">No warranties</h2>
+        <p>
+          Fee data and other information may be incomplete or out of date. Always verify current requirements on official state and federal websites before acting. We provide the site “as is” without warranties of any kind.
+        </p>
+        <h2 className="text-xl font-semibold text-[#102A43] pt-4">Limitation of liability</h2>
+        <p>
+          To the fullest extent permitted by law, we are not liable for any damages arising from your use of the site or reliance on its content.
+        </p>
+        <h2 className="text-xl font-semibold text-[#102A43] pt-4">Acceptable use</h2>
+        <p>
+          You may not misuse the site, attempt to disrupt it, or use automated means to scrape it in a way that harms service for others.
+        </p>
+        <h2 className="text-xl font-semibold text-[#102A43] pt-4">Contact</h2>
+        <p>
+          Questions:{" "}
+          <a href="mailto:info@getllccostcalculator.com" className="text-[#1769AA] hover:underline">
+            info@getllccostcalculator.com
+          </a>
+          .
+        </p>
+        <p className="pt-4">
+          See also our{" "}
+          <Link href="/privacy" className="text-[#1769AA] hover:underline">Privacy Policy</Link>
+          {" "}and{" "}
+          <Link href="/disclaimer" className="text-[#1769AA] hover:underline">Disclaimer</Link>.
         </p>
       </div>
     </div>
