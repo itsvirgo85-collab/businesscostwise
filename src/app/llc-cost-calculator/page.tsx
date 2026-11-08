@@ -8,6 +8,17 @@ export const metadata: Metadata = {
   description:
     "Estimate LLC formation costs by US state. Includes filing fees, annual reports, and franchise taxes where applicable. Every figure linked to official government sources. Educational tool only.",
   alternates: { canonical: "/llc-cost-calculator" },
+  openGraph: {
+    title: "LLC Cost Calculator by State — Formation & Annual Fees (2026)",
+    description: "Estimate LLC formation costs by US state. Includes filing fees, annual reports, and franchise taxes where applicable. Every figure linked to official government sources. Educational tool only.",
+    type: "article",
+    url: "/llc-cost-calculator",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LLC Cost Calculator by State — Formation & Annual Fees (2026)",
+    description: "Estimate LLC formation costs by US state. Includes filing fees, annual reports, and franchise taxes where applicable. Every figure linked to official government sources. Educational tool only.",
+  },
 };
 
 export default function LLCCostCalculatorPage() {
