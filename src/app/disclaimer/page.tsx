@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Disclaimer — Get LLC Cost Calculator",
   description:
     "Educational use only. Get LLC Cost Calculator does not provide legal, tax, or financial advice. Always verify fees on official government websites.",
+  alternates: { canonical: "/disclaimer" },
 };
 
 export default function DisclaimerPage() {
