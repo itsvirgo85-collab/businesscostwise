@@ -3,31 +3,41 @@ import { STATE_FEES } from "@/data/stateFees";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.getllccostcalculator.com";
-  const staticPages: MetadataRoute.Sitemap = [
-    { url: base, changeFrequency: "weekly", priority: 1 },
-    { url: `${base}/what-is-an-llc`, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${base}/how-much-does-it-cost-to-start-an-llc`, changeFrequency: "weekly", priority: 0.95 },
-    { url: `${base}/llc-cost-calculator`, changeFrequency: "weekly", priority: 0.95 },
-    { url: `${base}/llc-cost-by-state`, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${base}/how-to-form-an-llc`, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${base}/how-long-does-it-take-to-start-an-llc`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/how-to-get-an-ein-for-free`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/business-structures/llc-vs-s-corp`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/business-structures/llc-vs-sole-proprietorship`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/business-structures/llc-vs-corporation`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/business-structures/single-member-vs-multi-member-llc`, changeFrequency: "monthly", priority: 0.75 },
-    { url: `${base}/asset-protection`, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${base}/cheapest-states-to-form-an-llc`, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${base}/most-expensive-states-to-form-an-llc`, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${base}/hidden-costs-of-forming-an-llc`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/annual-report-requirements-by-state`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/about`, changeFrequency: "monthly", priority: 0.5 },
-    { url: `${base}/about/sources-and-methodology`, changeFrequency: "monthly", priority: 0.5 },
-    { url: `${base}/contact`, changeFrequency: "monthly", priority: 0.5 },
-    { url: `${base}/disclaimer`, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${base}/privacy`, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${base}/terms`, changeFrequency: "yearly", priority: 0.3 },
-  ];
+  const now = new Date();
+
+  const staticPaths: { path: string; changeFrequency: MetadataRoute.Sitemap[0]["changeFrequency"]; priority: number }[] =
+    [
+      { path: "", changeFrequency: "weekly", priority: 1 },
+      { path: "/what-is-an-llc", changeFrequency: "monthly", priority: 0.9 },
+      { path: "/how-much-does-it-cost-to-start-an-llc", changeFrequency: "weekly", priority: 0.95 },
+      { path: "/llc-cost-calculator", changeFrequency: "weekly", priority: 0.95 },
+      { path: "/llc-cost-by-state", changeFrequency: "weekly", priority: 0.9 },
+      { path: "/how-to-form-an-llc", changeFrequency: "monthly", priority: 0.85 },
+      { path: "/how-long-does-it-take-to-start-an-llc", changeFrequency: "monthly", priority: 0.8 },
+      { path: "/how-to-get-an-ein-for-free", changeFrequency: "monthly", priority: 0.8 },
+      { path: "/business-structures/llc-vs-s-corp", changeFrequency: "monthly", priority: 0.8 },
+      { path: "/business-structures/llc-vs-sole-proprietorship", changeFrequency: "monthly", priority: 0.8 },
+      { path: "/business-structures/llc-vs-corporation", changeFrequency: "monthly", priority: 0.8 },
+      { path: "/business-structures/single-member-vs-multi-member-llc", changeFrequency: "monthly", priority: 0.75 },
+      { path: "/asset-protection", changeFrequency: "monthly", priority: 0.7 },
+      { path: "/cheapest-states-to-form-an-llc", changeFrequency: "monthly", priority: 0.85 },
+      { path: "/most-expensive-states-to-form-an-llc", changeFrequency: "monthly", priority: 0.85 },
+      { path: "/hidden-costs-of-forming-an-llc", changeFrequency: "monthly", priority: 0.8 },
+      { path: "/annual-report-requirements-by-state", changeFrequency: "monthly", priority: 0.8 },
+      { path: "/about", changeFrequency: "monthly", priority: 0.5 },
+      { path: "/about/sources-and-methodology", changeFrequency: "monthly", priority: 0.5 },
+      { path: "/contact", changeFrequency: "monthly", priority: 0.5 },
+      { path: "/disclaimer", changeFrequency: "yearly", priority: 0.3 },
+      { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
+      { path: "/terms", changeFrequency: "yearly", priority: 0.3 },
+    ];
+
+  const staticPages: MetadataRoute.Sitemap = staticPaths.map((p) => ({
+    url: `${base}${p.path}`,
+    lastModified: now,
+    changeFrequency: p.changeFrequency,
+    priority: p.priority,
+  }));
 
   const statePages: MetadataRoute.Sitemap = STATE_FEES.filter((s) => s.status === "verified").map((s) => ({
     url: `${base}/llc-cost-by-state/${s.slug}`,
