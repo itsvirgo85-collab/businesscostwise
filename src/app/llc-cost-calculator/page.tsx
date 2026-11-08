@@ -84,6 +84,24 @@ export default function LLCCostCalculatorPage() {
         This is an educational estimating tool only. It is not a filing service and not legal, tax, or financial advice.
       </p>
 
+      <div className="mt-6 flex flex-wrap gap-3 text-sm">
+        <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-slate-700">
+          Official state source links
+        </span>
+        <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-slate-700">
+          Verification dates on fee data
+        </span>
+        <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-slate-700">
+          Automated source monitoring
+        </span>
+        <Link
+          href="/about/sources-and-methodology"
+          className="rounded-full border border-[#1769AA]/30 bg-blue-50 px-3 py-1 font-medium text-[#1769AA] hover:bg-blue-100"
+        >
+          How we keep fees current →
+        </Link>
+      </div>
+
       <div className="mt-10">
         <LLCCostCalculator />
       </div>
