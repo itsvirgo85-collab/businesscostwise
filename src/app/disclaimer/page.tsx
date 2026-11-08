@@ -2,10 +2,21 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Disclaimer — Get LLC Cost Calculator",
+  title: "Disclaimer — Educational Information Only",
   description:
-    "Educational use only. Get LLC Cost Calculator does not provide legal, tax, or financial advice. Always verify fees on official government websites.",
+    "Important disclaimer for Get LLC Cost Calculator. All content is educational only and is not legal, tax, or financial advice. Always verify fees on official state websites.",
   alternates: { canonical: "/disclaimer" },
+  openGraph: {
+    title: "Disclaimer — Educational Information Only",
+    description: "Important disclaimer for Get LLC Cost Calculator. All content is educational only and is not legal, tax, or financial advice. Always verify fees on official state websites.",
+    type: "article",
+    url: "/disclaimer",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Disclaimer — Educational Information Only",
+    description: "Important disclaimer for Get LLC Cost Calculator. All content is educational only and is not legal, tax, or financial advice. Always verify fees on official state websites.",
+  },
 };
 
 export default function DisclaimerPage() {
@@ -20,61 +31,34 @@ export default function DisclaimerPage() {
       </nav>
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43]">Disclaimer</h1>
-      <p className="mt-2 text-sm text-slate-500">Last updated: November 2026</p>
 
-      <div className="mt-8 space-y-6 text-sm leading-relaxed text-slate-700">
-        <section>
-          <h2 className="text-lg font-semibold text-[#102A43]">Educational purpose only</h2>
-          <p className="mt-2">
-            Content on Get LLC Cost Calculator—including articles, fee tables, calculators, and comparisons—is provided for general educational and informational purposes only. It does not constitute legal, tax, accounting, or financial advice.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-lg font-semibold text-[#102A43]">Fees and rules change</h2>
-          <p className="mt-2">
-            State filing fees, tax rules, and business requirements change. Always confirm current requirements and fee amounts on the official website of the relevant Secretary of State, tax agency, or other government authority before taking any action.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-lg font-semibold text-[#102A43]">No professional relationship</h2>
-          <p className="mt-2">
-            No attorney-client, advisor-client, or fiduciary relationship is created by your use of this website. For advice specific to your situation, consult a licensed attorney, CPA, or other qualified professional in the relevant jurisdiction.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-lg font-semibold text-[#102A43]">Calculators and estimates</h2>
-          <p className="mt-2">
-            Calculators produce estimates based on the inputs and data available at the time of calculation. Results may be incomplete or outdated. We make no warranty regarding accuracy or fitness for any purpose.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-lg font-semibold text-[#102A43]">Not a government website</h2>
-          <p className="mt-2">
-            Get LLC Cost Calculator is an independent educational resource. It is not affiliated with, endorsed by, or operated by any government agency.
-          </p>
-        </section>
-
-        <p className="pt-2 text-slate-500">
-          Related:{" "}
+      <div className="mt-6 space-y-4 text-slate-700 leading-relaxed">
+        <p>
+          <strong>Educational information only.</strong> Get LLC Cost Calculator provides general educational information about US LLC formation costs, state fees, and business structures. Nothing on this website constitutes legal, tax, accounting, or financial advice.
+        </p>
+        <p>
+          Fee amounts, processing times, and requirements change. Always confirm current figures and rules on the official website of the relevant Secretary of State (or equivalent agency) and consult a qualified professional for advice specific to your situation before filing or making business decisions.
+        </p>
+        <p>
+          This site is not affiliated with any government agency, Secretary of State office, or the IRS. Links to official sources are provided for convenience and verification.
+        </p>
+        <p>
+          Use of this website does not create an attorney-client, advisor, or any other professional relationship. Calculators and estimates are planning tools only and may not reflect all costs applicable to your circumstances.
+        </p>
+        <p>
+          For questions or corrections:{" "}
+          <a href="mailto:info@getllccostcalculator.com" className="text-[#1769AA] hover:underline">
+            info@getllccostcalculator.com
+          </a>
+          . See also our{" "}
+          <Link href="/privacy" className="text-[#1769AA] hover:underline">
+            Privacy Policy
+          </Link>{" "}
+          and{" "}
           <Link href="/terms" className="text-[#1769AA] hover:underline">
             Terms of Use
           </Link>
-          {" · "}
-          <Link href="/privacy" className="text-[#1769AA] hover:underline">
-            Privacy Policy
-          </Link>
-          {" · "}
-          <Link href="/contact" className="text-[#1769AA] hover:underline">
-            Contact
-          </Link>
-          {" · "}
-          <Link href="/about" className="text-[#1769AA] hover:underline">
-            About
-          </Link>
+          .
         </p>
       </div>
     </div>
