@@ -18,7 +18,26 @@ export default function JsonLd() {
         name: "Get LLC Cost Calculator",
         url: "https://www.getllccostcalculator.com",
         description:
-          "Educational resource for US LLC formation costs, state fee data, and small-business structure comparisons.",
+          "Independent educational resource for US LLC formation costs, verified state fee data, and small-business structure comparisons. Built to give founders one clear platform for real, source-linked information.",
+        email: "info@getllccostcalculator.com",
+        foundingDate: "2026",
+        sameAs: [],
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "customer support",
+          email: "info@getllccostcalculator.com",
+          availableLanguage: "English",
+        },
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.getllccostcalculator.com/#founder",
+        name: "Get LLC Cost Calculator Founder",
+        jobTitle: "Founder & Editor",
+        url: "https://www.getllccostcalculator.com/about",
+        worksFor: { "@id": "https://www.getllccostcalculator.com/#organization" },
+        description:
+          "Independent researcher and product builder who created Get LLC Cost Calculator so founders can compare verified US LLC formation costs and structure options on one trustworthy platform.",
       },
     ],
   };
