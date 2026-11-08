@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 export const runtime = "nodejs";
 
 const RECIPIENT = "info@getllccostcalculator.com";
-const SENDER = "Get LLC Cost Calculator <contact@getllccostcalculator.com>";
+const SENDER = "Get LLC Cost Calculator <contact@send.getllccostcalculator.com>";
 const INQUIRIES = new Set([
   "State fee correction",
   "Question about sources or methodology",
