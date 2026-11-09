@@ -5,18 +5,18 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 export const metadata: Metadata = {
   title: "Privacy Policy — Get LLC Cost Calculator",
   description:
-    "How Get LLC Cost Calculator handles information when you use the site and calculators.",
+    "How Get LLC Cost Calculator handles information, cookies, analytics, contact form data, and third-party links. Clear privacy practices for an educational LLC cost platform.",
   alternates: { canonical: "/privacy" },
   openGraph: {
     title: "Privacy Policy — Get LLC Cost Calculator",
-    description: "How Get LLC Cost Calculator handles information when you use the site and calculators.",
+    description: "How Get LLC Cost Calculator handles information, cookies, analytics, contact form data, and third-party links.",
     type: "article",
     url: "/privacy",
   },
   twitter: {
     card: "summary_large_image",
     title: "Privacy Policy — Get LLC Cost Calculator",
-    description: "How Get LLC Cost Calculator handles information when you use the site and calculators.",
+    description: "How Get LLC Cost Calculator handles information, cookies, analytics, contact form data, and third-party links.",
   },
 };
 
@@ -31,37 +31,159 @@ export default function PrivacyPage() {
       />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43]">Privacy Policy</h1>
-      <p className="mt-2 text-sm text-slate-500">Last updated: 2026</p>
+      <p className="mt-2 text-sm text-slate-500">Last updated: November 2026</p>
 
-      <div className="mt-6 space-y-4 text-slate-700 leading-relaxed">
+      <div className="mt-6 space-y-5 text-slate-700 leading-relaxed">
         <p>
-          Get LLC Cost Calculator (“we”, “our”, or “the site”) provides educational information about US LLC formation costs and related topics. This policy describes how information is handled when you use the site.
+          Get LLC Cost Calculator (“we”, “our”, or “the site”) is an independent educational platform that publishes verified US LLC formation costs, multi-year estimates, structure comparisons, and practical guides. This Privacy Policy explains what information may be collected when you visit the site, how that information is used, and the choices you have. We designed the site to be useful without requiring accounts or extensive personal data.
         </p>
-        <h2 className="text-xl font-semibold text-[#102A43] pt-4">Information we collect</h2>
+
         <p>
-          The site is primarily informational. We do not require an account to use the calculators or read the guides. Standard server and hosting logs (such as IP address, browser type, and pages requested) may be collected by our hosting provider (for example Vercel) as part of normal website operation and security.
+          This policy applies to the website at getllccostcalculator.com and related pages. It does not apply to third-party websites we link to, including official state Secretary of State portals or the IRS. Those sites have their own privacy practices.
         </p>
-        <h2 className="text-xl font-semibold text-[#102A43] pt-4">Cookies and analytics</h2>
+
+        <h2 className="text-xl font-semibold text-[#102A43] pt-4">1. Information We Collect</h2>
         <p>
-          We may use privacy-friendly analytics or essential cookies needed for the site to function. You can control cookies through your browser settings.
+          The core experience of Get LLC Cost Calculator — reading guides, using the cost calculator, and viewing state fee tables — does not require you to create an account or provide personal information. Most visitors can use the tools without submitting any data beyond what a normal browser sends to any website.
         </p>
-        <h2 className="text-xl font-semibold text-[#102A43] pt-4">Contact</h2>
+
+        <h3 className="text-lg font-semibold text-[#102A43] pt-2">1.1 Information you choose to provide</h3>
         <p>
-          If you contact us through the site contact form, we will use your message only to respond to your inquiry.
+          If you use the contact form, you may voluntarily submit a name, email address, and message. We use this information solely to respond to your inquiry (for example, a fee correction report, a question about methodology, or feedback on a guide). We do not sell, rent, or share contact-form submissions with third parties for marketing. Messages are handled as correspondence related to the educational operation of the site.
         </p>
-        <h2 className="text-xl font-semibold text-[#102A43] pt-4">Third-party links</h2>
         <p>
-          Our pages link to official government websites and other external resources. We are not responsible for the privacy practices of those sites.
+          We do not require an account. There is no user profile system, no password storage, and no ongoing account-based tracking of your activity on the site.
         </p>
-        <h2 className="text-xl font-semibold text-[#102A43] pt-4">Changes</h2>
+
+        <h3 className="text-lg font-semibold text-[#102A43] pt-2">1.2 Automatically collected technical information</h3>
         <p>
-          We may update this policy from time to time. The “Last updated” date at the top of this page will change when we do.
+          Like nearly all websites, our hosting and infrastructure providers may automatically log certain technical data when your browser requests a page. This typically includes:
         </p>
+        <ul className="list-disc pl-6 space-y-1">
+          <li>IP address</li>
+          <li>Browser type and version</li>
+          <li>Operating system</li>
+          <li>Referring URL (if you arrived from another site)</li>
+          <li>Pages requested and timestamps</li>
+          <li>Approximate geographic region derived from IP (usually city or country level)</li>
+        </ul>
+        <p>
+          These logs are generated by the hosting environment (currently Vercel) as part of normal operation, security monitoring, and performance troubleshooting. They are not used to build individual marketing profiles.
+        </p>
+
+        <h3 className="text-lg font-semibold text-[#102A43] pt-2">1.3 Calculator and interactive tool usage</h3>
+        <p>
+          The LLC cost calculator runs in the browser. State selections and optional inputs (such as estimated registered-agent cost) are processed client-side for the estimate you see. We do not require you to log in or permanently store your calculator inputs on our servers in order to use the tool. Any transient processing that occurs is for the purpose of generating the on-page result.
+        </p>
+
+        <h2 className="text-xl font-semibold text-[#102A43] pt-4">2. Cookies and Similar Technologies</h2>
+        <p>
+          We aim to keep the use of cookies minimal and purposeful.
+        </p>
+        <ul className="list-disc pl-6 space-y-1">
+          <li><strong>Essential cookies</strong> — May be used by the hosting platform or framework to deliver the site reliably, manage sessions for form submissions, or protect against abuse.</li>
+          <li><strong>Analytics</strong> — We may use privacy-oriented analytics to understand aggregate traffic patterns (for example, which guides are most read, or whether the calculator is used). We prefer tools and configurations that minimize personal data collection and do not rely on cross-site advertising identifiers.</li>
+          <li><strong>No advertising cookies for third-party ad networks</strong> — The site is not designed as an advertising-supported property that sells inventory based on individual browsing profiles.</li>
+        </ul>
+        <p>
+          You can control cookies through your browser settings. Blocking certain cookies may affect site functionality (for example, form submission or preference storage), but the core educational content and calculator remain accessible in most cases.
+        </p>
+
+        <h2 className="text-xl font-semibold text-[#102A43] pt-4">3. How We Use Information</h2>
+        <p>
+          Information is used for the following limited purposes:
+        </p>
+        <ul className="list-disc pl-6 space-y-1">
+          <li>To operate, maintain, and improve the website and tools</li>
+          <li>To respond to contact-form messages and fee-correction reports</li>
+          <li>To monitor for security issues, abuse, or technical problems</li>
+          <li>To understand aggregate usage patterns so we can improve content quality and navigation</li>
+          <li>To comply with applicable legal obligations if required</li>
+        </ul>
+        <p>
+          We do not use contact-form data for marketing lists, and we do not sell personal information.
+        </p>
+
+        <h2 className="text-xl font-semibold text-[#102A43] pt-4">4. Sharing of Information</h2>
+        <p>
+          We share information only in limited circumstances:
+        </p>
+        <ul className="list-disc pl-6 space-y-1">
+          <li><strong>Service providers</strong> — Hosting, email delivery (if used for contact-form notifications), and security tooling may process data as necessary to provide those services under contractual terms.</li>
+          <li><strong>Legal requirements</strong> — We may disclose information if required by law, regulation, legal process, or governmental request, or to protect the rights, safety, or integrity of the site and its users.</li>
+          <li><strong>Business transfers</strong> — In the unlikely event of a merger, acquisition, or sale of assets related to the site, information may transfer as part of that transaction, subject to the same privacy expectations described here.</li>
+        </ul>
+        <p>
+          We do not sell personal information to data brokers or advertisers.
+        </p>
+
+        <h2 className="text-xl font-semibold text-[#102A43] pt-4">5. Third-Party Links and Official Sources</h2>
+        <p>
+          Many pages on this site link to official state government websites (Secretary of State or equivalent), the IRS, and other external resources so you can verify fees and rules at the primary source. When you leave getllccostcalculator.com and visit those sites, their privacy policies and practices apply. We are not responsible for the content or privacy practices of external sites.
+        </p>
+        <p>
+          We recommend reviewing the privacy notices of any government or third-party site you visit, especially if you are filing documents or creating accounts there.
+        </p>
+
+        <h2 className="text-xl font-semibold text-[#102A43] pt-4">6. Data Retention</h2>
+        <p>
+          Contact-form submissions are retained only as long as reasonably necessary to respond and, if relevant, to investigate and update fee data or content. Server and security logs are retained according to the hosting provider’s standard practices and our operational needs, typically for limited periods sufficient for troubleshooting and security review.
+        </p>
+        <p>
+          Because the site does not maintain user accounts, there is no long-term personal profile database associated with ordinary browsing.
+        </p>
+
+        <h2 className="text-xl font-semibold text-[#102A43] pt-4">7. Security</h2>
+        <p>
+          We take reasonable technical and organizational measures appropriate to the nature of the data involved. The site is served over HTTPS. Contact-form handling is designed to limit exposure of submitted information. No method of transmission or storage is completely secure, and we cannot guarantee absolute security.
+        </p>
+
+        <h2 className="text-xl font-semibold text-[#102A43] pt-4">8. Children’s Privacy</h2>
+        <p>
+          The site is intended for adults researching business formation costs and related educational topics. It is not directed at children under 13 (or the equivalent age in relevant jurisdictions). We do not knowingly collect personal information from children.
+        </p>
+
+        <h2 className="text-xl font-semibold text-[#102A43] pt-4">9. International Visitors</h2>
+        <p>
+          The site focuses on US LLC formation and is primarily directed at users in the United States. If you access the site from outside the US, you understand that information may be processed in the United States or other locations where our service providers operate. Local laws may differ from those in your country.
+        </p>
+
+        <h2 className="text-xl font-semibold text-[#102A43] pt-4">10. Your Choices and Rights</h2>
+        <p>
+          Depending on where you live, you may have rights regarding personal information, such as access, correction, deletion, or restriction of processing. Because we collect limited personal data and do not operate account-based profiles, many requests can be handled by contacting us with sufficient detail to locate any relevant records (for example, the email address used in a contact-form submission).
+        </p>
+        <p>
+          You can also:
+        </p>
+        <ul className="list-disc pl-6 space-y-1">
+          <li>Control cookies through your browser</li>
+          <li>Choose not to use the contact form if you prefer not to provide an email address</li>
+          <li>Use the educational content and calculator without creating any account</li>
+        </ul>
+
+        <h2 className="text-xl font-semibold text-[#102A43] pt-4">11. Changes to This Policy</h2>
+        <p>
+          We may update this Privacy Policy from time to time to reflect changes in practices, technology, legal requirements, or the scope of the site. When we make material changes, we will update the “Last updated” date at the top of this page. Continued use of the site after changes constitutes acceptance of the updated policy to the extent permitted by law.
+        </p>
+
+        <h2 className="text-xl font-semibold text-[#102A43] pt-4">12. Contact</h2>
+        <p>
+          If you have questions about this Privacy Policy or about how information is handled on Get LLC Cost Calculator, please use the{' '}
+          <Link href="/contact" className="text-[#1769AA] hover:underline">contact form</Link>.
+          We aim to respond to legitimate privacy-related inquiries within a reasonable time.
+        </p>
+
         <p className="pt-4">
-          See also our{" "}
+          See also our{' '}
           <Link href="/terms" className="text-[#1769AA] hover:underline">Terms of Use</Link>
-          {" "}and{" "}
+          {' '}and{' '}
           <Link href="/disclaimer" className="text-[#1769AA] hover:underline">Disclaimer</Link>.
+          For information about how fee data is sourced and maintained, visit{' '}
+          <Link href="/about/sources-and-methodology" className="text-[#1769AA] hover:underline">Sources & Methodology</Link>.
+        </p>
+
+        <p className="pt-2 text-sm text-slate-500">
+          Educational information only. This Privacy Policy describes practices related to the website and is not legal advice.
         </p>
       </div>
     </div>
