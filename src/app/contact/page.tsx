@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import ContactForm from "@/components/contact/ContactForm";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Contact Get LLC Cost Calculator — Questions & Fee Corrections",
@@ -51,13 +52,12 @@ export default function ContactPage() {
     <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
 
-      <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-[#1769AA]">
-          Home
-        </Link>
-        <span className="mx-2">/</span>
-        <span className="text-slate-800">Contact</span>
-      </nav>
+      <Breadcrumbs
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Contact", item: "/contact" },
+        ]}
+      />
 
       <div className="max-w-3xl">
         <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
@@ -110,7 +110,7 @@ export default function ContactPage() {
               </li>
               <li>
                 <Link href="/about/sources-and-methodology" className="text-[#1769AA] hover:underline">
-                  Sources &amp; methodology
+                  Sources & methodology
                 </Link>
               </li>
               <li>
