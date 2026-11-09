@@ -11,9 +11,13 @@ export default function Footer() {
               Independent educational platform for verified US LLC formation costs, multi-year estimates, and structure guides — one place for real, source-linked information.
             </p>
             <p className="mt-3 text-sm text-slate-600">
-              <a href="mailto:info@getllccostcalculator.com" className="text-[#1769AA] hover:underline">
-                info@getllccostcalculator.com
+              <a href="mailto:itsvirgo85@gmail.com" className="text-[#1769AA] hover:underline">
+                itsvirgo85@gmail.com
               </a>
+              {" · "}
+              <Link href="/contact" className="text-[#1769AA] hover:underline">
+                Contact form
+              </Link>
             </p>
           </div>
           <div>
