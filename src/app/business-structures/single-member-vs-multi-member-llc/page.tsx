@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Single-Member vs Multi-Member LLC — Differences Explained (2026)",
@@ -9,14 +10,16 @@ export const metadata: Metadata = {
   alternates: { canonical: "/business-structures/single-member-vs-multi-member-llc" },
   openGraph: {
     title: "Single-Member vs Multi-Member LLC — Differences Explained (2026)",
-    description: "How single-member and multi-member LLCs differ in taxation, ownership, operating agreements, liability, and administration for US small businesses. Educational guide.",
+    description:
+      "How single-member and multi-member LLCs differ in taxation, ownership, operating agreements, liability, and administration for US small businesses. Educational guide.",
     type: "article",
     url: "/business-structures/single-member-vs-multi-member-llc",
   },
   twitter: {
     card: "summary_large_image",
     title: "Single-Member vs Multi-Member LLC — Differences Explained (2026)",
-    description: "How single-member and multi-member LLCs differ in taxation, ownership, operating agreements, liability, and administration for US small businesses. Educational guide.",
+    description:
+      "How single-member and multi-member LLCs differ in taxation, ownership, operating agreements, liability, and administration for US small businesses. Educational guide.",
   },
 };
 
@@ -58,24 +61,31 @@ export default function SingleVsMultiMemberPage() {
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
 
-      <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-[#1769AA]">Home</Link>
-        <span className="mx-2">/</span>
-        <Link href="/business-structures/llc-vs-sole-proprietorship" className="hover:text-[#1769AA]">Structures</Link>
-        <span className="mx-2">/</span>
-        <span className="text-slate-800">Single vs Multi-Member</span>
-      </nav>
+      <Breadcrumbs
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Business Structures", item: "/business-structures" },
+          {
+            name: "Single vs Multi-Member LLC",
+            item: "/business-structures/single-member-vs-multi-member-llc",
+          },
+        ]}
+      />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         Single-Member vs Multi-Member LLC
       </h1>
 
       <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-        The number of owners is one of the first choices when forming an LLC. A single-member LLC has one owner. A multi-member LLC has two or more. Both can provide limited liability when properly maintained, but they differ in default federal tax treatment, paperwork, and how important a written operating agreement becomes.
+        The number of owners is one of the first choices when forming an LLC. A single-member LLC has one
+        owner. A multi-member LLC has two or more. Both can provide limited liability when properly
+        maintained, but they differ in default federal tax treatment, paperwork, and how important a
+        written operating agreement becomes.
       </p>
 
       <p className="mt-3 text-slate-600 leading-relaxed">
-        This page is educational only and is not legal or tax advice. Rules can vary by state and by your specific facts.
+        This page is educational only and is not legal or tax advice. Rules can vary by state and by your
+        specific facts.
       </p>
 
       <section className="mt-12">
@@ -123,24 +133,33 @@ export default function SingleVsMultiMemberPage() {
       <section className="mt-12">
         <h2 className="text-2xl font-bold text-[#102A43]">Single-member LLC</h2>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          A single-member LLC is owned by one person or one entity. For federal tax purposes it is usually a disregarded entity: profits and losses flow to the owner’s personal return. It can still open a business bank account, enter contracts, and maintain separation from personal assets when records and finances are kept separate.
+          A single-member LLC is owned by one person or one entity. For federal tax purposes it is usually
+          a disregarded entity: profits and losses flow to the owner’s personal return. It can still open a
+          business bank account, enter contracts, and maintain separation from personal assets when records
+          and finances are kept separate.
         </p>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          Many solopreneurs and freelancers start here because formation and ongoing compliance are relatively simple compared with a multi-member structure.
+          Many solopreneurs and freelancers start here because formation and ongoing compliance are
+          relatively simple compared with a multi-member structure.
         </p>
       </section>
 
       <section className="mt-12">
         <h2 className="text-2xl font-bold text-[#102A43]">Multi-member LLC</h2>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          A multi-member LLC has two or more owners. By default it is taxed as a partnership and files an informational partnership return. Members receive K-1s. A clear operating agreement is especially important to define ownership percentages, capital contributions, voting, profit sharing, and exit rules.
+          A multi-member LLC has two or more owners. By default it is taxed as a partnership and files an
+          informational partnership return. Members receive K-1s. A clear operating agreement is especially
+          important to define ownership percentages, capital contributions, voting, profit sharing, and exit
+          rules.
         </p>
       </section>
 
       <section className="mt-12">
         <h2 className="text-2xl font-bold text-[#102A43]">Tax elections</h2>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          Either type of LLC can often elect to be taxed as an S-Corporation or C-Corporation if it meets IRS rules. The S-Corp election is sometimes used to manage self-employment taxes once the business is profitable enough to justify payroll formalities. See{" "}
+          Either type of LLC can often elect to be taxed as an S-Corporation or C-Corporation if it meets
+          IRS rules. The S-Corp election is sometimes used to manage self-employment taxes once the business
+          is profitable enough to justify payroll formalities. See{" "}
           <Link href="/business-structures/llc-vs-s-corp" className="text-[#1769AA] hover:underline">
             LLC vs S-Corp
           </Link>
@@ -168,17 +187,48 @@ export default function SingleVsMultiMemberPage() {
       <section className="mt-12 rounded-xl border border-slate-200 bg-slate-50 p-6">
         <h2 className="text-lg font-semibold text-[#102A43]">Related guides</h2>
         <ul className="mt-3 space-y-2 text-sm">
-          <li><Link href="/what-is-an-llc" className="text-[#1769AA] hover:underline">What is an LLC?</Link></li>
-          <li><Link href="/business-structures/llc-vs-sole-proprietorship" className="text-[#1769AA] hover:underline">LLC vs Sole Proprietorship</Link></li>
-          <li><Link href="/business-structures/llc-vs-corporation" className="text-[#1769AA] hover:underline">LLC vs Corporation</Link></li>
-          <li><Link href="/business-structures/llc-vs-s-corp" className="text-[#1769AA] hover:underline">LLC vs S-Corp</Link></li>
-          <li><Link href="/how-to-form-an-llc" className="text-[#1769AA] hover:underline">How to Form an LLC</Link></li>
-          <li><Link href="/llc-cost-calculator" className="text-[#1769AA] hover:underline">LLC Cost Calculator</Link></li>
+          <li>
+            <Link href="/business-structures" className="text-[#1769AA] hover:underline">
+              All business structure guides
+            </Link>
+          </li>
+          <li>
+            <Link href="/what-is-an-llc" className="text-[#1769AA] hover:underline">
+              What is an LLC?
+            </Link>
+          </li>
+          <li>
+            <Link href="/business-structures/llc-vs-sole-proprietorship" className="text-[#1769AA] hover:underline">
+              LLC vs Sole Proprietorship
+            </Link>
+          </li>
+          <li>
+            <Link href="/business-structures/llc-vs-corporation" className="text-[#1769AA] hover:underline">
+              LLC vs Corporation
+            </Link>
+          </li>
+          <li>
+            <Link href="/business-structures/llc-vs-s-corp" className="text-[#1769AA] hover:underline">
+              LLC vs S-Corp
+            </Link>
+          </li>
+          <li>
+            <Link href="/how-to-form-an-llc" className="text-[#1769AA] hover:underline">
+              How to Form an LLC
+            </Link>
+          </li>
+          <li>
+            <Link href="/llc-cost-calculator" className="text-[#1769AA] hover:underline">
+              LLC Cost Calculator
+            </Link>
+          </li>
         </ul>
       </section>
 
       <p className="mt-10 text-xs leading-relaxed text-slate-500">
-        Educational information only. Not legal, tax, or financial advice. Always confirm current rules for your state and situation with a qualified professional. This site is not affiliated with any government agency.
+        Educational information only. Not legal, tax, or financial advice. Always confirm current rules for
+        your state and situation with a qualified professional. This site is not affiliated with any
+        government agency.
       </p>
     </div>
   );
