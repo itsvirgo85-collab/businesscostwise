@@ -3,7 +3,6 @@ import { STATE_FEES } from "@/data/stateFees";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.getllccostcalculator.com";
-  const now = new Date();
 
   const staticPaths: { path: string; changeFrequency: MetadataRoute.Sitemap[0]["changeFrequency"]; priority: number }[] =
     [
@@ -34,7 +33,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticPages: MetadataRoute.Sitemap = staticPaths.map((p) => ({
     url: `${base}${p.path}`,
-    lastModified: now,
     changeFrequency: p.changeFrequency,
     priority: p.priority,
   }));
