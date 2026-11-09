@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const runtime = "nodejs";
 
-// Private delivery address — never exposed in the public UI
+// Private — never sent to the browser
 const TO_EMAIL = process.env.CONTACT_TO_EMAIL || "itsvirgo85@gmail.com";
 const FROM_NAME = "Get LLC Cost Calculator";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.getllccostcalculator.com";
@@ -27,13 +27,12 @@ function clean(value: unknown, max: number) {
 }
 
 async function sendWithResend(opts: {
-  name: string;
   email: string;
   subject: string;
   text: string;
 }) {
-  const resendKey = process.env.RESEND_API_KEY;
-  if (!resendKey) return { ok: false as const, reason: "no_key" };
+  const key = process.env.RESEND_API_KEY;
+  if (!key) return { ok: false as const, provider: "resend", reason: "not_configured" };
 
   const from =
     process.env.CONTACT_FROM_EMAIL ||
@@ -42,7 +41,7 @@ async function sendWithResend(opts: {
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${resendKey}`,
+      Authorization: `Bearer ${key}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
@@ -55,12 +54,40 @@ async function sendWithResend(opts: {
   });
 
   if (!res.ok) {
-    const detail = await res.text();
-    console.error("Resend error:", detail);
-    return { ok: false as const, reason: "resend_failed" };
+    console.error("Resend error:", await res.text());
+    return { ok: false as const, provider: "resend", reason: "send_failed" };
   }
+  return { ok: true as const, provider: "resend" };
+}
 
-  return { ok: true as const };
+async function sendWithWeb3Forms(opts: {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}) {
+  const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
+  if (!accessKey) return { ok: false as const, provider: "web3forms", reason: "not_configured" };
+
+  const res = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify({
+      access_key: accessKey,
+      subject: opts.subject,
+      from_name: opts.name,
+      email: opts.email,
+      message: opts.message,
+      to: TO_EMAIL,
+    }),
+  });
+
+  const data = (await res.json().catch(() => ({}))) as { success?: boolean; message?: string };
+  if (!res.ok || !data.success) {
+    console.error("Web3Forms error:", data);
+    return { ok: false as const, provider: "web3forms", reason: "send_failed" };
+  }
+  return { ok: true as const, provider: "web3forms" };
 }
 
 async function sendWithFormSubmit(opts: {
@@ -70,7 +97,6 @@ async function sendWithFormSubmit(opts: {
   topic: string;
   message: string;
 }) {
-  // FormSubmit rejects server calls without a real site Origin/Referer
   const form = new FormData();
   form.set("name", opts.name);
   form.set("email", opts.email);
@@ -80,7 +106,6 @@ async function sendWithFormSubmit(opts: {
   form.set("message", opts.message);
   form.set("_template", "table");
   form.set("_captcha", "false");
-  form.set("_honey", "");
 
   const res = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(TO_EMAIL)}`, {
     method: "POST",
@@ -97,20 +122,24 @@ async function sendWithFormSubmit(opts: {
   try {
     json = JSON.parse(raw) as typeof json;
   } catch {
-    console.error("FormSubmit non-JSON response:", raw.slice(0, 500));
+    /* ignore */
   }
 
-  const successFlag =
+  if (res.status === 429 || /rate limit/i.test(String(json.message || raw))) {
+    console.error("FormSubmit rate limited");
+    return { ok: false as const, provider: "formsubmit", reason: "rate_limited" };
+  }
+
+  const success =
     json.success === true ||
     json.success === "true" ||
-    /thank you|sent|success/i.test(String(json.message || ""));
+    /thank you|sent successfully/i.test(String(json.message || ""));
 
-  if (!res.ok || !successFlag) {
-    console.error("FormSubmit error:", res.status, raw.slice(0, 500));
-    return { ok: false as const, reason: "formsubmit_failed", detail: json.message || raw.slice(0, 200) };
+  if (!res.ok || !success) {
+    console.error("FormSubmit error:", res.status, raw.slice(0, 300));
+    return { ok: false as const, provider: "formsubmit", reason: "send_failed" };
   }
-
-  return { ok: true as const };
+  return { ok: true as const, provider: "formsubmit" };
 }
 
 export async function POST(req: NextRequest) {
@@ -153,35 +182,41 @@ export async function POST(req: NextRequest) {
       `Sent via getllccostcalculator.com/contact`,
     ].join("\n");
 
-    // 1) Resend (recommended — set RESEND_API_KEY in Vercel)
-    const resend = await sendWithResend({
-      name,
-      email,
-      subject: mailSubject,
-      text: mailBody,
-    });
-    if (resend.ok) {
-      return NextResponse.json({ ok: true });
+    // Prefer paid/free API keys (reliable on Vercel)
+    const attempts = [
+      () => sendWithResend({ email, subject: mailSubject, text: mailBody }),
+      () =>
+        sendWithWeb3Forms({
+          name,
+          email,
+          subject: mailSubject,
+          message: mailBody,
+        }),
+      () =>
+        sendWithFormSubmit({
+          name,
+          email,
+          subject: mailSubject,
+          topic,
+          message: mailBody,
+        }),
+    ];
+
+    for (const attempt of attempts) {
+      const result = await attempt();
+      if (result.ok) {
+        return NextResponse.json({ ok: true });
+      }
     }
 
-    // 2) FormSubmit fallback (free; first submit may need Gmail activation)
-    const fs = await sendWithFormSubmit({
-      name,
-      email,
-      subject: mailSubject,
-      topic,
-      message: mailBody,
-    });
-    if (fs.ok) {
-      return NextResponse.json({ ok: true });
-    }
+    const hasAnyKey = Boolean(process.env.RESEND_API_KEY || process.env.WEB3FORMS_ACCESS_KEY);
 
-    console.error("All email providers failed", { resend, fs });
     return NextResponse.json(
       {
         ok: false,
-        error:
-          "Could not deliver the message right now. Please try again in a few minutes.",
+        error: hasAnyKey
+          ? "Could not deliver the message right now. Please try again in a few minutes."
+          : "Email delivery is not configured yet. The site owner needs to add a RESEND_API_KEY in Vercel.",
       },
       { status: 502 }
     );
