@@ -6,7 +6,7 @@ import ContactForm from "@/components/contact/ContactForm";
 export const metadata: Metadata = {
   title: "Contact Get LLC Cost Calculator — Questions & Fee Corrections",
   description:
-    "Contact Get LLC Cost Calculator with questions about US LLC state fees, data corrections, or educational guides. Send a message or email itsvirgo85@gmail.com.",
+    "Contact Get LLC Cost Calculator with questions about US LLC state fees, data corrections, or educational guides. Use the secure contact form on this page.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact Get LLC Cost Calculator — Questions & Fee Corrections",
@@ -74,19 +74,6 @@ export default function ContactPage() {
         <ContactForm />
 
         <aside className="space-y-6">
-          <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
-            <h2 className="text-sm font-semibold text-[#102A43]">Direct email</h2>
-            <a
-              href="mailto:itsvirgo85@gmail.com"
-              className="mt-2 block break-all text-sm font-medium text-[#1769AA] hover:underline"
-            >
-              itsvirgo85@gmail.com
-            </a>
-            <p className="mt-2 text-xs text-slate-600">
-              Prefer email? Use the same address — form submissions are delivered here as well.
-            </p>
-          </div>
-
           <div className="rounded-xl border border-slate-200 bg-white p-5">
             <h2 className="text-sm font-semibold text-[#102A43]">What we can help with</h2>
             <ul className="mt-3 space-y-2 text-sm text-slate-700">
@@ -123,7 +110,7 @@ export default function ContactPage() {
               </li>
               <li>
                 <Link href="/about/sources-and-methodology" className="text-[#1769AA] hover:underline">
-                  Sources & methodology
+                  Sources &amp; methodology
                 </Link>
               </li>
               <li>

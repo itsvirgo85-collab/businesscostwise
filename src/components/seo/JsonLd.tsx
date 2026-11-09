@@ -23,14 +23,12 @@ export default function JsonLd() {
         image: { "@id": `${siteUrl}/#logo` },
         description:
           "Independent educational resource for US LLC formation costs, verified state fee data, and small-business structure comparisons. Built to give founders one clear platform for real, source-linked information.",
-        email: "info@getllccostcalculator.com",
         foundingDate: "2026",
         founder: { "@id": `${siteUrl}/#founder` },
         contactPoint: [
           {
             "@type": "ContactPoint",
             contactType: "customer support",
-            email: "info@getllccostcalculator.com",
             url: `${siteUrl}/contact`,
             availableLanguage: ["English"],
           },

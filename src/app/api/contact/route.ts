@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const runtime = "nodejs";
 
-const TO_EMAIL = "itsvirgo85@gmail.com";
+// Private delivery address — never exposed in the public UI
+const TO_EMAIL = process.env.CONTACT_TO_EMAIL || "itsvirgo85@gmail.com";
 const FROM_NAME = "Get LLC Cost Calculator";
 
 type Body = {
@@ -90,7 +91,7 @@ export async function POST(req: NextRequest) {
         const detail = await res.text();
         console.error("Resend error:", detail);
         return NextResponse.json(
-          { ok: false, error: "Email service could not send the message. Please try again later." },
+          { ok: false, error: "Could not send the message right now. Please try again later." },
           { status: 502 }
         );
       }
@@ -98,7 +99,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: true });
     }
 
-    // Zero-config fallback: FormSubmit (delivers to itsvirgo85@gmail.com)
+    // Zero-config fallback: FormSubmit (server-side only; address never shown in UI)
     // First submission may require inbox confirmation from FormSubmit.
     const fsRes = await fetch(`https://formsubmit.co/ajax/${TO_EMAIL}`, {
       method: "POST",
@@ -123,8 +124,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(
         {
           ok: false,
-          error:
-            "Could not deliver the message right now. Please email itsvirgo85@gmail.com directly.",
+          error: "Could not deliver the message right now. Please try again later.",
         },
         { status: 502 }
       );
