@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import LLCCostCalculator from "@/components/calculators/LLCCostCalculator";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "LLC Cost Calculator by State — Formation & Annual Fees (2026)",
@@ -64,13 +65,12 @@ export default function LLCCostCalculatorPage() {
       />
       <FaqJsonLd faqs={faqs} />
 
-      <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-[#1769AA]">
-          Home
-        </Link>
-        <span className="mx-2">/</span>
-        <span className="text-slate-800">LLC Cost Calculator</span>
-      </nav>
+      <Breadcrumbs
+        items={[
+          { name: "Home", item: "/" },
+          { name: "LLC Cost Calculator", item: "/llc-cost-calculator" },
+        ]}
+      />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         LLC Formation Cost Calculator by State
