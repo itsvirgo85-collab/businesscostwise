@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "LLC vs Corporation: Key Differences for Small Businesses (2026)",
@@ -47,17 +48,13 @@ export default function LLCvsCorporationPage() {
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
 
-      <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-[#1769AA]">
-          Home
-        </Link>
-        <span className="mx-2">/</span>
-        <Link href="/what-is-an-llc" className="hover:text-[#1769AA]">
-          What is an LLC
-        </Link>
-        <span className="mx-2">/</span>
-        <span className="text-slate-800">LLC vs Corporation</span>
-      </nav>
+      <Breadcrumbs
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Business Structures", item: "/business-structures" },
+          { name: "LLC vs Corporation", item: "/business-structures/llc-vs-corporation" },
+        ]}
+      />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         LLC vs Corporation: Key Differences
@@ -214,10 +211,10 @@ export default function LLCvsCorporationPage() {
             LLC vs S-Corp
           </Link>
           <Link
-            href="/asset-protection"
+            href="/business-structures"
             className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700"
           >
-            Asset Protection
+            All structures
           </Link>
           <Link
             href="/what-is-an-llc"

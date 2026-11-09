@@ -58,7 +58,16 @@ export default function LLCvsSolePropPage() {
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
 
-      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"LLC vs Sole Proprietorship","item":"/business-structures/llc-vs-sole-proprietorship"}]} />
+      <Breadcrumbs
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Business Structures", item: "/business-structures" },
+          {
+            name: "LLC vs Sole Proprietorship",
+            item: "/business-structures/llc-vs-sole-proprietorship",
+          },
+        ]}
+      />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         LLC vs Sole Proprietorship: Key Differences (2026)
@@ -93,7 +102,6 @@ export default function LLCvsSolePropPage() {
         </Link>
       </div>
 
-      {/* Comparison table */}
       <section className="mt-12">
         <h2 className="text-2xl font-bold text-[#102A43]">Side-by-side comparison</h2>
         <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200">
@@ -246,6 +254,7 @@ export default function LLCvsSolePropPage() {
       <section className="mt-12 rounded-xl border border-slate-200 bg-slate-50 p-6">
         <h2 className="text-lg font-semibold text-[#102A43]">Related guides</h2>
         <div className="mt-4 grid gap-2 sm:grid-cols-2 text-sm">
+          <Link href="/business-structures" className="text-[#1769AA] hover:underline">All business structures</Link>
           <Link href="/what-is-an-llc" className="text-[#1769AA] hover:underline">What is an LLC?</Link>
           <Link href="/how-to-form-an-llc" className="text-[#1769AA] hover:underline">How to Form an LLC</Link>
           <Link href="/how-much-does-it-cost-to-start-an-llc" className="text-[#1769AA] hover:underline">How Much Does It Cost to Start an LLC?</Link>

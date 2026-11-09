@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "LLC vs S Corp: Key Differences, Taxes & When to Elect (2026)",
@@ -47,17 +48,13 @@ export default function LLCvsSCorpPage() {
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
 
-      <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-[#1769AA]">
-          Home
-        </Link>
-        <span className="mx-2">/</span>
-        <Link href="/what-is-an-llc" className="hover:text-[#1769AA]">
-          What is an LLC
-        </Link>
-        <span className="mx-2">/</span>
-        <span className="text-slate-800">LLC vs S Corp</span>
-      </nav>
+      <Breadcrumbs
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Business Structures", item: "/business-structures" },
+          { name: "LLC vs S-Corp", item: "/business-structures/llc-vs-s-corp" },
+        ]}
+      />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         LLC vs S Corp: What’s the Real Difference?
@@ -184,6 +181,11 @@ export default function LLCvsSCorpPage() {
       <section className="mt-12 rounded-xl border border-slate-200 bg-slate-50 p-6">
         <h2 className="text-lg font-semibold text-[#102A43]">Related guides</h2>
         <ul className="mt-4 space-y-2 text-sm">
+          <li>
+            <Link href="/business-structures" className="text-[#1769AA] hover:underline">
+              All business structure guides
+            </Link>
+          </li>
           <li>
             <Link href="/business-structures/llc-vs-sole-proprietorship" className="text-[#1769AA] hover:underline">
               LLC vs Sole Proprietorship
