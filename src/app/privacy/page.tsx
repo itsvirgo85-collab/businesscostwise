@@ -1,32 +1,34 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — Get LLC Cost Calculator",
   description:
-    "How Get LLC Cost Calculator handles information when you use the site and calculators. Contact: info@getllccostcalculator.com",
+    "How Get LLC Cost Calculator handles information when you use the site and calculators.",
   alternates: { canonical: "/privacy" },
   openGraph: {
     title: "Privacy Policy — Get LLC Cost Calculator",
-    description: "How Get LLC Cost Calculator handles information when you use the site and calculators. Contact: info@getllccostcalculator.com",
+    description: "How Get LLC Cost Calculator handles information when you use the site and calculators.",
     type: "article",
     url: "/privacy",
   },
   twitter: {
     card: "summary_large_image",
     title: "Privacy Policy — Get LLC Cost Calculator",
-    description: "How Get LLC Cost Calculator handles information when you use the site and calculators. Contact: info@getllccostcalculator.com",
+    description: "How Get LLC Cost Calculator handles information when you use the site and calculators.",
   },
 };
 
 export default function PrivacyPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
-      <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-[#1769AA]">Home</Link>
-        <span className="mx-2">/</span>
-        <span className="text-slate-800">Privacy Policy</span>
-      </nav>
+      <Breadcrumbs
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Privacy Policy", item: "/privacy" },
+        ]}
+      />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43]">Privacy Policy</h1>
       <p className="mt-2 text-sm text-slate-500">Last updated: 2026</p>
@@ -45,11 +47,7 @@ export default function PrivacyPage() {
         </p>
         <h2 className="text-xl font-semibold text-[#102A43] pt-4">Contact</h2>
         <p>
-          If you email us at{" "}
-          <a href="mailto:info@getllccostcalculator.com" className="text-[#1769AA] hover:underline">
-            info@getllccostcalculator.com
-          </a>
-          , we will use your message only to respond to your inquiry.
+          If you contact us through the site contact form, we will use your message only to respond to your inquiry.
         </p>
         <h2 className="text-xl font-semibold text-[#102A43] pt-4">Third-party links</h2>
         <p>
