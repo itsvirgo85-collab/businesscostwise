@@ -23,16 +23,29 @@ export default function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
       />
       <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
-        {items.map((entry, index) => (
-          <span key={entry.item}>
-            {index > 0 && <span className="mx-2">/</span>}
-            {index === items.length - 1 ? (
-              <span className="text-slate-800" aria-current="page">{entry.name}</span>
-            ) : (
-              <Link href={entry.item} className="hover:text-[#1769AA]">{entry.name}</Link>
-            )}
-          </span>
-        ))}
+        <ol className="flex flex-wrap items-center gap-1 list-none p-0 m-0">
+          {items.map((entry, index) => {
+            const isLast = index === items.length - 1;
+            return (
+              <li key={`${entry.item}-${index}`} className="flex items-center">
+                {index > 0 && (
+                  <span className="mx-2 text-slate-400" aria-hidden="true">
+                    /
+                  </span>
+                )}
+                {isLast ? (
+                  <span className="text-slate-800" aria-current="page">
+                    {entry.name}
+                  </span>
+                ) : (
+                  <Link href={entry.item} className="hover:text-[#1769AA]">
+                    {entry.name}
+                  </Link>
+                )}
+              </li>
+            );
+          })}
+        </ol>
       </nav>
     </>
   );
