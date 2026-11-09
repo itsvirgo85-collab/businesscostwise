@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getStateBySlug, getVerifiedStates } from "@/data/stateFees";
 import { calculateFiveYearStateCost, calculateRecurringStateFees } from "@/lib/stateCost";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 type Props = { params: Promise<{ state: string }> };
 
@@ -92,17 +93,13 @@ export default async function StateCostPage({ params }: Props) {
       />
       <FaqJsonLd faqs={faqs} />
 
-      <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-[#1769AA]">
-          Home
-        </Link>
-        <span className="mx-2">/</span>
-        <Link href="/llc-cost-by-state" className="hover:text-[#1769AA]">
-          LLC Costs by State
-        </Link>
-        <span className="mx-2">/</span>
-        <span className="text-slate-800">{s.state}</span>
-      </nav>
+      <Breadcrumbs
+        items={[
+          { name: "Home", item: "/" },
+          { name: "LLC Costs by State", item: "/llc-cost-by-state" },
+          { name: s.state, item: `/llc-cost-by-state/${s.slug}` },
+        ]}
+      />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43]">
         LLC Cost in {s.state} ({new Date().getFullYear()})
