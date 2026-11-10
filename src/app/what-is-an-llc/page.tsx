@@ -6,8 +6,15 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 export const metadata: Metadata = {
   title: "What is an LLC? Limited Liability Company Explained Simply (2026)",
   description:
-    "What is an LLC? Clear explanation of a Limited Liability Company, how it works, benefits, taxes, formation basics, and how it compares to sole proprietorships and corporations. Educational guide for 2026.",
+    "What is an LLC? Clear explanation of a Limited Liability Company: how it works, benefits, taxes, formation basics, and how it compares to sole proprietorships and corporations. Educational guide for 2026.",
   alternates: { canonical: "/what-is-an-llc" },
+  openGraph: {
+    title: "What is an LLC? Limited Liability Company Explained Simply",
+    description:
+      "Simple explanation of LLCs: limited liability, tax flexibility, formation, and when it makes sense versus a sole proprietorship or corporation.",
+    type: "article",
+    url: "/what-is-an-llc",
+  },
 };
 
 export default function WhatIsAnLLCPage() {
@@ -58,14 +65,19 @@ export default function WhatIsAnLLCPage() {
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
 
-      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"What is an LLC","item":"/what-is-an-llc"}]} />
+      <Breadcrumbs
+        items={[
+          { name: "Home", item: "/" },
+          { name: "What is an LLC", item: "/what-is-an-llc" },
+        ]}
+      />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         What is an LLC? Limited Liability Company Explained
       </h1>
 
       <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-        An LLC (Limited Liability Company) is a popular U.S. business structure that gives owners limited personal liability while remaining relatively simple to form and maintain. It sits between a sole proprietorship and a corporation in both formality and protection.
+        <strong>Short answer:</strong> An LLC (Limited Liability Company) is a popular U.S. business structure that gives owners limited personal liability while remaining relatively simple to form and maintain. It sits between a sole proprietorship and a corporation in both formality and protection.
       </p>
 
       <p className="mt-3 text-slate-600 leading-relaxed">
