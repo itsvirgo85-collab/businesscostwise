@@ -8,6 +8,13 @@ export const metadata: Metadata = {
   description:
     "Educational guide on how LLC limited liability works, when courts may pierce the veil, and practical steps small-business owners can take to strengthen asset protection.",
   alternates: { canonical: "/asset-protection" },
+  openGraph: {
+    title: "Does an LLC Protect Personal Assets? Realistic Limits",
+    description:
+      "How limited liability works, when courts pierce the veil, and practical steps to strengthen protection for small-business owners.",
+    type: "article",
+    url: "/asset-protection",
+  },
 };
 
 export default function AssetProtectionPage() {
@@ -90,19 +97,23 @@ export default function AssetProtectionPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
-      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"Asset Protection","item":"/asset-protection"}]} />
-
+      <Breadcrumbs
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Asset Protection", item: "/asset-protection" },
+        ]}
+      />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         Does an LLC Protect Your Personal Assets?
       </h1>
 
       <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-        One of the main reasons people form a limited liability company is to create a legal separation between business liabilities and personal assets. In many ordinary commercial situations an LLC can help achieve that goal. However, limited liability is not absolute.
+        <strong>Short answer:</strong> An LLC can help separate business liabilities from personal assets when it is properly formed and maintained. Protection is not absolute. Courts can pierce the veil in cases of fraud, commingling, undercapitalization, or other misconduct. Personal guarantees and professional malpractice claims can also expose personal assets.
       </p>
 
       <p className="mt-3 text-slate-600 leading-relaxed">
-        Courts can pierce the corporate veil in certain circumstances, and personal guarantees, professional malpractice, and inadequate insurance can still expose personal assets. This page explains how limited liability is supposed to work and the practical steps that strengthen it.
+        This page explains how limited liability is supposed to work and the practical steps that strengthen it. It is educational only and is not legal advice.
       </p>
 
       <div className="mt-6 flex flex-wrap gap-3">
