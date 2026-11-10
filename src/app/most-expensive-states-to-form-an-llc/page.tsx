@@ -5,10 +5,17 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Most Expensive States to Form & Keep an LLC in 2026",
+  title: "Most Expensive States to Form & Keep an LLC 2026 (Official Rankings)",
   description:
-    "Ranked list of the most expensive US states to form and maintain an LLC in 2026, including high formation fees, annual reports, and franchise taxes like California’s $800. Educational guide.",
+    "Most expensive US states to form and maintain an LLC in 2026. High formation fees, annual reports, and franchise taxes including California’s $800. Official source data and multi-year totals.",
   alternates: { canonical: "/most-expensive-states-to-form-an-llc" },
+  openGraph: {
+    title: "Most Expensive States to Form & Keep an LLC 2026",
+    description:
+      "Ranked by formation fee, yearly cost, and 5-year total. California, Massachusetts and other high-cost states with official source links.",
+    type: "article",
+    url: "/most-expensive-states-to-form-an-llc",
+  },
 };
 
 export default function MostExpensiveStatesPage() {
@@ -66,20 +73,31 @@ export default function MostExpensiveStatesPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
-      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"LLC Cost Guide","item":"/how-much-does-it-cost-to-start-an-llc"},{"name":"Most Expensive States","item":"/most-expensive-states-to-form-an-llc"}]} />
-
+      <Breadcrumbs
+        items={[
+          { name: "Home", item: "/" },
+          { name: "How Much Does It Cost", item: "/how-much-does-it-cost-to-start-an-llc" },
+          { name: "Most Expensive States", item: "/most-expensive-states-to-form-an-llc" },
+        ]}
+      />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         Most Expensive States to Form & Keep an LLC (2026)
       </h1>
 
       <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-        Some states charge high one-time formation fees. Others look inexpensive to form but become costly over time because of annual reports, franchise taxes, or both. This page ranks states by formation fee, by estimated yearly state cost, and by approximate five-year total using verified official data.
+        <strong>Short answer:</strong> Some states charge high one-time formation fees (Massachusetts is frequently among the highest). Others look inexpensive to form but become costly over time because of annual reports or franchise taxes — California’s $800 annual franchise tax is the classic example. This page ranks by formation fee, estimated yearly cost, and approximate five-year total using verified official data.
       </p>
 
       <div className="mt-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
         <strong>Important:</strong> A high formation fee is not always the biggest long-term cost. California’s formation fee is relatively low, but its $800 annual franchise tax makes it one of the most expensive states to keep an LLC active. Always look at multi-year totals and confirm current fees on the official state website.
       </div>
+
+      <p className="mt-4 text-sm text-slate-500">
+        <Link href="/about/sources-and-methodology" className="text-[#1769AA] hover:underline">
+          How we source and verify fees →
+        </Link>
+      </p>
 
       <div className="mt-6 flex flex-wrap gap-3">
         <Link
@@ -307,6 +325,11 @@ export default function MostExpensiveStatesPage() {
           <li>
             <Link href="/how-much-does-it-cost-to-start-an-llc" className="text-[#1769AA] hover:underline">
               How Much Does It Cost to Start an LLC?
+            </Link>
+          </li>
+          <li>
+            <Link href="/about/sources-and-methodology" className="text-[#1769AA] hover:underline">
+              Sources & Methodology
             </Link>
           </li>
         </ul>
