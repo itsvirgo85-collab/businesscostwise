@@ -5,20 +5,22 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "LLC Cost Calculator by State — Formation & Annual Fees (2026)",
+  title: "Free LLC Cost Calculator by State (2026) — Formation + Multi-Year Fees",
   description:
-    "Estimate LLC formation costs by US state. Includes filing fees, annual reports, and franchise taxes where applicable. Every figure linked to official government sources. Educational tool only.",
+    "Free LLC cost calculator for 49 verified US states + DC. See formation filing fees, annual reports, franchise taxes, and 1/3/5-year totals. Official government source links and verification dates on every state.",
   alternates: { canonical: "/llc-cost-calculator" },
   openGraph: {
-    title: "LLC Cost Calculator by State — Formation & Annual Fees (2026)",
-    description: "Estimate LLC formation costs by US state. Includes filing fees, annual reports, and franchise taxes where applicable. Every figure linked to official government sources. Educational tool only.",
-    type: "article",
+    title: "Free LLC Cost Calculator by State (2026) — Formation + Multi-Year Fees",
+    description:
+      "Estimate real LLC formation and recurring state costs. Official source links, verification dates, and multi-year totals. Educational tool only.",
+    type: "website",
     url: "/llc-cost-calculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "LLC Cost Calculator by State — Formation & Annual Fees (2026)",
-    description: "Estimate LLC formation costs by US state. Includes filing fees, annual reports, and franchise taxes where applicable. Every figure linked to official government sources. Educational tool only.",
+    title: "Free LLC Cost Calculator by State (2026)",
+    description:
+      "Formation fees, annual reports, franchise taxes, and multi-year totals with official government source links.",
   },
 };
 
@@ -31,29 +33,34 @@ export default function LLCCostCalculatorPage() {
     operatingSystem: "Web",
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     description:
-      "Free educational calculator for estimated LLC formation and fixed recurring state fees across verified US states and DC.",
+      "Free educational calculator for estimated LLC formation and fixed recurring state fees across verified US states and DC. Includes official source links and multi-year totals.",
   };
 
   const faqs = [
     {
       question: "What does this LLC cost calculator include?",
       answer:
-        "It estimates state formation filing fees, annual or biennial report fees, and fixed franchise or entity taxes where those amounts are published as fixed figures. You can also add optional amounts such as registered agent or expedited processing.",
+        "It estimates state formation filing fees, annual or biennial report fees, and fixed franchise or entity taxes where those amounts are published as fixed figures. You can also add optional amounts such as registered agent or expedited processing. Results show 1-year, 3-year, and 5-year totals.",
     },
     {
       question: "What does the calculator not include?",
       answer:
-        "It does not include federal or state income tax, self-employment tax, local business licenses, newspaper publication costs, or professional service fees beyond amounts you enter yourself.",
+        "It does not include federal or state income tax, self-employment tax, local business licenses, newspaper publication costs (where required), or professional service fees beyond amounts you enter yourself.",
     },
     {
-      question: "Are the fees official?",
+      question: "Are the fees official and up to date?",
       answer:
-        "Base fees are drawn from official state sources and marked with verification dates. Fees change. Always confirm the current schedule on the official state website before filing or budgeting.",
+        "Base fees are drawn from official state government sources and marked with verification dates. We monitor those official pages on a recurring schedule. Fees change. Always confirm the current schedule on the official state website before filing or budgeting.",
     },
     {
       question: "Is this legal or tax advice?",
       answer:
-        "No. This calculator and the surrounding pages are educational only. They do not create an attorney-client or advisor relationship and should not be used as a substitute for professional advice.",
+        "No. This calculator and the surrounding pages are educational only. They do not create an attorney-client or advisor relationship and should not be used as a substitute for professional advice specific to your situation.",
+    },
+    {
+      question: "Why show multi-year totals?",
+      answer:
+        "The formation filing fee is only year one. Annual reports and franchise taxes often matter more over time. Multi-year totals help you compare states on the costs that actually accumulate after formation.",
     },
   ];
 
@@ -73,15 +80,15 @@ export default function LLCCostCalculatorPage() {
       />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
-        LLC Formation Cost Calculator by State
+        Free LLC Cost Calculator by State (2026)
       </h1>
 
       <p className="mt-4 max-w-3xl text-lg text-slate-600 leading-relaxed">
-        Select a US state to estimate formation fees, optional registered agent costs, and recurring state charges over 1, 3, or 5 years. All base fees are drawn from official state sources and marked with verification dates.
+        Select a US state to see the official formation filing fee, fixed recurring state charges, and estimated 1-year, 3-year, and 5-year totals. Every base figure links to the official government source and carries a verification date.
       </p>
 
       <p className="mt-3 max-w-3xl text-slate-600 leading-relaxed">
-        This is an educational estimating tool only. It is not a filing service and not legal, tax, or financial advice.
+        This is an educational estimating tool only — not a filing service and not legal, tax, or financial advice. Always confirm current fees on the official state website before you file.
       </p>
 
       <div className="mt-6 flex flex-wrap gap-3 text-sm">
@@ -92,7 +99,7 @@ export default function LLCCostCalculatorPage() {
           Verification dates on fee data
         </span>
         <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-slate-700">
-          Automated source monitoring
+          Multi-year totals
         </span>
         <Link
           href="/about/sources-and-methodology"
@@ -123,16 +130,20 @@ export default function LLCCostCalculatorPage() {
           <li>State income tax on business profits</li>
           <li>Local business licenses or permits</li>
           <li>Newspaper publication costs (where required)</li>
-          <li>Attorney, accountant, or service markups beyond the amount you enter</li>
+          <li>Attorney, accountant, or formation-service markups beyond the amount you enter</li>
         </ul>
       </section>
 
       <section className="mt-10 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">How to interpret the results</h2>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          Use the estimates as a planning range, not a final invoice. Formation fees are one-time; recurring report fees and franchise taxes often matter more over several years. For context on costs beyond the state table, see{" "}
+          Use the estimates as a planning range, not a final invoice. The formation fee is paid once; recurring report fees and franchise taxes often dominate the long-term cost. For context on costs beyond the state table, see{" "}
           <Link href="/hidden-costs-of-forming-an-llc" className="text-[#1769AA] hover:underline">
             Hidden Costs of Forming an LLC
+          </Link>
+          . For the full methodology and source approach, see{" "}
+          <Link href="/about/sources-and-methodology" className="text-[#1769AA] hover:underline">
+            Sources & Methodology
           </Link>
           .
         </p>
@@ -160,7 +171,7 @@ export default function LLCCostCalculatorPage() {
         <ul className="mt-3 space-y-2 text-sm">
           <li>
             <Link href="/how-much-does-it-cost-to-start-an-llc" className="text-[#1769AA] hover:underline">
-              How Much Does It Cost to Start an LLC?
+              How Much Does It Cost to Start an LLC in 2026?
             </Link>
           </li>
           <li>
@@ -171,6 +182,11 @@ export default function LLCCostCalculatorPage() {
           <li>
             <Link href="/cheapest-states-to-form-an-llc" className="text-[#1769AA] hover:underline">
               Cheapest States to Form an LLC
+            </Link>
+          </li>
+          <li>
+            <Link href="/most-expensive-states-to-form-an-llc" className="text-[#1769AA] hover:underline">
+              Most Expensive States
             </Link>
           </li>
           <li>
