@@ -5,10 +5,23 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "How Much Does It Cost to Start an LLC in 2026? (49 Verified States + DC)",
+  title: "How Much Does It Cost to Start an LLC in 2026? ($35–$500 by State)",
   description:
-    "Real cost to start an LLC in 2026: state filing fees from $35 to $500, annual reports, franchise taxes, registered agent fees, and hidden extras. Free calculator and official government source links for 49 verified states and DC.",
+    "Real 2026 LLC formation costs: state filing fees from $35 (Montana) to ~$500 (Massachusetts), plus annual reports, franchise taxes, and hidden extras. Official government sources and free multi-year calculator for 49 verified states + DC.",
   alternates: { canonical: "/how-much-does-it-cost-to-start-an-llc" },
+  openGraph: {
+    title: "How Much Does It Cost to Start an LLC in 2026? ($35–$500 by State)",
+    description:
+      "State filing fees, annual reports, franchise taxes, and multi-year totals with official government source links. Free calculator included.",
+    type: "article",
+    url: "/how-much-does-it-cost-to-start-an-llc",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How Much Does It Cost to Start an LLC in 2026?",
+    description:
+      "Filing fees $35–$500 by state, plus recurring costs. Official sources and free multi-year calculator.",
+  },
 };
 
 export default function HowMuchDoesItCostPage() {
@@ -20,12 +33,12 @@ export default function HowMuchDoesItCostPage() {
     {
       question: "How much does it cost to start an LLC in 2026?",
       answer:
-        "State filing fees range from $35 in Montana to about $500 in Massachusetts. The median is roughly $100. Your total first-year cost is usually higher after annual reports, franchise taxes, registered agent fees, and any publication requirements.",
+        "State filing fees range from $35 in Montana to about $500 in Massachusetts. The median is roughly $100. Your total first-year cost is usually higher after annual reports, franchise taxes, registered agent fees, and any publication requirements. Use the free calculator for state-specific 1-, 3-, and 5-year estimates.",
     },
     {
       question: "What is the cheapest state to form an LLC?",
       answer:
-        "Montana currently has one of the lowest official formation fees at $35. Several other states charge $40–$50. The cheapest states to keep an LLC long-term are often those with little or no annual report fee.",
+        "Montana currently has one of the lowest official formation fees at $35. Several other states charge $40–$50. The cheapest states to keep an LLC long-term are often those with little or no annual report fee. Always confirm on the official state website.",
     },
     {
       question: "Why is California expensive for LLCs?",
@@ -73,21 +86,24 @@ export default function HowMuchDoesItCostPage() {
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
 
-      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"How Much Does It Cost to Start an LLC","item":"/how-much-does-it-cost-to-start-an-llc"}]} />
+      <Breadcrumbs
+        items={[
+          { name: "Home", item: "/" },
+          { name: "How Much Does It Cost to Start an LLC", item: "/how-much-does-it-cost-to-start-an-llc" },
+        ]}
+      />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         How Much Does It Cost to Start an LLC in 2026?
       </h1>
 
       <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-        The short answer: state filing fees range from <strong>$35</strong> (Montana) to around{" "}
-        <strong>$500</strong> (Massachusetts). The real cost is almost always higher once you add
-        annual reports, franchise taxes, registered agent fees, and — in a few states — newspaper
-        publication. This page breaks down every major cost so you can budget accurately before you file.
+        <strong>Short answer:</strong> State filing fees range from <strong>$35</strong> (Montana) to around{" "}
+        <strong>$500</strong> (Massachusetts). The median is roughly $100. The real cost is almost always higher once you add annual reports, franchise taxes, registered agent fees, and — in a few states — newspaper publication.
       </p>
 
       <p className="mt-3 text-slate-600 leading-relaxed">
-        Whether you are comparing states, trying to understand “how much is an LLC in Texas,” or simply want a realistic first-year budget, the figures below are drawn from official government sources and were reviewed for 2026. Alabama is temporarily excluded from verified comparisons while its variable Business Privilege Tax is reviewed.
+        This page breaks down every major cost category so you can budget accurately before you file. Figures are drawn from official government sources and reviewed for 2026. Alabama is temporarily excluded from some verified comparisons while its variable Business Privilege Tax is reviewed.
       </p>
 
       <div className="mt-6 flex flex-wrap gap-3">
@@ -110,6 +126,12 @@ export default function HowMuchDoesItCostPage() {
           49 states + DC table
         </Link>
       </div>
+
+      <p className="mt-4 text-sm text-slate-500">
+        <Link href="/about/sources-and-methodology" className="text-[#1769AA] hover:underline">
+          How we source and verify fees →
+        </Link>
+      </p>
 
       <section className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6">
         <h2 className="text-lg font-semibold text-[#102A43]">Quick answer (2026)</h2>
@@ -341,6 +363,11 @@ export default function HowMuchDoesItCostPage() {
           <li>
             <Link href="/how-to-get-an-ein-for-free" className="text-[#1769AA] hover:underline">
               How to Get an EIN for Free
+            </Link>
+          </li>
+          <li>
+            <Link href="/about/sources-and-methodology" className="text-[#1769AA] hover:underline">
+              Sources & Methodology
             </Link>
           </li>
         </ul>
