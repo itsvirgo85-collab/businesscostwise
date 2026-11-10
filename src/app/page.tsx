@@ -2,12 +2,12 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Free LLC Cost Calculator by State",
+  title: "Free LLC Cost Calculator by State (2026) — Official Fees + Multi-Year Totals",
   description:
-    "One platform for verified US LLC formation costs, multi-year estimates, and structure guides. Free calculator for 49 states + DC with official government source links.",
+    "Free LLC cost calculator for 49 verified US states + DC. Compare formation filing fees, annual reports, franchise taxes, and multi-year totals with official government source links. Educational only.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Free LLC Cost Calculator by State — Get LLC Cost Calculator",
+    title: "Free LLC Cost Calculator by State (2026) — Official Fees + Multi-Year Totals",
     description:
       "One platform for verified US LLC formation costs, multi-year estimates, and structure guides. Free calculator with official source links.",
     type: "website",
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free LLC Cost Calculator by State — Get LLC Cost Calculator",
+    title: "Free LLC Cost Calculator by State (2026)",
     description:
-      "One platform for verified US LLC formation costs, multi-year estimates, and structure guides.",
+      "Verified formation fees, annual reports, franchise taxes, and multi-year totals with official government source links.",
   },
 };
 
@@ -298,7 +298,7 @@ export default function HomePage() {
             </div>
             <div className="rounded-lg border border-slate-200 bg-white p-4">
               <p className="text-sm font-medium text-slate-500">Registered agent</p>
-              <p className="mt-1 font-semibold text-[#102A43]">$0 – $300/yr</p>
+              <p className="mt-1 text-sm font-semibold text-[#102A43]">$0 – $300/yr</p>
             </div>
             <div className="rounded-lg border border-slate-200 bg-white p-4">
               <p className="text-sm font-medium text-slate-500">Annual / franchise fees</p>
@@ -368,77 +368,57 @@ export default function HomePage() {
           <p className="mt-2 text-slate-600">
             Calculators and data-backed rankings built from official state fee sources.
           </p>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {tools.map((item) => (
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {tools.map((t) => (
               <Link
-                key={item.href}
-                href={item.href}
-                className="group rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-[#1769AA] hover:shadow-md"
+                key={t.href}
+                href={t.href}
+                className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-[#1769AA]/40 hover:shadow-md"
               >
-                <h3 className="font-semibold text-[#102A43] group-hover:text-[#1769AA]">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm text-slate-600">{item.desc}</p>
+                <h3 className="font-semibold text-[#102A43]">{t.title}</h3>
+                <p className="mt-2 text-sm text-slate-600">{t.desc}</p>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Business Structures */}
+      {/* Business structures */}
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
         <h2 className="text-2xl font-bold text-[#102A43]">Business structures & protection</h2>
         <p className="mt-2 text-slate-600">
           Educational comparisons to help you understand the main options and the realistic limits of limited liability.
         </p>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {structures.map((item) => (
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {structures.map((s) => (
             <Link
-              key={item.href}
-              href={item.href}
-              className="group rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-[#1769AA] hover:shadow-md"
+              key={s.href}
+              href={s.href}
+              className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-[#1769AA]/40 hover:shadow-md"
             >
-              <h3 className="font-semibold text-[#102A43] group-hover:text-[#1769AA]">
-                {item.title}
-              </h3>
-              <p className="mt-2 text-sm text-slate-600">{item.desc}</p>
+              <h3 className="font-semibold text-[#102A43]">{s.title}</h3>
+              <p className="mt-2 text-sm text-slate-600">{s.desc}</p>
             </Link>
           ))}
         </div>
       </section>
 
-      {/* Should You Form an LLC */}
+      {/* Should you form */}
       <section className="border-y border-slate-200 bg-slate-50">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
           <h2 className="text-2xl font-bold text-[#102A43]">Should you form an LLC?</h2>
           <p className="mt-2 max-w-3xl text-slate-600">
-            An LLC is often a good fit when you want clearer separation between personal and business assets,
-            plan to grow, hire, or work with clients who expect a formal entity. It is not always necessary for
-            very small, low-risk activities.
+            An LLC is often a good fit when you want clearer separation between personal and business assets, plan to grow, hire, or work with clients who expect a formal entity. It is not always necessary for very small, low-risk activities.
           </p>
           <ul className="mt-6 space-y-2 text-slate-700">
-            <li className="flex gap-2"><span className="text-[#1769AA]">→</span> Do you want liability protection beyond a sole proprietorship?</li>
-            <li className="flex gap-2"><span className="text-[#1769AA]">→</span> Are you earning meaningful revenue or taking on contracts?</li>
-            <li className="flex gap-2"><span className="text-[#1769AA]">→</span> Do you plan to hire employees or bring on partners later?</li>
-            <li className="flex gap-2"><span className="text-[#1769AA]">→</span> Will a formal entity help with banking, payments, or client trust?</li>
+            <li>→ Do you want liability protection beyond a sole proprietorship?</li>
+            <li>→ Are you earning meaningful revenue or taking on contracts?</li>
+            <li>→ Do you plan to hire employees or bring on partners later?</li>
+            <li>→ Will a formal entity help with banking, payments, or client trust?</li>
           </ul>
-          <p className="mt-6 text-sm text-slate-600">
+          <p className="mt-6 text-slate-600">
             Start with the cost calculator for your state, then review the formation guide and structure comparisons.
           </p>
-          <div className="mt-6 flex flex-wrap gap-4">
-            <Link
-              href="/llc-cost-calculator"
-              className="rounded-lg bg-[#102A43] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1769AA]"
-            >
-              Open cost calculator
-            </Link>
-            <Link
-              href="/what-is-an-llc"
-              className="rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-white"
-            >
-              What is an LLC?
-            </Link>
-          </div>
         </div>
       </section>
 
