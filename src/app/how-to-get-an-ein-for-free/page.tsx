@@ -8,6 +8,13 @@ export const metadata: Metadata = {
   description:
     "How to get an EIN for free directly from the IRS. Online application steps, who needs an EIN, and how to avoid paid third-party services. Educational guide.",
   alternates: { canonical: "/how-to-get-an-ein-for-free" },
+  openGraph: {
+    title: "How to Get an EIN for Free from the IRS",
+    description:
+      "Get your Employer Identification Number at no cost on the official IRS website. Steps, who needs one, and how to avoid unnecessary third-party fees.",
+    type: "article",
+    url: "/how-to-get-an-ein-for-free",
+  },
 };
 
 export default function GetEINFreePage() {
@@ -47,16 +54,20 @@ export default function GetEINFreePage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
-      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"How to Form an LLC","item":"/how-to-form-an-llc"},{"name":"Get an EIN for Free","item":"/how-to-get-an-ein-for-free"}]} />
-
+      <Breadcrumbs
+        items={[
+          { name: "Home", item: "/" },
+          { name: "How to Form an LLC", item: "/how-to-form-an-llc" },
+          { name: "Get an EIN for Free", item: "/how-to-get-an-ein-for-free" },
+        ]}
+      />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         How to Get an EIN for Free
       </h1>
 
       <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-        An Employer Identification Number (EIN) is a federal tax ID issued by the IRS. You can obtain one at{" "}
-        <strong>no cost</strong> on the official IRS website. This page explains the steps and how to avoid unnecessary third-party fees.
+        <strong>Short answer:</strong> An Employer Identification Number (EIN) is a federal tax ID issued by the IRS. You can obtain one at <strong>no cost</strong> on the official IRS website. You do not need to pay a third-party service for the number itself.
       </p>
 
       <div className="mt-6 rounded-xl border border-emerald-200 bg-emerald-50 p-5 text-sm text-emerald-950">
