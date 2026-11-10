@@ -7,8 +7,15 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 export const metadata: Metadata = {
   title: "Hidden Costs of Forming an LLC 2026 — Franchise Tax, Publication & More",
   description:
-    "Beyond the filing fee: annual reports, franchise taxes, publication requirements, registered agent costs, and other expenses that raise the real cost of an LLC. Educational guide with examples.",
+    "Beyond the filing fee: annual reports, franchise taxes, publication requirements, registered agent costs, and other expenses that raise the real cost of an LLC. Official data examples and free calculator.",
   alternates: { canonical: "/hidden-costs-of-forming-an-llc" },
+  openGraph: {
+    title: "Hidden Costs of Forming an LLC 2026",
+    description:
+      "Annual reports, franchise taxes, publication, registered agent, and other costs beyond the formation fee. Educational guide with examples.",
+    type: "article",
+    url: "/hidden-costs-of-forming-an-llc",
+  },
 };
 
 export default function HiddenCostsPage() {
@@ -66,19 +73,31 @@ export default function HiddenCostsPage() {
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
 
-      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"LLC Cost Guide","item":"/how-much-does-it-cost-to-start-an-llc"},{"name":"Hidden Costs","item":"/hidden-costs-of-forming-an-llc"}]} />
+      <Breadcrumbs
+        items={[
+          { name: "Home", item: "/" },
+          { name: "How Much Does It Cost", item: "/how-much-does-it-cost-to-start-an-llc" },
+          { name: "Hidden Costs", item: "/hidden-costs-of-forming-an-llc" },
+        ]}
+      />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         Hidden Costs of Forming an LLC in 2026
       </h1>
 
       <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-        The state formation fee is only the first number most people see. The real multi-year cost of an LLC often includes annual or biennial reports, franchise or privilege taxes, publication requirements, registered agent services, and local licenses. This page outlines the common categories so you can budget more accurately.
+        <strong>Short answer:</strong> The state formation fee is only the first number most people see. The real multi-year cost of an LLC often includes annual or biennial reports, franchise or privilege taxes, publication requirements, registered agent services, and local licenses. This page outlines the common categories so you can budget more accurately.
       </p>
 
       <div className="mt-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
         <strong>Educational only.</strong> Fees and requirements change. Always confirm current amounts and rules on the official state website before filing or budgeting.
       </div>
+
+      <p className="mt-4 text-sm text-slate-500">
+        <Link href="/about/sources-and-methodology" className="text-[#1769AA] hover:underline">
+          How we source and verify fees →
+        </Link>
+      </p>
 
       <div className="mt-6 flex flex-wrap gap-3">
         <Link
@@ -261,6 +280,11 @@ export default function HiddenCostsPage() {
           <li>
             <Link href="/how-to-form-an-llc" className="text-[#1769AA] hover:underline">
               How to Form an LLC
+            </Link>
+          </li>
+          <li>
+            <Link href="/about/sources-and-methodology" className="text-[#1769AA] hover:underline">
+              Sources & Methodology
             </Link>
           </li>
         </ul>
