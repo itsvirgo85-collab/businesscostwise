@@ -2,12 +2,20 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { STATE_FEES } from "@/data/stateFees";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "LLC Costs by State 2026 — Filing Fees & Annual Reports (All States)",
   description:
     "Compare LLC formation filing fees and recurring annual or biennial costs across verified US states. Official source links, multi-year context, and free calculator.",
   alternates: { canonical: "/llc-cost-by-state" },
+  openGraph: {
+    title: "LLC Costs by State 2026 — Filing Fees & Annual Reports",
+    description:
+      "Verified LLC formation and recurring fees for all US states. Official sources, calculator, and multi-year cost context.",
+    type: "article",
+    url: "/llc-cost-by-state",
+  },
 };
 
 export default function LLCCostByStatePage() {
@@ -42,20 +50,29 @@ export default function LLCCostByStatePage() {
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
 
-      <nav className="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-[#1769AA]">
-          Home
-        </Link>
-        <span className="mx-2">/</span>
-        <span className="text-slate-800">LLC Costs by State</span>
-      </nav>
+      <Breadcrumbs
+        items={[
+          { name: "Home", item: "/" },
+          { name: "LLC Costs by State", item: "/llc-cost-by-state" },
+        ]}
+      />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         LLC Formation Costs by State (2026)
       </h1>
 
       <p className="mt-4 max-w-3xl text-lg text-slate-600 leading-relaxed">
-        Compare verified LLC formation filing fees and recurring charges across US states. Each row links to a state detail page and to the official government source used for verification. Always re-check current fees before filing.
+        <strong>Short answer:</strong> State LLC formation filing fees typically range from about $35 to $500. Recurring annual or biennial report fees and franchise taxes often matter more over multi-year ownership than the one-time filing fee alone.
+      </p>
+
+      <p className="mt-3 max-w-3xl text-slate-600 leading-relaxed">
+        Compare verified formation and recurring charges across US states. Each row links to a state detail page and to the official government source used for verification. Always re-check current fees before filing.
+      </p>
+
+      <p className="mt-3 text-sm text-slate-500">
+        <Link href="/about/sources-and-methodology" className="text-[#1769AA] hover:underline">
+          How we source and verify fees →
+        </Link>
       </p>
 
       <div className="mt-6 flex flex-wrap gap-3">
@@ -210,6 +227,11 @@ export default function LLCCostByStatePage() {
           <li>
             <Link href="/annual-report-requirements-by-state" className="text-[#1769AA] hover:underline">
               Annual Report Requirements by State
+            </Link>
+          </li>
+          <li>
+            <Link href="/about/sources-and-methodology" className="text-[#1769AA] hover:underline">
+              Sources & Methodology
             </Link>
           </li>
         </ul>
