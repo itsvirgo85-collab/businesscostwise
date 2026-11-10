@@ -8,6 +8,13 @@ export const metadata: Metadata = {
   description:
     "How long does it take to form an LLC and get an EIN? Typical state processing times, expedited options, and what slows approval down in 2026. Educational guide.",
   alternates: { canonical: "/how-long-does-it-take-to-start-an-llc" },
+  openGraph: {
+    title: "How Long Does It Take to Start an LLC? Timeline 2026",
+    description:
+      "Typical LLC formation timelines: 1–10 business days for online filings, same-day expedited options, and immediate EIN from the IRS.",
+    type: "article",
+    url: "/how-long-does-it-take-to-start-an-llc",
+  },
 };
 
 export default function HowLongPage() {
@@ -47,19 +54,24 @@ export default function HowLongPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
-      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"How to Form an LLC","item":"/how-to-form-an-llc"},{"name":"How Long to Start an LLC","item":"/how-long-does-it-take-to-start-an-llc"}]} />
-
+      <Breadcrumbs
+        items={[
+          { name: "Home", item: "/" },
+          { name: "How to Form an LLC", item: "/how-to-form-an-llc" },
+          { name: "How Long to Start an LLC", item: "/how-long-does-it-take-to-start-an-llc" },
+        ]}
+      />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         How Long Does It Take to Start an LLC?
       </h1>
 
       <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-        The timeline has two main parts: state approval of your formation filing, and (if needed) getting an EIN from the IRS. State speed depends on filing method, expedited service, and current agency backlog.
+        <strong>Short answer:</strong> Many states approve online LLC filings in 1–5 business days. Some offer same-day or next-day service for an extra fee. Paper filings can take several weeks. After the state approves your formation, an EIN from the IRS is often issued immediately online.
       </p>
 
       <p className="mt-3 text-slate-600 leading-relaxed">
-        This page gives typical ranges so you can plan. Exact times change — always check your Secretary of State website for current estimates before you file.
+        The timeline has two main parts: state approval of your formation filing, and (if needed) getting an EIN from the IRS. Exact times change — always check your Secretary of State website for current estimates before you file.
       </p>
 
       <div className="mt-6 flex flex-wrap gap-3">
