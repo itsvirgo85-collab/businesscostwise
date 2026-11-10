@@ -6,8 +6,15 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 export const metadata: Metadata = {
   title: "How to Form an LLC in 2026: Step-by-Step Guide (Any State)",
   description:
-    "Learn how to form an LLC step by step. Choose a name, appoint a registered agent, file Articles of Organization, get a free EIN, and stay compliant. Includes costs, timeline, and common mistakes. Educational guide for 2026.",
+    "How to form an LLC step by step: choose a name, appoint a registered agent, file Articles of Organization, get a free EIN, and stay compliant. Includes costs, timeline, and common mistakes. Educational guide for 2026.",
   alternates: { canonical: "/how-to-form-an-llc" },
+  openGraph: {
+    title: "How to Form an LLC in 2026: Step-by-Step Guide",
+    description:
+      "Practical 7-step guide to forming an LLC in any state. Costs, timeline, registered agent, operating agreement, and free EIN.",
+    type: "article",
+    url: "/how-to-form-an-llc",
+  },
 };
 
 export default function HowToFormLLCPage() {
@@ -103,18 +110,23 @@ export default function HowToFormLLCPage() {
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
 
-      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"How to Form an LLC","item":"/how-to-form-an-llc"}]} />
+      <Breadcrumbs
+        items={[
+          { name: "Home", item: "/" },
+          { name: "How to Form an LLC", item: "/how-to-form-an-llc" },
+        ]}
+      />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         How to Form an LLC in 2026: Step-by-Step Guide
       </h1>
 
       <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-        Forming a limited liability company is a state-level process. The exact forms, fees, and processing times differ by state, but the core sequence is similar across the United States. This practical guide walks you through each step so you know what to expect, what it typically costs, and where official filings happen.
+        <strong>Short answer:</strong> Forming a limited liability company is a state-level process. The exact forms, fees, and processing times differ by state, but the core sequence is similar across the United States: choose a name, appoint a registered agent, file formation documents, create an operating agreement, get a free EIN if needed, and open a business bank account.
       </p>
 
       <p className="mt-3 text-slate-600 leading-relaxed">
-        This page is educational only and is not legal, tax, or financial advice. Always confirm current requirements on your state’s official website before filing.
+        This practical guide walks you through each step so you know what to expect, what it typically costs, and where official filings happen. This page is educational only and is not legal, tax, or financial advice. Always confirm current requirements on your state’s official website before filing.
       </p>
 
       {/* Cost callout */}
@@ -339,7 +351,7 @@ export default function HowToFormLLCPage() {
         </div>
       </section>
 
-      <p className="mt-10 text-xs text-slate-500">
+      <p className="mt-10 text-xs leading-relaxed text-slate-500">
         Educational information only. State rules, fees, and processing times change. Always confirm current requirements on the official state website before filing. This site is not affiliated with any government agency.
       </p>
     </div>
