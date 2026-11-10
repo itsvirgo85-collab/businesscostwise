@@ -5,10 +5,17 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Cheapest States to Form an LLC in 2026 — Lowest Filing Fees Ranked",
+  title: "Cheapest States to Form an LLC 2026 — Lowest Fees Ranked (Official Data)",
   description:
-    "See the cheapest states to form an LLC in 2026 ranked by official formation fees and 5-year total cost. Includes Montana, Kentucky, Arkansas and more with source links. Educational guide.",
+    "Cheapest states to form an LLC in 2026 ranked by official formation fees and 5-year totals. Montana $35, Kentucky $40, Arkansas $45 and more. Official government source links and verification dates.",
   alternates: { canonical: "/cheapest-states-to-form-an-llc" },
+  openGraph: {
+    title: "Cheapest States to Form an LLC 2026 — Lowest Fees Ranked",
+    description:
+      "Official formation fees and multi-year cost rankings. Montana, Kentucky, Arkansas and other low-cost states with source links.",
+    type: "article",
+    url: "/cheapest-states-to-form-an-llc",
+  },
 };
 
 export default function CheapestStatesPage() {
@@ -37,7 +44,7 @@ export default function CheapestStatesPage() {
     {
       question: "What is the cheapest state to form an LLC in 2026?",
       answer:
-        "Montana currently has one of the lowest official formation fees at $35. Several other states charge $40–$50. The cheapest states for long-term ownership are often those with little or no annual report fee.",
+        "Montana currently has one of the lowest official formation fees at $35. Several other states charge $40–$50. The cheapest states for long-term ownership are often those with little or no annual report fee. Always confirm on the official state website.",
     },
     {
       question: "Is the cheapest state always the best choice?",
@@ -62,27 +69,38 @@ export default function CheapestStatesPage() {
     {
       question: "How do I confirm current fees?",
       answer:
-        "Always verify the current formation fee and annual report requirements on the official Secretary of State (or equivalent) website for that state before filing. Fees and rules can change.",
+        "Always verify the current formation fee and annual report requirements on the official Secretary of State (or equivalent) website for that state before filing. Fees and rules can change. See our Sources & Methodology page for how we verify data.",
     },
   ];
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
-      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"LLC Cost Guide","item":"/how-much-does-it-cost-to-start-an-llc"},{"name":"Cheapest States","item":"/cheapest-states-to-form-an-llc"}]} />
-
+      <Breadcrumbs
+        items={[
+          { name: "Home", item: "/" },
+          { name: "How Much Does It Cost", item: "/how-much-does-it-cost-to-start-an-llc" },
+          { name: "Cheapest States", item: "/cheapest-states-to-form-an-llc" },
+        ]}
+      />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         Cheapest States to Form an LLC in 2026
       </h1>
 
       <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-        The cheapest states to form an LLC are ranked by official formation filing fees. Montana currently leads at $35. However, the real long-term cost depends heavily on annual or biennial report fees and any franchise tax. This page shows both views using verified official source data.
+        <strong>Short answer:</strong> Montana currently has one of the lowest official formation fees at <strong>$35</strong>. Several other states charge $40–$50. However, the real long-term cost depends heavily on annual or biennial report fees and any franchise tax. This page shows both formation-fee and 5-year rankings using verified official source data.
       </p>
 
       <div className="mt-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
         <strong>Important:</strong> A low formation fee does not always mean the lowest total cost. California charges only about $70 to form but $800 per year in franchise tax. Always check the recurring column and confirm on the official state website before filing.
       </div>
+
+      <p className="mt-4 text-sm text-slate-500">
+        <Link href="/about/sources-and-methodology" className="text-[#1769AA] hover:underline">
+          How we source and verify fees →
+        </Link>
+      </p>
 
       <div className="mt-6 flex flex-wrap gap-3">
         <Link
@@ -297,6 +315,11 @@ export default function CheapestStatesPage() {
           <li>
             <Link href="/llc-cost-by-state" className="text-[#1769AA] hover:underline">
               LLC Costs by State (full table)
+            </Link>
+          </li>
+          <li>
+            <Link href="/about/sources-and-methodology" className="text-[#1769AA] hover:underline">
+              Sources & Methodology
             </Link>
           </li>
         </ul>
