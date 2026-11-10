@@ -7,8 +7,15 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 export const metadata: Metadata = {
   title: "LLC Annual Report Requirements by State 2026 — Fees & Frequency",
   description:
-    "See which states require annual or biennial LLC reports, typical fees, and which states currently have no recurring report fee. Educational overview with official source links.",
+    "Which states require annual or biennial LLC reports, typical fees, and which states currently have little or no recurring report fee. Official data overview for 2026.",
   alternates: { canonical: "/annual-report-requirements-by-state" },
+  openGraph: {
+    title: "LLC Annual Report Requirements by State 2026",
+    description:
+      "Annual vs biennial report fees, franchise taxes, and states with $0 recurring report cost. Official source-linked data.",
+    type: "article",
+    url: "/annual-report-requirements-by-state",
+  },
 };
 
 export default function AnnualReportPage() {
@@ -61,20 +68,31 @@ export default function AnnualReportPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
-      <Breadcrumbs items={[{"name":"Home","item":"/"},{"name":"LLC Cost Guide","item":"/how-much-does-it-cost-to-start-an-llc"},{"name":"Annual Reports","item":"/annual-report-requirements-by-state"}]} />
-
+      <Breadcrumbs
+        items={[
+          { name: "Home", item: "/" },
+          { name: "How Much Does It Cost", item: "/how-much-does-it-cost-to-start-an-llc" },
+          { name: "Annual Reports", item: "/annual-report-requirements-by-state" },
+        ]}
+      />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
         LLC Annual Report Requirements by State (2026)
       </h1>
 
       <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-        Most U.S. states require LLCs to file an annual or biennial report (sometimes called a statement of information, annual registration, or periodic report) and to pay a fee. A smaller group of states currently charge little or nothing for the report itself. This page groups states by frequency and highlights material franchise or privilege taxes that often accompany (or replace) a simple report fee.
+        <strong>Short answer:</strong> Most U.S. states require LLCs to file an annual or biennial report and pay a fee. A smaller group of states currently charge little or nothing for the report itself. Some states also impose franchise or privilege taxes that can be much larger than the report fee. This page groups states by frequency and highlights material recurring taxes.
       </p>
 
       <div className="mt-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
         <strong>Always verify.</strong> Rules and fees change. Some states still require a filing even when the fee is $0. Confirm deadlines and current amounts on the official Secretary of State (or equivalent) website before relying on any figure.
       </div>
+
+      <p className="mt-4 text-sm text-slate-500">
+        <Link href="/about/sources-and-methodology" className="text-[#1769AA] hover:underline">
+          How we source and verify fees →
+        </Link>
+      </p>
 
       <div className="mt-6 flex flex-wrap gap-3">
         <Link
@@ -272,6 +290,11 @@ export default function AnnualReportPage() {
           <li>
             <Link href="/cheapest-states-to-form-an-llc" className="text-[#1769AA] hover:underline">
               Cheapest States to Form an LLC
+            </Link>
+          </li>
+          <li>
+            <Link href="/about/sources-and-methodology" className="text-[#1769AA] hover:underline">
+              Sources & Methodology
             </Link>
           </li>
         </ul>
