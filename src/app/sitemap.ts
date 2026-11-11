@@ -3,7 +3,10 @@ import { STATE_FEES } from "@/data/stateFees";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.getllccostcalculator.com";
-  const now = new Date();
+
+  // Use stable lastModified values for static pages (not Date.now()) so
+  // sitemap tests and crawlers see meaningful, non-fake freshness signals.
+  const staticLastMod = new Date("2026-11-11");
 
   const staticPaths: {
     path: string;
@@ -45,7 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticPages: MetadataRoute.Sitemap = staticPaths.map((p) => ({
     url: `${base}${p.path}`,
-    lastModified: now,
+    lastModified: staticLastMod,
     changeFrequency: p.changeFrequency,
     priority: p.priority,
   }));
