@@ -40,6 +40,16 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/tools/multi-state-llc-cost-comparator" className="hover:text-[#1769AA]">
+                  Multi-State Cost Comparator
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/registered-agent-cost-calculator" className="hover:text-[#1769AA]">
+                  Registered Agent Calculator
+                </Link>
+              </li>
+              <li>
                 <Link href="/how-to-form-an-llc" className="hover:text-[#1769AA]">
                   How to Form an LLC
                 </Link>
