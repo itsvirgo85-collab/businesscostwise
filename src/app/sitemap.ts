@@ -16,6 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/llc-cost-calculator", changeFrequency: "weekly", priority: 0.95 },
     { path: "/llc-cost-by-state", changeFrequency: "weekly", priority: 0.9 },
     { path: "/tools/foreign-qualification-cost-calculator", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/tools/multi-state-llc-cost-comparator", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/tools/registered-agent-cost-calculator", changeFrequency: "weekly", priority: 0.85 },
     { path: "/how-to-form-an-llc", changeFrequency: "monthly", priority: 0.85 },
     { path: "/how-long-does-it-take-to-start-an-llc", changeFrequency: "monthly", priority: 0.8 },
     { path: "/how-to-get-an-ein-for-free", changeFrequency: "monthly", priority: 0.8 },
