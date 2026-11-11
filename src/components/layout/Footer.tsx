@@ -35,6 +35,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/tools/foreign-qualification-cost-calculator" className="hover:text-[#1769AA]">
+                  Foreign Qualification Calculator
+                </Link>
+              </li>
+              <li>
                 <Link href="/how-to-form-an-llc" className="hover:text-[#1769AA]">
                   How to Form an LLC
                 </Link>
