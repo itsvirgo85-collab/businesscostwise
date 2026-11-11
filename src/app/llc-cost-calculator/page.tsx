@@ -147,6 +147,13 @@ export default function LLCCostCalculatorPage() {
           </Link>
           .
         </p>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          Planning to form in a low-fee state (such as Wyoming or Delaware) while operating elsewhere? Use the{" "}
+          <Link href="/tools/foreign-qualification-cost-calculator" className="text-[#1769AA] hover:underline">
+            Foreign Qualification Cost Calculator
+          </Link>{" "}
+          to estimate dual-state registration and recurring fees before you decide.
+        </p>
       </section>
 
       <section className="mt-12 max-w-3xl">
@@ -169,6 +176,11 @@ export default function LLCCostCalculatorPage() {
       <section className="mt-12 max-w-3xl rounded-xl border border-slate-200 bg-slate-50 p-6">
         <h2 className="text-lg font-semibold text-[#102A43]">Related educational guides</h2>
         <ul className="mt-3 space-y-2 text-sm">
+          <li>
+            <Link href="/tools/foreign-qualification-cost-calculator" className="text-[#1769AA] hover:underline">
+              Foreign Qualification Cost Calculator
+            </Link>
+          </li>
           <li>
             <Link href="/how-much-does-it-cost-to-start-an-llc" className="text-[#1769AA] hover:underline">
               How Much Does It Cost to Start an LLC in 2026?
