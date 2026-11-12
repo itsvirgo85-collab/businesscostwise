@@ -250,7 +250,7 @@ export default function CheapestStatesPage() {
       </section>
 
       <section className="mt-12">
-        <h2 className="text-xl font-bold">How to use this ranking</h2>
+        <h2 className="text-2xl font-bold text-[#102A43]">How to use this ranking</h2>
         <p className="mt-3 text-slate-700 leading-relaxed">
           Use the formation-fee ranking if you only need the cheapest way to create the entity. Use the 5-year ranking if you plan to keep the LLC for several years. Then run the free calculator for your specific state to include registered agent and see 1-, 3-, and 5-year totals.
         </p>
