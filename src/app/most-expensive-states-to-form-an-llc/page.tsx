@@ -31,6 +31,10 @@ export default function MostExpensiveStatesPage() {
       yearly = (s.annualFee ?? 0) + (s.franchiseTax ?? 0);
     } else if (s.annualFrequency === "biennial") {
       yearly = (s.annualFee ?? 0) / 2;
+    } else if (s.franchiseTax) {
+      // States with no annual/biennial report but a yearly franchise/entity tax
+      // (e.g. Delaware’s $400 annual LLC tax).
+      yearly = s.franchiseTax;
     }
     if (s.slug === "california") {
       yearly = (s.franchiseTax ?? 800) + (s.annualFee ?? 0);
