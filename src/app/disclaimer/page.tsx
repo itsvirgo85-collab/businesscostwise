@@ -3,15 +3,21 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Disclaimer — Educational Information Only | Get LLC Cost Calculator",
+  title: { absolute: "Disclaimer" },
   description:
-    "Important disclaimer: Get LLC Cost Calculator provides educational information only. Not legal, tax, or financial advice. Always verify official state sources before filing.",
+    "Get LLC Cost Calculator provides educational information only — not legal, tax or financial advice. Always verify official state sources before filing.",
   alternates: { canonical: "/disclaimer" },
   openGraph: {
-    title: "Disclaimer — Educational Information Only",
-    description: "Get LLC Cost Calculator provides educational information only. Not legal, tax, or financial advice.",
+    title: "Disclaimer",
+    description: "Get LLC Cost Calculator provides educational information only — not legal, tax or financial advice. Always verify official state sources before filing.",
     type: "article",
     url: "/disclaimer",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Disclaimer",
+    description: "Get LLC Cost Calculator provides educational information only — not legal, tax or financial advice. Always verify official state sources before filing.",
+    images: ["/twitter-image"],
   },
 };
 

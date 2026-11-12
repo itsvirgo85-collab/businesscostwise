@@ -5,22 +5,23 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Foreign Qualification Cost Calculator 2026 | Multi-State LLC Fees",
+  title: { absolute: "Foreign Qualification Cost Calculator (2026)" },
   description:
-    "Calculate the real cost of foreign qualifying your LLC in any US state. Compare formation state vs home state fees, annual reports, and 5-year totals. Free educational tool with official source links.",
+    "Formed in one state but operating in another? Estimate foreign qualification costs — registration, dual agents, dual reports — with 1, 3, and 5-year totals.",
   alternates: { canonical: "/tools/foreign-qualification-cost-calculator" },
   openGraph: {
-    title: "Foreign Qualification Cost Calculator 2026 | Multi-State LLC Fees",
+    title: "Foreign Qualification Cost Calculator (2026)",
     description:
-      "Estimate the true cost of registering your existing LLC as a foreign entity. Dual-state fees, agents, and multi-year totals.",
+      "Formed in one state but operating in another? Estimate foreign qualification costs — registration, dual agents, dual reports — with 1, 3, and 5-year totals.",
     type: "website",
     url: "/tools/foreign-qualification-cost-calculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Foreign Qualification Cost Calculator 2026",
+    title: "Foreign Qualification Cost Calculator (2026)",
     description:
-      "Free tool to estimate multi-state LLC foreign qualification costs with dual compliance and multi-year totals.",
+      "Formed in one state but operating in another? Estimate foreign qualification costs — registration, dual agents, dual reports — with 1, 3, and 5-year totals.",
+    images: ["/twitter-image"],
   },
 };
 

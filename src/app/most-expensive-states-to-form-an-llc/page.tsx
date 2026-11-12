@@ -5,16 +5,23 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Most Expensive States to Form & Keep an LLC 2026 (Official Rankings)",
+  title: { absolute: "Most Expensive States to Form an LLC 2026" },
   description:
-    "Most expensive US states to form and maintain an LLC in 2026. High formation fees, annual reports, and franchise taxes including California’s $800. Official source data and multi-year totals.",
+    "Most expensive states to form and keep an LLC in 2026: high formation fees, annual reports and franchise taxes, including California's $800 yearly tax.",
   alternates: { canonical: "/most-expensive-states-to-form-an-llc" },
   openGraph: {
-    title: "Most Expensive States to Form & Keep an LLC 2026",
+    title: "Most Expensive States to Form an LLC 2026",
     description:
-      "Ranked by formation fee, yearly cost, and 5-year total. California, Massachusetts and other high-cost states with official source links.",
+      "Most expensive states to form and keep an LLC in 2026: high formation fees, annual reports and franchise taxes, including California's $800 yearly tax.",
     type: "article",
     url: "/most-expensive-states-to-form-an-llc",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Most Expensive States to Form an LLC 2026",
+    description:
+      "Most expensive states to form and keep an LLC in 2026: high formation fees, annual reports and franchise taxes, including California's $800 yearly tax.",
+    images: ["/twitter-image"],
   },
 };
 

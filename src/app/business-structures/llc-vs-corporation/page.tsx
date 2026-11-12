@@ -4,10 +4,24 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "LLC vs Corporation: Key Differences for Small Businesses (2026)",
+  title: { absolute: "LLC vs Corporation: Key Differences (2026)" },
   description:
-    "Side-by-side comparison of LLC and corporation: formation, liability, taxes, ownership, formalities, and when each structure may fit US small businesses. Educational guide.",
+    "LLC vs corporation compared for 2026: formation, liability, taxes, ownership and formalities for US small businesses — plus when each structure fits best.",
   alternates: { canonical: "/business-structures/llc-vs-corporation" },
+  openGraph: {
+    title: "LLC vs Corporation: Key Differences (2026)",
+    description:
+      "LLC vs corporation compared for 2026: formation, liability, taxes, ownership and formalities for US small businesses — plus when each structure fits best.",
+    type: "article",
+    url: "/business-structures/llc-vs-corporation",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LLC vs Corporation: Key Differences (2026)",
+    description:
+      "LLC vs corporation compared for 2026: formation, liability, taxes, ownership and formalities for US small businesses — plus when each structure fits best.",
+    images: ["/twitter-image"],
+  },
 };
 
 export default function LLCvsCorporationPage() {

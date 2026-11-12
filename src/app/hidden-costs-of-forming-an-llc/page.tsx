@@ -5,16 +5,23 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Hidden Costs of Forming an LLC 2026 — Franchise Tax, Publication & More",
+  title: { absolute: "Hidden Costs of Forming an LLC (2026)" },
   description:
-    "Beyond the filing fee: annual reports, franchise taxes, publication requirements, registered agent costs, and other expenses that raise the real cost of an LLC. Official data examples and free calculator.",
+    "The filing fee is only the start: annual reports, franchise taxes, publication, and registered agent fees raise the real multi-year cost of an LLC. Plan ahead.",
   alternates: { canonical: "/hidden-costs-of-forming-an-llc" },
   openGraph: {
-    title: "Hidden Costs of Forming an LLC 2026",
+    title: "Hidden Costs of Forming an LLC (2026)",
     description:
-      "Annual reports, franchise taxes, publication, registered agent, and other costs beyond the formation fee. Educational guide with examples.",
+      "The filing fee is only the start: annual reports, franchise taxes, publication, and registered agent fees raise the real multi-year cost of an LLC. Plan ahead.",
     type: "article",
     url: "/hidden-costs-of-forming-an-llc",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hidden Costs of Forming an LLC (2026)",
+    description:
+      "The filing fee is only the start: annual reports, franchise taxes, publication, and registered agent fees raise the real multi-year cost of an LLC. Plan ahead.",
+    images: ["/twitter-image"],
   },
 };
 

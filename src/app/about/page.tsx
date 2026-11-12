@@ -4,22 +4,23 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "About Get LLC Cost Calculator — Mission, Author & Why This Site Exists",
+  title: { absolute: "About Get LLC Cost Calculator" },
   description:
-    "Why Get LLC Cost Calculator was built: one clear platform for verified US LLC formation costs, state fees, and structure guides. Meet the author, our data process, and how we stay current.",
+    "Why Get LLC Cost Calculator exists: one platform for verified US LLC formation costs, state fees and structure guides. Meet the author and our data process.",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About Get LLC Cost Calculator — Mission, Author & Why This Site Exists",
+    title: "About Get LLC Cost Calculator",
     description:
-      "Why Get LLC Cost Calculator was built: one clear platform for verified US LLC formation costs, state fees, and structure guides.",
+      "Why Get LLC Cost Calculator exists: one platform for verified US LLC formation costs, state fees and structure guides. Meet the author and our data process.",
     type: "article",
     url: "/about",
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Get LLC Cost Calculator — Mission, Author & Why This Site Exists",
+    title: "About Get LLC Cost Calculator",
     description:
-      "Why Get LLC Cost Calculator was built: one clear platform for verified US LLC formation costs, state fees, and structure guides.",
+      "Why Get LLC Cost Calculator exists: one platform for verified US LLC formation costs, state fees and structure guides. Meet the author and our data process.",
+    images: ["/twitter-image"],
   },
 };
 

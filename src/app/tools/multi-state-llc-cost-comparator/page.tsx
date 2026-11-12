@@ -5,22 +5,23 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Multi-State LLC Cost Comparator 2026 | Side-by-Side Formation Fees",
+  title: { absolute: "Multi-State LLC Cost Comparator (2026)" },
   description:
-    "Compare LLC formation and 5-year recurring costs across multiple US states in one view. Free side-by-side tool with verified 2026 fees and official source links.",
+    "Compare LLC costs in up to five states side by side — formation fees, annual reports, franchise taxes, and 5-year totals — using verified 2026 state fee data.",
   alternates: { canonical: "/tools/multi-state-llc-cost-comparator" },
   openGraph: {
-    title: "Multi-State LLC Cost Comparator 2026 | Side-by-Side Formation Fees",
+    title: "Multi-State LLC Cost Comparator (2026)",
     description:
-      "Compare formation and multi-year LLC costs across states side-by-side using verified official fee data.",
+      "Compare LLC costs in up to five states side by side — formation fees, annual reports, franchise taxes, and 5-year totals — using verified 2026 state fee data.",
     type: "website",
     url: "/tools/multi-state-llc-cost-comparator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Multi-State LLC Cost Comparator 2026",
+    title: "Multi-State LLC Cost Comparator (2026)",
     description:
-      "Side-by-side comparison of LLC formation and recurring costs across US states.",
+      "Compare LLC costs in up to five states side by side — formation fees, annual reports, franchise taxes, and 5-year totals — using verified 2026 state fee data.",
+    images: ["/twitter-image"],
   },
 };
 

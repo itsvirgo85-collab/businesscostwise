@@ -5,22 +5,23 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Free LLC Cost Calculator by State (2026) — Formation + Multi-Year Fees",
+  title: { absolute: "LLC Cost Calculator — 1, 3 & 5-Year Totals by State" },
   description:
-    "Free LLC cost calculator for 49 verified US states + DC. See formation filing fees, annual reports, franchise taxes, and 1/3/5-year totals. Official government source links and verification dates on every state.",
+    "Free LLC cost calculator for all 50 states + DC. Formation fees, annual reports and franchise taxes with 1, 3 & 5-year totals and official source links.",
   alternates: { canonical: "/llc-cost-calculator" },
   openGraph: {
-    title: "Free LLC Cost Calculator by State (2026) — Formation + Multi-Year Fees",
+    title: "LLC Cost Calculator — 1, 3 & 5-Year Totals by State",
     description:
-      "Estimate real LLC formation and recurring state costs. Official source links, verification dates, and multi-year totals. Educational tool only.",
+      "Free LLC cost calculator for all 50 states + DC. Formation fees, annual reports and franchise taxes with 1, 3 & 5-year totals and official source links.",
     type: "website",
     url: "/llc-cost-calculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free LLC Cost Calculator by State (2026)",
+    title: "LLC Cost Calculator — 1, 3 & 5-Year Totals by State",
     description:
-      "Formation fees, annual reports, franchise taxes, and multi-year totals with official government source links.",
+      "Free LLC cost calculator for all 50 states + DC. Formation fees, annual reports and franchise taxes with 1, 3 & 5-year totals and official source links.",
+    images: ["/twitter-image"],
   },
 };
 
@@ -171,6 +172,27 @@ export default function LLCCostCalculatorPage() {
             </details>
           ))}
         </div>
+      </section>
+
+      <section className="mt-12 max-w-3xl rounded-xl border border-slate-200 bg-slate-50 p-6">
+        <h2 className="text-lg font-semibold text-[#102A43]">Related cost tools</h2>
+        <ul className="mt-3 space-y-2 text-sm">
+          <li>
+            <Link href="/tools/foreign-qualification-cost-calculator" className="text-[#1769AA] hover:underline">
+              Foreign Qualification Cost Calculator
+            </Link>
+          </li>
+          <li>
+            <Link href="/tools/multi-state-llc-cost-comparator" className="text-[#1769AA] hover:underline">
+              Multi-State LLC Cost Comparator
+            </Link>
+          </li>
+          <li>
+            <Link href="/tools/registered-agent-cost-calculator" className="text-[#1769AA] hover:underline">
+              Registered Agent Cost Calculator
+            </Link>
+          </li>
+        </ul>
       </section>
 
       <section className="mt-12 max-w-3xl rounded-xl border border-slate-200 bg-slate-50 p-6">

@@ -96,11 +96,6 @@ export default function ForeignQualificationCalculator() {
 
     const foreignInitial = FOREIGN_INITIAL_FEES[target.slug] ?? 150;
 
-    // Simplified annualized recurring from existing fee model
-    const domesticYearly =
-      (domestic.annualFee ?? 0) +
-      (domestic.franchiseTax ?? 0) +
-      (domestic.annualFrequency === "biennial" ? (domestic.annualFee ?? 0) / 2 : 0);
     // Avoid double-counting biennial if already using annualFee as the period fee
     const domesticRecurring =
       domestic.franchiseTax != null
@@ -343,7 +338,7 @@ export default function ForeignQualificationCalculator() {
             Foreign registration initial fees are planning estimates and can differ by
             filing method and state. You will usually also need a Certificate of Good
             Standing from the domestic state. Always confirm current foreign LLC fees
-            and "doing business" rules on the target state's official website before
+            and &ldquo;doing business&rdquo; rules on the target state&rsquo;s official website before
             filing.
           </p>
         </div>

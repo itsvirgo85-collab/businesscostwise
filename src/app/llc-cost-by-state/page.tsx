@@ -5,16 +5,23 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "LLC Costs by State 2026 — Filing Fees & Annual Reports (49 Verified States + DC)",
+  title: { absolute: "LLC Costs by State 2026 — All 50 States + DC" },
   description:
-    "Compare LLC formation filing fees and recurring annual or biennial costs across verified US states. Official source links, multi-year context, and free calculator.",
+    "LLC costs by state for all 50 states + DC: verified formation fees and recurring annual or biennial costs, with official source links and multi-year context.",
   alternates: { canonical: "/llc-cost-by-state" },
   openGraph: {
-    title: "LLC Costs by State 2026 — Filing Fees & Annual Reports",
+    title: "LLC Costs by State 2026 — All 50 States + DC",
     description:
-      "Verified LLC formation and recurring fees for 49 verified states + DC. Official sources, calculator, and multi-year cost context.",
+      "LLC costs by state for all 50 states + DC: verified formation fees and recurring annual or biennial costs, with official source links and multi-year context.",
     type: "article",
     url: "/llc-cost-by-state",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LLC Costs by State 2026 — All 50 States + DC",
+    description:
+      "LLC costs by state for all 50 states + DC: verified formation fees and recurring annual or biennial costs, with official source links and multi-year context.",
+    images: ["/twitter-image"],
   },
 };
 
@@ -127,10 +134,10 @@ export default function LLCCostByStatePage() {
                 </td>
                 <td className="px-4 py-3">
                   <div>
-                    {s.annualFrequency !== "none" && (
+                    {s.annualFrequency !== "none" && !(s.annualFee === 0 && s.franchiseTax != null) && (
                       <div>
                         {s.annualFee != null ? `$${s.annualFee}` : "Variable / not included"}{" "}
-                        <span className="text-xs text-slate-500">
+                        <span className="text-sm text-slate-500">
                           ({s.recurringFeeLabel ??
                             (s.annualFrequency === "biennial" ? "biennial filing" : "annual filing")})
                         </span>
@@ -139,7 +146,7 @@ export default function LLCCostByStatePage() {
                     {s.franchiseTax != null && s.franchiseTax > 0 && (
                       <div>
                         ${s.franchiseTax}{" "}
-                        <span className="text-xs text-slate-500">(annual franchise / entity tax)</span>
+                        <span className="text-sm text-slate-500">(annual franchise / entity tax)</span>
                       </div>
                     )}
                     {s.annualFrequency === "none" && !s.franchiseTax && "No fixed recurring filing fee"}

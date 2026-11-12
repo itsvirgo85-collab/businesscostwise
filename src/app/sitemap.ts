@@ -6,7 +6,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Use stable lastModified values for static pages (not Date.now()) so
   // sitemap tests and crawlers see meaningful, non-fake freshness signals.
-  const staticLastMod = new Date("2026-11-11");
+  // Bump this date whenever a static page's content changes.
+  const staticLastMod = new Date("2026-11-12");
 
   const staticPaths: {
     path: string;

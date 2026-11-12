@@ -8,12 +8,18 @@ export default function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
   const data = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: items.map((entry, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: entry.name,
-      item: new URL(entry.item, SITE_URL).toString(),
-    })),
+    itemListElement: items.map((entry, index) => {
+      const isLast = index === items.length - 1;
+      const listItem: { "@type": string; position: number; name: string; item?: string } = {
+        "@type": "ListItem",
+        position: index + 1,
+        name: entry.name,
+      };
+      if (!isLast) {
+        listItem.item = new URL(entry.item, SITE_URL).toString();
+      }
+      return listItem;
+    }),
   };
 
   return (

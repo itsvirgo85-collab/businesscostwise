@@ -1,15 +1,16 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import FaqJsonLd from "@/components/seo/FaqJsonLd";
 
 export const metadata: Metadata = {
-  title: "Free LLC Cost Calculator by State (2026) — Official Fees + Multi-Year Totals",
+  title: { absolute: "Free LLC Cost Calculator by State (2026)" },
   description:
-    "Free LLC cost calculator for 49 verified US states + DC. Compare formation filing fees, annual reports, franchise taxes, and multi-year totals with official government source links. Educational only.",
+    "Free LLC cost calculator for all 50 states + DC. Compare formation fees, annual reports, franchise taxes and 1, 3 & 5-year totals with official source links.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Free LLC Cost Calculator by State (2026) — Official Fees + Multi-Year Totals",
+    title: "Free LLC Cost Calculator by State (2026)",
     description:
-      "One platform for verified US LLC formation costs, multi-year estimates, and structure guides. Free calculator with official source links.",
+      "Free LLC cost calculator for all 50 states + DC. Compare formation fees, annual reports, franchise taxes and 1, 3 & 5-year totals with official source links.",
     type: "website",
     url: "/",
   },
@@ -17,7 +18,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Free LLC Cost Calculator by State (2026)",
     description:
-      "Verified formation fees, annual reports, franchise taxes, and multi-year totals with official government source links.",
+      "Free LLC cost calculator for all 50 states + DC. Compare formation fees, annual reports, franchise taxes and 1, 3 & 5-year totals with official source links.",
+    images: ["/twitter-image"],
   },
 };
 
@@ -36,7 +38,7 @@ export default function HomePage() {
     {
       href: "/llc-cost-by-state",
       title: "LLC Costs by State",
-      desc: "Full table of formation and recurring fees for 49 verified states + DC, each linked to official government sources.",
+      desc: "Full table of formation and recurring fees for 50 states + DC, each linked to official government sources.",
     },
     {
       href: "/cheapest-states-to-form-an-llc",
@@ -62,6 +64,31 @@ export default function HomePage() {
       href: "/how-to-form-an-llc",
       title: "How to Form an LLC",
       desc: "Clear step-by-step guide covering name, registered agent, Articles of Organization, EIN, and compliance.",
+    },
+    {
+      href: "/tools/multi-state-llc-cost-comparator",
+      title: "Multi-State LLC Cost Comparator",
+      desc: "Compare LLC formation and recurring costs across several states side by side before you decide where to form.",
+    },
+    {
+      href: "/tools/registered-agent-cost-calculator",
+      title: "Registered Agent Cost Calculator",
+      desc: "Estimate commercial registered agent costs by state and see what the service typically adds each year.",
+    },
+    {
+      href: "/business-structures",
+      title: "Business Structures",
+      desc: "Compare LLCs, corporations, S-corps, and sole proprietorships to find the structure that fits your business.",
+    },
+    {
+      href: "/what-is-an-llc",
+      title: "What Is an LLC?",
+      desc: "A plain-language explanation of limited liability companies: liability protection, taxes, and formalities.",
+    },
+    {
+      href: "/how-to-get-an-ein-for-free",
+      title: "How to Get an EIN for Free",
+      desc: "Apply for a free Employer Identification Number directly from the IRS — no third-party fees.",
     },
   ];
 
@@ -95,61 +122,51 @@ export default function HomePage() {
 
   const faqs = [
     {
-      q: "How much does it cost to start an LLC?",
-      a: "State filing fees typically range from about $35 to $500. Your full budget can also include annual reports, franchise taxes, registered agent services, and local costs. See the complete cost guide and use the free calculator for a state-specific estimate.",
+      question: "How much does it cost to start an LLC?",
+      answer: "State filing fees typically range from about $35 to $500. Your full budget can also include annual reports, franchise taxes, registered agent services, and local costs. See the complete cost guide and use the free calculator for a state-specific estimate.",
     },
     {
-      q: "What is the cheapest state to form an LLC?",
-      a: "Several states have very low formation fees (often under $50–$100). However, the cheapest filing fee is not always the lowest long-term cost once annual reports and franchise taxes are included. Check the cheapest states ranking and the multi-year calculator.",
+      question: "What is the cheapest state to form an LLC?",
+      answer: "Several states have very low formation fees (often under $50–$100). However, the cheapest filing fee is not always the lowest long-term cost once annual reports and franchise taxes are included. Check the cheapest states ranking and the multi-year calculator.",
     },
     {
-      q: "How long does it take to form an LLC?",
-      a: "Online filings in many states are approved in a few business days; some offer same-day or next-day processing. Paper filings can take several weeks. Processing times vary by state and method.",
+      question: "How long does it take to form an LLC?",
+      answer: "Online filings in many states are approved in a few business days; some offer same-day or next-day processing. Paper filings can take several weeks. Processing times vary by state and method.",
     },
     {
-      q: "Do I need a registered agent?",
-      a: "Yes. Every state requires a registered agent with a physical street address in that state to receive legal documents. You can often serve as your own agent if you have a qualifying address, or hire a commercial service.",
+      question: "Do I need a registered agent?",
+      answer: "Yes. Every state requires a registered agent with a physical street address in that state to receive legal documents. You can often serve as your own agent if you have a qualifying address, or hire a commercial service.",
     },
     {
-      q: "Can I form an LLC for free?",
-      a: "The state filing fee is almost never $0. Some formation services advertise “free” formation but charge for registered agent or other add-ons, and you still pay the official state fee. True zero-cost formation is rare.",
+      question: "Can I form an LLC for free?",
+      answer: "The state filing fee is almost never $0. Some formation services advertise “free” formation but charge for registered agent or other add-ons, and you still pay the official state fee. True zero-cost formation is rare.",
     },
     {
-      q: "Is an LLC better than a sole proprietorship?",
-      a: "An LLC provides limited liability protection that a sole proprietorship does not. A sole proprietorship is simpler and usually cheaper to start, but the owner is generally personally liable for business debts and claims. The better choice depends on risk, growth plans, and tax situation.",
+      question: "Is an LLC better than a sole proprietorship?",
+      answer: "An LLC provides limited liability protection that a sole proprietorship does not. A sole proprietorship is simpler and usually cheaper to start, but the owner is generally personally liable for business debts and claims. The better choice depends on risk, growth plans, and tax situation.",
     },
     {
-      q: "What are the hidden costs of an LLC?",
-      a: "Beyond the initial filing fee, common extras include annual or biennial reports, franchise taxes, registered agent fees, name reservation, publication (in a few states), and local business licenses. The Hidden Costs guide covers these in detail.",
+      question: "What are the hidden costs of an LLC?",
+      answer: "Beyond the initial filing fee, common extras include annual or biennial reports, franchise taxes, registered agent fees, name reservation, publication (in a few states), and local business licenses. The Hidden Costs guide covers these in detail.",
     },
     {
-      q: "Do I need an operating agreement?",
-      a: "Some states require one; most do not. Even when optional, a written operating agreement helps document ownership, management, and profit sharing and supports the separation between you and the company.",
+      question: "Do I need an operating agreement?",
+      answer: "Some states require one; most do not. Even when optional, a written operating agreement helps document ownership, management, and profit sharing and supports the separation between you and the company.",
     },
   ];
 
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: { "@type": "Answer", text: item.a },
-    })),
-  };
-
   return (
     <div>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <FaqJsonLd faqs={faqs} />
       {/* Hero */}
       <section className="bg-gradient-to-b from-[#102A43] to-[#1769AA] text-white">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
           <h1 className="max-w-3xl text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            One platform for real LLC costs — before you file
+            Free LLC Cost Calculator by State
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-blue-100">
             Stop hunting through scattered government pages and outdated comparison posts.
-            Free calculator for 49 verified states + DC, official source links, multi-year totals,
+            Free calculator for 50 states + DC, official source links, multi-year totals,
             and plain-language guides built to help you decide with current numbers.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
@@ -328,7 +345,7 @@ export default function HomePage() {
 
       {/* How to Form an LLC - Steps Overview */}
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-        <h2 className="text-2xl font-bold text-[#102A43]">How to form an LLC (7 practical steps)</h2>
+        <h2 className="text-2xl font-bold text-[#102A43]">Forming an LLC in seven practical steps</h2>
         <p className="mt-2 max-w-3xl text-slate-600">
           Forming an LLC is a state-level process. The exact forms and fees differ, but the sequence is similar everywhere.
         </p>
@@ -380,6 +397,32 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
+          <p className="mt-8 text-sm text-slate-600">
+            <span className="font-semibold text-[#102A43]">Popular states:</span>{" "}
+            <Link href="/llc-cost-by-state/montana" className="text-[#1769AA] hover:underline">
+              Montana
+            </Link>
+            {" · "}
+            <Link href="/llc-cost-by-state/wyoming" className="text-[#1769AA] hover:underline">
+              Wyoming
+            </Link>
+            {" · "}
+            <Link href="/llc-cost-by-state/delaware" className="text-[#1769AA] hover:underline">
+              Delaware
+            </Link>
+            {" · "}
+            <Link href="/llc-cost-by-state/california" className="text-[#1769AA] hover:underline">
+              California
+            </Link>
+            {" · "}
+            <Link href="/llc-cost-by-state/texas" className="text-[#1769AA] hover:underline">
+              Texas
+            </Link>
+            {" · "}
+            <Link href="/llc-cost-by-state/florida" className="text-[#1769AA] hover:underline">
+              Florida
+            </Link>
+          </p>
         </div>
       </section>
 
@@ -430,11 +473,11 @@ export default function HomePage() {
             <details key={i} className="group rounded-xl border border-slate-200 bg-white p-5">
               <summary className="cursor-pointer list-none font-semibold text-[#102A43]">
                 <span className="flex items-center justify-between">
-                  {item.q}
+                  {item.question}
                   <span className="ml-4 text-slate-400 transition group-open:rotate-180">▼</span>
                 </span>
               </summary>
-              <p className="mt-3 text-slate-600 leading-relaxed">{item.a}</p>
+              <p className="mt-3 text-slate-600 leading-relaxed">{item.answer}</p>
             </details>
           ))}
         </div>

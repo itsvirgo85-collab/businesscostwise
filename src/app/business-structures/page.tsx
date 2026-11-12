@@ -3,22 +3,23 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Business Structures Compared — LLC, Sole Prop, Corp & S-Corp",
+  title: { absolute: "Business Structures Compared (2026)" },
   description:
-    "Compare US business structures: LLC vs sole proprietorship, corporation, S-Corp, and single-member vs multi-member LLC. Educational guides with cost context.",
+    "Compare LLC, sole proprietorship, corporation and S-Corp structures side by side — liability, taxes, formalities and formation costs, with verified state fees.",
   alternates: { canonical: "/business-structures" },
   openGraph: {
-    title: "Business Structures Compared — LLC, Sole Prop, Corp & S-Corp",
+    title: "Business Structures Compared (2026)",
     description:
-      "Compare US business structures: LLC vs sole proprietorship, corporation, S-Corp, and single-member vs multi-member LLC.",
+      "Compare LLC, sole proprietorship, corporation and S-Corp structures side by side — liability, taxes, formalities and formation costs, with verified state fees.",
     type: "website",
     url: "/business-structures",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Business Structures Compared — LLC, Sole Prop, Corp & S-Corp",
+    title: "Business Structures Compared (2026)",
     description:
-      "Compare US business structures: LLC vs sole proprietorship, corporation, S-Corp, and single-member vs multi-member LLC.",
+      "Compare LLC, sole proprietorship, corporation and S-Corp structures side by side — liability, taxes, formalities and formation costs, with verified state fees.",
+    images: ["/twitter-image"],
   },
 };
 

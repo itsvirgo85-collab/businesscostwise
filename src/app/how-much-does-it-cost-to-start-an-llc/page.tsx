@@ -5,22 +5,23 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "How Much Does It Cost to Start an LLC in 2026? ($35–$500 by State)",
+  title: { absolute: "How Much Does It Cost to Start an LLC? (2026)" },
   description:
-    "Real 2026 LLC formation costs: state filing fees from $35 (Montana) to ~$500 (Massachusetts), plus annual reports, franchise taxes, and hidden extras. Official government sources and free multi-year calculator for 49 verified states + DC.",
+    "How much does it cost to start an LLC? Filing fees run $35 (Montana) to about $500 (Massachusetts) across all 50 states + DC, plus yearly recurring costs.",
   alternates: { canonical: "/how-much-does-it-cost-to-start-an-llc" },
   openGraph: {
-    title: "How Much Does It Cost to Start an LLC in 2026? ($35–$500 by State)",
+    title: "How Much Does It Cost to Start an LLC? (2026)",
     description:
-      "State filing fees, annual reports, franchise taxes, and multi-year totals with official government source links. Free calculator included.",
+      "How much does it cost to start an LLC? Filing fees run $35 (Montana) to about $500 (Massachusetts) across all 50 states + DC, plus yearly recurring costs.",
     type: "article",
     url: "/how-much-does-it-cost-to-start-an-llc",
   },
   twitter: {
     card: "summary_large_image",
-    title: "How Much Does It Cost to Start an LLC in 2026?",
+    title: "How Much Does It Cost to Start an LLC? (2026)",
     description:
-      "Filing fees $35–$500 by state, plus recurring costs. Official sources and free multi-year calculator.",
+      "How much does it cost to start an LLC? Filing fees run $35 (Montana) to about $500 (Massachusetts) across all 50 states + DC, plus yearly recurring costs.",
+    images: ["/twitter-image"],
   },
 };
 
@@ -103,7 +104,7 @@ export default function HowMuchDoesItCostPage() {
       </p>
 
       <p className="mt-3 text-slate-600 leading-relaxed">
-        This page breaks down every major cost category so you can budget accurately before you file. Figures are drawn from official government sources and reviewed for 2026. Alabama is temporarily excluded from some verified comparisons while its variable Business Privilege Tax is reviewed.
+        This page breaks down every major cost category so you can budget accurately before you file. Figures are drawn from official government sources and reviewed for 2026. Alabama is included: Certificate of Formation $200, no annual report, and a variable Business Privilege Tax that applies only above $100.
       </p>
 
       <div className="mt-6 flex flex-wrap gap-3">
@@ -123,7 +124,7 @@ export default function HowMuchDoesItCostPage() {
           href="/llc-cost-by-state"
           className="rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-700 transition hover:border-[#1769AA]"
         >
-          49 states + DC table
+          50 states + DC table
         </Link>
       </div>
 

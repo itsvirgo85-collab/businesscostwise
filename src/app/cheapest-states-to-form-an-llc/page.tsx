@@ -5,16 +5,23 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Cheapest States to Form an LLC 2026 — Lowest Fees Ranked (Official Data)",
+  title: { absolute: "Cheapest States to Form an LLC in 2026" },
   description:
-    "Cheapest states to form an LLC in 2026 ranked by official formation fees and 5-year totals. Montana $35, Kentucky $40, Arkansas $45 and more. Official government source links and verification dates.",
+    "Cheapest states to form an LLC in 2026, ranked by formation fees and 5-year totals. Montana $35, Kentucky $40, Arkansas $45 — official source links included.",
   alternates: { canonical: "/cheapest-states-to-form-an-llc" },
   openGraph: {
-    title: "Cheapest States to Form an LLC 2026 — Lowest Fees Ranked",
+    title: "Cheapest States to Form an LLC in 2026",
     description:
-      "Official formation fees and multi-year cost rankings. Montana, Kentucky, Arkansas and other low-cost states with source links.",
+      "Cheapest states to form an LLC in 2026, ranked by formation fees and 5-year totals. Montana $35, Kentucky $40, Arkansas $45 — official source links included.",
     type: "article",
     url: "/cheapest-states-to-form-an-llc",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cheapest States to Form an LLC in 2026",
+    description:
+      "Cheapest states to form an LLC in 2026, ranked by formation fees and 5-year totals. Montana $35, Kentucky $40, Arkansas $45 — official source links included.",
+    images: ["/twitter-image"],
   },
 };
 

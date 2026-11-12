@@ -4,16 +4,23 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "How to Form an LLC in 2026: Step-by-Step Guide (Any State)",
+  title: { absolute: "How to Form an LLC: Step-by-Step (2026)" },
   description:
-    "How to form an LLC step by step: choose a name, appoint a registered agent, file Articles of Organization, get a free EIN, and stay compliant. Includes costs, timeline, and common mistakes. Educational guide for 2026.",
+    "Form an LLC in 7 steps: choose a state and name, appoint a registered agent, file Articles of Organization, get a free EIN, and stay compliant. Full 2026 guide.",
   alternates: { canonical: "/how-to-form-an-llc" },
   openGraph: {
-    title: "How to Form an LLC in 2026: Step-by-Step Guide",
+    title: "How to Form an LLC: Step-by-Step (2026)",
     description:
-      "Practical 7-step guide to forming an LLC in any state. Costs, timeline, registered agent, operating agreement, and free EIN.",
+      "Form an LLC in 7 steps: choose a state and name, appoint a registered agent, file Articles of Organization, get a free EIN, and stay compliant. Full 2026 guide.",
     type: "article",
     url: "/how-to-form-an-llc",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How to Form an LLC: Step-by-Step (2026)",
+    description:
+      "Form an LLC in 7 steps: choose a state and name, appoint a registered agent, file Articles of Organization, get a free EIN, and stay compliant. Full 2026 guide.",
+    images: ["/twitter-image"],
   },
 };
 
@@ -194,7 +201,7 @@ export default function HowToFormLLCPage() {
 
       {/* Cost section */}
       <section className="mt-14">
-        <h2 className="text-2xl font-bold text-[#102A43]">How much does it cost to form an LLC?</h2>
+        <h2 className="text-2xl font-bold text-[#102A43]">Budgeting the total cost before you file</h2>
         <p className="mt-3 text-slate-600 leading-relaxed">
           The main cost is the state filing fee for your Articles of Organization. This fee varies significantly by state. On top of the filing fee, you may also pay for a registered agent, name reservation, publication (required in a few states), and ongoing annual or biennial reports.
         </p>

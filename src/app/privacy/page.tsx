@@ -3,20 +3,21 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Get LLC Cost Calculator",
+  title: { absolute: "Privacy Policy" },
   description:
-    "How Get LLC Cost Calculator handles information, cookies, analytics, contact form data, and third-party links. Clear privacy practices for an educational LLC cost platform.",
+    "How Get LLC Cost Calculator handles your information: cookies, analytics, contact-form data and third-party links. Clear privacy practices, no account required.",
   alternates: { canonical: "/privacy" },
   openGraph: {
-    title: "Privacy Policy — Get LLC Cost Calculator",
-    description: "How Get LLC Cost Calculator handles information, cookies, analytics, contact form data, and third-party links.",
+    title: "Privacy Policy",
+    description: "How Get LLC Cost Calculator handles your information: cookies, analytics, contact-form data and third-party links. Clear privacy practices, no account required.",
     type: "article",
     url: "/privacy",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Privacy Policy — Get LLC Cost Calculator",
-    description: "How Get LLC Cost Calculator handles information, cookies, analytics, contact form data, and third-party links.",
+    title: "Privacy Policy",
+    description: "How Get LLC Cost Calculator handles your information: cookies, analytics, contact-form data and third-party links. Clear privacy practices, no account required.",
+    images: ["/twitter-image"],
   },
 };
 

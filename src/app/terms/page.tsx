@@ -3,15 +3,21 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Terms of Use — Get LLC Cost Calculator",
+  title: { absolute: "Terms of Use" },
   description:
-    "Terms of use for Get LLC Cost Calculator. Educational purpose, no warranties, acceptable use, and limitations for the LLC cost and structure guides platform.",
+    "Terms of use for Get LLC Cost Calculator: educational purpose, no warranties, acceptable use and liability limits for LLC cost guides and tools on this site.",
   alternates: { canonical: "/terms" },
   openGraph: {
-    title: "Terms of Use — Get LLC Cost Calculator",
-    description: "Terms of use for Get LLC Cost Calculator educational website and tools.",
+    title: "Terms of Use",
+    description: "Terms of use for Get LLC Cost Calculator: educational purpose, no warranties, acceptable use and liability limits for LLC cost guides and tools on this site.",
     type: "article",
     url: "/terms",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Use",
+    description: "Terms of use for Get LLC Cost Calculator: educational purpose, no warranties, acceptable use and liability limits for LLC cost guides and tools on this site.",
+    images: ["/twitter-image"],
   },
 };
 

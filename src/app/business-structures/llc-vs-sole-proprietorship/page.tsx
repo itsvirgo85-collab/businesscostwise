@@ -4,10 +4,24 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "LLC vs Sole Proprietorship: Key Differences, Pros & Cons (2026)",
+  title: { absolute: "LLC vs Sole Proprietorship (2026)" },
   description:
-    "Clear side-by-side comparison of LLC vs sole proprietorship. Liability, taxes, formation cost, ongoing requirements, and when each structure makes sense. Educational guide for 2026.",
+    "LLC vs sole proprietorship compared: liability, taxes, formation cost and ongoing requirements — and when each structure makes sense for your business.",
   alternates: { canonical: "/business-structures/llc-vs-sole-proprietorship" },
+  openGraph: {
+    title: "LLC vs Sole Proprietorship (2026)",
+    description:
+      "LLC vs sole proprietorship compared: liability, taxes, formation cost and ongoing requirements — and when each structure makes sense for your business.",
+    type: "article",
+    url: "/business-structures/llc-vs-sole-proprietorship",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LLC vs Sole Proprietorship (2026)",
+    description:
+      "LLC vs sole proprietorship compared: liability, taxes, formation cost and ongoing requirements — and when each structure makes sense for your business.",
+    images: ["/twitter-image"],
+  },
 };
 
 export default function LLCvsSolePropPage() {

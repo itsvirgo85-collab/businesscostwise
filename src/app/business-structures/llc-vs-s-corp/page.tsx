@@ -4,10 +4,24 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "LLC vs S Corp: Key Differences, Taxes & When to Elect (2026)",
+  title: { absolute: "LLC vs S Corp: Key Differences (2026)" },
   description:
-    "LLC vs S corp explained: default taxation, self-employment tax, ownership limits, formalities, and when an LLC might elect S-corporation status. Educational guide.",
+    "LLC vs S corp explained: default taxation, self-employment tax, ownership limits and when an LLC might elect S-corporation tax status. Educational guide.",
   alternates: { canonical: "/business-structures/llc-vs-s-corp" },
+  openGraph: {
+    title: "LLC vs S Corp: Key Differences (2026)",
+    description:
+      "LLC vs S corp explained: default taxation, self-employment tax, ownership limits and when an LLC might elect S-corporation tax status. Educational guide.",
+    type: "article",
+    url: "/business-structures/llc-vs-s-corp",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LLC vs S Corp: Key Differences (2026)",
+    description:
+      "LLC vs S corp explained: default taxation, self-employment tax, ownership limits and when an LLC might elect S-corporation tax status. Educational guide.",
+    images: ["/twitter-image"],
+  },
 };
 
 export default function LLCvsSCorpPage() {

@@ -5,22 +5,23 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Registered Agent Cost Calculator 2026 | Commercial vs DIY by State",
+  title: { absolute: "Registered Agent Cost Calculator (2026)" },
   description:
-    "Estimate registered agent costs for your LLC. Compare commercial service fees vs serving as your own agent, plus multi-year totals. Free educational calculator.",
+    "Every LLC needs a registered agent in place. Compare commercial service costs vs serving as your own agent, with multi-year totals and the privacy trade-offs.",
   alternates: { canonical: "/tools/registered-agent-cost-calculator" },
   openGraph: {
-    title: "Registered Agent Cost Calculator 2026 | Commercial vs DIY by State",
+    title: "Registered Agent Cost Calculator (2026)",
     description:
-      "Free tool to estimate multi-year registered agent costs. Compare commercial services vs serving as your own agent.",
+      "Every LLC needs a registered agent in place. Compare commercial service costs vs serving as your own agent, with multi-year totals and the privacy trade-offs.",
     type: "website",
     url: "/tools/registered-agent-cost-calculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Registered Agent Cost Calculator 2026",
+    title: "Registered Agent Cost Calculator (2026)",
     description:
-      "Estimate commercial vs self-agent costs for your LLC with multi-year projections.",
+      "Every LLC needs a registered agent in place. Compare commercial service costs vs serving as your own agent, with multi-year totals and the privacy trade-offs.",
+    images: ["/twitter-image"],
   },
 };
 

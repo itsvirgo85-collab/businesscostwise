@@ -10,6 +10,10 @@ function parseNonNegativeAmount(value: string): number {
   return Number.isFinite(amount) ? Math.max(0, amount) : 0;
 }
 
+function formatMoney(amount: number): string {
+  return amount.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
 export default function LLCCostCalculator() {
   const verified = useMemo(() => STATE_FEES.filter((s) => s.status === "verified"), []);
   const [selectedSlug, setSelectedSlug] = useState(
@@ -150,7 +154,7 @@ export default function LLCCostCalculator() {
         <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
           <div className="flex items-baseline justify-between gap-2">
             <h2 className="text-lg font-semibold text-[#102A43]">
-              Estimated {years}-year cost — {state.state}
+              Your estimated state cost
             </h2>
             <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700">
               Source verified
@@ -167,35 +171,35 @@ export default function LLCCostCalculator() {
           <dl className="mt-6 space-y-2 border-t border-slate-100 pt-4 text-sm">
             <div className="flex justify-between">
               <dt className="text-slate-600">Formation / filing fee</dt>
-              <dd className="font-medium">${result.formationFee.toFixed(2)}</dd>
+              <dd className="font-medium">${formatMoney(result.formationFee)}</dd>
             </div>
             {result.deferredInitialReport > 0 && (
               <div className="flex justify-between">
                 <dt className="text-slate-600">Deferred initial report</dt>
-                <dd className="font-medium">${result.deferredInitialReport.toFixed(2)}</dd>
+                <dd className="font-medium">${formatMoney(result.deferredInitialReport)}</dd>
               </div>
             )}
             {result.registeredAgent > 0 && (
               <div className="flex justify-between">
                 <dt className="text-slate-600">Registered agent ({years} yr)</dt>
-                <dd className="font-medium">${result.registeredAgent.toFixed(2)}</dd>
+                <dd className="font-medium">${formatMoney(result.registeredAgent)}</dd>
               </div>
             )}
             {result.nameReservation > 0 && (
               <div className="flex justify-between">
                 <dt className="text-slate-600">Name reservation</dt>
-                <dd className="font-medium">${result.nameReservation.toFixed(2)}</dd>
+                <dd className="font-medium">${formatMoney(result.nameReservation)}</dd>
               </div>
             )}
             {result.expedited > 0 && (
               <div className="flex justify-between">
                 <dt className="text-slate-600">Expedited processing</dt>
-                <dd className="font-medium">${result.expedited.toFixed(2)}</dd>
+                <dd className="font-medium">${formatMoney(result.expedited)}</dd>
               </div>
             )}
             <div className="flex justify-between">
               <dt className="text-slate-600">Recurring / franchise fees ({years} yr)</dt>
-              <dd className="font-medium">${recurring.toFixed(2)}</dd>
+              <dd className="font-medium">${formatMoney(recurring)}</dd>
             </div>
           </dl>
 

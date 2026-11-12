@@ -4,16 +4,23 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "How to Get an EIN for Free (IRS) — No Third-Party Fees (2026)",
+  title: { absolute: "How to Get an EIN for Free (2026)" },
   description:
-    "How to get an EIN for free directly from the IRS. Online application steps, who needs an EIN, and how to avoid paid third-party services. Educational guide.",
+    "An EIN is free from the IRS: apply online on irs.gov and usually get it immediately. Step-by-step checklist, what you need first, and avoid paid services.",
   alternates: { canonical: "/how-to-get-an-ein-for-free" },
   openGraph: {
-    title: "How to Get an EIN for Free from the IRS",
+    title: "How to Get an EIN for Free (2026)",
     description:
-      "Get your Employer Identification Number at no cost on the official IRS website. Steps, who needs one, and how to avoid unnecessary third-party fees.",
+      "An EIN is free from the IRS: apply online on irs.gov and usually get it immediately. Step-by-step checklist, what you need first, and avoid paid services.",
     type: "article",
     url: "/how-to-get-an-ein-for-free",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How to Get an EIN for Free (2026)",
+    description:
+      "An EIN is free from the IRS: apply online on irs.gov and usually get it immediately. Step-by-step checklist, what you need first, and avoid paid services.",
+    images: ["/twitter-image"],
   },
 };
 
@@ -90,6 +97,20 @@ export default function GetEINFreePage() {
       </div>
 
       <section className="mt-12">
+        <h2 className="text-2xl font-bold text-[#102A43]">What you need before you apply</h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          Have these details ready before you open the IRS application — it makes the process faster and reduces the chance of a mismatch with your state filing:
+        </p>
+        <ul className="mt-4 space-y-2 text-slate-700">
+          <li className="flex gap-2"><span className="text-[#1769AA]">•</span> Your LLC&apos;s legal name exactly as approved by the state, and the state where it was formed.</li>
+          <li className="flex gap-2"><span className="text-[#1769AA]">•</span> The responsible party&apos;s name and taxpayer identification number (Social Security number or ITIN).</li>
+          <li className="flex gap-2"><span className="text-[#1769AA]">•</span> The LLC&apos;s mailing address and principal business address.</li>
+          <li className="flex gap-2"><span className="text-[#1769AA]">•</span> The reason you are applying — for example, you started a new business, hired employees, or need the EIN to open a bank account.</li>
+          <li className="flex gap-2"><span className="text-[#1769AA]">•</span> The date the business started and the type of entity (LLC) for the application.</li>
+        </ul>
+      </section>
+
+      <section className="mt-12">
         <h2 className="text-2xl font-bold text-[#102A43]">Steps to get an EIN free online</h2>
         <ol className="mt-4 space-y-3 text-slate-700">
           <li>
@@ -107,6 +128,42 @@ export default function GetEINFreePage() {
         </ol>
         <p className="mt-4 text-slate-700 leading-relaxed">
           The online application is the fastest method for most applicants who have a valid taxpayer identification number and are authorized to apply.
+        </p>
+      </section>
+
+      <section className="mt-12">
+        <h2 className="text-2xl font-bold text-[#102A43]">Step-by-step checklist for the IRS online application</h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          Walk through the application in this order. The whole process is free — the IRS never charges a fee for an EIN.
+        </p>
+        <ol className="mt-4 space-y-3 text-slate-700">
+          <li>
+            <strong>1.</strong> Confirm you are on irs.gov and that the online EIN application is open — it is only available during IRS service hours, so check the time before you start.
+          </li>
+          <li>
+            <strong>2.</strong> Select the entity type (LLC) and the reason you are applying.
+          </li>
+          <li>
+            <strong>3.</strong> Enter the LLC&apos;s legal name and address exactly as filed with the state — a mismatch is a common reason for rejection or delay.
+          </li>
+          <li>
+            <strong>4.</strong> Enter the responsible party&apos;s details and taxpayer identification number.
+          </li>
+          <li>
+            <strong>5.</strong> Review every field carefully before submitting. Corrections after submission are much slower than getting it right the first time.
+          </li>
+          <li>
+            <strong>6.</strong> Submit the application. In most cases the EIN is issued immediately and shown on screen.
+          </li>
+          <li>
+            <strong>7.</strong> Save the EIN confirmation notice (CP 575) right away — print it and keep a copy with your formation documents. If you close the page without saving it, getting a replacement takes extra time.
+          </li>
+          <li>
+            <strong>8.</strong> Use the EIN to open the business bank account and for any tax filings. Do not apply for a second EIN for the same entity.
+          </li>
+        </ol>
+        <p className="mt-4 text-slate-700 leading-relaxed">
+          If the online application is unavailable — for example, outside IRS service hours or if you do not have a valid taxpayer identification number — the IRS also accepts applications by fax or mail, but those take longer. The online route is the fastest option for most applicants.
         </p>
       </section>
 

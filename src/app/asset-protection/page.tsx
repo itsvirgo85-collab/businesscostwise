@@ -4,16 +4,23 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Does an LLC Protect Personal Assets? Realistic Limits Explained (2026)",
+  title: { absolute: "Does an LLC Protect Your Assets? (2026)" },
   description:
-    "Educational guide on how LLC limited liability works, when courts may pierce the veil, and practical steps small-business owners can take to strengthen asset protection.",
+    "An LLC can separate business debts from personal assets — but only if properly maintained. Learn when courts pierce the veil and how to strengthen protection.",
   alternates: { canonical: "/asset-protection" },
   openGraph: {
-    title: "Does an LLC Protect Personal Assets? Realistic Limits",
+    title: "Does an LLC Protect Your Assets? (2026)",
     description:
-      "How limited liability works, when courts pierce the veil, and practical steps to strengthen protection for small-business owners.",
+      "An LLC can separate business debts from personal assets — but only if properly maintained. Learn when courts pierce the veil and how to strengthen protection.",
     type: "article",
     url: "/asset-protection",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Does an LLC Protect Your Assets? (2026)",
+    description:
+      "An LLC can separate business debts from personal assets — but only if properly maintained. Learn when courts pierce the veil and how to strengthen protection.",
+    images: ["/twitter-image"],
   },
 };
 

@@ -45,7 +45,7 @@ export default function Header() {
 
         <button
           type="button"
-          className="rounded-md p-2 text-slate-600 md:hidden"
+          className="rounded-md p-3 text-slate-600 md:hidden"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -59,20 +59,22 @@ export default function Header() {
         </button>
       </div>
 
-      {open && (
-        <div className="border-t border-slate-100 bg-white px-4 py-3 md:hidden">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="block py-2 text-sm font-medium text-slate-700"
-              onClick={() => setOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      )}
+      <div
+        className={`border-t border-slate-100 bg-white px-4 py-3 md:hidden ${
+          open ? "" : "hidden"
+        }`}
+      >
+        {nav.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className="block py-2 text-sm font-medium text-slate-700"
+            onClick={() => setOpen(false)}
+          >
+            {item.label}
+          </Link>
+        ))}
+      </div>
     </header>
   );
 }

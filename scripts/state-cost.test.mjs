@@ -62,11 +62,12 @@ test("zero-dollar annual reports remain filing obligations without inflating cos
   }
 });
 
-test("Alabama variable Business Privilege Tax is not presented as verified $0", () => {
+test("Alabama Business Privilege Tax is disclosed as variable, not a flat $0", () => {
   const al = state("Alabama");
-  assert.equal(al.status, "pending");
+  assert.equal(al.status, "verified");
   assert.equal(al.annualFee, null);
   assert.equal(al.franchiseTax, null);
+  assert.match(al.notes, /Business Privilege Tax/);
 });
 
 test("Indiana and Kansas use their current 2026 filing fees and frequencies", () => {
@@ -173,7 +174,7 @@ test("state fee dataset has unique records and official source metadata", () => 
   assert.equal(STATE_FEES.length, 51, "Expected 50 states plus Washington DC");
   assert.equal(new Set(STATE_FEES.map((item) => item.slug)).size, STATE_FEES.length, "State slugs must be unique");
   assert.equal(new Set(STATE_FEES.map((item) => item.abbreviation)).size, STATE_FEES.length, "State abbreviations must be unique");
-  assert.equal(getVerifiedStates().length, 50, "Expected 49 states plus DC to be verified");
+  assert.equal(getVerifiedStates().length, 51, "Expected 50 states plus DC to be verified");
   for (const item of STATE_FEES) {
     assert.ok(item.sourceName.trim(), `Missing source name for ${item.state}`);
     assert.match(item.sourceUrl, /^https:\/\//, `Source URL must use HTTPS for ${item.state}`);

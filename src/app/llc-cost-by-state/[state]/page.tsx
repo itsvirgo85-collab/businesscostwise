@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getStateBySlug, getVerifiedStates } from "@/data/stateFees";
+import { STATE_HIGHLIGHTS } from "@/data/stateHighlights";
 import { calculateFiveYearStateCost, calculateRecurringStateFees } from "@/lib/stateCost";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
@@ -15,25 +16,26 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { state: slug } = await params;
   const s = getStateBySlug(slug);
-  if (!s || s.status !== "verified") return { title: "State not found" };
+  if (!s || s.status !== "verified") return { title: "State not found", robots: { index: false } };
 
+  const displayName = s.slug === "district-of-columbia" ? "District of Columbia" : s.state;
   const feeText =
     s.formationFee != null ? `$${s.formationFee} formation fee` : "formation costs";
 
   return {
-    title: `LLC Cost in ${s.state} ${new Date().getFullYear()} — Filing Fee & Annual Costs`,
-    description: `How much does it cost to form an LLC in ${s.state}? ${feeText}, recurring report fees, and official ${s.sourceName} source links. Educational estimates only.`,
+    title: { absolute: `LLC Cost in ${displayName} 2026 — Filing & Annual Fees` },
+    description: `How much does it cost to form an LLC in ${displayName}? ${feeText}, recurring report fees, 5-year totals and official government source links.`,
     alternates: { canonical: `/llc-cost-by-state/${s.slug}` },
     openGraph: {
-      title: `LLC Cost in ${s.state} — Filing & Annual Fees`,
-      description: `Official ${s.state} LLC formation and recurring costs with government source links.`,
+      title: `LLC Cost in ${displayName} — Filing & Annual Fees`,
+      description: `Official ${displayName} LLC formation and recurring costs with government source links.`,
       type: "article",
       url: `/llc-cost-by-state/${s.slug}`,
     },
     twitter: {
       card: "summary_large_image",
-      title: `LLC Cost in ${s.state} — Filing & Annual Fees`,
-      description: `Official ${s.state} LLC formation and recurring costs with government source links.`,
+      title: `LLC Cost in ${displayName} — Filing & Annual Fees`,
+      description: `Official ${displayName} LLC formation and recurring costs with government source links.`,
     },
   };
 }
@@ -47,6 +49,47 @@ export default async function StateCostPage({ params }: Props) {
   const fiveYear = calculateFiveYearStateCost(s);
   const firstYearStateCost = (s.formationFee ?? 0) + calculateRecurringStateFees(s, 1);
 
+  const verifiedSorted = [...getVerifiedStates()].sort((a, b) => a.state.localeCompare(b.state));
+  const currentIndex = verifiedSorted.findIndex((item) => item.slug === s.slug);
+  const prevState = verifiedSorted[(currentIndex - 1 + verifiedSorted.length) % verifiedSorted.length];
+  const nextState = verifiedSorted[(currentIndex + 1) % verifiedSorted.length];
+
+  const formationPosition =
+    s.formationFee != null && s.formationFee <= 50
+      ? "among the lowest in the country"
+      : s.formationFee != null && s.formationFee >= 300
+        ? "among the highest in the country"
+        : "in the middle of the national range";
+  const recurringSummary =
+    s.annualFrequency === "annual"
+      ? s.annualFee != null
+        ? `a $${s.annualFee} annual report`
+        : "an annual report"
+      : s.annualFrequency === "biennial"
+        ? s.annualFee != null
+          ? `a $${s.annualFee} biennial report`
+          : "a biennial report"
+        : s.franchiseTax != null
+          ? `a $${s.franchiseTax} annual franchise/entity tax and no annual report`
+          : "no recurring filing fee";
+  const costProfile =
+    s.formationFee != null
+      ? `Cost profile: ${s.state} charges a $${s.formationFee} formation fee, ${formationPosition} (national formation fees run $35–$520), with ${recurringSummary}. The estimated 5-year state cost is $${Math.round(fiveYear).toLocaleString()}.`
+      : `Cost profile: ${s.state} has ${recurringSummary}. The estimated 5-year state cost is $${Math.round(fiveYear).toLocaleString()}.`;
+
+  const annualReportAnswer =
+    s.annualFrequency === "annual"
+      ? s.annualFee != null
+        ? `Yes. ${s.state} requires a $${s.annualFee} annual report.`
+        : `Yes. ${s.state} requires an annual report.`
+      : s.annualFrequency === "biennial"
+        ? s.annualFee != null
+          ? `Yes. ${s.state} requires a $${s.annualFee} biennial report.`
+          : `Yes. ${s.state} requires a biennial report.`
+        : s.franchiseTax != null
+          ? `No annual report is required, but a $${s.franchiseTax} annual franchise/entity tax applies.`
+          : `No. ${s.state} does not require an annual report and has no recurring filing fee.`;
+
   const faqs = [
     {
       question: `How much does it cost to form an LLC in ${s.state}?`,
@@ -56,17 +99,28 @@ export default async function StateCostPage({ params }: Props) {
           : `Formation fee data for ${s.state} should be confirmed on the official state website. Recurring report fees or franchise taxes may also apply.`,
     },
     {
-      question: `Does ${s.state} require an annual report for LLCs?`,
+      question: `What is the estimated 5-year cost of an LLC in ${s.state}?`,
       answer:
-        s.annualFrequency === "none"
-          ? `${s.state} currently shows no fixed recurring report fee in our verified data set. Some states still require informational filings or other taxes. Always confirm on the official state site.`
-          : `${s.state} currently has a ${s.annualFrequency} filing requirement${s.annualFee != null ? ` with a listed fee of $${s.annualFee}` : ""}. Deadlines and exact requirements should be confirmed on the official state website.`,
+        s.formationFee != null
+          ? `The estimated 5-year state cost is $${Math.round(fiveYear).toLocaleString()} — a $${s.formationFee} formation fee plus $${Math.round(calculateRecurringStateFees(s, 5)).toLocaleString()} in recurring fees over five years.`
+          : `The estimated 5-year state cost is $${Math.round(fiveYear).toLocaleString()}. Confirm the current figures on the official state website before filing.`,
     },
     {
-      question: "Is this page legal or tax advice?",
-      answer:
-        "No. This page is educational only. It summarizes published state fee information and does not create an attorney-client or advisor relationship. Confirm every requirement on official government sites before filing.",
+      question: `Does ${s.state} require an annual report?`,
+      answer: annualReportAnswer,
     },
+  ];
+
+  const variableMeasured = [
+    ...(s.formationFee != null
+      ? [{ "@type": "PropertyValue", name: "Formation fee", value: s.formationFee }]
+      : []),
+    ...(s.annualFee != null
+      ? [{ "@type": "PropertyValue", name: "Annual/report fee", value: s.annualFee }]
+      : []),
+    ...(s.franchiseTax != null
+      ? [{ "@type": "PropertyValue", name: "Franchise/entity tax", value: s.franchiseTax }]
+      : []),
   ];
 
   const jsonLd = {
@@ -78,10 +132,7 @@ export default async function StateCostPage({ params }: Props) {
       "@type": "Dataset",
       name: `${s.state} LLC Fees`,
       description: `Formation fee, annual/biennial report fee, and franchise tax data for ${s.state} LLCs.`,
-      variableMeasured: [
-        { "@type": "PropertyValue", name: "Formation fee", value: s.formationFee },
-        { "@type": "PropertyValue", name: "Annual/report fee", value: s.annualFee },
-      ],
+      variableMeasured,
     },
   };
 
@@ -102,7 +153,7 @@ export default async function StateCostPage({ params }: Props) {
       />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43]">
-        LLC Cost in {s.state} ({new Date().getFullYear()})
+        LLC Cost in {s.state} (2026)
       </h1>
 
       <p className="mt-3 text-slate-600 leading-relaxed">
@@ -208,8 +259,13 @@ export default async function StateCostPage({ params }: Props) {
         <section className="mt-10">
           <h2 className="text-xl font-semibold text-[#102A43]">Important notes for {s.state}</h2>
           <p className="mt-2 text-sm text-slate-700 leading-relaxed">{s.notes}</p>
+          {STATE_HIGHLIGHTS[s.slug] && (
+            <p className="mt-2 text-sm text-slate-700 leading-relaxed">{STATE_HIGHLIGHTS[s.slug]}</p>
+          )}
         </section>
       )}
+
+      <p className="mt-4 text-sm text-slate-700 leading-relaxed">{costProfile}</p>
 
       <div className="mt-8 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
         <p className="font-medium">Official source</p>
@@ -313,6 +369,16 @@ export default async function StateCostPage({ params }: Props) {
           <li>
             <Link href="/llc-cost-by-state" className="text-[#1769AA] hover:underline">
               All states comparison table
+            </Link>
+          </li>
+          <li>
+            <Link href={`/llc-cost-by-state/${prevState.slug}`} className="text-[#1769AA] hover:underline">
+              ← Previous state: {prevState.state}
+            </Link>
+          </li>
+          <li>
+            <Link href={`/llc-cost-by-state/${nextState.slug}`} className="text-[#1769AA] hover:underline">
+              Next state: {nextState.state} →
             </Link>
           </li>
         </ul>

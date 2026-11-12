@@ -4,16 +4,23 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "What is an LLC? Limited Liability Company Explained Simply (2026)",
+  title: { absolute: "What Is an LLC? Explained Simply (2026)" },
   description:
-    "What is an LLC? Clear explanation of a Limited Liability Company: how it works, benefits, taxes, formation basics, and how it compares to sole proprietorships and corporations. Educational guide for 2026.",
+    "An LLC is a separate legal entity that shields owners' personal assets while staying simpler than a corporation. How it works, taxes, benefits, and limits.",
   alternates: { canonical: "/what-is-an-llc" },
   openGraph: {
-    title: "What is an LLC? Limited Liability Company Explained Simply",
+    title: "What Is an LLC? Explained Simply (2026)",
     description:
-      "Simple explanation of LLCs: limited liability, tax flexibility, formation, and when it makes sense versus a sole proprietorship or corporation.",
+      "An LLC is a separate legal entity that shields owners' personal assets while staying simpler than a corporation. How it works, taxes, benefits, and limits.",
     type: "article",
     url: "/what-is-an-llc",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "What Is an LLC? Explained Simply (2026)",
+    description:
+      "An LLC is a separate legal entity that shields owners' personal assets while staying simpler than a corporation. How it works, taxes, benefits, and limits.",
+    images: ["/twitter-image"],
   },
 };
 

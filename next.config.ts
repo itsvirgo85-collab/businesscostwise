@@ -4,6 +4,16 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   trailingSlash: false,
   compress: true,
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "getllccostcalculator.com" }],
+        destination: "https://www.getllccostcalculator.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

@@ -10,6 +10,6 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: "https://www.getllccostcalculator.com/sitemap.xml",
-    host: "https://www.getllccostcalculator.com",
+    host: "www.getllccostcalculator.com",
   };
 }

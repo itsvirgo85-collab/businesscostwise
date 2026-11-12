@@ -24,7 +24,6 @@ export default function JsonLd() {
         description:
           "Independent educational resource for US LLC formation costs, verified state fee data, and small-business structure comparisons. Built to give founders one clear platform for real, source-linked information.",
         foundingDate: "2026",
-        founder: { "@id": `${siteUrl}/#founder` },
         contactPoint: [
           {
             "@type": "ContactPoint",
@@ -47,17 +46,6 @@ export default function JsonLd() {
           "Employer Identification Number (EIN)",
         ],
         slogan: "One platform for real LLC costs — before you file",
-        sameAs: [],
-      },
-      {
-        "@type": "Person",
-        "@id": `${siteUrl}/#founder`,
-        name: "Get LLC Cost Calculator Founder",
-        jobTitle: "Founder & Editor",
-        url: `${siteUrl}/about`,
-        worksFor: { "@id": `${siteUrl}/#organization` },
-        description:
-          "Independent researcher and product builder who created Get LLC Cost Calculator so founders can compare verified US LLC formation costs and structure options on one trustworthy platform.",
       },
       {
         "@type": "WebSite",
@@ -65,7 +53,7 @@ export default function JsonLd() {
         url: siteUrl,
         name: "Get LLC Cost Calculator",
         description:
-          "Free LLC cost calculator for 49 verified US states and DC. Formation fees, annual reports, franchise taxes, and multi-year totals with official source links.",
+          "Free LLC cost calculator for all 50 US states and DC. Formation fees, annual reports, franchise taxes, and multi-year totals with official source links.",
         publisher: { "@id": `${siteUrl}/#organization` },
         inLanguage: "en-US",
         about: { "@id": `${siteUrl}/#organization` },

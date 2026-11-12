@@ -4,22 +4,23 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 
 export const metadata: Metadata = {
-  title: "Sources & Methodology — How We Verify US LLC Fees from Official Government Pages",
+  title: { absolute: "Sources & Methodology" },
   description:
-    "How Get LLC Cost Calculator collects, verifies, and automatically monitors US LLC formation and recurring fee data. Official state sources, verification dates, monitoring process, and known limitations explained.",
+    "How we verify US LLC fees: official state sources, verification dates, automated monitoring and known limits — including Alabama, now verified and included.",
   alternates: { canonical: "/about/sources-and-methodology" },
   openGraph: {
-    title: "Sources & Methodology — How We Verify US LLC Fees from Official Government Pages",
+    title: "Sources & Methodology",
     description:
-      "How Get LLC Cost Calculator collects, verifies, and automatically monitors US LLC formation and recurring fee data from official state government sources.",
+      "How we verify US LLC fees: official state sources, verification dates, automated monitoring and known limits — including Alabama, now verified and included.",
     type: "article",
     url: "/about/sources-and-methodology",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sources & Methodology — How We Verify US LLC Fees",
+    title: "Sources & Methodology",
     description:
-      "Official state sources, verification dates, automated monitoring, and known limitations behind every LLC fee figure on this site.",
+      "How we verify US LLC fees: official state sources, verification dates, automated monitoring and known limits — including Alabama, now verified and included.",
+    images: ["/twitter-image"],
   },
 };
 
@@ -38,7 +39,7 @@ export default function SourcesMethodologyPage() {
     {
       question: "Why do some states show limitations or exclusions?",
       answer:
-        "Some states publish only variable formulas (for example income-based or net-worth-based taxes). We document fixed published amounts and note limitations rather than inventing a typical number. Alabama is temporarily excluded from some comparisons while its variable Business Privilege Tax treatment is reviewed.",
+        "Some states publish only variable formulas (for example income-based or net-worth-based taxes). We document fixed published amounts and note limitations rather than inventing a typical number. Alabama is verified and included: its Certificate of Formation costs $200, it has no LLC annual report, and its variable Business Privilege Tax applies only above $100, so it is noted rather than added to the fixed totals.",
     },
     {
       question: "Does this site provide legal or tax advice?",
@@ -122,6 +123,9 @@ export default function SourcesMethodologyPage() {
         <p className="mt-3 text-slate-700 leading-relaxed">
           We prefer fixed, published amounts that a founder can rely on for planning. When a state publishes only variable formulas, we note that limitation instead of inventing a “typical” number.
         </p>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          Verification is ongoing, not one-off. Fees are re-checked against official government sources on a recurring cadence, and the automated monitor flags a state for review when a published amount appears to have changed. Each state page shows its own verified date, so you can see exactly when its figures were last confirmed against the official schedule.
+        </p>
       </section>
 
       <section className="mt-12">
@@ -139,7 +143,7 @@ export default function SourcesMethodologyPage() {
       <section className="mt-12">
         <h2 className="text-xl font-semibold text-[#102A43]">Known limitations</h2>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          Alabama is temporarily excluded from some verified comparisons while its variable Business Privilege Tax treatment is reviewed. Some states have complex tiered fees; we document fixed published amounts and note where further review is needed. Government websites also redesign URLs; our source registry is updated when official links move.
+          Alabama is verified and included: its Certificate of Formation costs $200, it has no LLC annual report, and its variable Business Privilege Tax applies only above $100, so it is noted on the Alabama page rather than added to the fixed totals. Some states have complex tiered fees; we document fixed published amounts and note where further review is needed. Government websites also redesign URLs; our source registry is updated when official links move.
         </p>
         <p className="mt-3 text-slate-700 leading-relaxed">
           Multi-year estimates assume the currently published fixed recurring fees continue. States can change report fees or franchise taxes. Always re-check the official schedule for the years you care about.
