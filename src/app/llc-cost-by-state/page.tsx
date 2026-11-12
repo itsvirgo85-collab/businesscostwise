@@ -5,14 +5,14 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "LLC Costs by State 2026 — Filing Fees & Annual Reports (All States)",
+  title: "LLC Costs by State 2026 — Filing Fees & Annual Reports (49 Verified States + DC)",
   description:
     "Compare LLC formation filing fees and recurring annual or biennial costs across verified US states. Official source links, multi-year context, and free calculator.",
   alternates: { canonical: "/llc-cost-by-state" },
   openGraph: {
     title: "LLC Costs by State 2026 — Filing Fees & Annual Reports",
     description:
-      "Verified LLC formation and recurring fees for all US states. Official sources, calculator, and multi-year cost context.",
+      "Verified LLC formation and recurring fees for 49 verified states + DC. Official sources, calculator, and multi-year cost context.",
     type: "article",
     url: "/llc-cost-by-state",
   },
