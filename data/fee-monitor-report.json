@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-13T04:12:48.846Z",
+  "generatedAt": "2026-11-13T16:00:08.747Z",
   "totalStates": 51,
   "reachable": 39,
   "unreachable": [
@@ -10,8 +10,8 @@
     "maine",
     "michigan",
     "montana",
+    "nevada",
     "new-hampshire",
-    "new-jersey",
     "ohio",
     "tennessee",
     "wisconsin"
@@ -24,16 +24,23 @@
     "delaware",
     "florida",
     "hawaii",
+    "idaho",
+    "indiana",
+    "massachusetts",
     "minnesota",
     "missouri",
     "new-york",
+    "north-dakota",
     "oregon",
+    "pennsylvania",
+    "rhode-island",
     "south-carolina",
     "vermont",
     "washington",
-    "district-of-columbia"
+    "district-of-columbia",
+    "west-virginia"
   ],
-  "summary": "15 source page(s) changed; 12 unreachable.",
+  "summary": "22 source page(s) changed; 12 unreachable.",
   "results": [
     {
       "state": "Alabama",
@@ -71,10 +78,10 @@
         "status": 403,
         "finalUrl": "https://www.commerce.alaska.gov/web/cbpl/Corporations/CorporationFormsFees",
         "bytes": 773,
-        "fingerprint": "65f538ab74b951044d5af760b57f91a96d0576ca407c5a588d34bfb1dba31e11",
+        "fingerprint": "b40c4b942b7dab7d71f45ac2fb1c3d3f95b503461d5dca2451ba64abda9cbd1b",
         "error": null,
         "changedSinceLastRun": false,
-        "previousFingerprint": "6fbb7afd5a32d06827d9051b82ec9697a50856e18c3a4a342481e7ce41c420b4"
+        "previousFingerprint": "65f538ab74b951044d5af760b57f91a96d0576ca407c5a588d34bfb1dba31e11"
       }
     },
     {
@@ -113,10 +120,10 @@
         "status": 200,
         "finalUrl": "https://sos.arkansas.gov/business-commercial-services-bcs/forms-fees/llc",
         "bytes": 97036,
-        "fingerprint": "7f3e28570bbd2bb7d609448aa987f0418e637b9cb2949a7a0345106320aad0bf",
+        "fingerprint": "0294a645f6faff965e3606ab51d11d1bfc4564721f54f9483577fe8b8a497e7b",
         "error": null,
         "changedSinceLastRun": true,
-        "previousFingerprint": "7fd9435001b446296fc075c70b21e437e3db7d6a4cb6a09be3c8eae5ffd3a320"
+        "previousFingerprint": "7f3e28570bbd2bb7d609448aa987f0418e637b9cb2949a7a0345106320aad0bf"
       }
     },
     {
@@ -133,11 +140,11 @@
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.sos.ca.gov/business-programs/business-entities/forms/limited-liability-companies-california-domestic",
-        "bytes": 77326,
-        "fingerprint": "e58424aecf30e224354b453271dd4fb97ec5bfa39cc86f1f2e250e8c10c314bc",
+        "bytes": 77211,
+        "fingerprint": "e1f955a14bd785453b065346a35ab5ee81848e4bd9b2088ffb7d3ae50a3a8b5f",
         "error": null,
         "changedSinceLastRun": true,
-        "previousFingerprint": "bbd923ed3cec2f37c2cc03db12ada151d197710da81b937f35969d13535123e0"
+        "previousFingerprint": "e58424aecf30e224354b453271dd4fb97ec5bfa39cc86f1f2e250e8c10c314bc"
       }
     },
     {
@@ -155,10 +162,10 @@
         "status": 200,
         "finalUrl": "https://www.coloradosos.gov/pubs/info_center/fees/business.html",
         "bytes": 43730,
-        "fingerprint": "e2a57557a0fe7371ced26b540b11abcc099b86425b00c7f74812299dd4feb9c1",
+        "fingerprint": "39b04dc762830cbd469a3a1b68f6e24eecd574a9efd484603e87731d608d2059",
         "error": null,
         "changedSinceLastRun": true,
-        "previousFingerprint": "8a7f2874e9981617343bf7527d695762abf7d18ba832f1771af97d28f6730e49"
+        "previousFingerprint": "e2a57557a0fe7371ced26b540b11abcc099b86425b00c7f74812299dd4feb9c1"
       }
     },
     {
@@ -176,10 +183,10 @@
         "status": 200,
         "finalUrl": "https://business.ct.gov/knowledge-base/articles/domestic-limited-liability-companies-forms-and-fees",
         "bytes": 78045,
-        "fingerprint": "57e29898d2ff00e775ed745ca8ab2c98534c2fa1c8840207220fa73b11ffd122",
+        "fingerprint": "add4d928ab23e84cff02e141a457a630ba28e28724c16c50d74448268c47c27a",
         "error": null,
         "changedSinceLastRun": true,
-        "previousFingerprint": "4a0a403fa3d3afe2329a14bec5b146b508e6840cb034ed2550b5a68754334f7f"
+        "previousFingerprint": "57e29898d2ff00e775ed745ca8ab2c98534c2fa1c8840207220fa73b11ffd122"
       }
     },
     {
@@ -196,11 +203,11 @@
         "ok": true,
         "status": 200,
         "finalUrl": "https://corp.delaware.gov/alt-entitytaxinstructions/",
-        "bytes": 246,
-        "fingerprint": "fbe6565ed8dd5072345a7b8dd8d2333ac3f3045ca70c494029d1946d5588237f",
+        "bytes": 51067,
+        "fingerprint": "f9bf1283b3d7ea98f592e139891d55cbdc8e91848c5955f276259da2b8624952",
         "error": null,
         "changedSinceLastRun": true,
-        "previousFingerprint": "b9fd7d3fb41b59c916b8e32f58a63dc05d3a401e263afda610faae05d7d7fdd7"
+        "previousFingerprint": "fbe6565ed8dd5072345a7b8dd8d2333ac3f3045ca70c494029d1946d5588237f"
       }
     },
     {
@@ -218,10 +225,10 @@
         "status": 200,
         "finalUrl": "https://dos.fl.gov/sunbiz/start-business/efile/fl-llc",
         "bytes": 34976,
-        "fingerprint": "4e5b3600a9ae660bf9393b32c6018efbed1cca4c5324fe78bb3615be90b1471b",
+        "fingerprint": "46b2642d043910b60a128bd5fc25d620a3f188feaf6fe9ddab5a0ebe8763060f",
         "error": null,
         "changedSinceLastRun": true,
-        "previousFingerprint": "b6fbe4da3685622d0b7c12256fa0e3f59f8c8462dcb0b4d9242be1edc19c0a21"
+        "previousFingerprint": "4e5b3600a9ae660bf9393b32c6018efbed1cca4c5324fe78bb3615be90b1471b"
       }
     },
     {
@@ -236,11 +243,11 @@
       "status": "verified",
       "check": {
         "ok": false,
-        "status": 0,
+        "status": 403,
         "finalUrl": "https://sos.ga.gov/sites/default/files/2025-07/corp-filing_procedure-limited_liability_company.pdf",
-        "bytes": 0,
-        "fingerprint": null,
-        "error": "terminated",
+        "bytes": 6075,
+        "fingerprint": "b2fed002562ebdc1c33396e51c867e53fe696478f9a1983682b3b9bb6ee5fe75",
+        "error": null,
         "changedSinceLastRun": false,
         "previousFingerprint": null
       }
@@ -260,10 +267,10 @@
         "status": 200,
         "finalUrl": "https://cca.hawaii.gov/breg/registration/dllc/",
         "bytes": 133307,
-        "fingerprint": "c053204bdff94610416141571fae8fc62b4a0a5dd35dd6992d61786318ceb395",
+        "fingerprint": "57f8fb889f38bf9107f3bc68d2ec622d2a42b4ba4ab4fff34631d0989a996905",
         "error": null,
         "changedSinceLastRun": true,
-        "previousFingerprint": "5a8294208f502dad79055fbf518873affadb542eef57b8ac9d2deb21e60de521"
+        "previousFingerprint": "c053204bdff94610416141571fae8fc62b4a0a5dd35dd6992d61786318ceb395"
       }
     },
     {
@@ -281,9 +288,9 @@
         "status": 200,
         "finalUrl": "https://legislature.idaho.gov/statutesrules/idstat/Title30/T30CH21/SECT30-21-214/",
         "bytes": 115462,
-        "fingerprint": "ae3b4cc9551a45d3c079fb4d3761c63b739bb3f3bd8370adf77fb3a69deb82b4",
+        "fingerprint": "1cb8f154b29a7398dc82be51e191173a7e058bf9088cece620b3eba0dc3c4d66",
         "error": null,
-        "changedSinceLastRun": false,
+        "changedSinceLastRun": true,
         "previousFingerprint": "ae3b4cc9551a45d3c079fb4d3761c63b739bb3f3bd8370adf77fb3a69deb82b4"
       }
     },
@@ -302,10 +309,10 @@
         "status": 403,
         "finalUrl": "https://www.ilsos.gov/publications/business-services/llc.html",
         "bytes": 422,
-        "fingerprint": "72f2c1971bfc4e24c7eff6066f4659e7e8a5bca88ab518969fc6890fa1564718",
+        "fingerprint": "bf34774db75f4503f65768e6e094371e1baa12cd6d2f443c292891874041c376",
         "error": null,
         "changedSinceLastRun": false,
-        "previousFingerprint": "0b9daf8d2d34c85fe84ecd48f877cba947a43eecfa8ca4b505285dbd15beb5e3"
+        "previousFingerprint": "72f2c1971bfc4e24c7eff6066f4659e7e8a5bca88ab518969fc6890fa1564718"
       }
     },
     {
@@ -323,9 +330,9 @@
         "status": 200,
         "finalUrl": "https://iga.in.gov/laws/2026/ic/titles/23/",
         "bytes": 691,
-        "fingerprint": "61d9d1265c828684df265d5139ee43f21d5325cb19aa861c7da7816dd28ac732",
+        "fingerprint": "4cc9b45ba54c259c5584a0c05a308f3811c78361a4dc5935e2911ecdc0bd16d2",
         "error": null,
-        "changedSinceLastRun": false,
+        "changedSinceLastRun": true,
         "previousFingerprint": "61d9d1265c828684df265d5139ee43f21d5325cb19aa861c7da7816dd28ac732"
       }
     },
@@ -343,11 +350,11 @@
         "ok": false,
         "status": 403,
         "finalUrl": "https://sos.iowa.gov/businesses/business-entity-forms-and-fees",
-        "bytes": 5920,
-        "fingerprint": "1aeae85731dfeb012783eb35da71ad1060eabfe661ed573de90f09346728ed1a",
+        "bytes": 5942,
+        "fingerprint": "a3db1de6785bccabe656c681daf304e68583ecca528bf5300871a0291d3452b1",
         "error": null,
         "changedSinceLastRun": false,
-        "previousFingerprint": "f3a31f017ad48c7e284e6b21317255bb39fe7fb18466108699281ebf75aae7d7"
+        "previousFingerprint": "1aeae85731dfeb012783eb35da71ad1060eabfe661ed573de90f09346728ed1a"
       }
     },
     {
@@ -428,10 +435,10 @@
         "status": 403,
         "finalUrl": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc6.pdf",
         "bytes": 919,
-        "fingerprint": "44e64e6322c77d3cb5648efdc0507a96b05b1e616e7d2b71d81322c65b66ea2b",
+        "fingerprint": "3f1080931a98bf1ba28fa03b0abdaba56ef5a07fbf5cfde77b1f9cc6fd551237",
         "error": null,
         "changedSinceLastRun": false,
-        "previousFingerprint": "71e8e4b10b59ec611ec1e58a8aeefd925ad0677e801bbe189fa925cd238fbb87"
+        "previousFingerprint": "44e64e6322c77d3cb5648efdc0507a96b05b1e616e7d2b71d81322c65b66ea2b"
       }
     },
     {
@@ -469,10 +476,10 @@
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.sec.state.ma.us/divisions/corporations/pdf-html/950_cmr_112_limited_liability_companies.htm",
-        "bytes": 212,
-        "fingerprint": "bdfe1b9067f2caced6d58bd23b5464c4cefd5eb0a4ae5ca3052e630b37259900",
+        "bytes": 112574,
+        "fingerprint": "2b2d2c47e466d61c86086a5085ea2f69e3f42622a06bb515c0397fabeb4fb8ff",
         "error": null,
-        "changedSinceLastRun": false,
+        "changedSinceLastRun": true,
         "previousFingerprint": "bdfe1b9067f2caced6d58bd23b5464c4cefd5eb0a4ae5ca3052e630b37259900"
       }
     },
@@ -490,11 +497,11 @@
         "ok": false,
         "status": 403,
         "finalUrl": "https://www.michigan.gov/-/media/Project/Websites/lara/cscl/Folder1/BCS_CD_265.pdf",
-        "bytes": 471,
-        "fingerprint": "c73b9135ebba6b604cdbc04f3b1eedfdaf329f7f805a3d7a51b6572f314ab7a9",
+        "bytes": 469,
+        "fingerprint": "82aec8c70b8f61fbadb65ce16530a3ac1378794c1423d875bd62fe2003c084f2",
         "error": null,
         "changedSinceLastRun": false,
-        "previousFingerprint": "ca2be3a31455d539328bcc86c4d56471b8f7852fe18aa8a884bceb30c6dd42b9"
+        "previousFingerprint": "c73b9135ebba6b604cdbc04f3b1eedfdaf329f7f805a3d7a51b6572f314ab7a9"
       }
     },
     {
@@ -512,10 +519,10 @@
         "status": 200,
         "finalUrl": "https://www.sos.mn.gov/business-liens/business-filing-and-certification-fee-schedule/",
         "bytes": 82252,
-        "fingerprint": "de8fd02e01ec847b92d638a6c9cb909a052f2622adfaadb0212ea0cda20c01d0",
+        "fingerprint": "12905c38343f967a8f97cfb748e3d0242f7cd88326b4924870a748a6cc13f94a",
         "error": null,
         "changedSinceLastRun": true,
-        "previousFingerprint": "19ca2525fa611b59a34420aac3f23a681b94c2f87e0910957f0aeeb40a88c2eb"
+        "previousFingerprint": "de8fd02e01ec847b92d638a6c9cb909a052f2622adfaadb0212ea0cda20c01d0"
       }
     },
     {
@@ -554,10 +561,10 @@
         "status": 200,
         "finalUrl": "https://revisor.mo.gov/main/OneSection.aspx?section=347.179&bid=49444",
         "bytes": 32186,
-        "fingerprint": "cf99993b73a2506f6e1b3de7226c894a93c7c4a0e077979ae0eba2f5024f8b2e",
+        "fingerprint": "0563c642eff6e700bb27b7445c4b4bc42ce89a3671554c2fd270e6b79420ed95",
         "error": null,
         "changedSinceLastRun": true,
-        "previousFingerprint": "27c074f2ac93fa967d7b969e353501ee4f63c9c4139dd55a76bde6b40a62bd7d"
+        "previousFingerprint": "cf99993b73a2506f6e1b3de7226c894a93c7c4a0e077979ae0eba2f5024f8b2e"
       }
     },
     {
@@ -574,11 +581,11 @@
         "ok": false,
         "status": 403,
         "finalUrl": "https://sosmt.gov/business/fees/",
-        "bytes": 8246,
-        "fingerprint": "7b7d68e62ed1b93e36457c1ff7784cd12bff512882be0f967db1e5cd6465f8f5",
+        "bytes": 8236,
+        "fingerprint": "96b59350ff9c5035f078df36322d8655abe9a56ed5eed0e4852c123553684cae",
         "error": null,
         "changedSinceLastRun": false,
-        "previousFingerprint": null
+        "previousFingerprint": "7b7d68e62ed1b93e36457c1ff7784cd12bff512882be0f967db1e5cd6465f8f5"
       }
     },
     {
@@ -613,14 +620,14 @@
       "franchiseTax": null,
       "status": "verified",
       "check": {
-        "ok": true,
-        "status": 200,
+        "ok": false,
+        "status": 403,
         "finalUrl": "https://www.nvsos.gov/businesses/commercial-recordings/forms-fees/all-business-forms",
-        "bytes": 212,
-        "fingerprint": "bdfe1b9067f2caced6d58bd23b5464c4cefd5eb0a4ae5ca3052e630b37259900",
+        "bytes": 668,
+        "fingerprint": "0ee90b01115052b22b34d68d65c69a17d8b985b21d23d0777a1dcb01c81cf694",
         "error": null,
         "changedSinceLastRun": false,
-        "previousFingerprint": null
+        "previousFingerprint": "bdfe1b9067f2caced6d58bd23b5464c4cefd5eb0a4ae5ca3052e630b37259900"
       }
     },
     {
@@ -638,10 +645,10 @@
         "status": 403,
         "finalUrl": "https://www.sos.nh.gov/corporations-0/forms-and-fees/limited-liability-companies",
         "bytes": 455,
-        "fingerprint": "6ccf272fb5a999e351f717ddbb131c738b6ecec487fed6eb84d43fba07fb314e",
+        "fingerprint": "78286ef6f3049f78ff2d15203bd9ca87182e49aeaef8d97b6de7dc07e6350d2e",
         "error": null,
         "changedSinceLastRun": false,
-        "previousFingerprint": "4783fa25357fe626cb3dd83b253903a71194df00b5f6e4fcaa1bb73cb3169502"
+        "previousFingerprint": "6ccf272fb5a999e351f717ddbb131c738b6ecec487fed6eb84d43fba07fb314e"
       }
     },
     {
@@ -655,14 +662,14 @@
       "franchiseTax": null,
       "status": "verified",
       "check": {
-        "ok": false,
-        "status": 0,
+        "ok": true,
+        "status": 200,
         "finalUrl": "https://www.nj.gov/treasury/revenue/fees.shtml",
-        "bytes": 0,
-        "fingerprint": null,
-        "error": "terminated",
+        "bytes": 54325,
+        "fingerprint": "82df1ae2c391100f348183a6eda51b91a7f21f8b4b3992199f4b5cf8ad0387a2",
+        "error": null,
         "changedSinceLastRun": false,
-        "previousFingerprint": "2a594ef04f1487845a6c07a35898126e15b2f9c6eabe069dd4dd077aefc425d8"
+        "previousFingerprint": null
       }
     },
     {
@@ -701,10 +708,10 @@
         "status": 200,
         "finalUrl": "https://dos.ny.gov/forming-limited-liability-company-new-york",
         "bytes": 48219,
-        "fingerprint": "1ff11f98bc3c69ee37bc7c707e66ef01956bcfd2b044d31f48532190bed9f0ca",
+        "fingerprint": "42d47e5abcdd36fbad67cbb45068735e6cecd46a02d1f0304051dbe0944d3cf5",
         "error": null,
         "changedSinceLastRun": true,
-        "previousFingerprint": "f8b3fec52c087c55017ae33d61b800ed5e19a5969c2ad8efe776909903ac0787"
+        "previousFingerprint": "1ff11f98bc3c69ee37bc7c707e66ef01956bcfd2b044d31f48532190bed9f0ca"
       }
     },
     {
@@ -743,9 +750,9 @@
         "status": 200,
         "finalUrl": "https://www.sos.nd.gov/business/business-services/business-structures/limited-liability-company-llc",
         "bytes": 205575,
-        "fingerprint": "60a96133e78873a9f9afa4493a2aa4bbaff8a59af7fcdc1bc73b1311cd706a46",
+        "fingerprint": "e59a9ab38a0d129f780cd9e31727efc3fb0e90e7104f3836efa1352d36a0964a",
         "error": null,
-        "changedSinceLastRun": false,
+        "changedSinceLastRun": true,
         "previousFingerprint": "60a96133e78873a9f9afa4493a2aa4bbaff8a59af7fcdc1bc73b1311cd706a46"
       }
     },
@@ -761,11 +768,11 @@
       "status": "verified",
       "check": {
         "ok": false,
-        "status": 0,
+        "status": 403,
         "finalUrl": "https://www.ohiosos.gov/businesses/filing-forms--fee-schedule",
-        "bytes": 0,
-        "fingerprint": null,
-        "error": "terminated",
+        "bytes": 1285665,
+        "fingerprint": "99a7176263113641ab22e094c7e75549e432472923e8b7fbffbda4e2e0c93202",
+        "error": null,
         "changedSinceLastRun": false,
         "previousFingerprint": null
       }
@@ -805,11 +812,11 @@
         "ok": true,
         "status": 200,
         "finalUrl": "https://sos.oregon.gov/business/register/pages/domestic-limited-liability-companies-forms.aspx",
-        "bytes": 86392,
-        "fingerprint": "718e493751d1f43778e1abf3d7bf2ce5f7c7b5316ef6fa3409e4284bff71cf38",
+        "bytes": 86506,
+        "fingerprint": "bf7d1214c49ee464f4a007824f7d285aea8b1b274f9324f68402a00a7664c0d4",
         "error": null,
         "changedSinceLastRun": true,
-        "previousFingerprint": "f2f4fae03c7107feeaa61da49d1fe92c99279b49c0227b14ea015ce2972ef1a0"
+        "previousFingerprint": "718e493751d1f43778e1abf3d7bf2ce5f7c7b5316ef6fa3409e4284bff71cf38"
       }
     },
     {
@@ -827,9 +834,9 @@
         "status": 200,
         "finalUrl": "https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports",
         "bytes": 342549,
-        "fingerprint": "65c203298e7decdd7e2b76d41ecd37fd1d49e372125e8f9c703d9164dcb89731",
+        "fingerprint": "db5c99347ed3d280d882ef5be3c29ef75911bfccaffbfc8dbe4b706f15428133",
         "error": null,
-        "changedSinceLastRun": false,
+        "changedSinceLastRun": true,
         "previousFingerprint": "65c203298e7decdd7e2b76d41ecd37fd1d49e372125e8f9c703d9164dcb89731"
       }
     },
@@ -847,10 +854,10 @@
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.sos.ri.gov/divisions/business-services/business-basics/costs-and-fees",
-        "bytes": 48550,
-        "fingerprint": "d680642c60c68e163f12850b00476e82a94dc0c874ea7b387b1d3e541096112a",
+        "bytes": 48479,
+        "fingerprint": "2725fbf24c2b210b075722dc1fe734a538bf2708584a2c2c61eebd4438e22dda",
         "error": null,
-        "changedSinceLastRun": false,
+        "changedSinceLastRun": true,
         "previousFingerprint": "d680642c60c68e163f12850b00476e82a94dc0c874ea7b387b1d3e541096112a"
       }
     },
@@ -869,10 +876,10 @@
         "status": 200,
         "finalUrl": "https://businessfilings.sc.gov/BusinessFiling/Entity/DownloadForm?formName=F0006&entityType=2&filingType=Articles%20of%20Organization",
         "bytes": 132327,
-        "fingerprint": "d6326f25f4e917026e0d1704488ba88d511626902e14260a9b9749976963f275",
+        "fingerprint": "70c8fe4c5ae7bd024d246643b024da21d5a2c3ad6c95e1a269ea2aa2e8f394fc",
         "error": null,
         "changedSinceLastRun": true,
-        "previousFingerprint": "7a031476c44a68508b4759765a73a1e2df99c7ef1d2532a146c40d60256b4797"
+        "previousFingerprint": "d6326f25f4e917026e0d1704488ba88d511626902e14260a9b9749976963f275"
       }
     },
     {
@@ -911,10 +918,10 @@
         "status": 403,
         "finalUrl": "https://sos.tn.gov/businesses/forms-and-fees",
         "bytes": 919,
-        "fingerprint": "1f3ba7644ed92f5b60ee934eaeab96f55f4a149525bb37762040293cd4dd454c",
+        "fingerprint": "b7ead50e1671a04154693f78113f90a07d32c2c60b2219ac6ae950e5ec10c6fc",
         "error": null,
         "changedSinceLastRun": false,
-        "previousFingerprint": "fa09452d3fae327261409be13d062569e4ae2bdaae9183eb494ff501c85f7f38"
+        "previousFingerprint": "1f3ba7644ed92f5b60ee934eaeab96f55f4a149525bb37762040293cd4dd454c"
       }
     },
     {
@@ -974,10 +981,10 @@
         "status": 200,
         "finalUrl": "https://sos.vermont.gov/business-services/fees-statutes",
         "bytes": 152864,
-        "fingerprint": "e83d619ee4885d0fd6a3d2aa0919eec25225a414b8dbb3e0292170eb2941f91b",
+        "fingerprint": "5587160cc9d24ef296980405f04b6573aa0cfea6972f1fb1239bef6f58981b6d",
         "error": null,
         "changedSinceLastRun": true,
-        "previousFingerprint": "cd64d55a85d271a8bf41b2020abfa41a6e5b5ee2d25c7b31762be5a65c3926b5"
+        "previousFingerprint": "e83d619ee4885d0fd6a3d2aa0919eec25225a414b8dbb3e0292170eb2941f91b"
       }
     },
     {
@@ -1015,11 +1022,11 @@
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.sos.wa.gov/corporations-charities/business-entities/limited-liability-company-llc-professional-llc-pllc-filing-resource-page",
-        "bytes": 269465,
-        "fingerprint": "b1d116340945330fe1a1896483f202113b7a77a3389f2eec884bfea19ce35540",
+        "bytes": 268387,
+        "fingerprint": "bf06c907243af2335a1f1476c4de2a15caebed5c36d69a294ea362f34aceadda",
         "error": null,
         "changedSinceLastRun": true,
-        "previousFingerprint": "5ed7f1e9c69f906190ba0ab60de11b49e6e5d2447b685faebaa1bf6ab0224d46"
+        "previousFingerprint": "b1d116340945330fe1a1896483f202113b7a77a3389f2eec884bfea19ce35540"
       }
     },
     {
@@ -1037,10 +1044,10 @@
         "status": 200,
         "finalUrl": "https://dlcp.dc.gov/page/corporations-division-fees-limited-liability-company",
         "bytes": 134422,
-        "fingerprint": "5aabc1fd1756e63ab29e348d5b3ce940f78043b7fbda376a1ccfec7dc6570468",
+        "fingerprint": "e1497e6abb54ec8456352b3f5df8fb00f8700c3c27a73d5620a6864b70c3bafe",
         "error": null,
         "changedSinceLastRun": true,
-        "previousFingerprint": "345ea23715bb24852981d2673cf3850a6cd95aad5b3524488c834905ed6f3f59"
+        "previousFingerprint": "5aabc1fd1756e63ab29e348d5b3ce940f78043b7fbda376a1ccfec7dc6570468"
       }
     },
     {
@@ -1058,9 +1065,9 @@
         "status": 200,
         "finalUrl": "https://sos.wv.gov/limited-liability-companies",
         "bytes": 99634,
-        "fingerprint": "4609b02f5e2929080c50280fe80a5804e76b91a60a6e02fd30e65b527bc93a61",
+        "fingerprint": "eaa563bcacd12c813d856f22986ae5fe267725bb6b11c4f08cafb8943e5b0c01",
         "error": null,
-        "changedSinceLastRun": false,
+        "changedSinceLastRun": true,
         "previousFingerprint": "4609b02f5e2929080c50280fe80a5804e76b91a60a6e02fd30e65b527bc93a61"
       }
     },
@@ -1076,11 +1083,11 @@
       "status": "verified",
       "check": {
         "ok": false,
-        "status": 0,
+        "status": 403,
         "finalUrl": "https://apps.dfi.wi.gov/apps/corpformation/directions.aspx?type=12",
-        "bytes": 0,
-        "fingerprint": null,
-        "error": "fetch failed",
+        "bytes": 5664,
+        "fingerprint": "219a861d1245e1c646cd5ae2758260d4d87566b826d0063f662f619e7e5123d7",
+        "error": null,
         "changedSinceLastRun": false,
         "previousFingerprint": null
       }
