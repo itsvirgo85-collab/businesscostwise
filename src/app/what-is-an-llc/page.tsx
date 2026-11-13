@@ -75,6 +75,7 @@ export default function WhatIsAnLLCPage() {
       <Breadcrumbs
         items={[
           { name: "Home", item: "/" },
+          { name: "Guides", item: "/guides" },
           { name: "What is an LLC", item: "/what-is-an-llc" },
         ]}
       />

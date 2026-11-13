@@ -65,6 +65,7 @@ export default function LLCvsCorporationPage() {
       <Breadcrumbs
         items={[
           { name: "Home", item: "/" },
+          { name: "Guides", item: "/guides" },
           { name: "Business Structures", item: "/business-structures" },
           { name: "LLC vs Corporation", item: "/business-structures/llc-vs-corporation" },
         ]}

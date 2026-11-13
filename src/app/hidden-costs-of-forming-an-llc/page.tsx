@@ -83,6 +83,7 @@ export default function HiddenCostsPage() {
       <Breadcrumbs
         items={[
           { name: "Home", item: "/" },
+          { name: "Guides", item: "/guides" },
           { name: "How Much Does It Cost", item: "/how-much-does-it-cost-to-start-an-llc" },
           { name: "Hidden Costs", item: "/hidden-costs-of-forming-an-llc" },
         ]}

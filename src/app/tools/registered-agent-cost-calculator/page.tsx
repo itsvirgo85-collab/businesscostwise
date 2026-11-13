@@ -76,7 +76,7 @@ export default function RegisteredAgentPage() {
       <Breadcrumbs
         items={[
           { name: "Home", item: "/" },
-          { name: "Tools", item: "/llc-cost-calculator" },
+          { name: "Tools", item: "/tools" },
           {
             name: "Registered Agent Calculator",
             item: "/tools/registered-agent-cost-calculator",

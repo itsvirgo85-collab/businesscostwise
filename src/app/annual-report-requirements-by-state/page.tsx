@@ -78,6 +78,7 @@ export default function AnnualReportPage() {
       <Breadcrumbs
         items={[
           { name: "Home", item: "/" },
+          { name: "Guides", item: "/guides" },
           { name: "How Much Does It Cost", item: "/how-much-does-it-cost-to-start-an-llc" },
           { name: "Annual Reports", item: "/annual-report-requirements-by-state" },
         ]}

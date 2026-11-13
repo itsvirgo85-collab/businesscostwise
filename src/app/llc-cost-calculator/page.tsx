@@ -76,6 +76,7 @@ export default function LLCCostCalculatorPage() {
       <Breadcrumbs
         items={[
           { name: "Home", item: "/" },
+          { name: "Tools", item: "/tools" },
           { name: "LLC Cost Calculator", item: "/llc-cost-calculator" },
         ]}
       />

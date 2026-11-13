@@ -57,6 +57,7 @@ export default function BusinessStructuresHubPage() {
       <Breadcrumbs
         items={[
           { name: "Home", item: "/" },
+          { name: "Guides", item: "/guides" },
           { name: "Business Structures", item: "/business-structures" },
         ]}
       />

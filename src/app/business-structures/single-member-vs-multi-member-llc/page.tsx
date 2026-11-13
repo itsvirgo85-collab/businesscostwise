@@ -65,6 +65,7 @@ export default function SingleVsMultiMemberPage() {
       <Breadcrumbs
         items={[
           { name: "Home", item: "/" },
+          { name: "Guides", item: "/guides" },
           { name: "Business Structures", item: "/business-structures" },
           {
             name: "Single vs Multi-Member LLC",

@@ -90,6 +90,7 @@ export default function HowMuchDoesItCostPage() {
       <Breadcrumbs
         items={[
           { name: "Home", item: "/" },
+          { name: "Guides", item: "/guides" },
           { name: "How Much Does It Cost to Start an LLC", item: "/how-much-does-it-cost-to-start-an-llc" },
         ]}
       />

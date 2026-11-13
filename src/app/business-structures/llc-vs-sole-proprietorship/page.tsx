@@ -75,6 +75,7 @@ export default function LLCvsSolePropPage() {
       <Breadcrumbs
         items={[
           { name: "Home", item: "/" },
+          { name: "Guides", item: "/guides" },
           { name: "Business Structures", item: "/business-structures" },
           {
             name: "LLC vs Sole Proprietorship",

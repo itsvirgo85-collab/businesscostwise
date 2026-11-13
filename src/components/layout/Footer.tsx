@@ -1,10 +1,44 @@
 import Link from "next/link";
+import {
+  COSTS_BY_STATE_SECTION,
+  GUIDES_SECTION,
+  TOOLS_SECTION,
+  COMPANY_LINKS,
+  LEGAL_LINKS,
+  type NavLink,
+} from "@/data/navigation";
+
+function FooterColumn({ title, links }: { title: string; links: NavLink[] }) {
+  return (
+    <div>
+      <h3 className="text-sm font-semibold text-[#102A43]">{title}</h3>
+      <ul className="mt-2 space-y-1 text-sm text-slate-600">
+        {links.map((link) => (
+          <li key={link.href}>
+            <Link href={link.href} className="inline-block py-2 hover:text-[#1769AA]">
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export default function Footer() {
+  const guideLinks: NavLink[] = [
+    ...GUIDES_SECTION.links,
+    {
+      label: "Business Structures",
+      href: "/business-structures",
+      description: "Compare LLC, sole proprietorship, corporation, and S-Corp side by side.",
+    },
+  ];
+
   return (
     <footer className="border-t border-slate-200 bg-slate-50">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <div>
             <h3 className="text-sm font-semibold text-[#102A43]">Get LLC Cost Calculator</h3>
             <p className="mt-2 text-sm text-slate-600">
@@ -16,158 +50,20 @@ export default function Footer() {
               </Link>
             </p>
           </div>
-          <div>
-            <h3 className="text-sm font-semibold text-[#102A43]">Tools & Guides</h3>
-            <ul className="mt-2 space-y-1 text-sm text-slate-600">
-              <li>
-                <Link href="/what-is-an-llc" className="inline-block py-2 hover:text-[#1769AA]">
-                  What is an LLC?
-                </Link>
-              </li>
-              <li>
-                <Link href="/how-much-does-it-cost-to-start-an-llc" className="inline-block py-2 hover:text-[#1769AA]">
-                  How Much Does an LLC Cost?
-                </Link>
-              </li>
-              <li>
-                <Link href="/llc-cost-calculator" className="inline-block py-2 hover:text-[#1769AA]">
-                  LLC Cost Calculator
-                </Link>
-              </li>
-              <li>
-                <Link href="/tools/foreign-qualification-cost-calculator" className="inline-block py-2 hover:text-[#1769AA]">
-                  Foreign Qualification Calculator
-                </Link>
-              </li>
-              <li>
-                <Link href="/tools/multi-state-llc-cost-comparator" className="inline-block py-2 hover:text-[#1769AA]">
-                  Multi-State Cost Comparator
-                </Link>
-              </li>
-              <li>
-                <Link href="/tools/registered-agent-cost-calculator" className="inline-block py-2 hover:text-[#1769AA]">
-                  Registered Agent Calculator
-                </Link>
-              </li>
-              <li>
-                <Link href="/how-to-form-an-llc" className="inline-block py-2 hover:text-[#1769AA]">
-                  How to Form an LLC
-                </Link>
-              </li>
-              <li>
-                <Link href="/how-to-get-an-ein-for-free" className="inline-block py-2 hover:text-[#1769AA]">
-                  Get an EIN for Free
-                </Link>
-              </li>
-              <li>
-                <Link href="/how-long-does-it-take-to-start-an-llc" className="inline-block py-2 hover:text-[#1769AA]">
-                  How Long to Start an LLC
-                </Link>
-              </li>
-              <li>
-                <Link href="/llc-cost-by-state" className="inline-block py-2 hover:text-[#1769AA]">
-                  Costs by State
-                </Link>
-              </li>
-              <li>
-                <Link href="/cheapest-states-to-form-an-llc" className="inline-block py-2 hover:text-[#1769AA]">
-                  Cheapest States
-                </Link>
-              </li>
-              <li>
-                <Link href="/most-expensive-states-to-form-an-llc" className="inline-block py-2 hover:text-[#1769AA]">
-                  Most Expensive States
-                </Link>
-              </li>
-              <li>
-                <Link href="/hidden-costs-of-forming-an-llc" className="inline-block py-2 hover:text-[#1769AA]">
-                  Hidden Costs
-                </Link>
-              </li>
-              <li>
-                <Link href="/annual-report-requirements-by-state" className="inline-block py-2 hover:text-[#1769AA]">
-                  Annual Reports by State
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold text-[#102A43]">Structures & Protection</h3>
-            <ul className="mt-2 space-y-1 text-sm text-slate-600">
-              <li>
-                <Link href="/business-structures" className="inline-block py-2 hover:text-[#1769AA]">
-                  Business Structures
-                </Link>
-              </li>
-              <li>
-                <Link href="/business-structures/llc-vs-sole-proprietorship" className="inline-block py-2 hover:text-[#1769AA]">
-                  LLC vs Sole Proprietorship
-                </Link>
-              </li>
-              <li>
-                <Link href="/business-structures/llc-vs-corporation" className="inline-block py-2 hover:text-[#1769AA]">
-                  LLC vs Corporation
-                </Link>
-              </li>
-              <li>
-                <Link href="/business-structures/llc-vs-s-corp" className="inline-block py-2 hover:text-[#1769AA]">
-                  LLC vs S Corp
-                </Link>
-              </li>
-              <li>
-                <Link href="/business-structures/single-member-vs-multi-member-llc" className="inline-block py-2 hover:text-[#1769AA]">
-                  Single vs Multi-Member LLC
-                </Link>
-              </li>
-              <li>
-                <Link href="/asset-protection" className="inline-block py-2 hover:text-[#1769AA]">
-                  Asset Protection
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="inline-block py-2 hover:text-[#1769AA]">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/about/sources-and-methodology" className="inline-block py-2 hover:text-[#1769AA]">
-                  Sources & Methodology
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="inline-block py-2 hover:text-[#1769AA]">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold text-[#102A43]">Legal</h3>
-            <ul className="mt-2 space-y-1 text-sm text-slate-600">
-              <li>
-                <Link href="/privacy" className="inline-block py-2 hover:text-[#1769AA]">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="inline-block py-2 hover:text-[#1769AA]">
-                  Terms of Use
-                </Link>
-              </li>
-              <li>
-                <Link href="/disclaimer" className="inline-block py-2 hover:text-[#1769AA]">
-                  Disclaimer
-                </Link>
-              </li>
-            </ul>
-            <p className="mt-4 text-xs text-slate-500">
-              Educational information only. Not legal, tax, or financial advice.
-            </p>
-          </div>
+
+          <FooterColumn title="Guides" links={guideLinks} />
+          <FooterColumn title="Tools" links={TOOLS_SECTION.links} />
+          <FooterColumn title="Costs by State" links={COSTS_BY_STATE_SECTION.links} />
+          <FooterColumn title="Company" links={COMPANY_LINKS} />
+          <FooterColumn title="Legal" links={LEGAL_LINKS} />
         </div>
+
         <div className="mt-10 border-t border-slate-200 pt-6 text-center text-xs text-slate-500">
-          © {new Date().getFullYear()} Get LLC Cost Calculator. All rights reserved. · Educational resource ·
-          Not affiliated with any government agency.
+          <p>Educational information only. Not legal, tax, or financial advice.</p>
+          <p className="mt-2">
+            © {new Date().getFullYear()} Get LLC Cost Calculator. All rights reserved. · Educational resource ·
+            Not affiliated with any government agency.
+          </p>
         </div>
       </div>
     </footer>

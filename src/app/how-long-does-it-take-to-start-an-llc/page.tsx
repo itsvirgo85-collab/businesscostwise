@@ -64,6 +64,7 @@ export default function HowLongPage() {
       <Breadcrumbs
         items={[
           { name: "Home", item: "/" },
+          { name: "Guides", item: "/guides" },
           { name: "How to Form an LLC", item: "/how-to-form-an-llc" },
           { name: "How Long to Start an LLC", item: "/how-long-does-it-take-to-start-an-llc" },
         ]}

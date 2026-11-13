@@ -81,7 +81,7 @@ export default function ForeignQualificationPage() {
       <Breadcrumbs
         items={[
           { name: "Home", item: "/" },
-          { name: "Tools", item: "/llc-cost-calculator" },
+          { name: "Tools", item: "/tools" },
           {
             name: "Foreign Qualification Calculator",
             item: "/tools/foreign-qualification-cost-calculator",

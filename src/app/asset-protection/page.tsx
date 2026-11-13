@@ -107,6 +107,7 @@ export default function AssetProtectionPage() {
       <Breadcrumbs
         items={[
           { name: "Home", item: "/" },
+          { name: "Guides", item: "/guides" },
           { name: "Asset Protection", item: "/asset-protection" },
         ]}
       />

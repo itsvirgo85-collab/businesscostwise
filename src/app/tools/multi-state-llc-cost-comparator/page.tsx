@@ -76,7 +76,7 @@ export default function MultiStateComparatorPage() {
       <Breadcrumbs
         items={[
           { name: "Home", item: "/" },
-          { name: "Tools", item: "/llc-cost-calculator" },
+          { name: "Tools", item: "/tools" },
           {
             name: "Multi-State Cost Comparator",
             item: "/tools/multi-state-llc-cost-comparator",

@@ -64,6 +64,7 @@ export default function GetEINFreePage() {
       <Breadcrumbs
         items={[
           { name: "Home", item: "/" },
+          { name: "Guides", item: "/guides" },
           { name: "How to Form an LLC", item: "/how-to-form-an-llc" },
           { name: "Get an EIN for Free", item: "/how-to-get-an-ein-for-free" },
         ]}

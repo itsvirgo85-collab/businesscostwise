@@ -1,5 +1,42 @@
+import { NAV_SECTIONS, PLAIN_NAV_LINKS, type NavLink, type NavSection } from "@/data/navigation";
+
 export default function JsonLd() {
   const siteUrl = "https://www.getllccostcalculator.com";
+
+  const navElement = (label: string, href: string, children?: NavLink[]) => {
+    const node: {
+      "@type": string;
+      name: string;
+      url: string;
+      hasPart?: { "@type": string; name: string; url: string }[];
+    } = {
+      "@type": "SiteNavigationElement",
+      name: label,
+      url: `${siteUrl}${href}`,
+    };
+    if (children && children.length > 0) {
+      node.hasPart = children.map((link) => ({
+        "@type": "SiteNavigationElement",
+        name: link.label,
+        url: `${siteUrl}${link.href}`,
+      }));
+    }
+    return node;
+  };
+
+  const sectionElement = (section: NavSection) => {
+    const parts: { "@type": string; name: string; url: string; hasPart?: { "@type": string; name: string; url: string }[] }[] =
+      section.links.map((link) => navElement(link.label, link.href));
+    for (const subgroup of section.subgroups ?? []) {
+      parts.push(navElement(subgroup.label, subgroup.href, subgroup.links));
+    }
+    return {
+      "@type": "SiteNavigationElement",
+      name: section.label,
+      url: `${siteUrl}${section.href}`,
+      hasPart: parts,
+    };
+  };
 
   const data = {
     "@context": "https://schema.org",
@@ -57,6 +94,15 @@ export default function JsonLd() {
         publisher: { "@id": `${siteUrl}/#organization` },
         inLanguage: "en-US",
         about: { "@id": `${siteUrl}/#organization` },
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "@id": `${siteUrl}/#navigation`,
+        name: "Main navigation",
+        hasPart: [
+          ...NAV_SECTIONS.map((section) => sectionElement(section)),
+          ...PLAIN_NAV_LINKS.map((link) => navElement(link.label, link.href)),
+        ],
       },
     ],
   };

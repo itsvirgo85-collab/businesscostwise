@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import HowToJsonLd from "@/components/seo/HowToJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
@@ -116,10 +117,16 @@ export default function HowToFormLLCPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
+      <HowToJsonLd
+        name="How to Form an LLC"
+        description="Form an LLC in 7 steps: choose a state and name, appoint a registered agent, file Articles of Organization, get a free EIN, and stay compliant. Full 2026 guide."
+        steps={steps.map((s) => ({ name: s.title, text: s.detail }))}
+      />
 
       <Breadcrumbs
         items={[
           { name: "Home", item: "/" },
+          { name: "Guides", item: "/guides" },
           { name: "How to Form an LLC", item: "/how-to-form-an-llc" },
         ]}
       />
