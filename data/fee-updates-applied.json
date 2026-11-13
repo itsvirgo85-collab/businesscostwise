@@ -1,0 +1,83 @@
+{
+  "generatedAt": "2026-11-13T04:13:07.012Z",
+  "applied": [],
+  "reverted": false,
+  "review": [
+    {
+      "slug": "california",
+      "state": "California",
+      "field": "formationFee",
+      "oldValue": 70,
+      "newValue": 20,
+      "confidence": "review",
+      "evidence": "fter. Form LLC-12 (PDF) $20.00 Attachment to Statement of Information: Use if the limited liability company has more than one manager or member. Form LLC-12A (PDF) -- 3. Certificate of Amen",
+      "sourceUrl": "https://www.sos.ca.gov/business-programs/business-entities/forms/limited-liability-companies-california-domestic"
+    },
+    {
+      "slug": "colorado",
+      "state": "Colorado",
+      "field": "formationFee",
+      "oldValue": 50,
+      "newValue": 10,
+      "confidence": "review",
+      "evidence": ".00 n/a Statement of Change Changing the Registered Agent Information $10.00 n/a Statement of Change Regarding Resignation or Other&#160;Termination of Registered Agent $10.00 n/a Statement",
+      "sourceUrl": "https://www.coloradosos.gov/pubs/info_center/fees/business.html"
+    },
+    {
+      "slug": "connecticut",
+      "state": "Connecticut",
+      "field": "formationFee",
+      "oldValue": 120,
+      "newValue": 60,
+      "confidence": "review",
+      "evidence": "form available; please see our Conversions page for more information. $60 Domestication - changing state of formation only, not entity type. No form available; please see our Domestication",
+      "sourceUrl": "https://business.ct.gov/knowledge-base/articles/domestic-limited-liability-companies-forms-and-fees"
+    },
+    {
+      "slug": "florida",
+      "state": "Florida",
+      "field": "formationFee",
+      "oldValue": 125,
+      "newValue": 100,
+      "confidence": "review",
+      "evidence": "on New Florida Limited Liability Company Fees Service Price Articles of Organization $100.00 Registered Agent Designation $25.00 Certified Copy (optional) $30.00 Certificate of Status (optional) $5.00 TOT",
+      "sourceUrl": "https://dos.fl.gov/sunbiz/start-business/efile/fl-llc"
+    },
+    {
+      "slug": "minnesota",
+      "state": "Minnesota",
+      "field": "formationFee",
+      "oldValue": 155,
+      "newValue": 60,
+      "confidence": "review",
+      "evidence": "Filing Type By Mail Online In Person (Appointment Required) Articles of Organization - Original Filing $60.00 $80.00 $80.00 Amendment $35.00 $55.00 $55.00 Annual Renewal $0 $0 $0 Annual Reinstatement $65.",
+      "sourceUrl": "https://www.sos.mn.gov/business-liens/business-filing-and-certification-fee-schedule/"
+    },
+    {
+      "slug": "washington",
+      "state": "Washington",
+      "field": "formationFee",
+      "oldValue": 180,
+      "newValue": 70,
+      "confidence": "review",
+      "evidence": "Form) Required Filing fees $70 ( fees & priority service information ) Initial Report Purpose: An Initial Report is used within the first 120 days of a domestic business entity’s originati",
+      "sourceUrl": "https://www.sos.wa.gov/corporations-charities/business-entities/limited-liability-company-llc-professional-llc-pllc-filing-resource-page"
+    },
+    {
+      "slug": "washington",
+      "state": "Washington",
+      "field": "annualFee",
+      "oldValue": 70,
+      "newValue": 140,
+      "confidence": "review",
+      "evidence": "tatement will require an annual report fee for each year an annual report was not filed. In addition, a penalty fee of $140 is assessed. Failure to file within the 5-year window of the business",
+      "sourceUrl": "https://www.sos.wa.gov/corporations-charities/business-entities/limited-liability-company-llc-professional-llc-pllc-filing-resource-page"
+    },
+    {
+      "slug": "vermont",
+      "state": "Vermont",
+      "sourceUrl": "https://sos.vermont.gov/business-services/fees-statutes",
+      "error": "HTTP 403"
+    }
+  ]
+}

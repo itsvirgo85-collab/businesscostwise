@@ -9,10 +9,12 @@
     "lint": "eslint",
     "test": "node --experimental-strip-types --test scripts/*.test.mjs",
     "audit": "npm audit --audit-level=moderate",
-    "monitor:fees": "node scripts/monitor-fee-sources.mjs"
+    "monitor:fees": "node scripts/monitor-fee-sources.mjs",
+    "fees:update": "node scripts/monitor-fee-sources.mjs && node scripts/extract-fee-changes.mjs && node scripts/apply-fee-updates.mjs"
   },
   "dependencies": {
     "next": "15.5.29",
+    "pdf-parse": "^2.4.5",
     "react": "19.1.10",
     "react-dom": "19.1.10"
   },

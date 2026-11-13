@@ -181,10 +181,10 @@ async function main() {
 
   console.log("\n" + report.summary);
   console.log(`Report written to ${reportPath}`);
-
-  if (unreachable.length > Math.max(5, Math.floor(results.length * 0.2))) {
-    process.exit(2);
-  }
+  // Exit 0 whenever the report was written. Unreachable sources are data in
+  // the report (they stay in the review queue), not a run failure — exiting
+  // non-zero here used to abort the GitHub Action before the commit and
+  // issue steps could run, so the automation never completed a run.
 }
 
 main().catch((err) => {
