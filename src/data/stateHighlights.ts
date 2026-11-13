@@ -45,4 +45,34 @@ export const STATE_HIGHLIGHTS: Record<string, string> = {
 
   nebraska:
     "Nebraska's headline is a $100 filing fee online ($110 if you file in person), but its reporting cycle is the unusual part: the $30 report is biennial, not annual, and it falls due in the first odd-numbered year after your formation year, then every other odd-numbered year. That two-year rhythm is why the five-year total stays low at $160 — just $60 of recurring fees across five years. Watch the odd-year due date and the publication requirement, which can add cost in year one and is not in the fixed-fee totals here.",
+
+  "new-jersey":
+    "New Jersey charges $100 to form an LLC and $75 every year for the annual report, so the recurring cost overtakes the filing fee fast — over five years the reports add $375, bringing the total to $475. The deadline is unusual too: the report is due on the last day of your formation month each year, not on a fixed state-wide date, so your anniversary sets the clock. There is no franchise tax on top, which keeps the maths simple — but miss that anniversary and you are filing late on a $75-a-year obligation.",
+
+  georgia:
+    "Georgia's headline is a $100 online filing fee ($110 on paper), and the $50 annual registration keeps the ongoing cost modest — five years comes to $350 at the online rates. The timing is the thing to plan around: your first annual registration is due between January 1 and April 1 of the calendar year after you form, so an LLC formed late in the year faces its first $50 registration within months. File online both times and you save $10 on formation and $10 a year on registration versus paper.",
+
+  tennessee:
+    "Tennessee is one of the most expensive states to keep an LLC in, and the reason is that almost everything is charged at a minimum: formation and the annual report are $50 per member with a $300 minimum, plus a minimum $100 annual franchise tax, so the modelled cost is $300 to form and $400 a year after — $2,300 over five years. Those are minimums, not caps: larger LLCs pay more, since the member fee runs to a $3,000 maximum and the franchise tax is based on net worth. If you are comparing states on cost alone, Tennessee's minimums are the number to budget around, not the $50-per-member headline.",
+
+  pennsylvania:
+    "Pennsylvania pairs a mid-range $125 formation fee with the cheapest annual report in the country: $7 a year, due by September 30. Over five years that is just $35 of recurring fees, bringing the total to $160 — the formation fee is nearly the whole cost. The old decennial report requirement was repealed, so there is no extra ten-year filing lurking in the background either.",
+
+  michigan:
+    "Michigan is straightforward and cheap: $50 to file the Articles of Organization and a $25 annual statement, with no franchise tax on top. Five years comes to $175, and the recurring cost is low enough that the formation fee is still more than a quarter of what you will pay in total. There is no quirk to watch here — just a flat, predictable $25 a year.",
+
+  "north-carolina":
+    "North Carolina is the rare state where staying in business costs more than starting it: the Articles of Organization are $125, but the annual report is $200 every year — more than the filing fee itself. Over five years the reports add $1,000, bringing the total to $1,125, so the ongoing cost, not the formation fee, is the number to budget around. If you are comparing states on the filing fee alone, North Carolina will look mid-range; the annual report is where the real cost lives.",
+
+  "south-carolina":
+    "South Carolina charges $110 to form an LLC and then, for most owners, nothing at all to the state each year: a pass-through LLC generally does not file the corporate CL-1 annual report, so the five-year cost is the same $110 you paid to form. The exception is an LLC that elects corporate tax treatment, which must file the CL-1 initial annual report within 60 days of starting business and then comply with corporate tax-return requirements. So the flat $110 total holds as long as you stay a pass-through — elect corporate taxation and the paperwork changes.",
+
+  kentucky:
+    "Kentucky is one of the cheapest states to run an LLC in: $40 to file the Articles of Organization and a $15 annual report, with no franchise tax. Five years comes to $115 — the formation fee is still more than a third of everything you will pay to the state. At $15 a year, the annual report is cheap enough to forget, which is exactly why it is worth setting a reminder for it.",
+
+  utah:
+    "Utah charges $59 to file online and just $18 a year for the annual report, which puts its five-year total at $149 — cheap enough to sit at the edge of the cheapest-states ranking. The ongoing cost is so low that the $59 formation fee is still about 40% of everything you will pay over five years. There is no franchise tax on top, so the $18 report is the whole recurring story.",
+
+  arkansas:
+    "Arkansas looks cheap at first: the Certificate of Organization is $45 online ($50 on paper), and the annual franchise tax report itself costs $0 to file. The catch is the tax that comes with it — $150 every year, due by May 1 — so the five-year total is $795, not $45. Judge Arkansas on the franchise tax, not the filing fee: the report is free, but staying registered costs $150 a year.",
 };

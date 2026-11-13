@@ -5,22 +5,22 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: { absolute: "How Much Does It Cost to Start an LLC? (2026)" },
+  title: { absolute: "How Much Does It Cost to Start an LLC in 2026?" },
   description:
-    "How much does it cost to start an LLC? Filing fees run $35 (Montana) to about $500 (Massachusetts) across all 50 states + DC, plus yearly recurring costs.",
+    "Starting an LLC costs $35–$500 in filing fees, plus yearly reports and taxes. See 1, 3 & 5-year totals for all 50 states + DC and find the cheapest option.",
   alternates: { canonical: "/how-much-does-it-cost-to-start-an-llc" },
   openGraph: {
-    title: "How Much Does It Cost to Start an LLC? (2026)",
+    title: "How Much Does It Cost to Start an LLC in 2026?",
     description:
-      "How much does it cost to start an LLC? Filing fees run $35 (Montana) to about $500 (Massachusetts) across all 50 states + DC, plus yearly recurring costs.",
+      "Starting an LLC costs $35–$500 in filing fees, plus yearly reports and taxes. See 1, 3 & 5-year totals for all 50 states + DC and find the cheapest option.",
     type: "article",
     url: "/how-much-does-it-cost-to-start-an-llc",
   },
   twitter: {
     card: "summary_large_image",
-    title: "How Much Does It Cost to Start an LLC? (2026)",
+    title: "How Much Does It Cost to Start an LLC in 2026?",
     description:
-      "How much does it cost to start an LLC? Filing fees run $35 (Montana) to about $500 (Massachusetts) across all 50 states + DC, plus yearly recurring costs.",
+      "Starting an LLC costs $35–$500 in filing fees, plus yearly reports and taxes. See 1, 3 & 5-year totals for all 50 states + DC and find the cheapest option.",
     images: ["/twitter-image"],
   },
 };

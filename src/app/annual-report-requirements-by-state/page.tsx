@@ -5,22 +5,22 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: { absolute: "LLC Annual Report Requirements by State 2026" },
+  title: { absolute: "LLC Annual Report Fees by State 2026 — Every State" },
   description:
-    "Most states require LLC annual or biennial reports: see which states charge a fee, which have little or no recurring report cost, and which add franchise tax.",
+    "LLC annual report fees for all 50 states + DC: which states charge $0, which charge every year, what each report costs, and where franchise tax applies on top.",
   alternates: { canonical: "/annual-report-requirements-by-state" },
   openGraph: {
-    title: "LLC Annual Report Requirements by State 2026",
+    title: "LLC Annual Report Fees by State 2026 — Every State",
     description:
-      "Most states require LLC annual or biennial reports: see which states charge a fee, which have little or no recurring report cost, and which add franchise tax.",
+      "LLC annual report fees for all 50 states + DC: which states charge $0, which charge every year, what each report costs, and where franchise tax applies on top.",
     type: "article",
     url: "/annual-report-requirements-by-state",
   },
   twitter: {
     card: "summary_large_image",
-    title: "LLC Annual Report Requirements by State 2026",
+    title: "LLC Annual Report Fees by State 2026 — Every State",
     description:
-      "Most states require LLC annual or biennial reports: see which states charge a fee, which have little or no recurring report cost, and which add franchise tax.",
+      "LLC annual report fees for all 50 states + DC: which states charge $0, which charge every year, what each report costs, and where franchise tax applies on top.",
     images: ["/twitter-image"],
   },
 };
