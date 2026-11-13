@@ -3,6 +3,7 @@ name: Validate LLC fee data and site build
 on:
   push:
     branches:
+      - main
       - fix/p0-llc-fee-accuracy
   pull_request:
     branches:
@@ -26,6 +27,9 @@ jobs:
           node-version: 22
           cache: npm
 
+      # Fee-monitor bot commits carry [skip ci] because that job already ran
+      # the test suite before pushing; this workflow still validates every
+      # human push to main and every PR.
       - name: Install locked dependencies
         run: npm ci
 

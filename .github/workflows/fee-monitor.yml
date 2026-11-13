@@ -21,55 +21,121 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
+          cache: npm
 
+      # npm ci is required: the extractor needs pdf-parse for PDF sources.
+      - name: Install dependencies
+        run: npm ci
+
+      # The monitor exits 0 whenever it writes the report, even with
+      # unreachable sources (those are data in the report, not a run failure).
+      # continue-on-error is belt-and-braces: if it crashes outright, the
+      # later steps still run and the issue step reports the missing report
+      # instead of the job dying silently.
       - name: Run fee source monitor
         run: node scripts/monitor-fee-sources.mjs
+        continue-on-error: true
 
-      - name: Commit snapshot + report when changed
+      # Extract fee-change proposals from changed sources (writes
+      # data/fee-update-proposals.json; empty when nothing changed).
+      - name: Extract fee-change proposals
+        run: node scripts/extract-fee-changes.mjs
+
+      # Apply high-confidence proposals only; runs the test suite and reverts
+      # on failure. Writes data/fee-updates-applied.json.
+      - name: Apply high-confidence fee updates
+        run: node scripts/apply-fee-updates.mjs
+
+      # Full test suite after any auto-applied change, before pushing.
+      - name: Test state fee calculations
+        run: npm test
+
+      - name: Commit monitor outputs and any auto-applied fee updates
         run: |
           git config user.name "fee-monitor-bot"
           git config user.email "fee-monitor@getllccostcalculator.com"
-          git add data/fee-source-snapshot.json data/fee-monitor-report.json || true
+          git add src/data/stateFees.ts data/fee-source-snapshot.json data/fee-monitor-report.json data/fee-update-proposals.json data/fee-updates-applied.json || true
           if git diff --staged --quiet; then
-            echo "No snapshot/report changes to commit"
+            echo "No fee monitor changes to commit"
           else
-            git commit -m "chore: update fee source monitor snapshot [skip ci]"
+            # [skip ci] is deliberate: this job already ran the full test
+            # suite (and the build is covered by validate-fees.yml on human
+            # pushes), so the bot commit must not trigger another validation
+            # run — it would only re-run the same checks.
+            if git diff --staged --name-only | grep -q 'src/data/stateFees.ts'; then
+              git commit -m "chore: auto-apply verified fee updates [skip ci]"
+            else
+              git commit -m "chore: update fee source monitor snapshot [skip ci]"
+            fi
             git push
           fi
 
-      - name: Open issue when sources change or fail
+      - name: Open issue for review items
         uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
-            const path = 'data/fee-monitor-report.json';
-            if (!fs.existsSync(path)) {
-              console.log('No report file');
+            const reportPath = 'data/fee-monitor-report.json';
+            if (!fs.existsSync(reportPath)) {
+              console.log('No report file — the monitor step must have crashed; nothing to report.');
               return;
             }
-            const report = JSON.parse(fs.readFileSync(path, 'utf8'));
+            const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+            const proposals = fs.existsSync('data/fee-update-proposals.json')
+              ? JSON.parse(fs.readFileSync('data/fee-update-proposals.json', 'utf8'))
+              : { proposals: [], extractionFailures: [] };
+            const applied = fs.existsSync('data/fee-updates-applied.json')
+              ? JSON.parse(fs.readFileSync('data/fee-updates-applied.json', 'utf8'))
+              : { applied: [], reverted: false, review: [] };
             const changed = report.changed || [];
             const unreachable = report.unreachable || [];
-            if (changed.length === 0 && unreachable.length === 0) {
+            const autoApplied = applied.applied || [];
+            const needsReview = applied.review || [];
+            const link = (slug) => `https://www.getllccostcalculator.com/llc-cost-by-state/${slug}`;
+            if (changed.length === 0 && unreachable.length === 0 && autoApplied.length === 0 && needsReview.length === 0) {
               console.log('No actionable changes');
               return;
             }
-            const title = `Fee monitor: ${changed.length} changed, ${unreachable.length} unreachable (${report.generatedAt.slice(0,10)})`;
-            const body = [
+            const lines = [
               '## Automated fee-source monitor report',
               '',
               report.summary,
               '',
-              '### Changed source pages (review fees)',
-              changed.length ? changed.map(s => `- [ ] \`${s}\``).join('\n') : '_None_',
-              '',
-              '### Unreachable sources',
-              unreachable.length ? unreachable.map(s => `- [ ] \`${s}\``).join('\n') : '_None_',
-              '',
-              'Review official schedules and update `src/data/stateFees.ts` when published amounts change.',
-              '',
-              `_Generated by scripts/monitor-fee-sources.mjs_`,
-            ].join('\n');
+            ];
+            if (autoApplied.length > 0) {
+              lines.push('### Auto-applied fee changes (tests passed)');
+              for (const p of autoApplied) {
+                lines.push(`- [x] **${p.state}** — \`${p.field}\`: $${p.oldValue} → $${p.newValue} ([source](${p.sourceUrl}), [state page](${link(p.slug)}))`);
+                if (p.evidence) lines.push(`  > ${p.evidence}`);
+              }
+              lines.push('');
+            }
+            if (applied.reverted) {
+              lines.push('### ⚠️ Auto-apply reverted');
+              lines.push('High-confidence proposals were applied but the test suite failed, so `src/data/stateFees.ts` was restored. Those proposals are listed under "Needs review" below.');
+              lines.push('');
+            }
+            if (needsReview.length > 0) {
+              lines.push('### Needs review (not auto-applied)');
+              for (const p of needsReview) {
+                if (p.field) {
+                  lines.push(`- [ ] **${p.state}** — \`${p.field}\`: $${p.oldValue} → $${p.newValue} (${p.confidence || 'review'}) ([source](${p.sourceUrl}), [state page](${link(p.slug)}))`);
+                  if (p.evidence) lines.push(`  > ${p.evidence}`);
+                  if (p.reason) lines.push(`  > Reason: ${p.reason}`);
+                } else {
+                  lines.push(`- [ ] **${p.state || p.slug}** — source text could not be extracted ([source](${p.sourceUrl || ''})): ${p.error || 'unknown error'}`);
+                }
+              }
+              lines.push('');
+            }
+            lines.push('### Unreachable sources (check manually — these can never auto-update)');
+            lines.push(unreachable.length ? unreachable.map(s => `- [ ] \`${s}\` ([state page](${link(s)}))`).join('\n') : '_None_');
+            lines.push('');
+            lines.push('Review official schedules and update `src/data/stateFees.ts` for the items above when published amounts change.');
+            lines.push('');
+            lines.push('_Generated by scripts/monitor-fee-sources.mjs, scripts/extract-fee-changes.mjs and scripts/apply-fee-updates.mjs_');
+            const body = lines.join('\n');
+            const title = `Fee monitor: ${autoApplied.length} applied, ${needsReview.length} to review, ${unreachable.length} unreachable (${report.generatedAt.slice(0,10)})`;
             const issues = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
