@@ -39,4 +39,10 @@ export const STATE_HIGHLIGHTS: Record<string, string> = {
 
   "new-mexico":
     "New Mexico charges $50 to form an LLC and no annual report fee at all, so the filing fee is the whole state cost — there is nothing to pay each year to stay in good standing. That flat, one-time structure is what makes New Mexico stand out: unlike most states, the number never grows after formation. As with any state, though, forming here only saves money if you actually operate here; forming out of state and doing business at home usually means paying twice.",
+
+  illinois:
+    "Illinois sits in the middle on formation at $150, but the $75 annual report is the number that matters over time: after two years, the reports alone add up to the $150 you paid to form, and over five years the recurring fees ($375) come to two and a half times the filing fee, bringing the total to $525. There is no franchise tax on top, so the annual report is the whole ongoing story — budget $75 every year, not $150 once.",
+
+  nebraska:
+    "Nebraska's headline is a $100 filing fee online ($110 if you file in person), but its reporting cycle is the unusual part: the $30 report is biennial, not annual, and it falls due in the first odd-numbered year after your formation year, then every other odd-numbered year. That two-year rhythm is why the five-year total stays low at $160 — just $60 of recurring fees across five years. Watch the odd-year due date and the publication requirement, which can add cost in year one and is not in the fixed-fee totals here.",
 };

@@ -423,6 +423,20 @@ export default function HomePage() {
               Florida
             </Link>
           </p>
+          <p className="mt-2 text-sm text-slate-600">
+            <span className="font-semibold text-[#102A43]">More states to compare:</span>{" "}
+            <Link href="/llc-cost-by-state/illinois" className="text-[#1769AA] hover:underline">
+              Illinois
+            </Link>
+            {" · "}
+            <Link href="/llc-cost-by-state/ohio" className="text-[#1769AA] hover:underline">
+              Ohio
+            </Link>
+            {" · "}
+            <Link href="/llc-cost-by-state/nebraska" className="text-[#1769AA] hover:underline">
+              Nebraska
+            </Link>
+          </p>
         </div>
       </section>
 
