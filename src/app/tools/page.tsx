@@ -7,12 +7,12 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 export const metadata: Metadata = {
   title: { absolute: "Free LLC Cost Calculators & Tools (2026)" },
   description:
-    "Free LLC cost tools: calculate formation and multi-year costs by state, compare up to five states, and estimate registered agent and foreign qualification fees.",
+    "Free LLC cost tools: formation and multi-year costs by state, registered agent and foreign qualification fees, S-corp tax savings, LLC tax estimates, the best state to form an LLC, anonymous LLC states, and dissolution costs.",
   alternates: { canonical: "/tools" },
   openGraph: {
     title: "Free LLC Cost Calculators & Tools (2026)",
     description:
-      "Free LLC cost tools: calculate formation and multi-year costs by state, compare up to five states, and estimate registered agent and foreign qualification fees.",
+      "Free LLC cost tools: formation and multi-year costs by state, registered agent and foreign qualification fees, S-corp tax savings, LLC tax estimates, the best state to form an LLC, anonymous LLC states, and dissolution costs.",
     type: "website",
     url: "/tools",
   },
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Free LLC Cost Calculators & Tools (2026)",
     description:
-      "Free LLC cost tools: calculate formation and multi-year costs by state, compare up to five states, and estimate registered agent and foreign qualification fees.",
+      "Free LLC cost tools: formation and multi-year costs by state, registered agent and foreign qualification fees, S-corp tax savings, LLC tax estimates, the best state to form an LLC, anonymous LLC states, and dissolution costs.",
     images: ["/twitter-image"],
   },
 };

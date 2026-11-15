@@ -90,6 +90,21 @@ export default async function StateCostPage({ params }: Props) {
           ? `No annual report is required, but a $${s.franchiseTax} annual franchise/entity tax applies.`
           : `No. ${s.state} does not require an annual report and has no recurring filing fee.`;
 
+  const renewalAnswer =
+    s.slug === "nevada"
+      ? `Renewing an LLC in Nevada costs $350 a year — the $150 Annual List of Managers or Members plus the $200 State Business License renewal. Both are due by the last day of the anniversary month of formation. Late renewal can add penalties, so file before the deadline.`
+      : s.annualFrequency === "annual"
+        ? s.annualFee != null && s.annualFee > 0
+          ? `Renewing an LLC in ${s.state} costs $${s.annualFee} — that is the annual report renewal fee, due each year to keep the LLC in good standing.${s.franchiseTax != null ? ` A separate $${s.franchiseTax} annual franchise/entity tax also applies.` : ""} Late renewal can add penalties, so file before the state deadline.`
+          : `The annual report renewal itself has a $0 filing fee in ${s.state} in our verified data. A separate franchise or entity tax may still apply depending on revenue or tax election, so confirm the current renewal rules on the official state website.`
+        : s.annualFrequency === "biennial"
+          ? s.annualFee != null && s.annualFee > 0
+            ? `Renewing an LLC in ${s.state} costs $${s.annualFee} every two years — that is the biennial report renewal fee.${s.franchiseTax != null ? ` A separate $${s.franchiseTax} annual franchise/entity tax also applies.` : ""} Late renewal can add penalties, so file before the state deadline.`
+            : `The biennial report renewal itself has a $0 filing fee in ${s.state} in our verified data. A separate franchise or entity tax may still apply, so confirm the current renewal rules on the official state website.`
+          : s.franchiseTax != null
+            ? `There is no annual report to renew in ${s.state}, but keeping the LLC in good standing still costs $${s.franchiseTax} a year — the annual franchise/entity tax.`
+            : `There is no fixed renewal filing fee for an LLC in ${s.state} in our verified data — no annual report is required and no recurring filing fee is listed. Other taxes or local fees may still apply, so confirm the current rules on the official state website.`;
+
   const faqs = [
     {
       question: `How much does it cost to form an LLC in ${s.state}?`,
@@ -109,6 +124,37 @@ export default async function StateCostPage({ params }: Props) {
       question: `Does ${s.state} require an annual report?`,
       answer: annualReportAnswer,
     },
+    {
+      question: `How much does it cost to renew an LLC in ${s.state}?`,
+      answer: renewalAnswer,
+    },
+    ...(s.slug === "texas"
+      ? [
+          {
+            question: "How much does a Series LLC cost in Texas?",
+            answer:
+              "A Series LLC in Texas costs the same $300 state filing fee as a regular Texas LLC for the Certificate of Formation. A protected series is created in the company agreement with no extra state filing, while a registered series is filed separately with the Secretary of State for a further $300. Confirm the current fees on the official state website before filing.",
+          },
+        ]
+      : []),
+    ...(s.slug === "new-york"
+      ? [
+          {
+            question: "How much does a PLLC cost in New York?",
+            answer:
+              "A PLLC (professional LLC) in New York costs $200 to file its Articles of Organization — the same state filing fee as a regular New York LLC. PLLCs are only for licensed professionals, need approval from the relevant licensing authority, and must still complete the newspaper publication requirement, which varies by county and is often the largest cost. Confirm the current requirements on the official state website.",
+          },
+        ]
+      : []),
+    ...(s.slug === "nevada"
+      ? [
+          {
+            question: "How much does an LLC cost in Las Vegas?",
+            answer:
+              "There is no separate Las Vegas LLC cost. Las Vegas is a city in Nevada, so an LLC formed there pays the Nevada state fees — a $425 typical initial cost ($75 Articles of Organization, $150 initial list and $200 State Business License) and $350 a year to renew. A separate City of Las Vegas business license may also be required, with fees that vary by business type; confirm with the city before budgeting.",
+          },
+        ]
+      : []),
   ];
 
   const variableMeasured = [
@@ -266,6 +312,20 @@ export default async function StateCostPage({ params }: Props) {
       )}
 
       <p className="mt-4 text-sm text-slate-700 leading-relaxed">{costProfile}</p>
+
+      <section className="mt-10">
+        <h2 className="text-xl font-semibold text-[#102A43]">
+          LLC renewal cost in {s.state}
+        </h2>
+        <p className="mt-2 text-sm text-slate-700 leading-relaxed">{renewalAnswer}</p>
+        <p className="mt-2 text-sm">
+          See the full comparison on{" "}
+          <Link href="/annual-report-requirements-by-state" className="text-[#1769AA] hover:underline">
+            Annual Report Requirements by State
+          </Link>
+          .
+        </p>
+      </section>
 
       <div className="mt-8 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
         <p className="font-medium">Official source</p>

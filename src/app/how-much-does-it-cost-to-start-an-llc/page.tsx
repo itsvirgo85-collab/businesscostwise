@@ -81,6 +81,51 @@ export default function HowMuchDoesItCostPage() {
       answer:
         "No. The state filing fee only covers creating the LLC with the state. An operating agreement is a separate internal document, and an EIN is obtained free from the IRS.",
     },
+    {
+      question: "How much does an LLC cost per year?",
+      answer:
+        "It depends on the state. Annual report fees in our verified data run from $0 a year in states with no report fee to $500 a year for the Massachusetts annual report. A few states add a franchise or entity tax on top, notably California's $800 annual tax and Delaware's $400 annual tax. Use the calculator on this site for state-specific 1-, 3- and 5-year estimates.",
+    },
+    {
+      question: "How much does ongoing LLC administration cost?",
+      answer:
+        "Ongoing LLC administration is the yearly cost of keeping the LLC in good standing: the annual or biennial report renewal, any franchise or privilege tax, a registered agent if you hire one, and local licenses. The state part alone ranges from $0 a year in states with no report fee to $500 a year for an annual report, plus franchise taxes where they apply. A commercial registered agent typically costs $50–$300 a year.",
+    },
+    {
+      question: "What is a Series LLC and how much does it cost?",
+      answer:
+        "A Series LLC is a single LLC that can create separate series, each holding its own assets and liabilities, under one umbrella entity. Only some states allow series LLCs. In Texas, for example, a Series LLC costs the same $300 state filing fee as a regular LLC for the Certificate of Formation; a protected series needs no extra state filing, while a registered series is filed separately for a further $300. Confirm whether your state allows series LLCs before choosing this structure.",
+    },
+    {
+      question: "How much does a PLLC cost?",
+      answer:
+        "A PLLC (professional LLC) usually costs the same state filing fee as a regular LLC — for example $200 in New York. Only licensed professionals can form a PLLC, and extra steps such as licensing-authority approval and newspaper publication can add significant cost, so the total is often higher than the filing fee alone.",
+    },
+    {
+      question: "How much does a business license cost for an LLC?",
+      answer:
+        "There is no single price. Most states do not charge one general business license fee at the state level; city and county business licenses vary by location and business type, so the cost must be checked with the local licensing office. Nevada is an exception: it charges a $200 State Business License each year. Budget for licenses separately from the state LLC formation fee.",
+    },
+    {
+      question: "What is the cost of doing business in a state?",
+      answer:
+        "The LLC filing fee is only one part of the cost of doing business in a state. The full cost also includes recurring state fees, local business licenses, state and local taxes, rent, payroll and any industry permits. There is no single cost-of-doing-business figure for a state — use the state page on this site for the LLC part, then check local licensing and tax rules for the rest.",
+    },
+    {
+      question: "How are LLCs taxed and how much tax does an LLC pay?",
+      answer:
+        "By default, a single-member LLC is taxed as a sole proprietorship and a multi-member LLC as a partnership: profit passes through to the owners' personal returns, and the LLC itself pays no federal income tax. Owners pay self-employment tax (15.3% on 92.35% of profit) plus income tax on their share. A $100,000 profit for a single filer means roughly $25,700 total federal tax. Use the LLC Tax Estimator on this site for your own numbers.",
+    },
+    {
+      question: "How much should an LLC set aside for quarterly estimated taxes?",
+      answer:
+        "A common rule is 25–30% of profit, but the right figure depends on your profit and filing status — the LLC Tax Estimator gives an estimated quarterly amount from your actual numbers. The 2026 due dates are 15 April, 15 June, 15 September 2026, and 15 January 2027. Paying quarterly avoids underpayment penalties.",
+    },
+    {
+      question: "What tax deductions can an LLC claim?",
+      answer:
+        "Ordinary and necessary business expenses: home office, equipment, software, travel, insurance, licences, and professional fees — plus half of your self-employment tax and, for many owners, the 20% qualified business income (QBI) deduction. Keep receipts and a separate business account: deductions need records, not just a category.",
+    },
   ];
 
   return (

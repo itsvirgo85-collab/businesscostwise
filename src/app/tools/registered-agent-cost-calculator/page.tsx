@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import RegisteredAgentCalculator from "@/components/calculators/RegisteredAgentCalculator";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
@@ -62,6 +63,22 @@ export default function RegisteredAgentPage() {
       question: "Is a registered agent the same as a virtual mailbox?",
       answer:
         "No. A registered agent has a specific legal role and must meet statutory requirements. A virtual mailbox is a mail-forwarding service and does not automatically satisfy registered agent requirements.",
+    },
+    {
+      question: "How much does a registered agent cost per year in Texas?",
+      answer: "A commercial registered agent in Texas usually costs $50–$300 a year, the same range as in most states — the price is set by the service, not by Texas. You can also be your own registered agent in Texas for $0 if you have a Texas street address and are available there during business hours. Texas charges no annual LLC fee, so the agent is often the only recurring cost of a Texas LLC.",
+    },
+    {
+      question: "Is it cheaper to be your own registered agent?",
+      answer: "Yes — $0 versus $50–$300 a year for a commercial service. The trade-offs are privacy (your address goes on the public record), availability (you must be at that address during business hours to accept service of process), and the risk of missing a lawsuit or tax notice. For most home-based owners, the privacy alone is worth the service fee.",
+    },
+    {
+      question: "What is the registered agent cost for an LLC in California vs Wyoming?",
+      answer: "The service price is the same in both states, roughly $50–$300 a year. The difference is what sits around it: California adds an $800 annual franchise tax, so the agent is a small part of the yearly cost, while Wyoming's $60 annual report makes the agent the largest recurring cost. Use the calculator above to see the agent cost inside each state's total.",
+    },
+    {
+      question: "Do I need a registered agent in every state where my LLC does business?",
+      answer: "Yes, effectively. Every state where your LLC is formed or registered as a foreign LLC requires a registered agent with a physical address in that state. If you form in Wyoming and foreign-qualify in Texas and California, you need an agent in all three states — which is one reason forming out of state rarely saves money.",
     },
   ];
 
@@ -155,6 +172,51 @@ export default function RegisteredAgentPage() {
         </ul>
       </section>
 
+      <figure className="mt-10 max-w-3xl">
+        <Image
+          src="/images/registered-agent-cost.svg"
+          alt="Registered agent cost calculator comparing a commercial service with serving as your own agent"
+          width={1200}
+          height={630}
+          loading="lazy"
+          decoding="async"
+          className="h-auto w-full rounded-xl border border-slate-200"
+        />
+        <figcaption className="mt-2 text-sm text-slate-500">Commercial registered agent services usually cost $50 to $300 a year.</figcaption>
+      </figure>
+      <section className="mt-10 max-w-3xl">
+        <h2 className="text-xl font-semibold text-[#102A43]">Registered agent cost per year by state</h2>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          The price of a commercial registered agent barely changes by state: the same
+          national services charge roughly $50–$300 a year whether your LLC is in Texas,
+          California or Wyoming. What changes by state is whether you can serve as your own
+          agent — every state allows it, but you need a physical street address in that
+          state, must be available there during business hours, and your address goes on the
+          public record. That is why the calculator above asks for your state and then shows
+          the agent cost inside your total: in Texas the agent is often the biggest
+          recurring cost (the state itself charges $0 a year), while in California it is a
+          small addition next to the $800 franchise tax.
+        </p>
+      </section>
+      <section className="mt-10 max-w-3xl">
+        <h2 className="text-xl font-semibold text-[#102A43]">Cheapest registered agent service for a new LLC</h2>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          The cheapest option is always serving as your own agent: $0, where you qualify.
+          The cheapest commercial route is usually a budget national service at around
+          $50–$100 a year for the first year, often rising at renewal — check the renewal
+          price, not the first-year offer. Mid-range services run about $125–$200 a year and
+          add compliance reminders and document scanning; premium services at $200–$300 add
+          same-day forwarding and multi-state coverage. Prices change often and first-year
+          discounts are common, so treat any quoted price as an estimate and confirm it on
+          the provider&apos;s site before you buy. If privacy matters more than price, see
+          our{" "}
+          <Link href="/tools/anonymous-llc-state-finder" className="text-[#1769AA] hover:underline">
+            anonymous LLC state finder
+          </Link>
+          — using a commercial agent is one of the simplest ways to keep your home address
+          off the public record.
+        </p>
+      </section>
       <section className="mt-12 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">Frequently asked questions</h2>
         <div className="mt-6 space-y-4">

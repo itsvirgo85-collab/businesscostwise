@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import MultiStateComparator from "@/components/calculators/MultiStateComparator";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
@@ -62,6 +63,18 @@ export default function MultiStateComparatorPage() {
       question: "Is this legal or tax advice?",
       answer:
         "No. This is an educational comparison tool only. It does not create an attorney-client or advisor relationship. Confirm all requirements with official sources or a qualified professional.",
+    },
+    {
+      question: "What is the cheapest state to form an LLC over five years?",
+      answer: "Missouri at $45, then Arizona, Mississippi and New Mexico at $50 each over five years, on our data. Texas is $300 over five years and Wyoming $400. California is the most expensive at $4,130. Run the comparator above with the 5-year view to see the full ranking for the states you are considering.",
+    },
+    {
+      question: "How does LLC formation cost in California compare with Texas side by side?",
+      answer: "California costs $70 to form and $890 in year one ($800 franchise tax plus the $20 Statement of Information), reaching $4,130 over five years. Texas costs $300 to form, $0 a year after that, and $300 over five years. California costs about 14 times more over five years — but if you live and work in California, you would still have to register a Texas LLC as a foreign LLC in California and pay the $800 franchise tax anyway.",
+    },
+    {
+      question: "What is the best state to form an LLC for the lowest yearly cost?",
+      answer: "For yearly cost alone, Texas, Arizona, Missouri, New Mexico and Mississippi — all with no annual report fee in our data. For most owners the best state is still their home state, because forming elsewhere adds a foreign registration and a second set of annual fees. Use our best state finder if you want the recommendation weighted by your situation, not just by price.",
     },
   ];
 
@@ -163,6 +176,42 @@ export default function MultiStateComparatorPage() {
         </ul>
       </section>
 
+      <figure className="mt-10 max-w-3xl">
+        <Image
+          src="/images/multi-state-comparator.svg"
+          alt="Compare LLC costs by state side by side in Texas Delaware and Wyoming"
+          width={1200}
+          height={630}
+          loading="lazy"
+          decoding="async"
+          className="h-auto w-full rounded-xl border border-slate-200"
+        />
+        <figcaption className="mt-2 text-sm text-slate-500">Texas, Delaware and Wyoming compared on the same five-year basis.</figcaption>
+      </figure>
+      <section className="mt-10 max-w-3xl">
+        <h2 className="text-xl font-semibold text-[#102A43]">Compare LLC costs in Texas vs Delaware vs Wyoming</h2>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          The three states people compare most show why the five-year view matters. Texas
+          costs $300 to form and $0 a year after that — $300 over five years. Wyoming costs
+          $100 to form and $60 a year, or $400 over five years. Delaware costs $110 to form
+          but $400 a year in annual tax, or $2,110 over five years. Delaware is the cheapest
+          to file and the most expensive to keep, Texas is the cheapest to keep, and Wyoming
+          sits in the middle. Select all three in the comparator above and the ranking
+          flips the moment you switch from the 1-year to the 5-year view.
+        </p>
+      </section>
+      <section className="mt-10 max-w-3xl">
+        <h2 className="text-xl font-semibold text-[#102A43]">Which state has the lowest LLC annual fees?</h2>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          Eighteen states charge no annual report fee in our data, including Texas, Arizona,
+          Missouri, New Mexico, Mississippi, Ohio and New York (which charges a $9 biennial
+          filing instead). The lowest annual fees after that are Wyoming at $60 a year and
+          Colorado at $10 a year. But annual fee alone is a bad ranking: Delaware&apos;s $400
+          annual tax buys the Court of Chancery and investor familiarity that fundraisers
+          want, and a state with a $0 annual fee still requires a foreign registration —
+          and a second annual fee — if you actually do business from another state.
+        </p>
+      </section>
       <section className="mt-12 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">Frequently asked questions</h2>
         <div className="mt-6 space-y-4">

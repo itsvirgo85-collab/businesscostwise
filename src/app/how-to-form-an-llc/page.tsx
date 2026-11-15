@@ -67,6 +67,16 @@ export default function HowToFormLLCPage() {
       answer:
         "You do not need an EIN just to file formation documents with the state. However, you will need one to open most business bank accounts, hire employees, or if your LLC has more than one member. The IRS issues EINs for free online.",
     },
+    {
+      question: "Can I convert a sole proprietorship to an LLC?",
+      answer:
+        "Yes, and it is common. Form the LLC with the state, get a new EIN for the LLC, open a business bank account in the LLC's name, and move contracts, licences, and assets over to it. The sole proprietorship itself does not convert — you create the LLC and transfer the business into it, then stop operating as a sole proprietor.",
+    },
+    {
+      question: "How do I change my LLC's name or add or remove a member?",
+      answer:
+        "To change the name, file an amendment with the Secretary of State (and update the operating agreement, EIN records if the IRS requires it, bank accounts, and licences). Adding or removing a member is usually done by amending the operating agreement and, in states that require it, filing an updated annual report or amendment — the exact filing varies by state, so check your Secretary of State's form.",
+    },
   ];
 
   const steps = [

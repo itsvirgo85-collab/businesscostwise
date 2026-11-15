@@ -56,6 +56,16 @@ export default function LLCvsSCorpPage() {
       answer:
         "No. The LLC must meet S-corporation eligibility rules, including limits on the number and type of owners and having only one class of stock (ownership interest). Professional advice is recommended before electing.",
     },
+    {
+      question: "What is the deadline to elect S-corp status (Form 2553)?",
+      answer:
+        "Form 2553 is generally due no more than 2 months and 15 days after the beginning of the tax year the election is to take effect. If you miss it, late-election relief is available under Revenue Procedure 2013-30 in many cases — ask a CPA rather than assuming you must wait a year.",
+    },
+    {
+      question: "Can I convert my LLC to an S-corp or a corporation?",
+      answer:
+        "There are two different things here. Electing S-corp status (Form 2553) only changes how the LLC is taxed — the LLC itself stays the same entity. A statutory conversion to a corporation actually changes the entity type and is a state filing with different rules. Most owners who say “convert to S-corp” mean the tax election, which is simpler and keeps the LLC intact.",
+    },
   ];
 
   return (

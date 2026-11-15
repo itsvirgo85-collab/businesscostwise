@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ForeignQualificationCalculator from "@/components/calculators/ForeignQualificationCalculator";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
@@ -67,6 +68,23 @@ export default function ForeignQualificationPage() {
       question: "Is it cheaper to form in my home state instead of foreign qualifying?",
       answer:
         "In the majority of cases for small businesses, yes. Forming directly in the state where you live and operate usually results in lower total compliance cost and less administrative burden over several years.",
+    },
+    {
+      question: "What is the difference between domestication and foreign qualification?",
+      answer:
+        "Domestication moves the LLC: after it, the LLC exists only in the new state, keeping its EIN and history. Foreign qualification adds a state: the LLC keeps its home state and gains the right to operate in the second one, paying fees in both. Move permanently? Domesticate. Expand while keeping your home base? Foreign qualify.",
+    },
+    {
+      question: "How much is a foreign LLC registration in Texas?",
+      answer: "Texas charges $750 to register a foreign LLC — the highest foreign registration fee in the US. After that, Texas charges no annual LLC fee, so the ongoing cost is just your registered agent. Compare that with California ($70 to register, then $800 a year in franchise tax) in the calculator above before choosing where to register.",
+    },
+    {
+      question: "Do I need to foreign qualify if I only sell online?",
+      answer: "Usually not if you have no physical presence in the other state — no office, employees, warehouse or regular in-person business there. Selling online to customers in a state, on its own, generally does not count as transacting business there. The line varies by state, and hiring an employee or signing a lease in a state almost always triggers the requirement. When in doubt, the state's Secretary of State guidance is the authority.",
+    },
+    {
+      question: "What happens if I do business without foreign qualifying?",
+      answer: "Most states bar an unregistered foreign LLC from suing in their courts, and many impose fines or back fees when you finally register — sometimes for every year you operated unregistered. You can still be sued in that state, and your LLC's liability protection is not automatically lost, but the penalties and the inability to enforce contracts make it an expensive shortcut.",
     },
   ];
 
@@ -238,6 +256,48 @@ export default function ForeignQualificationPage() {
         </ul>
       </section>
 
+      <figure className="mt-10 max-w-3xl">
+        <Image
+          src="/images/foreign-qualification-cost.svg"
+          alt="Foreign qualification cost calculator for an LLC operating in a second state"
+          width={1200}
+          height={630}
+          loading="lazy"
+          decoding="async"
+          className="h-auto w-full rounded-xl border border-slate-200"
+        />
+        <figcaption className="mt-2 text-sm text-slate-500">Registering as a foreign LLC adds a second filing fee and a second annual fee.</figcaption>
+      </figure>
+      <section className="mt-10 max-w-3xl">
+        <h2 className="text-xl font-semibold text-[#102A43]">How much does it cost to foreign qualify an LLC in California?</h2>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          California charges $70 to register a foreign LLC (Form LLC-5), and once
+          registered you pay the same $800 annual franchise tax as a California LLC, plus
+          the $20 Statement of Information every two years. That is the trap in forming
+          out of state to dodge California: a Delaware LLC doing business in California
+          pays Delaware&apos;s $400 annual tax <em>and</em> California&apos;s $800 franchise
+          tax. Texas charges $750 to register a foreign LLC — the highest foreign
+          registration fee in the country — but then charges no annual LLC fee at all.
+          Select your home state and your target state in the calculator above to see both
+          fees before you decide.
+        </p>
+      </section>
+      <section className="mt-10 max-w-3xl">
+        <h2 className="text-xl font-semibold text-[#102A43]">Foreign qualification vs domestication: which is cheaper?</h2>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          Foreign qualification is usually cheaper up front — one registration fee, and
+          your LLC keeps its original formation date and history. Domestication (moving the
+          LLC&apos;s legal home to the new state) costs more in filing fees and is only
+          available in some states, but it ends the old state&apos;s annual fees entirely.
+          If you are moving permanently, domestication usually wins over five years; if you
+          are just expanding into a second state, foreign qualification wins. Our{" "}
+          <Link href="/guides/move-llc-to-another-state" className="text-[#1769AA] hover:underline">
+            guide to moving an LLC to another state
+          </Link>{" "}
+          compares domestication, foreign qualification and dissolving-and-reforming side
+          by side, with the costs of each route.
+        </p>
+      </section>
       <section className="mt-12 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">Frequently asked questions</h2>
         <div className="mt-6 space-y-4">

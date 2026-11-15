@@ -66,6 +66,21 @@ export default function WhatIsAnLLCPage() {
       answer:
         "A sole proprietorship is simply you doing business in your own name (or a trade name). There is no separate legal entity, so you are generally personally liable for business debts and claims. An LLC is a separate entity that provides limited liability protection when properly maintained.",
     },
+    {
+      question: "Do I need an LLC as a freelancer or consultant?",
+      answer:
+        "Not legally — you can freelance as a sole proprietor. An LLC becomes worth it when you want liability protection from client claims, a business bank account in the company's name, or a more professional structure as income grows. If clients ask you to sign contracts with real liability exposure, that is usually the trigger to form one.",
+    },
+    {
+      question: "Do I need an LLC to sell on Amazon?",
+      answer:
+        "No. Amazon allows individuals to sell without an LLC — you can register as a sole proprietor. An LLC is worth considering once sales grow, because it separates your personal assets from product-liability and refund claims, and it makes bookkeeping and taxes cleaner.",
+    },
+    {
+      question: "Should I form an LLC for rental property?",
+      answer:
+        "For most landlords, yes. A tenant's claim — a fall, a faulty railing, a dog bite — can reach your personal assets if the property is in your own name. An LLC puts the property's liabilities behind the company. Many investors use one LLC per property, or a Series LLC where available, as the portfolio grows.",
+    },
   ];
 
   return (

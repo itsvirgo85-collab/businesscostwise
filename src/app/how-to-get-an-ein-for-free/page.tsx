@@ -56,6 +56,16 @@ export default function GetEINFreePage() {
       answer:
         "You can request a copy or verification from the IRS. Do not apply for a new EIN if you already have one for the same entity.",
     },
+    {
+      question: "EIN vs ITIN — which does a foreign LLC owner need?",
+      answer:
+        "An EIN belongs to the LLC; an ITIN is a personal tax number for an individual who cannot get a Social Security Number. Most foreign LLC owners need an EIN for the LLC and never need an ITIN. You only need an ITIN if you personally must file a US tax return — for example, as the owner of a disregarded-entity LLC with US-source income to report.",
+    },
+    {
+      question: "How does a non-resident get an EIN without an SSN?",
+      answer:
+        "File Form SS-4 with the IRS by fax or phone — the online EIN application requires an SSN or ITIN, so it does not work for non-residents without one. On the form, write “Foreign” where it asks for an SSN. Processing by fax typically takes about a week; by phone it can be issued during the call.",
+    },
   ];
 
   return (

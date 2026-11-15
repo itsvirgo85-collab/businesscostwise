@@ -52,9 +52,9 @@ export default function SingleVsMultiMemberPage() {
         "Yes. Having employees does not turn a single-member LLC into a multi-member LLC. Payroll and employment tax obligations still apply.",
     },
     {
-      question: "Does adding a spouse create a multi-member LLC?",
+      question: "Is a husband and wife LLC a single-member or multi-member LLC?",
       answer:
-        "It depends on ownership structure and state and federal rules. Community property states and certain elections can affect whether a married couple is treated as one member or two. Confirm with a qualified professional.",
+        "A husband and wife LLC is usually a multi-member LLC when both spouses own it, because it has two members and is taxed as a partnership by default. The exception is in community property states, where a married couple's LLC may elect to be treated as a single-member disregarded entity for federal tax purposes under IRS rules. The treatment depends on state law and the election made, so confirm with a qualified tax professional before filing.",
     },
   ];
 

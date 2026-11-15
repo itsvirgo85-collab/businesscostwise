@@ -74,6 +74,21 @@ export default function HiddenCostsPage() {
       answer:
         "Forming in a low-fee state can reduce state-level costs, but if you operate in another state you may need to register as a foreign LLC there, which adds extra fees and compliance. For most small businesses the home state is simplest.",
     },
+    {
+      question: "How much does a business license cost for an LLC?",
+      answer:
+        "There is no single price for a business license. Most states do not charge one general business license fee; city and county licenses vary by location and business type, so check with the local licensing office. Nevada is an exception, with a $200 State Business License each year. A business license is separate from the LLC formation fee and is easy to miss when budgeting.",
+    },
+    {
+      question: "Does the LLC filing fee cover the full cost of doing business?",
+      answer:
+        "No. The filing fee only creates the LLC with the state. The full cost of doing business also includes recurring report and franchise-tax fees, local business licenses, state and local taxes, rent, payroll and any industry permits. There is no single cost-of-doing-business figure — the filing fee is just the first line item.",
+    },
+    {
+      question: "What business license does my LLC need?",
+      answer:
+        "Only nine jurisdictions have a general state-level business license: Alabama, Alaska, Delaware, District of Columbia, Hawaii, Nevada, Tennessee, Washington, and West Virginia. Everywhere else, licensing is city and county level — plus industry-specific permits (food, construction, childcare, and so on). Budget for licences separately from the LLC formation fee, and check with your city and county licensing office.",
+    },
   ];
 
   return (

@@ -70,6 +70,16 @@ export default function AnnualReportPage() {
       answer:
         "Calendar the deadline as soon as you form the LLC. Keep your registered agent information current, and consider using a commercial registered agent service that tracks filing deadlines for you.",
     },
+    {
+      question: "How much does it cost to renew an LLC?",
+      answer:
+        "Renewing an LLC usually means filing the annual (or biennial) report and paying its fee. In our verified data the report fee runs from $0 to $500 per filing — for example $50 in Georgia and Virginia, $100 in Oregon, $350 a year in Nevada (the annual list plus the State Business License), and $500 in Massachusetts. Some states add a franchise or entity tax on top, such as California's $800 annual tax. A few states have no report to renew at all. Check your state's page for the exact renewal cost.",
+    },
+    {
+      question: "Do I still need to file a BOI report for my LLC?",
+      answer:
+        "No, if your LLC was formed in the US. FinCEN's final rule effective 14 August 2026 permanently exempts US-formed companies and US persons from beneficial ownership (BOI) reporting. Only companies formed under foreign law that register to do business in a US state still report — within 30 days of registration. New York's LLC Transparency Act (in effect from 1 January 2026) is a separate state disclosure for NY LLCs.",
+    },
   ];
 
   return (

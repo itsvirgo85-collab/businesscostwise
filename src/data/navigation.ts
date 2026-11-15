@@ -95,6 +95,36 @@ export const GUIDES_SECTION: NavSection = {
       href: "/asset-protection",
       description: "When courts pierce the veil and how to strengthen protection.",
     },
+    {
+      label: "What Is a Franchise Tax?",
+      href: "/guides/franchise-tax-explained",
+      description: "Which states charge one, how much, and which LLCs owe $0.",
+    },
+    {
+      label: "What Is an Operating Agreement?",
+      href: "/guides/what-is-an-operating-agreement",
+      description: "Who owns what, who decides, and the five states that require one.",
+    },
+    {
+      label: "How to Dissolve an LLC",
+      href: "/guides/how-to-dissolve-an-llc",
+      description: "Steps, costs, tax clearance, and the final tax return.",
+    },
+    {
+      label: "How to Move an LLC to Another State",
+      href: "/guides/move-llc-to-another-state",
+      description: "Domestication vs foreign qualification vs dissolving and reforming.",
+    },
+    {
+      label: "Can a Non-Resident Form an LLC?",
+      href: "/guides/non-resident-llc",
+      description: "No SSN needed; EIN via Form SS-4 and the Form 5472 trap.",
+    },
+    {
+      label: "LLC for Rental Property & Real Estate",
+      href: "/guides/llc-for-real-estate",
+      description: "One LLC per property vs holding company vs Series LLC.",
+    },
   ],
   subgroups: [
     {
@@ -121,6 +151,16 @@ export const GUIDES_SECTION: NavSection = {
           label: "LLC vs S-Corp",
           href: "/business-structures/llc-vs-s-corp",
           description: "Default taxation vs S-Corp election and self-employment tax.",
+        },
+        {
+          label: "LLC vs DBA",
+          href: "/business-structures/llc-vs-dba",
+          description: "A DBA is a name, not an entity — and offers no liability protection.",
+        },
+        {
+          label: "LLC vs Partnership",
+          href: "/business-structures/llc-vs-partnership",
+          description: "Same pass-through taxes, very different liability for partners.",
         },
         {
           label: "Single-Member vs Multi-Member LLC",
@@ -157,6 +197,31 @@ export const TOOLS_SECTION: NavSection = {
       label: "Foreign Qualification Cost Calculator",
       href: "/tools/foreign-qualification-cost-calculator",
       description: "Costs of operating your LLC in a second state.",
+    },
+    {
+      label: "LLC vs S-Corp Tax Savings Calculator",
+      href: "/tools/llc-vs-s-corp-tax-savings-calculator",
+      description: "Self-employment tax vs S-corp payroll tax, saving and break-even.",
+    },
+    {
+      label: "LLC Tax Estimator",
+      href: "/tools/llc-tax-estimator",
+      description: "Total federal tax bill and quarterly estimated payments.",
+    },
+    {
+      label: "Best State to Form an LLC Finder",
+      href: "/tools/best-state-to-form-an-llc",
+      description: "Compare states by 1-year and 5-year cost, privacy, and investor fit.",
+    },
+    {
+      label: "Anonymous LLC State Finder",
+      href: "/tools/anonymous-llc-state-finder",
+      description: "Which states keep member names off the public record, and at what cost.",
+    },
+    {
+      label: "LLC Dissolution Cost Calculator",
+      href: "/tools/llc-dissolution-cost-calculator",
+      description: "State filing fee plus unpaid annual fees and franchise tax still owed.",
     },
   ],
 };

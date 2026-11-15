@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import LLCCostCalculator from "@/components/calculators/LLCCostCalculator";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
@@ -62,6 +63,18 @@ export default function LLCCostCalculatorPage() {
       question: "Why show multi-year totals?",
       answer:
         "The formation filing fee is only year one. Annual reports and franchise taxes often matter more over time. Multi-year totals help you compare states on the costs that actually accumulate after formation.",
+    },
+    {
+      question: "How much does an LLC cost per year in my state?",
+      answer: "It depends on the state. Several states charge no annual report fee at all in our data — Arizona, Missouri, Mississippi and New Mexico among them — while Delaware charges a $400 annual tax, California $800 in franchise tax, Massachusetts $500 a year for its annual report and Rhode Island a $400 minimum tax. Use the calculator above and look at the recurring column for your state, or open your state's page for the exact annual figure.",
+    },
+    {
+      question: "What is the cheapest state to form an LLC with no annual fee?",
+      answer: "On five-year cost, Missouri ($45 total), Arizona ($50), Mississippi ($50) and New Mexico ($50) are the cheapest in our data, and none of them charges an annual report fee. But forming out of state only saves money if you do not also have to register as a foreign LLC at home — that second filing usually wipes out the saving, which is why most owners form in their home state.",
+    },
+    {
+      question: "How much does it cost to form an LLC in California?",
+      answer: "About $890 in year one: $70 to file the Articles of Organization, $800 in annual franchise tax, and $20 for the initial Statement of Information due within 90 days. After that, California costs $820 a year ($800 franchise tax plus the $20 Statement of Information every two years), or $4,130 over five years — the most expensive state in our data.",
     },
   ];
 
@@ -158,6 +171,57 @@ export default function LLCCostCalculatorPage() {
         </p>
       </section>
 
+      <figure className="mt-10 max-w-3xl">
+        <Image
+          src="/images/llc-cost-calculator.svg"
+          alt="LLC cost calculator showing formation fees and five-year totals by state"
+          width={1200}
+          height={630}
+          loading="lazy"
+          decoding="async"
+          className="h-auto w-full rounded-xl border border-slate-200"
+        />
+        <figcaption className="mt-2 text-sm text-slate-500">Formation fees and five-year totals for all 50 states and DC.</figcaption>
+      </figure>
+      <section className="mt-10 max-w-3xl">
+        <h2 className="text-xl font-semibold text-[#102A43]">LLC cost calculator: 5-year total by state</h2>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          The headline filing fee is only the first year&apos;s cost. The real number is the
+          five-year total: formation fee plus every annual report fee and franchise tax the
+          state charges in between. On our data, the cheapest five-year totals are Missouri
+          ($45), Arizona ($50), Mississippi ($50) and New Mexico ($50), while California
+          reaches $4,130 over five years — $70 to form, then $800 a year in franchise tax
+          plus the biennial Statement of Information. Massachusetts ($3,000 over five years)
+          and Rhode Island ($2,350) are the next most expensive. That is why the calculator
+          above shows 1-year, 3-year and 5-year totals: a state that looks cheap on day one
+          can be the most expensive by year five.
+        </p>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          To use the five-year figure, enter your state, then compare the 5-year column
+          against your home state. If you are choosing between two states, run the same
+          comparison in our{" "}
+          <Link href="/tools/multi-state-llc-cost-comparator" className="text-[#1769AA] hover:underline">
+            multi-state LLC cost comparator
+          </Link>
+          , which puts up to five states side by side on the same basis.
+        </p>
+      </section>
+      <section className="mt-10 max-w-3xl">
+        <h2 className="text-xl font-semibold text-[#102A43]">LLC startup cost calculator with registered agent included</h2>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          The calculator also covers the optional costs that turn a filing fee into a real
+          startup budget. Tick the boxes for a registered agent ($50–$300 a year for a
+          commercial service, or $0 if you act as your own agent where allowed), a name
+          reservation ($10–$50 in most states) and expedited processing. A new LLC&apos;s
+          true first-year cost is the state filing fee plus whichever of these you need —
+          not the filing fee alone. Our{" "}
+          <Link href="/tools/registered-agent-cost-calculator" className="text-[#1769AA] hover:underline">
+            registered agent cost calculator
+          </Link>{" "}
+          breaks the agent part down on its own if you want to compare serving as your own
+          agent against hiring a service.
+        </p>
+      </section>
       <section className="mt-12 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">Frequently asked questions</h2>
         <div className="mt-6 space-y-4">
