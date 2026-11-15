@@ -55,11 +55,6 @@ export default function ScorpSavingsPage() {
         "As a rough rule, the election often starts to pay off around $60,000–$80,000 of annual profit with a reasonable salary of roughly 40–60% of profit, once payroll costs are covered. Use the calculator above with your own salary and payroll costs — the break-even moves a lot with both.",
     },
     {
-      question: "What is a reasonable salary for an S-corp owner?",
-      answer:
-        "The IRS requires S-corp owners who work in the business to pay themselves a salary comparable to what similar businesses pay for similar work. Paying yourself too little is the most common audit risk with this election. There is no single IRS formula; CPAs look at your role, hours, experience, and market pay.",
-    },
-    {
       question: "What is the deadline to elect S-corp status (Form 2553)?",
       answer:
         "Form 2553 is generally due no more than 2 months and 15 days after the beginning of the tax year the election is to take effect. If you miss it, late-election relief is available under Revenue Procedure 2013-30 in many cases — ask a CPA rather than assuming you must wait a year.",
@@ -71,7 +66,7 @@ export default function ScorpSavingsPage() {
     },
     {
       question: "What is a reasonable salary for an S-corp owner?",
-      answer: "A reasonable salary is what you would pay someone else to do the same work in your area — the IRS looks at your experience, duties, hours and what comparable businesses pay. As a rough guide, owners commonly pay themselves 30–50% of profit as salary, but there is no safe percentage: a $40,000 salary on $100,000 of profit is defensible for many service businesses, while a $20,000 salary on $200,000 of profit is the kind of figure that attracts an audit. Pay it through real payroll, with withholdings.",
+      answer: "A reasonable salary is what you would pay someone else to do the same work in your area — the IRS looks at your experience, duties, hours and what comparable businesses pay. As a rough guide, owners commonly pay themselves 40–60% of profit as salary, but there is no safe percentage: a $40,000 salary on $100,000 of profit is defensible for many service businesses, while a $20,000 salary on $200,000 of profit is the kind of figure that attracts an audit. Pay it through real payroll, with withholdings.",
     },
     {
       question: "How do I calculate the S-corp election break-even profit?",

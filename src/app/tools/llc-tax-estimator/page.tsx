@@ -50,11 +50,6 @@ export default function LlcTaxEstimatorPage() {
         "It depends on profit and filing status. A single-member LLC with $100,000 of profit owes roughly $14,130 of self-employment tax plus income tax on the profit after the half-SE-tax deduction and the $16,100 standard deduction (2026) — about $25,700 total federal tax in that example. Use the calculator above for your own numbers.",
     },
     {
-      question: "How much should an LLC set aside for quarterly taxes?",
-      answer:
-        "A common rule is to set aside 25–30% of profit, but the right figure depends on your profit and filing status. The calculator above gives an estimated quarterly amount based on your actual numbers. The 2026 due dates are 15 April, 15 June, 15 September 2026, and 15 January 2027.",
-    },
-    {
       question: "What tax deductions can an LLC claim?",
       answer:
         "Ordinary and necessary business expenses: home office, equipment, software, travel, insurance, professional fees, and half of your self-employment tax. Many owners also qualify for the 20% qualified business income (QBI) deduction, subject to income limits. Keep receipts and a separate business account — deductions need records, not just a category.",

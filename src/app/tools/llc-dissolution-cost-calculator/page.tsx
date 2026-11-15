@@ -55,16 +55,6 @@ export default function DissolutionCalculatorPage() {
         "Some states require one before they accept the dissolution filing — Pennsylvania, Tennessee, and Texas are the commonly cited examples, with Rhode Island and New Hampshire also reported. A tax clearance confirms all state taxes are paid. If your state requires it, get the clearance first; the filing will be rejected without it.",
     },
     {
-      question: "What happens if I just stop filing and let the LLC lapse?",
-      answer:
-        "The state will eventually administratively dissolve it for missing annual reports — but until then, annual fees and penalties keep accruing. Creditors can still pursue the LLC, and in some states the members can face personal exposure once the LLC loses good standing. A formal dissolution is cleaner and usually cheaper than years of penalties.",
-    },
-    {
-      question: "How much does it cost to dissolve an LLC in Delaware?",
-      answer:
-        "The Certificate of Cancellation costs $220, which includes the $200 base fee plus a $20 municipality fee (fee schedule revised 1 August 2026). All annual LLC taxes must be paid first — $400 for tax year 2026 onward, with no proration — so the real cost is $220 plus any unpaid annual tax.",
-    },
-    {
       question: "How much does it cost to dissolve an LLC in Delaware?",
       answer: "The Certificate of Cancellation costs $220 ($200 filing fee plus a $20 municipality fee), and all outstanding annual taxes must be paid first — $400 for tax year 2026, with no proration. A Delaware LLC with one unpaid year costs about $620 to close; with two unpaid years, about $1,020. The calculator above adds the back taxes automatically when you select the unpaid years.",
     },
@@ -103,7 +93,7 @@ export default function DissolutionCalculatorPage() {
       </p>
 
       <p className="mt-3 max-w-3xl text-slate-600 leading-relaxed">
-        This calculator adds the filing fee, what is still owed, and final tax preparation, for all 50 states and DC. Fees are from 2026 sources; Delaware and Louisiana were confirmed against official state schedules, and the rest are labelled as estimates to confirm with the Secretary of State.
+        This calculator adds the filing fee, what is still owed, and final tax preparation, for all 50 states and DC. Fees are from 2026 sources; Delaware, Louisiana and DC were confirmed against official state schedules, and the rest are labelled as estimates to confirm with the Secretary of State.
       </p>
 
       <p className="mt-3 max-w-3xl text-sm text-slate-500">
@@ -213,7 +203,7 @@ export default function DissolutionCalculatorPage() {
       </section>
 
       <p className="mt-10 max-w-3xl text-xs leading-relaxed text-slate-500">
-        Educational information only. This calculator and page provide general estimates and explanations. They are not legal or tax advice. Dissolution fees are from 2026 secondary sources except Delaware and Louisiana (official schedules); confirm the fee and any tax-clearance requirement with the Secretary of State before filing. This site is not affiliated with any government agency.
+        Educational information only. This calculator and page provide general estimates and explanations. They are not legal or tax advice. Dissolution fees are from 2026 secondary sources except Delaware, Louisiana and DC (official schedules); confirm the fee and any tax-clearance requirement with the Secretary of State before filing. This site is not affiliated with any government agency.
       </p>
     </div>
   );
