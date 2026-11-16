@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-13T16:00:25.019Z",
+  "generatedAt": "2026-11-16T23:13:28.072Z",
   "proposals": [
     {
       "slug": "california",
@@ -30,16 +30,6 @@
       "confidence": "review",
       "evidence": "form available; please see our Conversions page for more information. $60 Domestication - changing state of formation only, not entity type. No form available; please see our Domestication",
       "sourceUrl": "https://business.ct.gov/knowledge-base/articles/domestic-limited-liability-companies-forms-and-fees"
-    },
-    {
-      "slug": "delaware",
-      "state": "Delaware",
-      "field": "annualFee",
-      "oldValue": null,
-      "newValue": 400,
-      "confidence": "review",
-      "evidence": "n annual tax of $400.00. There is no requirement to file an Annual Report. The annual taxes for the prior year are due on or before June 1st. Failure to pay the required annual taxes will resul",
-      "sourceUrl": "https://corp.delaware.gov/alt-entitytaxinstructions/"
     },
     {
       "slug": "florida",
@@ -100,16 +90,6 @@
       "confidence": "review",
       "evidence": "rges caution when using third parties to assist with filing Annual Reports. Many charge $100-$200 to make a filing that can be made directly with the Department for $7 (free for non-profits) an",
       "sourceUrl": "https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports"
-    },
-    {
-      "slug": "rhode-island",
-      "state": "Rhode Island",
-      "field": "formationFee",
-      "oldValue": 150,
-      "newValue": 230,
-      "confidence": "review",
-      "evidence": "neral Partnership Sole Proprietor Initial RI Dept. of State Filing Fee $230 $230 $230 $150 $20 $20 RI Dept. of State Annual Report $50 $60 $50 $50 $0 $0 RI Division of Taxation Minimum Corpo",
-      "sourceUrl": "https://www.sos.ri.gov/divisions/business-services/business-basics/costs-and-fees"
     },
     {
       "slug": "washington",
