@@ -306,6 +306,11 @@ export default function HiddenCostsPage() {
             </Link>
           </li>
           <li>
+            <Link href="/tools/llc-dissolution-cost-calculator" className="text-[#1769AA] hover:underline">
+              How Much Does It Cost to Dissolve an LLC?
+            </Link>
+          </li>
+          <li>
             <Link href="/about/sources-and-methodology" className="text-[#1769AA] hover:underline">
               Sources & Methodology
             </Link>

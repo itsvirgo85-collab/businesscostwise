@@ -76,6 +76,31 @@ export default function HomePage() {
       desc: "Estimate commercial registered agent costs by state and see what the service typically adds each year.",
     },
     {
+      href: "/tools/llc-vs-s-corp-tax-savings-calculator",
+      title: "LLC vs S-Corp Tax Savings Calculator",
+      desc: "Compare LLC vs S-corp tax: see the break-even salary and the yearly saving on your profit.",
+    },
+    {
+      href: "/tools/llc-tax-estimator",
+      title: "LLC Tax Estimator",
+      desc: "Estimate your LLC's total federal tax bill, self-employment tax, and quarterly payments.",
+    },
+    {
+      href: "/tools/best-state-to-form-an-llc",
+      title: "Best State to Form an LLC",
+      desc: "Answer a few questions and get the cheapest state for your situation — home state first.",
+    },
+    {
+      href: "/tools/anonymous-llc-state-finder",
+      title: "Anonymous LLC State Finder",
+      desc: "Find states that keep owner names off the public record, with a privacy score for each.",
+    },
+    {
+      href: "/tools/llc-dissolution-cost-calculator",
+      title: "LLC Dissolution Cost Calculator",
+      desc: "What it costs to close an LLC in every state, from $0 to $220, and which states need tax clearance first.",
+    },
+    {
       href: "/business-structures",
       title: "Business Structures",
       desc: "Compare LLCs, corporations, S-corps, and sole proprietorships to find the structure that fits your business.",
@@ -397,6 +422,44 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
+          <p className="mt-8 text-sm text-slate-600">
+            <span className="font-semibold text-[#102A43]">New guides:</span>{" "}
+            <Link href="/guides/franchise-tax-explained" className="text-[#1769AA] hover:underline">
+              Franchise Tax Explained
+            </Link>
+            {" · "}
+            <Link href="/guides/what-is-an-operating-agreement" className="text-[#1769AA] hover:underline">
+              Operating Agreement
+            </Link>
+            {" · "}
+            <Link href="/guides/how-to-dissolve-an-llc" className="text-[#1769AA] hover:underline">
+              How to Dissolve an LLC
+            </Link>
+            {" · "}
+            <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">
+              Non-Resident LLC
+            </Link>
+            {" · "}
+            <Link href="/guides/move-llc-to-another-state" className="text-[#1769AA] hover:underline">
+              Move an LLC to Another State
+            </Link>
+            {" · "}
+            <Link href="/guides/llc-for-real-estate" className="text-[#1769AA] hover:underline">
+              LLC for Real Estate
+            </Link>
+            {" · "}
+            <Link href="/business-structures/llc-vs-dba" className="text-[#1769AA] hover:underline">
+              LLC vs DBA
+            </Link>
+            {" · "}
+            <Link href="/business-structures/llc-vs-partnership" className="text-[#1769AA] hover:underline">
+              LLC vs Partnership
+            </Link>
+            {" · "}
+            <Link href="/guides" className="text-[#1769AA] hover:underline">
+              All guides →
+            </Link>
+          </p>
           <p className="mt-8 text-sm text-slate-600">
             <span className="font-semibold text-[#102A43]">Popular states:</span>{" "}
             <Link href="/llc-cost-by-state/montana" className="text-[#1769AA] hover:underline">

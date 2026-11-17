@@ -393,6 +393,11 @@ export default function HowMuchDoesItCostPage() {
             </Link>
           </li>
           <li>
+            <Link href="/tools/llc-tax-estimator" className="text-[#1769AA] hover:underline">
+              LLC Tax Estimator
+            </Link>
+          </li>
+          <li>
             <Link href="/annual-report-requirements-by-state" className="text-[#1769AA] hover:underline">
               Annual Report Requirements by State
             </Link>

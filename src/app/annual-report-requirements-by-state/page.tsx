@@ -5,22 +5,22 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: { absolute: "LLC Annual Report Fees by State 2026 — Every State" },
+  title: { absolute: "LLC Annual Report Fees by State 2026 — $0 States, Deadlines & Every Fee" },
   description:
-    "LLC annual report fees for all 50 states + DC: which states charge $0, which charge every year, what each report costs, and where franchise tax applies on top.",
+    "LLC annual report fees for all 50 states + DC: which states charge $0, which charge every year, what each report costs, what happens if you miss the deadline, and where franchise tax applies on top.",
   alternates: { canonical: "/annual-report-requirements-by-state" },
   openGraph: {
-    title: "LLC Annual Report Fees by State 2026 — Every State",
+    title: "LLC Annual Report Fees by State 2026 — $0 States, Deadlines & Every Fee",
     description:
-      "LLC annual report fees for all 50 states + DC: which states charge $0, which charge every year, what each report costs, and where franchise tax applies on top.",
+      "LLC annual report fees for all 50 states + DC: which states charge $0, which charge every year, what each report costs, what happens if you miss the deadline, and where franchise tax applies on top.",
     type: "article",
     url: "/annual-report-requirements-by-state",
   },
   twitter: {
     card: "summary_large_image",
-    title: "LLC Annual Report Fees by State 2026 — Every State",
+    title: "LLC Annual Report Fees by State 2026 — $0 States, Deadlines & Every Fee",
     description:
-      "LLC annual report fees for all 50 states + DC: which states charge $0, which charge every year, what each report costs, and where franchise tax applies on top.",
+      "LLC annual report fees for all 50 states + DC: which states charge $0, which charge every year, what each report costs, what happens if you miss the deadline, and where franchise tax applies on top.",
     images: ["/twitter-image"],
   },
 };
