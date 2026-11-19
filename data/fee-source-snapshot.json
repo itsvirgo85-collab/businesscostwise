@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-16T23:13:14.016Z",
+  "checkedAt": "2026-11-19T21:59:12.430Z",
   "sources": {
     "alabama": {
       "sourceUrl": "https://www.sos.alabama.gov/sites/default/files/form-files/FeeSchedule.pdf",
@@ -10,7 +10,7 @@
     "alaska": {
       "sourceUrl": "https://www.commerce.alaska.gov/web/cbpl/Corporations/CorporationFormsFees",
       "status": 403,
-      "fingerprint": "08db4317e114af354c4495098774544d0e2a669aa49d3d3a7b666d30ab7ae520",
+      "fingerprint": "b08a6d9e0de9588e68c61ad79f95efaea324cd226ef0d0ce711e4e417495f00a",
       "finalUrl": "https://www.commerce.alaska.gov/web/cbpl/Corporations/CorporationFormsFees"
     },
     "arizona": {
@@ -22,61 +22,61 @@
     "arkansas": {
       "sourceUrl": "https://sos.arkansas.gov/business-commercial-services-bcs/forms-fees/llc",
       "status": 200,
-      "fingerprint": "b5e58befb60b49ed05321259455db7308c1104e93bc2a1f78da380def0adfa11",
+      "fingerprint": "8b29ca9f1bf1aa902eb8baa26ee21523c647e3af6b3effb7c323a024c18f25bf",
       "finalUrl": "https://sos.arkansas.gov/business-commercial-services-bcs/forms-fees/llc"
     },
     "california": {
       "sourceUrl": "https://www.sos.ca.gov/business-programs/business-entities/forms/limited-liability-companies-california-domestic",
       "status": 200,
-      "fingerprint": "da2af2703e6569cbdd2378b01c36b926d77d8c2d377dca78201c9393222c1205",
+      "fingerprint": "6bb3811dc7d979c539add217f7e8fe57f5fe55514e90aeb9d003c5712c793db6",
       "finalUrl": "https://www.sos.ca.gov/business-programs/business-entities/forms/limited-liability-companies-california-domestic"
     },
     "colorado": {
       "sourceUrl": "https://www.coloradosos.gov/pubs/info_center/fees/business.html",
-      "status": 200,
-      "fingerprint": "5d16ce0ed210c3d6fca7f5d39ce2de5939f694dd3c6139002c22d9449a66408f",
+      "status": 403,
+      "fingerprint": "547d7f1c8b10e8859c20d9ddcda12db58e77229877d12eedfe9c442d5e0f7621",
       "finalUrl": "https://www.coloradosos.gov/pubs/info_center/fees/business.html"
     },
     "connecticut": {
       "sourceUrl": "https://business.ct.gov/knowledge-base/articles/domestic-limited-liability-companies-forms-and-fees",
       "status": 200,
-      "fingerprint": "57e29898d2ff00e775ed745ca8ab2c98534c2fa1c8840207220fa73b11ffd122",
+      "fingerprint": "80ac1e8fa97591edd73b418bd7747ca652385f07227c8c737784fa7d125e4cd8",
       "finalUrl": "https://business.ct.gov/knowledge-base/articles/domestic-limited-liability-companies-forms-and-fees"
     },
     "delaware": {
       "sourceUrl": "https://corp.delaware.gov/alt-entitytaxinstructions/",
       "status": 200,
-      "fingerprint": "f9bf1283b3d7ea98f592e139891d55cbdc8e91848c5955f276259da2b8624952",
+      "fingerprint": "3b389462d95dde0a4924110f82c5c71d8391377dde0498ffe937d4f5c9ee9732",
       "finalUrl": "https://corp.delaware.gov/alt-entitytaxinstructions/"
     },
     "florida": {
       "sourceUrl": "https://dos.fl.gov/sunbiz/start-business/efile/fl-llc",
       "status": 200,
-      "fingerprint": "1ce2bbe41a1a0f8ffc5808694fcf87ff92cc1e686ad05f7e431d27029bc8d729",
+      "fingerprint": "55e1de45630583799a0957cfdf67f364e03065aac70c50cbd4e2b40e3e3629d6",
       "finalUrl": "https://dos.fl.gov/sunbiz/start-business/efile/fl-llc"
     },
     "georgia": {
       "sourceUrl": "https://sos.ga.gov/sites/default/files/2025-07/corp-filing_procedure-limited_liability_company.pdf",
       "status": 403,
-      "fingerprint": "5aaeeeefe1f9fd97b7d80847eca795b3546b481d788ff19835b33eebc538ec24",
+      "fingerprint": "1ab3bef2368b53e94f11da2dbaf3ca714d0df0c855929c9c8f0babdac25bb76d",
       "finalUrl": "https://sos.ga.gov/sites/default/files/2025-07/corp-filing_procedure-limited_liability_company.pdf"
     },
     "hawaii": {
       "sourceUrl": "https://cca.hawaii.gov/breg/registration/dllc/",
       "status": 200,
-      "fingerprint": "323d0ad8bff7546a0c2b36b7167a3e0b9fe5ad904af671d0cc685c7c37e21143",
+      "fingerprint": "63ea29f84164bee9e0349565ac2b9318079e77a9db5587006dfb78aa38836964",
       "finalUrl": "https://cca.hawaii.gov/breg/registration/dllc/"
     },
     "idaho": {
       "sourceUrl": "https://legislature.idaho.gov/statutesrules/idstat/Title30/T30CH21/SECT30-21-214/",
       "status": 200,
-      "fingerprint": "d1cc7a5c7d65c4d4d95bd11b5bb5a198373340da62169087725c431a00e370cf",
+      "fingerprint": "84b0eac9d11df8c5977038bbfc2976ec1323f88a9ce4508cba78c472c847c041",
       "finalUrl": "https://legislature.idaho.gov/statutesrules/idstat/Title30/T30CH21/SECT30-21-214/"
     },
     "illinois": {
       "sourceUrl": "https://www.ilsos.gov/publications/business-services/llc.html",
       "status": 403,
-      "fingerprint": "9710db71b5769cd85100ac4bc9c1db295fd9a6da8d0186e2eeeb0d283758f87d",
+      "fingerprint": "fed9d7a7d1905c6a366bd41f1368f03592b760f68843b54d8e438f9bb3de63ae",
       "finalUrl": "https://www.ilsos.gov/publications/business-services/llc.html"
     },
     "indiana": {
@@ -88,7 +88,7 @@
     "iowa": {
       "sourceUrl": "https://sos.iowa.gov/businesses/business-entity-forms-and-fees",
       "status": 403,
-      "fingerprint": "fe664c97304ce3e73711a607657e7e2fb414b52f2d86996b52be5351d21f0dc9",
+      "fingerprint": "b2ee7b12eaf962890799dc8aa43b22c53fa8600b32bdf246d4088778e36897e2",
       "finalUrl": "https://sos.iowa.gov/businesses/business-entity-forms-and-fees"
     },
     "kansas": {
@@ -112,7 +112,7 @@
     "maine": {
       "sourceUrl": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc6.pdf",
       "status": 403,
-      "fingerprint": "fe0811c9cd0b3882881c997d3cb3842186a38ae49d9c82367c30d5f8cb32dbec",
+      "fingerprint": "b37ddf3a304cc706c57e22239e6e209cf74f6639e8ef0a736fdde5310bc99eb8",
       "finalUrl": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/mllc6.pdf"
     },
     "maryland": {
@@ -124,19 +124,19 @@
     "massachusetts": {
       "sourceUrl": "https://www.sec.state.ma.us/divisions/corporations/pdf-html/950_cmr_112_limited_liability_companies.htm",
       "status": 200,
-      "fingerprint": "b519394f059f6e6f459bf379dfa48e809e0a74a33f03f26aadec491dceae1d96",
+      "fingerprint": "bdfe1b9067f2caced6d58bd23b5464c4cefd5eb0a4ae5ca3052e630b37259900",
       "finalUrl": "https://www.sec.state.ma.us/divisions/corporations/pdf-html/950_cmr_112_limited_liability_companies.htm"
     },
     "michigan": {
       "sourceUrl": "https://www.michigan.gov/-/media/Project/Websites/lara/cscl/Folder1/BCS_CD_265.pdf",
       "status": 403,
-      "fingerprint": "05fd35fe7fd092c0faf502961b021d7c79fc0504b6352aba3973f7ca540ec71b",
+      "fingerprint": "0d28edd566a73e4976d878461a9ae0892eacbe39820210f3ff832c4f413d10b7",
       "finalUrl": "https://www.michigan.gov/-/media/Project/Websites/lara/cscl/Folder1/BCS_CD_265.pdf"
     },
     "minnesota": {
       "sourceUrl": "https://www.sos.mn.gov/business-liens/business-filing-and-certification-fee-schedule/",
       "status": 200,
-      "fingerprint": "c65f1d346930c3b983d612b563fc24fcc5d88837e9073590ee76dc65cf997109",
+      "fingerprint": "19ebdedd060840b6d9cb1e18968ca0219bf1caadd27f50034be5508cc32f5cf7",
       "finalUrl": "https://www.sos.mn.gov/business-liens/business-filing-and-certification-fee-schedule/"
     },
     "mississippi": {
@@ -148,13 +148,13 @@
     "missouri": {
       "sourceUrl": "https://revisor.mo.gov/main/OneSection.aspx?section=347.179&bid=49444",
       "status": 200,
-      "fingerprint": "eb2faaa16018aa45fc3007815001237d39887c9f0220cf9d420c5cf20513b404",
+      "fingerprint": "61c0931eb7b3ea6b691081df0330e2d71d663d23a96a46d0953e9db7e83d0ffc",
       "finalUrl": "https://revisor.mo.gov/main/OneSection.aspx?section=347.179&bid=49444"
     },
     "montana": {
       "sourceUrl": "https://sosmt.gov/business/fees/",
       "status": 403,
-      "fingerprint": "3d8490b07207296790d52792575f24f3dc016ba97d261065e1607570eefff9cb",
+      "fingerprint": "cf6feb8dcb3ada1abaf4aa2bb3515dcf13a00a79134a6dcb59a80d608de2ae71",
       "finalUrl": "https://sosmt.gov/business/fees/"
     },
     "nebraska": {
@@ -165,20 +165,20 @@
     },
     "nevada": {
       "sourceUrl": "https://www.nvsos.gov/businesses/commercial-recordings/forms-fees/all-business-forms",
-      "status": 403,
-      "fingerprint": "36ad47ff19faf0128cb9a46315a04256e7a52f6a1862c20b7d54b6b321ef30c4",
+      "status": 200,
+      "fingerprint": "bdfe1b9067f2caced6d58bd23b5464c4cefd5eb0a4ae5ca3052e630b37259900",
       "finalUrl": "https://www.nvsos.gov/businesses/commercial-recordings/forms-fees/all-business-forms"
     },
     "new-hampshire": {
       "sourceUrl": "https://www.sos.nh.gov/corporations-0/forms-and-fees/limited-liability-companies",
       "status": 403,
-      "fingerprint": "b3860b4a8d95219f1d21b918cd94346d171adcb43fff6314f0c3bf655ab3e50c",
+      "fingerprint": "43cbf270f643ea43f8e34165b5683f70814ae513c11e83b788cb66f43e047ad8",
       "finalUrl": "https://www.sos.nh.gov/corporations-0/forms-and-fees/limited-liability-companies"
     },
     "new-jersey": {
       "sourceUrl": "https://www.nj.gov/treasury/revenue/fees.shtml",
       "status": 200,
-      "fingerprint": "aff9b8391665fc507654ed05c944cbc6a3bcfcffbeee4c86aa0e716094217b76",
+      "fingerprint": "104fd0498f667a7abaf71b928fb05ec5d84dc8ae8409b9648b7c59fad1f49d52",
       "finalUrl": "https://www.nj.gov/treasury/revenue/fees.shtml"
     },
     "new-mexico": {
@@ -190,7 +190,7 @@
     "new-york": {
       "sourceUrl": "https://dos.ny.gov/forming-limited-liability-company-new-york",
       "status": 200,
-      "fingerprint": "48e3c4a8f7440c6179b3c7b2e81220161f8e2bdf9cc9ebd1b26023dc44c3db8d",
+      "fingerprint": "2faee65c6d61e70326b8a1056f8bb0c6d75694cec8f5d1c56563f0e8a3de1358",
       "finalUrl": "https://dos.ny.gov/forming-limited-liability-company-new-york"
     },
     "north-carolina": {
@@ -202,7 +202,7 @@
     "north-dakota": {
       "sourceUrl": "https://www.sos.nd.gov/business/business-services/business-structures/limited-liability-company-llc",
       "status": 200,
-      "fingerprint": "d3bf78ccf1801160a068b5cbb9f535a05721e4194bec976632c4e325bfc5180b",
+      "fingerprint": "9072d4bd4653c591805d9bb3f5c659cda519f1b3be95dc89d2c1120777f9ccf4",
       "finalUrl": "https://www.sos.nd.gov/business/business-services/business-structures/limited-liability-company-llc"
     },
     "ohio": {
@@ -214,19 +214,19 @@
     "oklahoma": {
       "sourceUrl": "https://www.sos.ok.gov/business/fees.aspx",
       "status": 200,
-      "fingerprint": "7f5fa66afd4d3c86a1a7eddb9ff23993e27340de7a4ab12ca9f1ae6082b2e628",
+      "fingerprint": "58c0b7a409209dfe0aaf88ae5609fd08f79a56d4a9673c0fd1a80e7488e2c1c7",
       "finalUrl": "https://oklahoma.gov/sos.html"
     },
     "oregon": {
       "sourceUrl": "https://sos.oregon.gov/business/register/pages/domestic-limited-liability-companies-forms.aspx",
       "status": 200,
-      "fingerprint": "07bd4f144c0a4fb5d7fe9a82198f4db758ac7892851b13b5a6b634ded2a39bdc",
+      "fingerprint": "63c786db1b7f52cff99fde298c0632ce004d64d24b141200fb2e08d70f70051d",
       "finalUrl": "https://sos.oregon.gov/business/register/pages/domestic-limited-liability-companies-forms.aspx"
     },
     "pennsylvania": {
       "sourceUrl": "https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports",
       "status": 200,
-      "fingerprint": "e0a36bbcf10baab6d8f0bfd1eee34264e198e8000944142b5b3b495d04e985a4",
+      "fingerprint": "b31ea352048316c11e923767472e5f63148c56397ec76e1fa26366524b4a2bad",
       "finalUrl": "https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports"
     },
     "rhode-island": {
@@ -238,19 +238,19 @@
     "south-carolina": {
       "sourceUrl": "https://businessfilings.sc.gov/BusinessFiling/Entity/DownloadForm?formName=F0006&entityType=2&filingType=Articles%20of%20Organization",
       "status": 200,
-      "fingerprint": "10f39b75321dffa05cc1142728942e468e22e4feba090415df7781d82a774c72",
+      "fingerprint": "24d204d6646dd1c67d24129cf7115b2f4dce049eb5a811a97feb0731a9a9f0a1",
       "finalUrl": "https://businessfilings.sc.gov/BusinessFiling/Entity/DownloadForm?formName=F0006&entityType=2&filingType=Articles%20of%20Organization"
     },
     "south-dakota": {
       "sourceUrl": "https://sdsos.gov/general-information/filing-fees.aspx",
       "status": 200,
-      "fingerprint": "4eb3448718a1e75157738c7e8f779ff5807076f3236138117425c5dd90507c48",
+      "fingerprint": "6a5beed83796fd5f178ab8413bb50c1e69a392d980b4d8992b5eb9fa7b029bc3",
       "finalUrl": "https://sdsos.gov/general-information/filing-fees.aspx"
     },
     "tennessee": {
       "sourceUrl": "https://sos.tn.gov/businesses/forms-and-fees",
       "status": 403,
-      "fingerprint": "6ca3f443ac0e2d2fad18823ff1ef829757f68aac945389528a0c05951640b345",
+      "fingerprint": "90476f0af4aaf904c4566812c266d438c8058c6600fcc4d78c3fac6ea886990d",
       "finalUrl": "https://sos.tn.gov/businesses/forms-and-fees"
     },
     "texas": {
@@ -268,7 +268,7 @@
     "vermont": {
       "sourceUrl": "https://sos.vermont.gov/business-services/fees-statutes",
       "status": 200,
-      "fingerprint": "e3cc0699946c4dc2a51a4ca5f91d37d0b78c338a5ec7ff38a59e89beee9113ca",
+      "fingerprint": "38bb2cd8233f16ab0de6fbd93e92f13e25d02d99ff82f6e594104713ad036895",
       "finalUrl": "https://sos.vermont.gov/business-services/fees-statutes"
     },
     "virginia": {
@@ -280,25 +280,25 @@
     "washington": {
       "sourceUrl": "https://www.sos.wa.gov/corporations-charities/business-entities/limited-liability-company-llc-professional-llc-pllc-filing-resource-page",
       "status": 200,
-      "fingerprint": "3d04e7b1943075e98ddc2856ad5e46679dcb0f7999935d163cc156a549b0cfe7",
+      "fingerprint": "06e03951dff246f2c7607900d9f0fa9c5b9ff81f8535dba527073cf2a2f810cf",
       "finalUrl": "https://www.sos.wa.gov/corporations-charities/business-entities/limited-liability-company-llc-professional-llc-pllc-filing-resource-page"
     },
     "district-of-columbia": {
       "sourceUrl": "https://dlcp.dc.gov/node/1621921",
       "status": 200,
-      "fingerprint": "ba457694caad8094cb3f2d98b98d0048089482352a4cc6bbd7a5c06e3a547238",
+      "fingerprint": "1a95baae29753739e4bbcd690d14a9b3101a98659fd902020dffbae9350fe561",
       "finalUrl": "https://dlcp.dc.gov/page/corporations-division-fees-limited-liability-company"
     },
     "west-virginia": {
       "sourceUrl": "https://sos.wv.gov/limited-liability-companies",
       "status": 200,
-      "fingerprint": "02ff4ae123b8d68e438d5b2b922d5ad2cd447f534d884141f4be01cf34be56dc",
+      "fingerprint": "3065e12916552a54ff7852f25d75ed300eb2ddef9dd9a6b154b119e1c1e85c7d",
       "finalUrl": "https://sos.wv.gov/limited-liability-companies"
     },
     "wisconsin": {
       "sourceUrl": "https://apps.dfi.wi.gov/apps/corpformation/directions.aspx?type=12",
       "status": 403,
-      "fingerprint": "4dbfe612ce27512ec881da077984bc9fb9b799f9cf024a26515ccb317e923321",
+      "fingerprint": "9d44969653f86b8eecaed8d178c23bcf2b0157650b4fbd70db596078676a57da",
       "finalUrl": "https://apps.dfi.wi.gov/apps/corpformation/directions.aspx?type=12"
     },
     "wyoming": {
