@@ -14,6 +14,7 @@ export const metadata: Metadata = {
       "An EIN is free from the IRS: apply online on irs.gov and usually get it immediately. Step-by-step checklist, what you need first, and avoid paid services.",
     type: "article",
     url: "/how-to-get-an-ein-for-free",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "How to Get an EIN for Free (2026)" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -65,6 +66,11 @@ export default function GetEINFreePage() {
       question: "How does a non-resident get an EIN without an SSN?",
       answer:
         "File Form SS-4 with the IRS by fax or phone — the online EIN application requires an SSN or ITIN, so it does not work for non-residents without one. On the form, write “Foreign” where it asks for an SSN. Processing by fax typically takes about a week; by phone it can be issued during the call.",
+    },
+    {
+      question: "How much does it cost to get an EIN as a non-resident?",
+      answer:
+        "The EIN itself is free — the IRS charges $0, even for non-residents without an SSN. You file Form SS-4 by fax or mail and write “Foreign” where it asks for an SSN. Paid services charge $75–$300 to file the same form for you, so paying only buys convenience, not the number. Fax processing usually takes about a week.",
     },
   ];
 
@@ -219,6 +225,16 @@ export default function GetEINFreePage() {
       <section className="mt-12 rounded-xl border border-slate-200 bg-slate-50 p-6">
         <h2 className="text-lg font-semibold text-[#102A43]">Related guides</h2>
         <ul className="mt-4 space-y-2 text-sm">
+          <li>
+            <Link href="/tools/non-resident-llc-cost-calculator" className="text-[#1769AA] hover:underline">
+              Non-Resident LLC Cost Calculator — Year-1 & 5-year costs in your currency
+            </Link>
+          </li>
+          <li>
+            <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">
+              Non-resident LLC guide
+            </Link>
+          </li>
           <li>
             <Link href="/how-to-form-an-llc" className="text-[#1769AA] hover:underline">
               How to form an LLC

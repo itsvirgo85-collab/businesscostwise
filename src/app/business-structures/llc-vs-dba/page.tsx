@@ -15,6 +15,7 @@ export const metadata: Metadata = {
       "A DBA is a name, not a business structure. Compare LLC vs DBA on liability protection, taxes, cost, and when a DBA alone is enough — and when it is not.",
     type: "website",
     url: "/business-structures/llc-vs-dba",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "LLC vs DBA: Which Is Better? (2026)" }],
   },
   twitter: {
     card: "summary_large_image",

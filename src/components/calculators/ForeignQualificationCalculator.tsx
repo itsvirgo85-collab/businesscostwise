@@ -126,7 +126,6 @@ export default function ForeignQualificationCalculator() {
       domesticRecurring,
       targetRecurring,
       agentYearly,
-      year1,
       recurringYearly,
       total,
     };

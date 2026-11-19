@@ -15,6 +15,14 @@ export const metadata: Metadata = {
       "Yes — no SSN or US address is needed to form an LLC. Learn how non-residents get an EIN, which states work best, and the Form 5472 reporting trap.",
     type: "website",
     url: "/guides/non-resident-llc",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Can a Non-Resident Form an LLC in the USA? (2026)",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -53,6 +61,16 @@ export default function NonResidentLlcPage() {
         "Wyoming and Delaware are the usual picks: Wyoming for low costs and privacy, Delaware for credibility with US customers and partners. New Mexico is also cheap with no annual report. But if you will have a US office, employees, or a warehouse somewhere, form there instead — foreign qualification in that state will cost you anyway.",
     },
     {
+      question: "Can I form a US LLC from abroad without visiting the US?",
+      answer:
+        "Yes. You can form a US LLC entirely online from abroad — no US visit, visa, or local address is needed. You file the Articles of Organization online, appoint a registered agent with a physical address in the formation state (typically $99–$150 a year), and get your EIN by fax or phone. See the cost for your state: /tools/non-resident-llc-cost-calculator?state=wyoming",
+    },
+    {
+      question: "Is a registered agent the same as a virtual mailbox?",
+      answer:
+        "No. A registered agent is a legal requirement: a person or company with a physical address in the formation state who accepts lawsuits and official state mail during business hours. A virtual mailbox only forwards ordinary mail (typically $10–$30 a month) and does not satisfy the agent requirement. Non-residents need both: an agent for legal mail and a mailbox for the rest.",
+    },
+    {
       question: "Can a non-resident open a US bank account for the LLC?",
       answer:
         "It is possible but harder than it used to be. Most US banks require an in-person visit with your passport, the LLC's formation documents, the EIN letter, and the operating agreement. A few fintech accounts can be opened remotely, but they are not full banks and have their own limits. Plan a US trip, or work with a bank that explicitly serves non-resident owners.",
@@ -77,6 +95,26 @@ export default function NonResidentLlcPage() {
 
       <p className="mt-4 max-w-3xl text-lg text-slate-600 leading-relaxed">
         Yes — and it is one of the most common questions from founders outside the US. No state requires citizenship, residency, or a Social Security Number to form an LLC. The hard parts are the EIN, the bank account, and the tax filings that come after.
+      </p>
+
+      <p className="mt-4 max-w-3xl text-slate-700 leading-relaxed">
+        Before you pick a state, run the numbers: the{" "}
+        <Link href="/tools/non-resident-llc-cost-calculator" className="text-[#1769AA] hover:underline">
+          Non-Resident LLC Cost Calculator
+        </Link>{" "}
+        shows Year-1 and 5-year totals for every state in your home currency —{" "}
+        <Link href="/tools/non-resident-llc-cost-calculator?currency=GBP&state=wyoming" className="text-[#1769AA] hover:underline">
+          Wyoming in GBP
+        </Link>
+        ,{" "}
+        <Link href="/tools/non-resident-llc-cost-calculator?currency=EUR&state=delaware" className="text-[#1769AA] hover:underline">
+          Delaware in EUR
+        </Link>{" "}
+        or{" "}
+        <Link href="/tools/non-resident-llc-cost-calculator?currency=INR&state=new-mexico" className="text-[#1769AA] hover:underline">
+          New Mexico in INR
+        </Link>
+        .
       </p>
 
       <section className="mt-10 max-w-3xl">
@@ -138,6 +176,7 @@ export default function NonResidentLlcPage() {
       <section className="mt-12 max-w-3xl rounded-xl border border-slate-200 bg-slate-50 p-6">
         <h2 className="text-lg font-semibold text-[#102A43]">Related guides &amp; tools</h2>
         <ul className="mt-3 space-y-2 text-sm">
+          <li><Link href="/tools/non-resident-llc-cost-calculator" className="text-[#1769AA] hover:underline">Non-Resident LLC Cost Calculator — Year-1 & 5-year costs in your currency</Link></li>
           <li><Link href="/how-to-get-an-ein-for-free" className="text-[#1769AA] hover:underline">How to Get an EIN for Free</Link></li>
           <li><Link href="/tools/best-state-to-form-an-llc" className="text-[#1769AA] hover:underline">Best State to Form an LLC Finder</Link></li>
           <li><Link href="/tools/anonymous-llc-state-finder" className="text-[#1769AA] hover:underline">Anonymous LLC State Finder</Link></li>

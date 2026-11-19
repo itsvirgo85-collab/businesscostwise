@@ -3,30 +3,42 @@ import Link from "next/link";
 import { STATE_FEES } from "@/data/stateFees";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import HiddenCostEstimator from "@/components/calculators/HiddenCostEstimator";
 
 export const metadata: Metadata = {
-  title: { absolute: "Hidden Costs of Forming an LLC: What the Filing Fee Hides" },
+  title: { absolute: "Hidden Costs of Forming an LLC (2026 Calculator & Breakdown)" },
   description:
-    "The filing fee is only the start: annual reports, franchise taxes, publication, and agent fees can add hundreds a year. See the real 5-year cost by state.",
+    "The filing fee is only the start: annual reports, franchise taxes, publication, and agent fees can add hundreds a year. See the real Year-1 cost by state.",
   alternates: { canonical: "/hidden-costs-of-forming-an-llc" },
   openGraph: {
-    title: "Hidden Costs of Forming an LLC: What the Filing Fee Hides",
+    title: "Hidden Costs of Forming an LLC (2026 Calculator & Breakdown)",
     description:
-      "The filing fee is only the start: annual reports, franchise taxes, publication, and agent fees can add hundreds a year. See the real 5-year cost by state.",
+      "The filing fee is only the start: annual reports, franchise taxes, publication, and agent fees can add hundreds a year. See the real Year-1 cost by state.",
     type: "article",
     url: "/hidden-costs-of-forming-an-llc",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Hidden Costs of Forming an LLC (2026 Calculator & Breakdown)",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hidden Costs of Forming an LLC: What the Filing Fee Hides",
+    title: "Hidden Costs of Forming an LLC (2026 Calculator & Breakdown)",
     description:
-      "The filing fee is only the start: annual reports, franchise taxes, publication, and agent fees can add hundreds a year. See the real 5-year cost by state.",
+      "The filing fee is only the start: annual reports, franchise taxes, publication, and agent fees can add hundreds a year. See the real Year-1 cost by state.",
     images: ["/twitter-image"],
   },
 };
 
 export default function HiddenCostsPage() {
   const verified = STATE_FEES.filter((s) => s.status === "verified");
+  const newMexico = verified.find((s) => s.slug === "new-mexico");
+  const wyoming = verified.find((s) => s.slug === "wyoming");
+  const delaware = verified.find((s) => s.slug === "delaware");
 
   const highRecurring = verified
     .map((s) => {
@@ -35,6 +47,8 @@ export default function HiddenCostsPage() {
         yearly = (s.annualFee ?? 0) + (s.franchiseTax ?? 0);
       } else if (s.annualFrequency === "biennial") {
         yearly = (s.annualFee ?? 0) / 2;
+      } else if (s.annualFrequency === "none") {
+        yearly = (s.franchiseTax ?? 0);
       }
       if (s.slug === "california") yearly = (s.franchiseTax ?? 800) + (s.annualFee ?? 0);
       return { ...s, yearly };
@@ -89,6 +103,21 @@ export default function HiddenCostsPage() {
       answer:
         "Only nine jurisdictions have a general state-level business license: Alabama, Alaska, Delaware, District of Columbia, Hawaii, Nevada, Tennessee, Washington, and West Virginia. Everywhere else, licensing is city and county level — plus industry-specific permits (food, construction, childcare, and so on). Budget for licences separately from the LLC formation fee, and check with your city and county licensing office.",
     },
+    {
+      question: "Why do online LLC formation packages cost several hundred dollars when state filing fees start at $35?",
+      answer:
+        `Secretaries of State charge only the mandatory filing fee — $${newMexico?.formationFee ?? 50} in New Mexico, $${wyoming?.formationFee ?? 100} in Wyoming, $${delaware?.formationFee ?? 110} in Delaware. Formation agencies add hundreds of dollars in optional markups for rush processing, operating agreement templates, compliance alerts, and EIN filing, which the IRS offers free. Use the Hidden Cost Estimator above to compare government-only vs. add-on totals.`,
+    },
+    {
+      question: "Is a Certificate of Good Standing or certified copy required when forming an LLC?",
+      answer:
+        "No — neither document is required to form an LLC, yet many formation checkouts pre-select them for $50 to $150 extra. When you need one later for a bank account or registering in another state, order it directly from the state portal for $10 to $50. Check your state's official fee schedule before paying an agency markup.",
+    },
+    {
+      question: "What happens operationally if I miss a US state annual report deadline?",
+      answer:
+        "Missing an annual report deadline triggers an automatic state late penalty — from $25 plus interest in Arkansas to $400 in Florida and $200 plus 1.5% monthly interest in Delaware. If left unpaid, the Secretary of State marks the LLC “Delinquent” or “Administratively Dissolved,” and restoring good standing requires a reinstatement filing plus all back-owed annual fees.",
+    },
   ];
 
   return (
@@ -135,6 +164,10 @@ export default function HiddenCostsPage() {
         >
           Full cost overview
         </Link>
+      </div>
+
+      <div className="mt-8">
+        <HiddenCostEstimator />
       </div>
 
       <section className="mt-12">

@@ -3,44 +3,51 @@ import Link from "next/link";
 import { STATE_FEES } from "@/data/stateFees";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import AnnualReportCalculator from "@/components/calculators/AnnualReportCalculator";
+import AnnualReportTable from "@/components/calculators/AnnualReportTable";
 
 export const metadata: Metadata = {
-  title: { absolute: "LLC Annual Report Fees by State 2026 — $0 States, Deadlines & Every Fee" },
+  title: { absolute: "LLC Annual Report Fees by State 2026 — $0 States & Deadlines" },
   description:
-    "LLC annual report fees for all 50 states + DC: which states charge $0, which charge every year, what each report costs, what happens if you miss the deadline, and where franchise tax applies on top.",
+    "LLC annual report fees for all 50 states + DC: check any state's fee, frequency and 5-year renewal total, which states charge $0, and missed-deadline penalties.",
   alternates: { canonical: "/annual-report-requirements-by-state" },
   openGraph: {
-    title: "LLC Annual Report Fees by State 2026 — $0 States, Deadlines & Every Fee",
+    title: "LLC Annual Report Fees by State 2026 — $0 States & Deadlines",
     description:
-      "LLC annual report fees for all 50 states + DC: which states charge $0, which charge every year, what each report costs, what happens if you miss the deadline, and where franchise tax applies on top.",
+      "LLC annual report fees for all 50 states + DC: check any state's fee, frequency and 5-year renewal total, which states charge $0, and missed-deadline penalties.",
     type: "article",
     url: "/annual-report-requirements-by-state",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "LLC Annual Report Fees by State 2026 — $0 States & Deadlines",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "LLC Annual Report Fees by State 2026 — $0 States, Deadlines & Every Fee",
+    title: "LLC Annual Report Fees by State 2026 — $0 States & Deadlines",
     description:
-      "LLC annual report fees for all 50 states + DC: which states charge $0, which charge every year, what each report costs, what happens if you miss the deadline, and where franchise tax applies on top.",
+      "LLC annual report fees for all 50 states + DC: check any state's fee, frequency and 5-year renewal total, which states charge $0, and missed-deadline penalties.",
     images: ["/twitter-image"],
   },
 };
 
 export default function AnnualReportPage() {
   const verified = STATE_FEES.filter((s) => s.status === "verified");
+  const delaware = verified.find((s) => s.slug === "delaware");
+  const california = verified.find((s) => s.slug === "california");
+  const zeroReportStates = verified
+    .filter((s) => (s.annualFee ?? null) === 0 && (s.franchiseTax ?? 0) === 0)
+    .map((s) => s.state);
 
   const noRecurring = verified.filter(
     (s) =>
       (s.annualFee == null || s.annualFee === 0) &&
       (s.franchiseTax == null || s.franchiseTax === 0)
   );
-
-  const annual = verified
-    .filter((s) => s.annualFrequency === "annual" && (s.annualFee ?? 0) > 0)
-    .sort((a, b) => (a.annualFee ?? 0) - (b.annualFee ?? 0));
-
-  const biennial = verified
-    .filter((s) => s.annualFrequency === "biennial")
-    .sort((a, b) => (a.annualFee ?? 0) - (b.annualFee ?? 0));
 
   const withFranchise = verified.filter((s) => (s.franchiseTax ?? 0) > 0);
 
@@ -54,11 +61,6 @@ export default function AnnualReportPage() {
       question: "Do all states require annual reports for LLCs?",
       answer:
         "No. Requirements vary. Some states require annual filings, some biennial (every two years), and a smaller group currently charge little or nothing for the report itself. Always confirm the current rule for your formation state.",
-    },
-    {
-      question: "What happens if I miss the annual report deadline?",
-      answer:
-        "Late fees are common. Continued failure can lead to loss of good standing and eventually administrative dissolution of the LLC. Restoring good standing usually costs more than filing on time.",
     },
     {
       question: "Is a franchise tax the same as an annual report fee?",
@@ -79,6 +81,26 @@ export default function AnnualReportPage() {
       question: "Do I still need to file a BOI report for my LLC?",
       answer:
         "No, if your LLC was formed in the US. FinCEN's final rule effective 14 August 2026 permanently exempts US-formed companies and US persons from beneficial ownership (BOI) reporting. Only companies formed under foreign law that register to do business in a US state still report — within 30 days of registration. New York's LLC Transparency Act (in effect from 1 January 2026) is a separate state disclosure for NY LLCs.",
+    },
+    {
+      question: "How much does an LLC cost per year in ongoing state renewal fees?",
+      answer:
+        `Ongoing state renewal fees range from $0 a year in states like ${zeroReportStates.slice(0, 4).join(", ")} to $${delaware?.franchiseTax ?? 400} a year in Delaware and $${california?.franchiseTax ?? 800} a year in California. Many states charge between $25 and $150 a year or every two years to keep an LLC in good standing. Use the 51-state Annual Report Fee Calculator above to check your state's exact fee and 5-year renewal total.`,
+    },
+    {
+      question: "Why did Delaware's annual LLC fee increase to $400 in 2026, and when is it due?",
+      answer:
+        `Under Delaware House Bill 400, the flat annual LLC tax rose from $300 to $${delaware?.franchiseTax ?? 400} a year starting with tax year 2026. Delaware LLCs file no annual report, but every active LLC must pay the $${delaware?.franchiseTax ?? 400} by June 1 each year, regardless of revenue. Missing the deadline triggers a $200 late penalty plus 1.5% monthly interest.`,
+    },
+    {
+      question: "Which US states have a $0 annual report fee for LLCs?",
+      answer:
+        `Several states charge $0 in annual Secretary of State report fees, including ${zeroReportStates.join(", ")}. Some still require the filing itself even though the fee is $0. Even in $0-report states, budget for a registered agent if you have no physical street address in that state.`,
+    },
+    {
+      question: "What happens operationally if I miss a US state annual report deadline?",
+      answer:
+        "Missing an annual report deadline triggers an automatic state late penalty — from $25 plus interest in Arkansas to $400 in Florida and $200 plus 1.5% monthly interest in Delaware. If left unpaid, the Secretary of State marks the LLC “Delinquent” or “Administratively Dissolved,” and restoring good standing requires a reinstatement filing plus all back-owed annual fees.",
     },
   ];
 
@@ -127,6 +149,10 @@ export default function AnnualReportPage() {
         </Link>
       </div>
 
+      <div className="mt-8">
+        <AnnualReportCalculator />
+      </div>
+
       <section className="mt-12">
         <h2 className="text-2xl font-bold text-[#102A43]">
           States with no (or $0) recurring report fee
@@ -153,81 +179,15 @@ export default function AnnualReportPage() {
       </section>
 
       <section className="mt-12">
-        <h2 className="text-2xl font-bold text-[#102A43]">Annual report states (sample)</h2>
+        <h2 className="text-2xl font-bold text-[#102A43]">
+          All 51 jurisdictions — report fee, frequency &amp; 5-year renewal
+        </h2>
         <p className="mt-2 text-slate-600">
-          Sorted by report fee (lowest first). Franchise taxes are listed separately where applicable.
+          Search or filter by filing frequency. The 5-year renewal total is the
+          recurring state cost over five years (formation fee excluded).
         </p>
-        <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
-          <table className="min-w-full text-left text-sm">
-            <thead className="border-b border-slate-200 bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
-              <tr>
-                <th className="px-4 py-3 font-medium">State</th>
-                <th className="px-4 py-3 font-medium">Report Fee</th>
-                <th className="px-4 py-3 font-medium">Franchise / Other</th>
-                <th className="px-4 py-3 font-medium"></th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-100">
-              {annual.slice(0, 20).map((s) => (
-                <tr key={s.slug} className="hover:bg-slate-50">
-                  <td className="px-4 py-3 font-medium">
-                    <Link href={`/llc-cost-by-state/${s.slug}`} className="text-[#1769AA] hover:underline">
-                      {s.state}
-                    </Link>
-                  </td>
-                  <td className="px-4 py-3">${s.annualFee}</td>
-                  <td className="px-4 py-3">{s.franchiseTax ? `$${s.franchiseTax}` : "—"}</td>
-                  <td className="px-4 py-3">
-                    <Link href={`/llc-cost-by-state/${s.slug}`} className="text-xs text-[#1769AA] hover:underline">
-                      View →
-                    </Link>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section className="mt-12">
-        <h2 className="text-2xl font-bold text-[#102A43]">Biennial report states</h2>
-        <p className="mt-2 text-slate-600">
-          Report due every two years. The fee below is the amount charged per filing (not annualized).
-        </p>
-        <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
-          <table className="min-w-full text-left text-sm">
-            <thead className="border-b border-slate-200 bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
-              <tr>
-                <th className="px-4 py-3 font-medium">State</th>
-                <th className="px-4 py-3 font-medium">Biennial Fee</th>
-                <th className="px-4 py-3 font-medium"></th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-100">
-              {biennial.map((s) => (
-                <tr key={s.slug} className="hover:bg-slate-50">
-                  <td className="px-4 py-3 font-medium">
-                    <Link href={`/llc-cost-by-state/${s.slug}`} className="text-[#1769AA] hover:underline">
-                      {s.state}
-                    </Link>
-                  </td>
-                  <td className="px-4 py-3">${s.annualFee ?? "—"}</td>
-                  <td className="px-4 py-3">
-                    <Link href={`/llc-cost-by-state/${s.slug}`} className="text-xs text-[#1769AA] hover:underline">
-                      View →
-                    </Link>
-                  </td>
-                </tr>
-              ))}
-              {biennial.length === 0 && (
-                <tr>
-                  <td colSpan={3} className="px-4 py-6 text-center text-sm text-slate-500">
-                    Check individual state pages — some states use different labeling in the dataset.
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
+        <div className="mt-6">
+          <AnnualReportTable />
         </div>
       </section>
 

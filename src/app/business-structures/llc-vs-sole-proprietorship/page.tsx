@@ -14,6 +14,7 @@ export const metadata: Metadata = {
       "LLC vs sole proprietorship compared: liability, taxes, formation cost and ongoing requirements — and when each structure makes sense for your business.",
     type: "article",
     url: "/business-structures/llc-vs-sole-proprietorship",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "LLC vs Sole Proprietorship (2026)" }],
   },
   twitter: {
     card: "summary_large_image",

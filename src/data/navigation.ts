@@ -169,6 +169,68 @@ export const GUIDES_SECTION: NavSection = {
         },
       ],
     },
+    {
+      label: "International",
+      href: "/guides",
+      description: "US LLC costs for founders abroad, in their home currency.",
+      links: [
+        {
+          label: "US LLC Cost from Ireland",
+          href: "/guides/us-llc-cost-from-ireland",
+          description: "Year-1 and ongoing US LLC fees in EUR, with the CRO €50 benchmark.",
+        },
+        {
+          label: "US LLC Cost from New Zealand",
+          href: "/guides/us-llc-cost-from-new-zealand",
+          description: "Year-1 and 5-year US LLC costs in NZD, with the Companies Office benchmark.",
+        },
+        {
+          label: "US LLC Cost from the Netherlands",
+          href: "/guides/us-llc-cost-from-netherlands",
+          description: "Setup and annual US LLC fees in EUR, with the KvK €85.15 benchmark.",
+        },
+        {
+          label: "US LLC Cost from Germany",
+          href: "/guides/us-llc-cost-from-germany",
+          description: "Filing and renewal US LLC fees in EUR, with the UG/GmbH cost benchmark.",
+        },
+        {
+          label: "US LLC Cost from the UK",
+          href: "/guides/us-llc-cost-from-uk",
+          description: "Year-1 and 5-year US LLC fees in GBP, with the Companies House £100 benchmark.",
+        },
+        {
+          label: "US LLC Cost from Canada",
+          href: "/guides/us-llc-cost-from-canada",
+          description: "Filing and annual US LLC fees in CAD, with the Corporations Canada $200 benchmark.",
+        },
+        {
+          label: "US LLC Cost from Australia",
+          href: "/guides/us-llc-cost-from-australia",
+          description: "Setup and annual US LLC fees in AUD, with the ASIC A$636 benchmark.",
+        },
+        {
+          label: "US LLC Cost from Singapore",
+          href: "/guides/us-llc-cost-from-singapore",
+          description: "Setup and annual US LLC fees in SGD, with the ACRA S$315 benchmark.",
+        },
+        {
+          label: "US LLC Cost from Dubai & UAE",
+          href: "/guides/us-llc-cost-from-dubai",
+          description: "Setup and annual US LLC fees in AED, with the Free Zone licence benchmark.",
+        },
+        {
+          label: "US LLC Cost from India",
+          href: "/guides/us-llc-cost-from-india",
+          description: "Official filing and renewal US LLC fees in INR, with the MCA SPICe+ ₹0 benchmark.",
+        },
+        {
+          label: "US LLC vs. UK Ltd Cost",
+          href: "/guides/us-llc-vs-uk-ltd-cost",
+          description: "5-year operational fee comparison: UK Ltd £300 vs. US LLCs with a registered agent.",
+        },
+      ],
+    },
   ],
 };
 
@@ -192,6 +254,11 @@ export const TOOLS_SECTION: NavSection = {
       label: "Registered Agent Cost Calculator",
       href: "/tools/registered-agent-cost-calculator",
       description: "Commercial service costs vs serving as your own agent.",
+    },
+    {
+      label: "Non-Resident LLC Cost Calculator",
+      href: "/tools/non-resident-llc-cost-calculator",
+      description: "US LLC costs for founders abroad: Year-1 & 5-year totals in 9 home currencies.",
     },
     {
       label: "Foreign Qualification Cost Calculator",

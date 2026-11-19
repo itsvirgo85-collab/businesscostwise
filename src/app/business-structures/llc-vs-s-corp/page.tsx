@@ -14,6 +14,7 @@ export const metadata: Metadata = {
       "LLC vs S corp explained: default taxation, self-employment tax, ownership limits and when an LLC might elect S-corporation tax status. Educational guide.",
     type: "article",
     url: "/business-structures/llc-vs-s-corp",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "LLC vs S Corp: Key Differences (2026)" }],
   },
   twitter: {
     card: "summary_large_image",

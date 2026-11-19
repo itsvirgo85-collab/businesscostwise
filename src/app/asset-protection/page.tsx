@@ -14,6 +14,7 @@ export const metadata: Metadata = {
       "An LLC can separate business debts from personal assets — but only if properly maintained. Learn when courts pierce the veil and how to strengthen protection.",
     type: "article",
     url: "/asset-protection",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Does an LLC Protect Your Assets? (2026)" }],
   },
   twitter: {
     card: "summary_large_image",

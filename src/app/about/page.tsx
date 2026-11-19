@@ -14,6 +14,7 @@ export const metadata: Metadata = {
       "Why Get LLC Cost Calculator exists: one platform for verified US LLC formation costs, state fees and structure guides. Meet the author and our data process.",
     type: "article",
     url: "/about",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "About Get LLC Cost Calculator" }],
   },
   twitter: {
     card: "summary_large_image",

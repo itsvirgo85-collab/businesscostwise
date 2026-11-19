@@ -15,6 +15,14 @@ export const metadata: Metadata = {
       "Browse our LLC guides: what an LLC is, how to form one in 7 steps, formation and hidden costs, timelines, EINs, annual reports, and business structures.",
     type: "website",
     url: "/guides",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "LLC Guides: Formation, Costs & Compliance (2026)",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -50,6 +58,7 @@ export default function GuidesHubPage() {
   ];
 
   const structures = GUIDES_SECTION.subgroups?.[0];
+  const international = GUIDES_SECTION.subgroups?.[1];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
@@ -101,6 +110,27 @@ export default function GuidesHubPage() {
           </p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {structures.links.map((g) => (
+              <Link
+                key={g.href}
+                href={g.href}
+                className="rounded-xl border border-slate-200 bg-white p-5 transition hover:border-[#1769AA] hover:shadow-sm"
+              >
+                <h3 className="text-base font-semibold text-[#102A43]">{g.label}</h3>
+                <p className="mt-2 text-sm text-slate-600">{g.description}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {international && (
+        <section className="mt-12">
+          <h2 className="text-2xl font-bold text-[#102A43]">International</h2>
+          <p className="mt-2 max-w-3xl text-slate-600 leading-relaxed">
+            {international.description}
+          </p>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            {international.links.map((g) => (
               <Link
                 key={g.href}
                 href={g.href}

@@ -15,6 +15,7 @@ export const metadata: Metadata = {
       "An operating agreement sets who owns what, who decides, and how profits split. Five states require one; every multi-member LLC should have one anyway.",
     type: "website",
     url: "/guides/what-is-an-operating-agreement",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "What Is an Operating Agreement? Do I Need One? (2026)" }],
   },
   twitter: {
     card: "summary_large_image",

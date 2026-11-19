@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { STATE_FEES } from "@/data/stateFees";
+import { calculateFiveYearStateCost } from "@/lib/stateCost";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import YearOneVsFiveYearCalculator from "@/components/calculators/YearOneVsFiveYearCalculator";
 
 export const metadata: Metadata = {
   title: { absolute: "How Much Does It Cost to Start an LLC in 2026?" },
@@ -15,6 +17,14 @@ export const metadata: Metadata = {
       "Starting an LLC costs $35–$500 in filing fees, plus yearly reports and taxes. See 1, 3 & 5-year totals for all 50 states + DC and find the cheapest option.",
     type: "article",
     url: "/how-much-does-it-cost-to-start-an-llc",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "How Much Does It Cost to Start an LLC in 2026?",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -29,6 +39,18 @@ export default function HowMuchDoesItCostPage() {
   const verified = STATE_FEES.filter((s) => s.status === "verified" && s.formationFee != null);
   const cheapest = [...verified].sort((a, b) => (a.formationFee ?? 999) - (b.formationFee ?? 999)).slice(0, 5);
   const expensive = [...verified].sort((a, b) => (b.formationFee ?? 0) - (a.formationFee ?? 0)).slice(0, 5);
+  const newMexico = verified.find((s) => s.slug === "new-mexico");
+  const wyoming = verified.find((s) => s.slug === "wyoming");
+  const delaware = verified.find((s) => s.slug === "delaware");
+  const california = verified.find((s) => s.slug === "california");
+  const zeroReportStates = verified
+    .filter((s) => (s.annualFee ?? null) === 0 && (s.franchiseTax ?? 0) === 0)
+    .map((s) => s.state);
+  const fiveYear = (slug: string) => {
+    const s = verified.find((item) => item.slug === slug);
+    return s ? calculateFiveYearStateCost(s) : 0;
+  };
+  const agentFiveYear = 5 * 125;
 
   const faqs = [
     {
@@ -82,9 +104,14 @@ export default function HowMuchDoesItCostPage() {
         "No. The state filing fee only covers creating the LLC with the state. An operating agreement is a separate internal document, and an EIN is obtained free from the IRS.",
     },
     {
-      question: "How much does an LLC cost per year?",
+      question: "How much does an LLC cost per year in ongoing state renewal fees?",
       answer:
-        "It depends on the state. Annual report fees in our verified data run from $0 a year in states with no report fee to $500 a year for the Massachusetts annual report. A few states add a franchise or entity tax on top, notably California's $800 annual tax and Delaware's $400 annual tax. Use the calculator on this site for state-specific 1-, 3- and 5-year estimates.",
+        `Ongoing state renewal fees range from $0 a year in states like ${zeroReportStates.slice(0, 4).join(", ")} to $${delaware?.franchiseTax ?? 400} a year in Delaware and $${california?.franchiseTax ?? 800} a year in California. Many states charge between $25 and $150 a year or every two years to keep an LLC in good standing. Use the calculator above to check your state's exact fee and 5-year renewal total.`,
+    },
+    {
+      question: "How much does a Wyoming vs. Delaware vs. New Mexico LLC cost over 5 years?",
+      answer:
+        `In official state fees over 5 years, New Mexico costs $${fiveYear("new-mexico")} total ($${newMexico?.formationFee ?? 50} filing, $0 a year renewal), Wyoming costs $${fiveYear("wyoming")} ($${wyoming?.formationFee ?? 100} filing plus $${wyoming?.annualFee ?? 60} a year), and Delaware costs $${fiveYear("delaware")} ($${delaware?.formationFee ?? 110} filing plus $${delaware?.franchiseTax ?? 400} a year). Adding a $125-a-year registered agent brings 5-year totals to $${fiveYear("new-mexico") + agentFiveYear} in New Mexico, $${fiveYear("wyoming") + agentFiveYear} in Wyoming, and $${fiveYear("delaware") + agentFiveYear} in Delaware.`,
     },
     {
       question: "How much does ongoing LLC administration cost?",
@@ -179,6 +206,10 @@ export default function HowMuchDoesItCostPage() {
           How we source and verify fees →
         </Link>
       </p>
+
+      <div className="mt-8">
+        <YearOneVsFiveYearCalculator />
+      </div>
 
       <section className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6">
         <h2 className="text-lg font-semibold text-[#102A43]">Quick answer (2026)</h2>

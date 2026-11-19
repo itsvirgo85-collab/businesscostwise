@@ -15,6 +15,7 @@ export const metadata: Metadata = {
       "LLC costs by state for all 50 states + DC: verified formation fees and recurring annual or biennial costs, with official source links and multi-year context.",
     type: "article",
     url: "/llc-cost-by-state",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "LLC Costs by State 2026 — All 50 States + DC" }],
   },
   twitter: {
     card: "summary_large_image",

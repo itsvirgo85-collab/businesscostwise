@@ -14,6 +14,7 @@ export const metadata: Metadata = {
       "An LLC is a separate legal entity that shields owners' personal assets while staying simpler than a corporation. How it works, taxes, benefits, and limits.",
     type: "article",
     url: "/what-is-an-llc",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "What Is an LLC? Explained Simply (2026)" }],
   },
   twitter: {
     card: "summary_large_image",

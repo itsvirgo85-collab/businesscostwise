@@ -15,6 +15,7 @@ export const metadata: Metadata = {
       "A franchise tax is a fee for the privilege of doing business in a state — not an income tax. See which states charge one, how much, and which LLCs owe $0.",
     type: "website",
     url: "/guides/franchise-tax-explained",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "What Is a Franchise Tax? Which States Charge It? (2026)" }],
   },
   twitter: {
     card: "summary_large_image",

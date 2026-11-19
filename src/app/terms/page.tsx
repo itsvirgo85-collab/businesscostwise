@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     description: "Terms of use for Get LLC Cost Calculator: educational purpose, no warranties, acceptable use and liability limits for LLC cost guides and tools on this site.",
     type: "article",
     url: "/terms",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Terms of Use" }],
   },
   twitter: {
     card: "summary_large_image",

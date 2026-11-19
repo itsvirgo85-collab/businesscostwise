@@ -6,6 +6,8 @@ import { STATE_HIGHLIGHTS } from "@/data/stateHighlights";
 import { calculateFiveYearStateCost, calculateRecurringStateFees } from "@/lib/stateCost";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import YearOneVsFiveYearCalculator from "@/components/calculators/YearOneVsFiveYearCalculator";
+import RelatedCalculators from "@/components/calculators/RelatedCalculators";
 
 type Props = { params: Promise<{ state: string }> };
 
@@ -31,11 +33,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: `Official ${displayName} LLC formation and recurring costs with government source links.`,
       type: "article",
       url: `/llc-cost-by-state/${s.slug}`,
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: `LLC Cost in ${displayName} — Filing & Annual Fees`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: `LLC Cost in ${displayName} — Filing & Annual Fees`,
       description: `Official ${displayName} LLC formation and recurring costs with government source links.`,
+      images: ["/twitter-image"],
     },
   };
 }
@@ -74,7 +85,7 @@ export default async function StateCostPage({ params }: Props) {
           : "no recurring filing fee";
   const costProfile =
     s.formationFee != null
-      ? `Cost profile: ${s.state} charges a $${s.formationFee} formation fee, ${formationPosition} (national formation fees run $35–$520), with ${recurringSummary}. The estimated 5-year state cost is $${Math.round(fiveYear).toLocaleString()}.`
+      ? `Cost profile: ${s.state} charges a $${s.formationFee} formation fee, ${formationPosition} (national formation fees run $35–$500), with ${recurringSummary}. The estimated 5-year state cost is $${Math.round(fiveYear).toLocaleString()}.`
       : `Cost profile: ${s.state} has ${recurringSummary}. The estimated 5-year state cost is $${Math.round(fiveYear).toLocaleString()}.`;
 
   const annualReportAnswer =
@@ -301,6 +312,10 @@ export default async function StateCostPage({ params }: Props) {
         </div>
       </section>
 
+      <div className="mt-8">
+        <YearOneVsFiveYearCalculator defaultStateSlug={s.slug} compact />
+      </div>
+
       {s.notes && (
         <section className="mt-10">
           <h2 className="text-xl font-semibold text-[#102A43]">Important notes for {s.state}</h2>
@@ -392,6 +407,8 @@ export default async function StateCostPage({ params }: Props) {
           ))}
         </div>
       </section>
+
+      <RelatedCalculators stateName={s.state} />
 
       <section className="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-6">
         <h2 className="text-lg font-semibold text-[#102A43]">Related educational pages</h2>

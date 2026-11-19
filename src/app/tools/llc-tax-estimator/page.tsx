@@ -16,6 +16,7 @@ export const metadata: Metadata = {
       "Estimate your LLC's total federal tax bill: self-employment tax, income tax and quarterly estimated payments. Uses 2026 IRS brackets and the $184,500 wage base.",
     type: "website",
     url: "/tools/llc-tax-estimator",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "LLC Tax Estimator: SE Tax + Quarterly Payments (2026)" }],
   },
   twitter: {
     card: "summary_large_image",

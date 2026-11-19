@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { DISSOLUTION_FEES } from "@/data/dissolutionFees";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import DissolutionChecklist from "@/components/calculators/DissolutionChecklist";
 
 export const metadata: Metadata = {
   title: { absolute: "How to Dissolve an LLC: Steps, Cost & Checklist (2026)" },
@@ -15,6 +17,7 @@ export const metadata: Metadata = {
       "Closing an LLC takes more than stopping work: vote to dissolve, settle debts, file with the state, and file a final tax return. Steps, costs, and checklist.",
     type: "website",
     url: "/guides/how-to-dissolve-an-llc",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "How to Dissolve an LLC: Steps, Cost & Checklist (2026)" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -26,11 +29,15 @@ export const metadata: Metadata = {
 };
 
 export default function DissolveLlcPage() {
+  const dissolutionFee = (slug: string) =>
+    DISSOLUTION_FEES.find((d) => d.slug === slug)?.fee ?? 0;
+  const maxDissolutionFee = Math.max(...DISSOLUTION_FEES.map((d) => d.fee));
+
   const faqs = [
     {
-      question: "How much does it cost to dissolve an LLC?",
+      question: "How much does it cost to officially dissolve a US LLC instead of leaving it inactive?",
       answer:
-        "The state filing fee ranges from $0 to about $220 depending on the state — some states charge nothing, others charge $100–$220. The bigger costs are often what is still owed: unpaid annual report fees and franchise tax, final tax preparation, and any debts that must be settled before the state accepts the filing. Use the Dissolution Cost Calculator to estimate your state's total.",
+        `Official state fees to file Articles of Dissolution range from $0 to $${maxDissolutionFee} — for example, $${dissolutionFee("new-mexico")} in New Mexico, $${dissolutionFee("north-carolina")} in North Carolina, and $${dissolutionFee("wyoming")} in Wyoming. Simply stopping business does not stop annual fees: Delaware and California keep billing annual taxes and late penalties until the state accepts your formal dissolution paperwork.`,
     },
     {
       question: "What are the steps to close an LLC?",
@@ -87,6 +94,10 @@ export default function DissolveLlcPage() {
           <li><strong>Close the business bank account</strong> and keep dissolution records for at least 3–7 years.</li>
         </ol>
       </section>
+
+      <div className="mt-10 max-w-3xl">
+        <DissolutionChecklist />
+      </div>
 
       <section className="mt-10 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">What dissolution costs</h2>

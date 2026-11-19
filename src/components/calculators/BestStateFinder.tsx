@@ -161,10 +161,10 @@ export default function BestStateFinder() {
         {recommendations.map((r, i) => (
           <div key={r.state.slug} className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 className="text-lg font-semibold text-[#102A43]">
+              <h2 className="text-lg font-semibold text-[#102A43]">
                 {i === 0 ? "★ " : ""}{r.state.state}
                 {i === 0 && <span className="ml-2 rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700">Top pick</span>}
-              </h3>
+              </h2>
               <span className="text-sm text-slate-600">
                 1 year: <strong className="text-[#102A43]">{money(oneYearCost(r.state))}</strong>
                 {" · "}5 years: <strong className="text-[#102A43]">{money(calculateFiveYearStateCost(r.state))}</strong>

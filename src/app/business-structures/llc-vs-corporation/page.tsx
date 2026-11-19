@@ -14,6 +14,7 @@ export const metadata: Metadata = {
       "LLC vs corporation compared for 2026: formation, liability, taxes, ownership and formalities for US small businesses — plus when each structure fits best.",
     type: "article",
     url: "/business-structures/llc-vs-corporation",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "LLC vs Corporation: Key Differences (2026)" }],
   },
   twitter: {
     card: "summary_large_image",

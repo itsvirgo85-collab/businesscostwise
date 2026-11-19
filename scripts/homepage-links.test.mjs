@@ -43,5 +43,5 @@ test("annual report page title carries a CTR hook ($0 states) that the page cont
   assert.match(annualReport, /\$0 States/);
   // The page must actually discuss $0-fee states and missed deadlines, or the title overpromises.
   assert.match(annualReport, /\$0/);
-  assert.match(annualReport, /miss the annual report deadline/i);
+  assert.match(annualReport, /miss .* annual report deadline/i);
 });

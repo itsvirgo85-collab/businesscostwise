@@ -14,6 +14,7 @@ export const metadata: Metadata = {
       "Most states approve online LLC filings in 1–5 business days; paper filings can take weeks. See what affects timing, expedited options, and the EIN step.",
     type: "article",
     url: "/how-long-does-it-take-to-start-an-llc",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "How Long Does It Take to Start an LLC? (2026)" }],
   },
   twitter: {
     card: "summary_large_image",

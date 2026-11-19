@@ -15,6 +15,7 @@ export const metadata: Metadata = {
       "Form an LLC in 7 steps: choose a state and name, appoint a registered agent, file Articles of Organization, get a free EIN, and stay compliant. Full 2026 guide.",
     type: "article",
     url: "/how-to-form-an-llc",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "How to Form an LLC: Step-by-Step (2026)" }],
   },
   twitter: {
     card: "summary_large_image",

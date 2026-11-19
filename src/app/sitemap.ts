@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Use stable lastModified values for static pages (not Date.now()) so
   // sitemap tests and crawlers see meaningful, non-fake freshness signals.
   // Bump this date whenever a static page's content changes.
-  const staticLastMod = new Date("2026-11-17");
+  const staticLastMod = new Date("2026-11-19");
 
   const staticPaths: {
     path: string;
@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/tools/foreign-qualification-cost-calculator", changeFrequency: "weekly", priority: 0.9 },
     { path: "/tools/multi-state-llc-cost-comparator", changeFrequency: "weekly", priority: 0.9 },
     { path: "/tools/registered-agent-cost-calculator", changeFrequency: "weekly", priority: 0.85 },
+    { path: "/tools/non-resident-llc-cost-calculator", changeFrequency: "weekly", priority: 0.9 },
     { path: "/tools/llc-vs-s-corp-tax-savings-calculator", changeFrequency: "weekly", priority: 0.9 },
     { path: "/tools/llc-tax-estimator", changeFrequency: "weekly", priority: 0.9 },
     { path: "/tools/best-state-to-form-an-llc", changeFrequency: "weekly", priority: 0.9 },
@@ -48,6 +49,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/guides/how-to-dissolve-an-llc", changeFrequency: "monthly", priority: 0.8 },
     { path: "/guides/move-llc-to-another-state", changeFrequency: "monthly", priority: 0.8 },
     { path: "/guides/non-resident-llc", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/guides/us-llc-cost-from-ireland", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/guides/us-llc-cost-from-new-zealand", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/guides/us-llc-cost-from-netherlands", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/guides/us-llc-cost-from-germany", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/guides/us-llc-cost-from-uk", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/guides/us-llc-cost-from-canada", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/guides/us-llc-cost-from-australia", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/guides/us-llc-cost-from-singapore", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/guides/us-llc-cost-from-dubai", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/guides/us-llc-cost-from-india", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/guides/us-llc-vs-uk-ltd-cost", changeFrequency: "monthly", priority: 0.8 },
     { path: "/guides/llc-for-real-estate", changeFrequency: "monthly", priority: 0.8 },
     { path: "/asset-protection", changeFrequency: "monthly", priority: 0.7 },
     { path: "/cheapest-states-to-form-an-llc", changeFrequency: "monthly", priority: 0.85 },

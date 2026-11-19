@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     description: "How Get LLC Cost Calculator handles your information: cookies, analytics, contact-form data and third-party links. Clear privacy practices, no account required.",
     type: "article",
     url: "/privacy",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Privacy Policy" }],
   },
   twitter: {
     card: "summary_large_image",

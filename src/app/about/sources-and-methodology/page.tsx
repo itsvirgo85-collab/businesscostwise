@@ -14,6 +14,7 @@ export const metadata: Metadata = {
       "How we verify US LLC fees: official state sources, verification dates, automated monitoring and known limits — including Alabama, now verified and included.",
     type: "article",
     url: "/about/sources-and-methodology",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Sources & Methodology" }],
   },
   twitter: {
     card: "summary_large_image",

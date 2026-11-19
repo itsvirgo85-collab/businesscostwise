@@ -120,12 +120,12 @@ export default function AnonymousLlcFinder() {
         {rows.map((r, i) => (
           <div key={r.state.slug} className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 className="text-lg font-semibold text-[#102A43]">
+              <h2 className="text-lg font-semibold text-[#102A43]">
                 {i + 1}. {r.state.state}
                 <span className="ml-2 rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">
                   Privacy {r.score}/10
                 </span>
-              </h3>
+              </h2>
               <span className="text-sm text-slate-600">
                 Formation: <strong className="text-[#102A43]">{money(r.state.formationFee ?? 0)}</strong>
                 {" · "}5 years: <strong className="text-[#102A43]">{money(calculateFiveYearStateCost(r.state))}</strong>

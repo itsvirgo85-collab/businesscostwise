@@ -14,6 +14,7 @@ export const metadata: Metadata = {
       "Single-member vs multi-member LLC: how they differ in taxation, ownership, operating agreements and administration for US small businesses. Educational guide.",
     type: "article",
     url: "/business-structures/single-member-vs-multi-member-llc",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Single-Member vs Multi-Member LLC (2026)" }],
   },
   twitter: {
     card: "summary_large_image",

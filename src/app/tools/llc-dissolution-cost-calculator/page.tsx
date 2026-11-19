@@ -6,20 +6,21 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: { absolute: "LLC Dissolution Cost Calculator: Closing Cost by State (2026)" },
+  title: { absolute: "LLC Dissolution Cost Calculator: Closing Cost by State 2026" },
   description:
     "How much does it cost to dissolve an LLC? State filing fee plus unpaid annual fees and franchise tax, with tax-clearance warnings, for all 50 states + DC.",
   alternates: { canonical: "/tools/llc-dissolution-cost-calculator" },
   openGraph: {
-    title: "LLC Dissolution Cost Calculator: Closing Cost by State (2026)",
+    title: "LLC Dissolution Cost Calculator: Closing Cost by State 2026",
     description:
       "How much does it cost to dissolve an LLC? State filing fee plus unpaid annual fees and franchise tax, with tax-clearance warnings, for all 50 states + DC.",
     type: "website",
     url: "/tools/llc-dissolution-cost-calculator",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "LLC Dissolution Cost Calculator: Closing Cost by State 2026" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "LLC Dissolution Cost Calculator: Closing Cost by State (2026)",
+    title: "LLC Dissolution Cost Calculator: Closing Cost by State 2026",
     description:
       "How much does it cost to dissolve an LLC? State filing fee plus unpaid annual fees and franchise tax, with tax-clearance warnings, for all 50 states + DC.",
     images: ["/twitter-image"],

@@ -16,6 +16,7 @@ export const metadata: Metadata = {
       "Free LLC cost calculator for all 50 states + DC. Formation fees, annual reports and franchise taxes with 1, 3 & 5-year totals and official source links.",
     type: "website",
     url: "/llc-cost-calculator",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "LLC Cost Calculator — 1, 3 & 5-Year Totals by State" }],
   },
   twitter: {
     card: "summary_large_image",

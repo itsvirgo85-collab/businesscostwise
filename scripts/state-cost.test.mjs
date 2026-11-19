@@ -91,8 +91,9 @@ test("Louisiana 2026 formation fee and Hawaii online report fee are reflected", 
   assert.equal(calculateFiveYearStateCost(la), 300);
 
   const hi = state("Hawaii");
+  assert.equal(hi.formationFee, 51);
   assert.equal(hi.annualFee, 12.5);
-  assert.equal(calculateFiveYearStateCost(hi), 112.5);
+  assert.equal(calculateFiveYearStateCost(hi), 113.5);
 });
 
 test("Missouri, Nebraska and New Jersey use current online state filing fees", () => {

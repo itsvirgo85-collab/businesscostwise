@@ -5,20 +5,21 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: { absolute: "LLC for Rental Property & Real Estate: Is It Worth It? (2026)" },
+  title: { absolute: "LLC for Rental Property & Real Estate (2026)" },
   description:
     "An LLC shields your personal assets from rental property lawsuits. Compare one LLC per property vs a holding company vs a Series LLC, and the costs.",
   alternates: { canonical: "/guides/llc-for-real-estate" },
   openGraph: {
-    title: "LLC for Rental Property & Real Estate: Is It Worth It? (2026)",
+    title: "LLC for Rental Property & Real Estate (2026)",
     description:
       "An LLC shields your personal assets from rental property lawsuits. Compare one LLC per property vs a holding company vs a Series LLC, and the costs.",
     type: "website",
     url: "/guides/llc-for-real-estate",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "LLC for Rental Property & Real Estate (2026)" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "LLC for Rental Property & Real Estate: Is It Worth It? (2026)",
+    title: "LLC for Rental Property & Real Estate (2026)",
     description:
       "An LLC shields your personal assets from rental property lawsuits. Compare one LLC per property vs a holding company vs a Series LLC, and the costs.",
     images: ["/twitter-image"],

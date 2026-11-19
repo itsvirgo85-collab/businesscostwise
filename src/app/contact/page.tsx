@@ -15,6 +15,7 @@ export const metadata: Metadata = {
       "Contact Get LLC Cost Calculator with questions about US LLC state fees, data corrections or guides. Use the secure contact form on this page for a reply.",
     type: "article",
     url: "/contact",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Contact Get LLC Cost Calculator" }],
   },
   twitter: {
     card: "summary_large_image",

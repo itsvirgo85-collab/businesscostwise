@@ -16,6 +16,7 @@ export const metadata: Metadata = {
       "Compare LLC self-employment tax with S-corp payroll tax. Enter profit and a reasonable salary to see your estimated yearly saving and break-even point.",
     type: "website",
     url: "/tools/llc-vs-s-corp-tax-savings-calculator",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "LLC vs S-Corp Tax Savings Calculator (2026)" }],
   },
   twitter: {
     card: "summary_large_image",

@@ -72,6 +72,36 @@ export function calculateFiveYearStateCost(state: StateFee): number {
   return (state.formationFee ?? 0) + calculateRecurringStateFees(state, 5);
 }
 
+export interface RenewalSummary {
+  /** Fee charged per report filing, or null when the state has no report filing. */
+  perFilingFee: number | null;
+  frequencyLabel: string;
+  /** Average recurring state cost per year over five years. */
+  yearlyAverage: number;
+  /** Total recurring state cost over five years (excludes the formation fee). */
+  fiveYearRenewal: number;
+}
+
+/**
+ * Plain-language renewal facts for the annual-report calculator and table.
+ * All amounts come from the verified state record — no due-date or late-fee
+ * data is invented here; those vary by state and formation date.
+ */
+export function getRenewalSummary(state: StateFee): RenewalSummary {
+  const fiveYearRenewal = calculateRecurringStateFees(state, 5);
+  return {
+    perFilingFee: state.annualFrequency === "none" ? null : (state.annualFee ?? null),
+    frequencyLabel:
+      state.annualFrequency === "annual"
+        ? "Every year"
+        : state.annualFrequency === "biennial"
+          ? "Every 2 years"
+          : "No annual/biennial report",
+    yearlyAverage: fiveYearRenewal / 5,
+    fiveYearRenewal,
+  };
+}
+
 /** Include Washington's $10 initial-report fee only when the filer defers it. */
 export function calculateDeferredInitialReportFee(state: StateFee, includeDeferredInitialReport: boolean): number {
   if (!includeDeferredInitialReport) return 0;

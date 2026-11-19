@@ -16,6 +16,7 @@ export const metadata: Metadata = {
       "Every LLC needs a registered agent in place. Compare commercial service costs vs serving as your own agent, with multi-year totals and the privacy trade-offs.",
     type: "website",
     url: "/tools/registered-agent-cost-calculator",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Registered Agent Cost Calculator (2026)" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -62,7 +63,7 @@ export default function RegisteredAgentPage() {
     {
       question: "Is a registered agent the same as a virtual mailbox?",
       answer:
-        "No. A registered agent has a specific legal role and must meet statutory requirements. A virtual mailbox is a mail-forwarding service and does not automatically satisfy registered agent requirements.",
+        "No. A registered agent is a legal requirement: a person or company with a physical address in the formation state who accepts lawsuits and official state mail during business hours. A virtual mailbox only forwards ordinary mail (typically $10–$30 a month) and does not satisfy the agent requirement. Non-residents usually need both: an agent for legal mail and a mailbox for business mail.",
     },
     {
       question: "How much does a registered agent cost per year in Texas?",
@@ -237,6 +238,11 @@ export default function RegisteredAgentPage() {
       <section className="mt-12 max-w-3xl rounded-xl border border-slate-200 bg-slate-50 p-6">
         <h2 className="text-lg font-semibold text-[#102A43]">Related tools & guides</h2>
         <ul className="mt-3 space-y-2 text-sm">
+          <li>
+            <Link href="/tools/non-resident-llc-cost-calculator" className="text-[#1769AA] hover:underline">
+              Non-Resident LLC Cost Calculator
+            </Link>
+          </li>
           <li>
             <Link href="/tools/foreign-qualification-cost-calculator" className="text-[#1769AA] hover:underline">
               Foreign Qualification Cost Calculator

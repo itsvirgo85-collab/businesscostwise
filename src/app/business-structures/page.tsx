@@ -13,6 +13,7 @@ export const metadata: Metadata = {
       "Compare LLC, sole proprietorship, corporation and S-Corp structures side by side — liability, taxes, formalities and formation costs, with verified state fees.",
     type: "website",
     url: "/business-structures",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Business Structures Compared (2026)" }],
   },
   twitter: {
     card: "summary_large_image",
