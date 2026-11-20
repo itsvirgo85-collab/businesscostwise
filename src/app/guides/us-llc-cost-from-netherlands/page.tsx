@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import ArticleJsonLd from "@/components/seo/ArticleJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import NonResidentCalculator from "@/components/calculators/NonResidentCalculator";
 import { FX_RATE_DATE, countryGuideFigures } from "@/lib/countryGuideFigures";
@@ -16,21 +17,12 @@ export const metadata: Metadata = {
       "Forming a US LLC from the Netherlands? Year-1 and 5-year costs in EUR for Wyoming, Delaware and New Mexico, the KvK €85.15 benchmark, and a US EIN for €0.",
     type: "website",
     url: "/guides/us-llc-cost-from-netherlands",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "US LLC Cost from the Netherlands (2026) — Filing Fees in EUR",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "US LLC Cost from the Netherlands (2026) — Filing Fees in EUR",
     description:
       "Forming a US LLC from the Netherlands? Year-1 and 5-year costs in EUR for Wyoming, Delaware and New Mexico, the KvK €85.15 benchmark, and a US EIN for €0.",
-    images: ["/twitter-image"],
   },
 };
 
@@ -39,28 +31,33 @@ export default function UsLlcCostFromNetherlandsPage() {
 
   const faqs = [
     {
-      question: "What is the real annual maintenance cost of a US LLC in Euros?",
-      answer: `A Wyoming LLC costs ${f.wyOngoingUsd} (${f.wyOngoingLocal}) a year to keep active — a ${f.wyAnnualReport} annual report plus a ${f.agentPerYear}-a-year registered agent. A New Mexico LLC costs ${f.nmOngoingUsd} (${f.nmOngoingLocal}) a year, because New Mexico charges no annual report fee and the only recurring cost is the agent. Converted figures are estimates at the ${FX_RATE_DATE} rate of €${f.rate} per $1. The Delaware ongoing cost is ${f.deOngoingUsd} a year, driven by its ${f.deAnnualTax} yearly tax.`,
+      question: "What is the yearly upkeep of a US LLC in euros for a Dutch founder?",
+      answer: `After year one, Wyoming costs ${f.wyOngoingUsd} (${f.wyOngoingLocal}) a year — a ${f.wyAnnualReport} annual report plus a ${f.agentPerYear}-a-year registered agent. New Mexico costs ${f.nmOngoingUsd} (${f.nmOngoingLocal}) a year, because there is no annual report fee and the agent is the only recurring cost. Delaware costs ${f.deOngoingUsd} a year, driven by its ${f.deAnnualTax} yearly tax. Converted figures are estimates at the ${FX_RATE_DATE} rate of €${f.rate} per $1.`,
     },
     {
-      question: "Which US state has the lowest 5-year EUR running cost for founders in the Netherlands?",
-      answer: `New Mexico is the lowest: state fees alone over five years are ${f.nmFiveYearStateOnly} (${f.nmFiveYearLocal} with a ${f.agentPerYear}-a-year agent — ${f.nmFiveYearUsd} in total). Wyoming is second, at ${f.wyFiveYearStateOnly} in state fees over five years (${f.wyFiveYearLocal} with the agent — ${f.wyFiveYearUsd} in total). Delaware is the most expensive of the three at ${f.deFiveYearStateOnly} in state fees, because of its yearly tax. Use the calculator above to compare all three with your own agent cost.`,
+      question: "Does a US LLC need a KvK registration or a UBO entry in the Netherlands?",
+      answer: `No. The KvK registers Dutch businesses, and the UBO register records the owners of Dutch entities. A US LLC is registered with a US Secretary of State, not the KvK, so the LLC itself has no KvK or UBO entry. The only address the US side requires is the registered agent’s in-state street address.`,
     },
     {
-      question: "Can a founder in the Netherlands get a US EIN for €0 without paying a formation agency?",
-      answer:
-        "Yes. The IRS issues EINs for $0 — there is no filing fee. File Form SS-4 by fax or mail and enter “Foreign” on Line 7b where it asks for a Social Security Number; the online EIN application will not work without an SSN or ITIN. Agencies charge $75–$300 to file the same free form for you. Fax processing typically takes about a week.",
+      question: "Which US state is cheapest over five years in EUR?",
+      answer: `New Mexico. State fees alone over five years are ${f.nmFiveYearStateOnly}, which is ${f.nmFiveYearLocal} with a ${f.agentPerYear}-a-year agent (${f.nmFiveYearUsd} in total). Wyoming is second at ${f.wyFiveYearStateOnly} in state fees (${f.wyFiveYearLocal} with the agent — ${f.wyFiveYearUsd} in total). Delaware is the most expensive of the three at ${f.deFiveYearStateOnly} in state fees, because of its yearly tax. Run the calculator above with your own agent cost to compare all three.`,
     },
     {
-      question: "What happens operationally if a Dutch founder misses a US state annual report deadline?",
-      answer:
-        "The state adds an automatic late fee first — for example, $400 in Florida for a late annual report — and the LLC becomes delinquent. If the report stays unfiled, the state eventually dissolves the LLC administratively, which means it can no longer legally operate. Getting it back requires a reinstatement filing plus the reinstatement fee and all back-owed reports. Set a calendar reminder for the report deadline in your formation state.",
+      question: "Can a Dutch founder get a US EIN for €0 without a formation agency?",
+      answer: `Yes — and the number itself is free. The online EIN application needs an SSN or ITIN, so a Dutch founder files Form SS-4 by fax or mail instead, entering “Foreign” on Line 7b. The IRS charges $0; agencies charge $75–$300 for filing the same form, and fax processing typically takes about a week.`,
     },
   ];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
+      <ArticleJsonLd
+        headline="US LLC Cost from the Netherlands (2026) — Filing Fees in EUR"
+        description="Forming a US LLC from the Netherlands? Year-1 and 5-year costs in EUR for Wyoming, Delaware and New Mexico, the KvK €85.15 benchmark, and a US EIN for €0."
+        datePublished="2026-11-19"
+        dateModified="2026-11-20"
+        url="https://www.getllccostcalculator.com/guides/us-llc-cost-from-netherlands"
+      />
 
       <Breadcrumbs
         items={[
@@ -75,23 +72,11 @@ export default function UsLlcCostFromNetherlandsPage() {
       </h1>
 
       <p className="mt-4 max-w-3xl text-lg text-slate-600 leading-relaxed">
-        A founder in the Netherlands can form a US LLC entirely online — no US
-        visit, no local director, and no minimum share capital. The calculator
-        below is pre-loaded with euros and Wyoming, the usual low-cost pick,
-        so you can see the Year-1 and 5-year totals in EUR before you choose
-        a state.
+        Registering a business in the Netherlands is a single KvK visit and a €85.15 one-off fee, with no annual KvK charge. A US LLC is a different shape of cost: the formation fee is comparably small, but a registered agent repeats every year. The calculator below is pre-loaded in euros with Wyoming, so you can see the Year-1 and 5-year totals in EUR before choosing a state.
       </p>
 
       <p className="mt-3 max-w-3xl text-slate-600 leading-relaxed">
-        At a glance, with a {f.agentPerYear}-a-year registered agent: Wyoming
-        costs {f.wyYear1Usd} ({f.wyYear1Local}) in year one and{" "}
-        {f.wyFiveYearUsd} ({f.wyFiveYearLocal}) over five years; New Mexico
-        costs {f.nmYear1Usd} ({f.nmYear1Local}) in year one and{" "}
-        {f.nmFiveYearUsd} ({f.nmFiveYearLocal}) over five years; Delaware costs{" "}
-        {f.deYear1Usd} ({f.deYear1Local}) in year one and {f.deFiveYearUsd} (
-        {f.deFiveYearLocal}) over five years. Converted figures are estimates
-        at the {FX_RATE_DATE} rate of €{f.rate} per $1 — change the rate in
-        the calculator to match your bank or card provider.
+        The yearly cost after year one is what separates the three states. Wyoming runs {f.wyOngoingUsd} ({f.wyOngoingLocal}) a year, New Mexico {f.nmOngoingUsd} ({f.nmOngoingLocal}) and Delaware {f.deOngoingUsd} ({f.deOngoingLocal}) — each including the {f.agentPerYear}-a-year agent. Year one lands at {f.wyYear1Usd} ({f.wyYear1Local}), {f.nmYear1Usd} ({f.nmYear1Local}) and {f.deYear1Usd} ({f.deYear1Local}); five years at {f.wyFiveYearUsd} ({f.wyFiveYearLocal}), {f.nmFiveYearUsd} ({f.nmFiveYearLocal}) and {f.deFiveYearUsd} ({f.deFiveYearLocal}). Conversions use the {FX_RATE_DATE} rate of €{f.rate} per $1, adjustable in the calculator.
       </p>
 
       <div className="mt-10">
@@ -99,15 +84,7 @@ export default function UsLlcCostFromNetherlandsPage() {
       </div>
 
       <p className="mt-6 max-w-3xl text-sm text-slate-500">
-        Prefer the full tool? Open the{" "}
-        <Link href="/tools/non-resident-llc-cost-calculator?currency=EUR" className="text-[#1769AA] hover:underline">
-          Non-Resident LLC Cost Calculator in EUR
-        </Link>{" "}
-        or read the general{" "}
-        <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">
-          non-resident LLC guide
-        </Link>
-        .
+        The full <Link href="/tools/non-resident-llc-cost-calculator?currency=EUR" className="text-[#1769AA] hover:underline">Non-Resident LLC Cost Calculator in EUR</Link> covers all fifty states and lets you change the agent price, the exchange rate and the EIN option. The general <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">non-resident LLC guide</Link> walks through the filing steps.
       </p>
 
       <section className="mt-12 max-w-3xl">
@@ -124,16 +101,19 @@ export default function UsLlcCostFromNetherlandsPage() {
           calculator), while a KvK registration has no yearly renewal fee.
         </p>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          State fees alone over five years are {f.nmFiveYearStateOnly} in New
-          Mexico, {f.wyFiveYearStateOnly} in Wyoming and{" "}
-          {f.deFiveYearStateOnly} in Delaware. The agent is what makes the
-          five-year totals higher than the state fees alone — and it is the
-          one recurring service a Dutch founder cannot skip, because a foreign
-          address does not qualify as a registered agent address.
-        </p>
+        The contrast with home is the renewal. A KvK registration has no yearly fee at all; a US LLC always carries the agent ({f.agentPerYear} a year in the calculator), and Wyoming adds a {f.wyAnnualReport} annual report on top. New Mexico has no annual report, so the agent is the only recurring line there. A foreign address does not qualify as a registered office, so the agent cannot be skipped.
+      </p>
       </section>
 
-      <section className="mt-12 max-w-3xl">
+            <section className="mt-12 max-w-3xl">
+        <h2 className="text-xl font-semibold text-[#102A43]">
+          Getting the EIN by fax from the Netherlands
+        </h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          The online EIN application asks for a Social Security Number or ITIN, which a Dutch founder does not have — so the route is Form SS-4 by fax or mail, with “Foreign” written on Line 7b. The IRS charges $0 for the number itself; fax processing typically takes about a week, and the confirmation letter arrives by post. Agencies charge $75–$300 to file the same free form, so the only thing you are paying for is someone else sending the fax.
+        </p>
+      </section>
+<section className="mt-12 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">Frequently asked questions</h2>
         <div className="mt-6 space-y-4">
           {faqs.map((faq, i) => (

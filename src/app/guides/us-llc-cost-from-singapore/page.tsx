@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import ArticleJsonLd from "@/components/seo/ArticleJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import NonResidentCalculator from "@/components/calculators/NonResidentCalculator";
 import { FX_RATE_DATE, countryGuideFigures } from "@/lib/countryGuideFigures";
@@ -16,21 +17,12 @@ export const metadata: Metadata = {
       "Forming a US LLC from Singapore? Year-1 and 5-year costs in SGD for Wyoming, Delaware and New Mexico, the ACRA S$315 benchmark, and US LLC dissolution costs.",
     type: "website",
     url: "/guides/us-llc-cost-from-singapore",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "US LLC Cost from Singapore (2026) — Filing Fees in SGD",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "US LLC Cost from Singapore (2026) — Filing Fees in SGD",
     description:
       "Forming a US LLC from Singapore? Year-1 and 5-year costs in SGD for Wyoming, Delaware and New Mexico, the ACRA S$315 benchmark, and US LLC dissolution costs.",
-    images: ["/twitter-image"],
   },
 };
 
@@ -39,28 +31,33 @@ export default function UsLlcCostFromSingaporePage() {
 
   const faqs = [
     {
-      question: "How much does a Wyoming or Delaware LLC cost per year in SGD?",
-      answer: `A Wyoming LLC costs ${f.wyYear1Usd} (${f.wyYear1Local}) in year one and ${f.wyOngoingUsd} (${f.wyOngoingLocal}) a year after that, with a ${f.agentPerYear}-a-year registered agent. A Delaware LLC costs ${f.deYear1Usd} (${f.deYear1Local}) in year one and ${f.deOngoingUsd} (${f.deOngoingLocal}) a year after that, because Delaware charges a ${f.deAnnualTax} flat annual tax on top of the agent. Converted figures are estimates at the ${FX_RATE_DATE} rate of ${f.rate} SGD per $1.`,
+      question: "What is the yearly bill for a Wyoming or Delaware LLC in SGD?",
+      answer: `Take the five-year view first: Wyoming is ${f.wyFiveYearUsd} (${f.wyFiveYearLocal}) and Delaware is ${f.deFiveYearUsd} (${f.deFiveYearLocal}), agent included at ${f.agentPerYear} a year. Year one is ${f.wyYear1Usd} (${f.wyYear1Local}) for Wyoming and ${f.deYear1Usd} (${f.deYear1Local}) for Delaware; after that the yearly cost is ${f.wyOngoingUsd} (${f.wyOngoingLocal}) and ${f.deOngoingUsd} (${f.deOngoingLocal}). Converted figures are estimates at the ${FX_RATE_DATE} rate of ${f.rate} SGD per $1.`,
     },
     {
-      question: "Does a US LLC require a locally resident director or company secretary like Singapore?",
-      answer:
-        "No. A US LLC has no director-residency rule and no company secretary requirement. The only mandatory local presence is a commercial registered agent ($99–$150 a year), who provides the in-state street address the formation state requires for official notices. Members and managers can all be based in Singapore.",
+      question: "Does a US LLC need a resident director or company secretary like a Singapore company?",
+      answer: `No. A US LLC has no director-residency rule and no company secretary requirement. The only mandatory local presence is a commercial registered agent ($99–$150 a year), who provides the in-state street address the formation state requires for official notices. Members and managers can all be based in Singapore.`,
     },
     {
-      question: "Are US state filing fees different for Singapore residents?",
-      answer:
-        "No. US state filing and renewal fees are identical for US and non-US residents — a Singapore founder pays the same official fee as a US citizen forming in the same state. The only extra cost for a non-resident is the commercial registered agent, because a foreign address does not qualify as a registered office.",
+      question: "Are US state fees different for Singapore residents?",
+      answer: `No. The state fee schedule makes no distinction by residency — a Singapore founder pays the same filing and renewal fees as a US citizen in the same state. The only additional cost is the commercial registered agent, because a foreign address does not qualify as a registered office.`,
     },
     {
       question: "How much does it cost to dissolve a US LLC from Singapore?",
-      answer: `Dissolution filing fees are ${f.nmDissolution} in New Mexico and ${f.wyDissolution} in Wyoming — well under $100 — plus any final annual report or tax that is still due. Once the dissolution is processed, future annual renewal obligations stop. Dissolution is filed online with the formation state's Secretary of State; no US visit is needed.`,
+      answer: `Dissolution filing fees are ${f.nmDissolution} in New Mexico and ${f.wyDissolution} in Wyoming — well under $100 — plus any final annual report or tax that is still due. Once the dissolution is processed, future annual renewal obligations stop. The filing itself is done online with the formation state’s Secretary of State, with no US visit needed.`,
     },
   ];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
+      <ArticleJsonLd
+        headline="US LLC Cost from Singapore (2026) — Filing Fees in SGD"
+        description="Forming a US LLC from Singapore? Year-1 and 5-year costs in SGD for Wyoming, Delaware and New Mexico, the ACRA S$315 benchmark, and US LLC dissolution costs."
+        datePublished="2026-11-19"
+        dateModified="2026-11-20"
+        url="https://www.getllccostcalculator.com/guides/us-llc-cost-from-singapore"
+      />
 
       <Breadcrumbs
         items={[
@@ -75,23 +72,11 @@ export default function UsLlcCostFromSingaporePage() {
       </h1>
 
       <p className="mt-4 max-w-3xl text-lg text-slate-600 leading-relaxed">
-        A Singapore founder can form a US LLC entirely online — no US visit,
-        no locally resident director, and no company secretary. The calculator
-        below is pre-loaded with Singapore dollars and Wyoming, the usual
-        low-cost pick, so you can see the Year-1 and 5-year totals in SGD
-        before you choose a state.
+        Incorporating in Singapore means ACRA, a locally resident director, and a company secretary — S$315 in government fees before any of that. A US LLC needs none of those three: no resident director, no secretary, no name-application step. The calculator below is pre-loaded in Singapore dollars with Wyoming, so Year-1 and 5-year totals are in SGD.
       </p>
 
       <p className="mt-3 max-w-3xl text-slate-600 leading-relaxed">
-        At a glance, with a {f.agentPerYear}-a-year registered agent: Wyoming
-        costs {f.wyYear1Usd} ({f.wyYear1Local}) in year one and{" "}
-        {f.wyFiveYearUsd} ({f.wyFiveYearLocal}) over five years; New Mexico
-        costs {f.nmYear1Usd} ({f.nmYear1Local}) in year one and{" "}
-        {f.nmFiveYearUsd} ({f.nmFiveYearLocal}) over five years; Delaware costs{" "}
-        {f.deYear1Usd} ({f.deYear1Local}) in year one and {f.deFiveYearUsd} (
-        {f.deFiveYearLocal}) over five years. Converted figures are estimates
-        at the {FX_RATE_DATE} rate of {f.rate} SGD per $1 — change the rate in
-        the calculator to match your bank or card provider.
+        The five-year totals, agent included, are {f.wyFiveYearUsd} ({f.wyFiveYearLocal}) for Wyoming, {f.nmFiveYearUsd} ({f.nmFiveYearLocal}) for New Mexico and {f.deFiveYearUsd} ({f.deFiveYearLocal}) for Delaware. Year one is {f.wyYear1Usd} ({f.wyYear1Local}), {f.nmYear1Usd} ({f.nmYear1Local}) and {f.deYear1Usd} ({f.deYear1Local}); after that Wyoming costs {f.wyOngoingUsd} ({f.wyOngoingLocal}) a year and New Mexico {f.nmOngoingUsd} ({f.nmOngoingLocal}). Converted at the {FX_RATE_DATE} rate of {f.rate} SGD per $1 — the calculator lets you overwrite the rate.
       </p>
 
       <div className="mt-10">
@@ -99,15 +84,7 @@ export default function UsLlcCostFromSingaporePage() {
       </div>
 
       <p className="mt-6 max-w-3xl text-sm text-slate-500">
-        Prefer the full tool? Open the{" "}
-        <Link href="/tools/non-resident-llc-cost-calculator?currency=SGD" className="text-[#1769AA] hover:underline">
-          Non-Resident LLC Cost Calculator in SGD
-        </Link>{" "}
-        or read the general{" "}
-        <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">
-          non-resident LLC guide
-        </Link>
-        .
+        Open the full <Link href="/tools/non-resident-llc-cost-calculator?currency=SGD" className="text-[#1769AA] hover:underline">Non-Resident LLC Cost Calculator in SGD</Link> for every state, with the agent price, exchange rate and EIN option all adjustable. The general <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">non-resident LLC guide</Link> covers the filing steps in order.
       </p>
 
       <section className="mt-12 max-w-3xl">
@@ -115,11 +92,8 @@ export default function UsLlcCostFromSingaporePage() {
           Wyoming vs Delaware vs New Mexico — Year-1 and 5-year costs in SGD
         </h2>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          The table below is calculated from the site&apos;s state fee data
-          with a {f.agentPerYear}-a-year registered agent included. Five-year
-          totals count five recurring payments, the same convention the site
-          uses everywhere.
-        </p>
+        The table below puts the US side in one place: formation fee, yearly state charge, and the year-one and five-year totals once the agent is counted in. Five-year totals count five recurring payments — the convention this site uses on every page.
+      </p>
         <div className="mt-4 overflow-x-auto">
           <table className="w-full min-w-[520px] border-collapse text-left text-sm">
             <thead>
@@ -157,12 +131,8 @@ export default function UsLlcCostFromSingaporePage() {
           </table>
         </div>
         <p className="mt-3 text-sm text-slate-500">
-          State fees alone over five years are {f.nmFiveYearStateOnly} in New
-          Mexico, {f.wyFiveYearStateOnly} in Wyoming and{" "}
-          {f.deFiveYearStateOnly} in Delaware, before the registered agent.
-          Delaware&apos;s {f.deAnnualTax} yearly tax is the reason it costs
-          more.
-        </p>
+        Strip out the agent and the state-only five-year totals are {f.nmFiveYearStateOnly} in New Mexico, {f.wyFiveYearStateOnly} in Wyoming and {f.deFiveYearStateOnly} in Delaware. Delaware&apos;s {f.deAnnualTax} yearly tax is the reason its row is the most expensive.
+      </p>
       </section>
 
       <section className="mt-12 max-w-3xl">
@@ -174,22 +144,22 @@ export default function UsLlcCostFromSingaporePage() {
           company registration — S$315 in total government fees — and S$60 a
           year for the annual return filing. A late annual return carries a
           penalty of S$300 if filed within 3 months of the due date, or S$600
-          after that. A US LLC has no name-application step and no equivalent
-          annual-return penalty regime: the state filing fee ({f.nmFormation}{" "}
-          in New Mexico, {f.wyFormation} in Wyoming) plus a registered agent
-          is the whole formation cost, and a New Mexico LLC pays no annual
-          report fee at all.
+          after that. A US LLC has no name-application step and no equivalent annual-return penalty regime. Formation is the state fee on its own — {f.nmFormation} in New Mexico, {f.wyFormation} in Wyoming — with a registered agent on top, and a New Mexico LLC has no annual report to pay at all.
         </p>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          The structural difference is the local-officer rules. A Singapore
-          company needs at least one locally resident director and a company
-          secretary; a US LLC needs neither — only the registered agent (
-          {f.agentPerYear} a year in the calculator), because a foreign
-          address does not qualify as a registered office.
-        </p>
+        The structural difference is the local-officer rules. A Singapore company needs at least one locally resident director and a company secretary; a US LLC needs neither — only the registered agent ({f.agentPerYear} a year in the calculator), because a foreign address does not qualify as a registered office.
+      </p>
       </section>
 
-      <section className="mt-12 max-w-3xl">
+            <section className="mt-12 max-w-3xl">
+        <h2 className="text-xl font-semibold text-[#102A43]">
+          The annual return you do not file
+        </h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          A Singapore company files a S$60 annual return with ACRA every year, and a late one carries a penalty of S$300 if filed within three months of the due date, or S$600 after that. The US side is thinner: a Wyoming LLC files a {f.wyAnnualReport} annual report and a New Mexico LLC files no annual report at all. The only yearly US line that never goes away is the registered agent — and a missed report can still bring a late fee, so the deadline is worth a calendar reminder.
+        </p>
+      </section>
+<section className="mt-12 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">Frequently asked questions</h2>
         <div className="mt-6 space-y-4">
           {faqs.map((faq, i) => (

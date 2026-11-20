@@ -27,21 +27,12 @@ export const metadata: Metadata = {
       "Forming a US LLC from abroad? Year-1 and 5-year costs for Wyoming, Delaware, New Mexico and all 50 states in 9 currencies, with an editable exchange rate.",
     type: "website",
     url: "/tools/non-resident-llc-cost-calculator",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "Non-Resident LLC Cost Calculator (2026) — Your Currency",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Non-Resident LLC Cost Calculator (2026) — Your Currency",
     description:
       "Forming a US LLC from abroad? Year-1 and 5-year costs for Wyoming, Delaware, New Mexico and all 50 states in 9 currencies, with an editable exchange rate.",
-    images: ["/twitter-image"],
   },
 };
 

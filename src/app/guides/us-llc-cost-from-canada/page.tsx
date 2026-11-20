@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import ArticleJsonLd from "@/components/seo/ArticleJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import NonResidentCalculator from "@/components/calculators/NonResidentCalculator";
 import { FX_RATE_DATE, countryGuideFigures } from "@/lib/countryGuideFigures";
@@ -8,29 +9,20 @@ import { FX_RATE_DATE, countryGuideFigures } from "@/lib/countryGuideFigures";
 export const metadata: Metadata = {
   title: { absolute: "US LLC Cost from Canada (2026) — Filing & Annual Fees in CAD" },
   description:
-    "Forming a US LLC from Canada? Year-1 and 5-year costs in CAD for Wyoming, Delaware and New Mexico, the Corporations Canada $200 benchmark, and a US EIN with no SSN.",
+    "Forming a US LLC from Canada? Year-1 and 5-year costs in CAD for Wyoming, Delaware and New Mexico, the Corporations Canada $200 benchmark, and a US EIN.",
   alternates: { canonical: "/guides/us-llc-cost-from-canada" },
   openGraph: {
     title: "US LLC Cost from Canada (2026) — Filing & Annual Fees in CAD",
     description:
-      "Forming a US LLC from Canada? Year-1 and 5-year costs in CAD for Wyoming, Delaware and New Mexico, the Corporations Canada $200 benchmark, and a US EIN with no SSN.",
+      "Forming a US LLC from Canada? Year-1 and 5-year costs in CAD for Wyoming, Delaware and New Mexico, the Corporations Canada $200 benchmark, and a US EIN.",
     type: "website",
     url: "/guides/us-llc-cost-from-canada",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "US LLC Cost from Canada (2026) — Filing & Annual Fees in CAD",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "US LLC Cost from Canada (2026) — Filing & Annual Fees in CAD",
     description:
-      "Forming a US LLC from Canada? Year-1 and 5-year costs in CAD for Wyoming, Delaware and New Mexico, the Corporations Canada $200 benchmark, and a US EIN with no SSN.",
-    images: ["/twitter-image"],
+      "Forming a US LLC from Canada? Year-1 and 5-year costs in CAD for Wyoming, Delaware and New Mexico, the Corporations Canada $200 benchmark, and a US EIN.",
   },
 };
 
@@ -39,29 +31,33 @@ export default function UsLlcCostFromCanadaPage() {
 
   const faqs = [
     {
-      question: "How much is a Wyoming vs. Delaware LLC in CAD over 5 years including agent renewal?",
-      answer: `A Wyoming LLC costs ${f.wyFiveYearUsd} (${f.wyFiveYearLocal}) over five years with a ${f.agentPerYear}-a-year registered agent — ${f.wyYear1Usd} (${f.wyYear1Local}) in year one, then ${f.wyOngoingUsd} (${f.wyOngoingLocal}) a year. A Delaware LLC costs ${f.deFiveYearUsd} (${f.deFiveYearLocal}) over five years, because Delaware charges a ${f.deAnnualTax} flat annual tax every year on top of the agent. Converted figures are estimates at the ${FX_RATE_DATE} rate of C$${f.rate} per $1.`,
+      question: "How much is a Wyoming vs Delaware LLC in CAD over five years, agent included?",
+      answer: `With a ${f.agentPerYear}-a-year registered agent, Wyoming costs ${f.wyFiveYearUsd} (${f.wyFiveYearLocal}) over five years — ${f.wyYear1Usd} (${f.wyYear1Local}) in year one, then ${f.wyOngoingUsd} (${f.wyOngoingLocal}) a year. Delaware costs ${f.deFiveYearUsd} (${f.deFiveYearLocal}) over five years, because Delaware charges a ${f.deAnnualTax} flat annual tax every year on top of the agent. Converted figures are estimates at the ${FX_RATE_DATE} rate of C$${f.rate} per $1.`,
     },
     {
-      question: "Do Canadian founders need a separate US virtual address on top of a Registered Agent?",
-      answer:
-        "Yes, if you need a mailing address for banks, vendors, or customers. A registered agent ($99–$150 a year) only receives official state and legal notices at its in-state street address — it is not a general mailing address. A US virtual mailbox ($10–$30 a month) handles regular commercial mail, while the agent covers the legal requirement.",
+      question: "Do Canadian founders need a US virtual address as well as a registered agent?",
+      answer: `Yes, if you need a mailing address for banks, vendors, or customers. A registered agent ($99–$150 a year) only receives official state and legal notices at its in-state street address — it is not a general mailing address. A US virtual mailbox ($10–$30 a month) handles regular commercial mail, while the agent covers the legal requirement.`,
     },
     {
-      question: "Can Canadians obtain a US EIN without a Social Security Number (SSN)?",
-      answer:
-        "Yes. The IRS issues an EIN for $0 — write \u201CForeign\u201D on Line 7b of Form SS-4 and submit it by fax or mail. No SSN or ITIN is needed, and no third-party service is required. Agencies charge $75–$300 to do the same filing, but the number itself is free from the IRS.",
+      question: "Can Canadians get a US EIN without an SSN?",
+      answer: `Yes. The IRS issues an EIN for $0 — write “Foreign” on Line 7b of Form SS-4 and submit it by fax or mail. No SSN or ITIN is needed, and no third-party service is required. Agencies charge $75–$300 to do the same filing, but the number itself is free from the IRS.`,
     },
     {
-      question: "What is the difference between Foreign Qualification and forming a new US LLC from Canada?",
-      answer:
-        "Foreign qualification registers an existing entity — for example, a Canadian corporation — to do business in an additional US state, so you pay a separate registration fee plus annual reports and a registered agent in every state where you are registered. Forming a new US LLC means the LLC exists in one state only, so you pay filing and renewal fees in that state alone. Use the Foreign Qualification Cost Calculator to compare the two routes for your states before you choose.",
+      question: "What is the difference between foreign qualification and forming a new US LLC?",
+      answer: `Foreign qualification registers an existing entity — for example, a Canadian corporation — to do business in an additional US state, so you pay a separate registration fee plus annual reports and a registered agent in every state where you are registered. Forming a new US LLC means the LLC exists in one state only, so you pay filing and renewal fees in that state alone. Use the Foreign Qualification Cost Calculator to compare the two routes for your states before you choose.`,
     },
   ];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
+      <ArticleJsonLd
+        headline="US LLC Cost from Canada (2026) — Filing &amp; Annual Fees in CAD"
+        description="Forming a US LLC from Canada? Year-1 and 5-year costs in CAD for Wyoming, Delaware and New Mexico, the Corporations Canada $200 benchmark, and a US EIN."
+        datePublished="2026-11-19"
+        dateModified="2026-11-20"
+        url="https://www.getllccostcalculator.com/guides/us-llc-cost-from-canada"
+      />
 
       <Breadcrumbs
         items={[
@@ -76,22 +72,11 @@ export default function UsLlcCostFromCanadaPage() {
       </h1>
 
       <p className="mt-4 max-w-3xl text-lg text-slate-600 leading-relaxed">
-        A Canadian founder can form a US LLC entirely online — no US visit, no
-        minimum share capital, and no SSN. The calculator below is pre-loaded
-        with Canadian dollars and Wyoming, the usual low-cost pick, so you can
-        see the Year-1 and 5-year totals in CAD before you choose a state.
+        Incorporating federally in Canada costs $200 through Corporations Canada, plus a $12 annual return — and a provincial registration on top if you operate in a province. A US LLC is simpler on paper: one state, one filing, one agent. The calculator below is pre-loaded in Canadian dollars with Wyoming, so Year-1 and 5-year totals show in CAD.
       </p>
 
       <p className="mt-3 max-w-3xl text-slate-600 leading-relaxed">
-        At a glance, with a {f.agentPerYear}-a-year registered agent: Wyoming
-        costs {f.wyYear1Usd} ({f.wyYear1Local}) in year one and{" "}
-        {f.wyFiveYearUsd} ({f.wyFiveYearLocal}) over five years; New Mexico
-        costs {f.nmYear1Usd} ({f.nmYear1Local}) in year one and{" "}
-        {f.nmFiveYearUsd} ({f.nmFiveYearLocal}) over five years; Delaware costs{" "}
-        {f.deYear1Usd} ({f.deYear1Local}) in year one and {f.deFiveYearUsd} (
-        {f.deFiveYearLocal}) over five years. Converted figures are estimates
-        at the {FX_RATE_DATE} rate of C${f.rate} per $1 — change the rate in
-        the calculator to match your bank or card provider.
+        Over five years the totals are {f.wyFiveYearUsd} ({f.wyFiveYearLocal}) for Wyoming and {f.deFiveYearUsd} ({f.deFiveYearLocal}) for Delaware, with the {f.agentPerYear}-a-year agent counted in; New Mexico sits at {f.nmFiveYearUsd} ({f.nmFiveYearLocal}). Year one is {f.wyYear1Usd} ({f.wyYear1Local}), {f.deYear1Usd} ({f.deYear1Local}) and {f.nmYear1Usd} ({f.nmYear1Local}). Converted at the {FX_RATE_DATE} rate of C${f.rate} per $1; the calculator lets you change the rate to match your bank.
       </p>
 
       <div className="mt-10">
@@ -99,15 +84,7 @@ export default function UsLlcCostFromCanadaPage() {
       </div>
 
       <p className="mt-6 max-w-3xl text-sm text-slate-500">
-        Prefer the full tool? Open the{" "}
-        <Link href="/tools/non-resident-llc-cost-calculator?currency=CAD" className="text-[#1769AA] hover:underline">
-          Non-Resident LLC Cost Calculator in CAD
-        </Link>{" "}
-        or read the general{" "}
-        <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">
-          non-resident LLC guide
-        </Link>
-        .
+        The full <Link href="/tools/non-resident-llc-cost-calculator?currency=CAD" className="text-[#1769AA] hover:underline">Non-Resident LLC Cost Calculator in CAD</Link> covers every state and lets you adjust the agent price, the exchange rate and the EIN option. The general <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">non-resident LLC guide</Link> walks through the filing steps.
       </p>
 
       <section className="mt-12 max-w-3xl">
@@ -115,11 +92,8 @@ export default function UsLlcCostFromCanadaPage() {
           Wyoming vs Delaware vs New Mexico — Year-1 and 5-year costs in CAD
         </h2>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          The table below is calculated from the site&apos;s state fee data
-          with a {f.agentPerYear}-a-year registered agent included. Five-year
-          totals count five recurring payments, the same convention the site
-          uses everywhere.
-        </p>
+        The table treats each state as a separate bill: the formation fee is paid once, the ongoing column repeats yearly, and the last two columns show year one and five years with the agent. Five-year totals count five recurring payments, the site-wide convention.
+      </p>
         <div className="mt-4 overflow-x-auto">
           <table className="w-full min-w-[520px] border-collapse text-left text-sm">
             <thead>
@@ -157,12 +131,8 @@ export default function UsLlcCostFromCanadaPage() {
           </table>
         </div>
         <p className="mt-3 text-sm text-slate-500">
-          State fees alone over five years are {f.nmFiveYearStateOnly} in New
-          Mexico, {f.wyFiveYearStateOnly} in Wyoming and{" "}
-          {f.deFiveYearStateOnly} in Delaware, before the registered agent.
-          Delaware&apos;s {f.deAnnualTax} yearly tax is the reason it costs
-          more.
-        </p>
+        Before the agent, five years of state fees alone total {f.nmFiveYearStateOnly} in New Mexico, {f.wyFiveYearStateOnly} in Wyoming and {f.deFiveYearStateOnly} in Delaware. Delaware&apos;s {f.deAnnualTax} annual tax is what pushes its row above the other two.
+      </p>
       </section>
 
       <section className="mt-12 max-w-3xl">
@@ -178,17 +148,19 @@ export default function UsLlcCostFromCanadaPage() {
           is the whole formation cost.
         </p>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          The ongoing picture is similar. A federal Canadian corporation
-          files its $12 annual return every year; a US LLC in Wyoming pays a{" "}
-          {f.wyAnnualReport} annual report plus its agent, while a New Mexico
-          LLC pays only the agent. The agent ({f.agentPerYear} a year in the
-          calculator) is the one recurring service cost a Canadian founder
-          cannot skip, because a foreign address does not qualify as a
-          registered office.
-        </p>
+        A federal Canadian corporation files a $12 annual return every year. A Wyoming LLC pays a {f.wyAnnualReport} annual report plus its agent, and a New Mexico LLC pays only the agent. The agent ({f.agentPerYear} a year in the calculator) is the recurring service a Canadian founder cannot skip, because a foreign address does not qualify as a registered office.
+      </p>
       </section>
 
-      <section className="mt-12 max-w-3xl">
+            <section className="mt-12 max-w-3xl">
+        <h2 className="text-xl font-semibold text-[#102A43]">
+          One state, one filing — adding a second state
+        </h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          A new US LLC exists in one state only, so the fees on this page are the whole state bill. If the business later needs a presence in a second state, that is a separate filing — foreign qualification — with its own registration fee, its own annual reports and its own registered agent in that state. The cost stacks per state, which is why the comparison on this page is done state by state. The Foreign Qualification Cost Calculator prices the extra-state route before you commit to it.
+        </p>
+      </section>
+<section className="mt-12 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">Frequently asked questions</h2>
         <div className="mt-6 space-y-4">
           {faqs.map((faq, i) => (

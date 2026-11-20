@@ -16,14 +16,12 @@ export const metadata: Metadata = {
       "Formed in one state but operating in another? Estimate foreign qualification costs — registration, dual agents, dual reports — with 1, 3, and 5-year totals.",
     type: "website",
     url: "/tools/foreign-qualification-cost-calculator",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Foreign Qualification Cost Calculator (2026)" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Foreign Qualification Cost Calculator (2026)",
     description:
       "Formed in one state but operating in another? Estimate foreign qualification costs — registration, dual agents, dual reports — with 1, 3, and 5-year totals.",
-    images: ["/twitter-image"],
   },
 };
 

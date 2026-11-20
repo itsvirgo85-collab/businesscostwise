@@ -6,16 +6,22 @@
  * Micahguru, Oct 2026) cross-checked against each other, plus IncACA and
  * Rebellink tables, with targeted official-source checks for conflicts.
  * Only Delaware ($220: Division of Corporations fee schedule rev. 1 Aug
- * 2026), Louisiana ($125: SOS fee schedule, Act 921, eff. 1 Oct 2026) and
+ * 2026), Louisiana ($125: SOS fee schedule, Act 921, eff. 1 Oct 2026),
  * DC ($5: DLCP Corporations Division fee schedule, checked 15 Nov 2026)
- * were confirmed against an official schedule. The rest are secondary
- * sources — the calculator labels them as estimates and tells the user to
- * confirm the fee with the Secretary of State before filing.
+ * and Nebraska ($25 online / $30 in office: fee printed on the official
+ * SOS Statement of Dissolution form itself, Neb. Rev. Stat. 21-148,
+ * checked 20 Nov 2026) were confirmed against an official source. The
+ * rest are secondary sources — the calculator labels them as estimates
+ * and tells the user to confirm the fee with the Secretary of State
+ * before filing.
  *
  * Nebraska was resolved 15 Nov 2026 as an online/paper split ($25 online,
  * $30 in office), concordant across IncACA, LegalClarity, Northwest and
- * LegalZoom, all citing the NE SOS forms page and Neb. Rev. Stat. 21-192;
- * it is marked "secondary" because the SOS fee page itself was not opened.
+ * LegalZoom; on 20 Nov 2026 it was confirmed against the official SOS
+ * form PDF (sos.nebraska.gov, "FILING FEE: $30.00 (In-Office) / $25.00
+ * (Online)", Neb. Rev. Stat. 21-148) and is now marked "verified".
+ * (The earlier note cited 21-192; the form itself cites 21-148 for the
+ * Statement of Dissolution.)
  * No state remains "conflicting".
  */
 
@@ -57,7 +63,7 @@ export const DISSOLUTION_FEES: DissolutionFee[] = [
   { slug: "mississippi", fee: 50, label: "Certificate of Dissolution", confidence: "secondary" },
   { slug: "missouri", fee: 50, label: "Notice of Winding Up (LLC-13) + Articles of Termination (LLC-5)", note: "Two filings at $25 each — $50 total.", confidence: "secondary" },
   { slug: "montana", fee: 0, label: "Articles of Termination", confidence: "secondary" },
-  { slug: "nebraska", fee: 25, label: "Statement of Dissolution", note: "$25 online via eDelivery, $30 in office or by paper (NE SOS forms page, Neb. Rev. Stat. 21-192). A separate Statement of Termination is also filed to fully close, at the same $25/$30 fee.", confidence: "secondary" },
+  { slug: "nebraska", fee: 25, label: "Statement of Dissolution", note: "$25 online via eDelivery, $30 in office or by paper — fee printed on the official NE SOS Statement of Dissolution form (sos.nebraska.gov, Neb. Rev. Stat. 21-148, checked 20 Nov 2026). A separate Statement of Termination is also filed to fully close, at the same $25/$30 fee.", confidence: "verified" },
   { slug: "nevada", fee: 100, label: "Articles of Dissolution", confidence: "secondary" },
   { slug: "new-hampshire", fee: 35, label: "Certificate of Cancellation (Form LLC-7)", confidence: "secondary" },
   { slug: "new-jersey", fee: 100, label: "Certificate of Cancellation", confidence: "secondary" },

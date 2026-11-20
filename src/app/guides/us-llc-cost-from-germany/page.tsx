@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import ArticleJsonLd from "@/components/seo/ArticleJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import NonResidentCalculator from "@/components/calculators/NonResidentCalculator";
 import { FX_RATE_DATE, countryGuideFigures } from "@/lib/countryGuideFigures";
@@ -16,21 +17,12 @@ export const metadata: Metadata = {
       "Forming a US LLC from Germany? Year-1 and 5-year costs in EUR for Wyoming, Delaware and New Mexico, the German UG/GmbH benchmark, and a US EIN for €0.",
     type: "website",
     url: "/guides/us-llc-cost-from-germany",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "US LLC Cost from Germany (2026) — Filing Fees in EUR",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "US LLC Cost from Germany (2026) — Filing Fees in EUR",
     description:
       "Forming a US LLC from Germany? Year-1 and 5-year costs in EUR for Wyoming, Delaware and New Mexico, the German UG/GmbH benchmark, and a US EIN for €0.",
-    images: ["/twitter-image"],
   },
 };
 
@@ -39,28 +31,33 @@ export default function UsLlcCostFromGermanyPage() {
 
   const faqs = [
     {
-      question: "What are the exact ongoing US LLC fees in EUR for founders living in Germany?",
-      answer: `A Wyoming LLC costs ${f.wyOngoingUsd} (${f.wyOngoingLocal}) a year to keep active — a ${f.wyAnnualReport} annual report plus a ${f.agentPerYear}-a-year registered agent. A New Mexico LLC costs ${f.nmOngoingUsd} (${f.nmOngoingLocal}) a year, because New Mexico charges no annual report fee and the only recurring cost is the agent. Converted figures are estimates at the ${FX_RATE_DATE} rate of €${f.rate} per $1. The Delaware ongoing cost is ${f.deOngoingUsd} a year, driven by its ${f.deAnnualTax} yearly tax.`,
+      question: "What are the ongoing US LLC costs in EUR for a founder in Germany?",
+      answer: `Wyoming costs ${f.wyOngoingUsd} (${f.wyOngoingLocal}) a year after year one — a ${f.wyAnnualReport} annual report plus a ${f.agentPerYear}-a-year registered agent. New Mexico costs ${f.nmOngoingUsd} (${f.nmOngoingLocal}) a year, because there is no annual report fee and the agent is the only recurring cost. Delaware costs ${f.deOngoingUsd} a year, driven by its ${f.deAnnualTax} yearly tax. Converted figures are estimates at the ${FX_RATE_DATE} rate of €${f.rate} per $1.`,
     },
     {
-      question: "Does forming a US LLC require a notary appointment or minimum share capital like a GmbH?",
-      answer:
-        "No. A US LLC has $0 minimum share capital and is filed online directly with the Secretary of State — there is no notary appointment, no articles of association to notarise, and no Handelsregister entry to pay for. Compare that with a German UG or GmbH, where the notary alone costs roughly €105–€165 for a UG template deed and €276–€720 including VAT for a GmbH, before the €225 Handelsregister entry.",
+      question: "Does forming a US LLC need a notary appointment or minimum capital like a GmbH?",
+      answer: `No. A US LLC has $0 minimum share capital and is filed online directly with the Secretary of State — there is no notary appointment, no articles of association to notarise, and no Handelsregister entry to pay for. Compare that with a German UG or GmbH, where the notary alone costs roughly €105–€165 for a UG template deed and €276–€720 including VAT for a GmbH, before the €225 Handelsregister entry.`,
     },
     {
-      question: "Which US states have no annual report to file at all, and what operational costs still apply?",
-      answer: `Several states charge no annual report fee for LLCs: ${f.zeroReportStates}. New Mexico is the usual pick of the group — its state fees over five years are ${f.nmFiveYearStateOnly} in total. Founders still budget for a commercial registered agent, typically $99–$150 a year (${f.agentPerYear} in the calculator above), because a foreign address does not qualify. See the full list on the annual report requirements page.`,
+      question: "Which US states charge no annual report fee at all?",
+      answer: `The states with a $0 annual report fee for LLCs are ${f.zeroReportStates}. New Mexico is the usual pick of the group, with state fees of ${f.nmFiveYearStateOnly} over five years in total. The agent still applies — typically $99–$150 a year (${f.agentPerYear} in the calculator above) — because a foreign address does not qualify. The annual report requirements page has the full list.`,
     },
     {
-      question: "Can a founder in Germany get a US EIN for €0 without paying a formation agency?",
-      answer:
-        "Yes. The IRS issues EINs for $0 — there is no filing fee. File Form SS-4 by fax or mail and enter “Foreign” on Line 7b where it asks for a Social Security Number; the online EIN application will not work without an SSN or ITIN. Agencies charge $75–$300 to file the same free form for you. Fax processing typically takes about a week.",
+      question: "Can a founder in Germany get a US EIN for €0?",
+      answer: `Yes. The IRS charges nothing for an EIN. Because the online application requires an SSN or ITIN, a German founder files Form SS-4 by fax or mail with “Foreign” on Line 7b. Agencies charge $75–$300 to send the same free form; allow about a week for fax processing.`,
     },
   ];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
+      <ArticleJsonLd
+        headline="US LLC Cost from Germany (2026) — Filing Fees in EUR"
+        description="Forming a US LLC from Germany? Year-1 and 5-year costs in EUR for Wyoming, Delaware and New Mexico, the German UG/GmbH benchmark, and a US EIN for €0."
+        datePublished="2026-11-19"
+        dateModified="2026-11-20"
+        url="https://www.getllccostcalculator.com/guides/us-llc-cost-from-germany"
+      />
 
       <Breadcrumbs
         items={[
@@ -75,23 +72,11 @@ export default function UsLlcCostFromGermanyPage() {
       </h1>
 
       <p className="mt-4 max-w-3xl text-lg text-slate-600 leading-relaxed">
-        A founder in Germany can form a US LLC entirely online — no US visit,
-        no notary appointment, and no minimum share capital. The calculator
-        below is pre-loaded with euros and Wyoming, the usual low-cost pick,
-        so you can see the Year-1 and 5-year totals in EUR before you choose
-        a state.
+        A German UG or GmbH starts at the notary — a template deed, a Handelsregister entry of €225, and a Gewerbeanmeldung on top. A US LLC starts at a web form: no notary, no articles to notarise, no minimum share capital, and the filing goes straight to the Secretary of State. The calculator below is pre-loaded in euros with Wyoming, showing Year-1 and 5-year totals in EUR.
       </p>
 
       <p className="mt-3 max-w-3xl text-slate-600 leading-relaxed">
-        At a glance, with a {f.agentPerYear}-a-year registered agent: Wyoming
-        costs {f.wyYear1Usd} ({f.wyYear1Local}) in year one and{" "}
-        {f.wyFiveYearUsd} ({f.wyFiveYearLocal}) over five years; New Mexico
-        costs {f.nmYear1Usd} ({f.nmYear1Local}) in year one and{" "}
-        {f.nmFiveYearUsd} ({f.nmFiveYearLocal}) over five years; Delaware costs{" "}
-        {f.deYear1Usd} ({f.deYear1Local}) in year one and {f.deFiveYearUsd} (
-        {f.deFiveYearLocal}) over five years. Converted figures are estimates
-        at the {FX_RATE_DATE} rate of €{f.rate} per $1 — change the rate in
-        the calculator to match your bank or card provider.
+        Formation itself is {f.nmFormation} in New Mexico, {f.wyFormation} in Wyoming and {f.deFormation} in Delaware. Add the {f.agentPerYear}-a-year agent and the first year becomes {f.nmYear1Usd} ({f.nmYear1Local}), {f.wyYear1Usd} ({f.wyYear1Local}) and {f.deYear1Usd} ({f.deYear1Local}); five years become {f.nmFiveYearUsd} ({f.nmFiveYearLocal}), {f.wyFiveYearUsd} ({f.wyFiveYearLocal}) and {f.deFiveYearUsd} ({f.deFiveYearLocal}). Converted at the {FX_RATE_DATE} rate of €{f.rate} per $1 — adjust the rate in the calculator to match your bank.
       </p>
 
       <div className="mt-10">
@@ -99,15 +84,7 @@ export default function UsLlcCostFromGermanyPage() {
       </div>
 
       <p className="mt-6 max-w-3xl text-sm text-slate-500">
-        Prefer the full tool? Open the{" "}
-        <Link href="/tools/non-resident-llc-cost-calculator?currency=EUR" className="text-[#1769AA] hover:underline">
-          Non-Resident LLC Cost Calculator in EUR
-        </Link>{" "}
-        or read the general{" "}
-        <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">
-          non-resident LLC guide
-        </Link>
-        .
+        Open the full <Link href="/tools/non-resident-llc-cost-calculator?currency=EUR" className="text-[#1769AA] hover:underline">Non-Resident LLC Cost Calculator in EUR</Link> to price every state and adjust the agent cost, the exchange rate and the EIN option. The general <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">non-resident LLC guide</Link> covers the filing steps in order.
       </p>
 
       <section className="mt-12 max-w-3xl">
@@ -125,16 +102,19 @@ export default function UsLlcCostFromGermanyPage() {
           a registered agent.
         </p>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          State fees alone over five years are {f.nmFiveYearStateOnly} in New
-          Mexico, {f.wyFiveYearStateOnly} in Wyoming and{" "}
-          {f.deFiveYearStateOnly} in Delaware. The registered agent (
-          {f.agentPerYear} a year in the calculator) is the one recurring
-          service cost a German founder cannot skip, because a foreign address
-          does not qualify as a registered agent address.
-        </p>
+        Back home, the notary and Handelsregister costs are one-off, but the comparison that matters is the yearly one: a US LLC in Wyoming pays a {f.wyAnnualReport} annual report plus the agent, while a New Mexico LLC pays only the agent. The agent ({f.agentPerYear} a year in the calculator) is the recurring line a German founder cannot avoid, because a foreign address does not qualify as a registered office.
+       Leave the agent out and the state-only five-year bill is {f.nmFiveYearStateOnly} in New Mexico, {f.wyFiveYearStateOnly} in Wyoming and {f.deFiveYearStateOnly} in Delaware. Delaware&apos;s {f.deAnnualTax} annual tax accounts for almost all of the difference.</p>
       </section>
 
-      <section className="mt-12 max-w-3xl">
+            <section className="mt-12 max-w-3xl">
+        <h2 className="text-xl font-semibold text-[#102A43]">
+          Filing without a notary — what you actually submit
+        </h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          There is no German-style deed. The filing is the articles of organization, submitted online to the Secretary of State with the state fee — {f.nmFormation} in New Mexico or {f.wyFormation} in Wyoming — plus the name and address of your registered agent. No appointment, no notarised signatures, no Handelsregister entry. Once the state approves the filing, keep the approved copy with the EIN confirmation letter: banks and payment providers ask for the formation document when you open a US business account.
+        </p>
+      </section>
+<section className="mt-12 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">Frequently asked questions</h2>
         <div className="mt-6 space-y-4">
           {faqs.map((faq, i) => (

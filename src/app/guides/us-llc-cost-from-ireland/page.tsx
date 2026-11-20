@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import ArticleJsonLd from "@/components/seo/ArticleJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import NonResidentCalculator from "@/components/calculators/NonResidentCalculator";
 import { FX_RATE_DATE, countryGuideFigures } from "@/lib/countryGuideFigures";
@@ -8,29 +9,20 @@ import { FX_RATE_DATE, countryGuideFigures } from "@/lib/countryGuideFigures";
 export const metadata: Metadata = {
   title: { absolute: "US LLC Cost from Ireland (2026) — Filing Fees in EUR" },
   description:
-    "Forming a US LLC from Ireland? Year-1 and 5-year costs in EUR for Wyoming, Delaware and New Mexico, the CRO €50 benchmark, and agency fees of several hundred euros.",
+    "Forming a US LLC from Ireland? Year-1 and 5-year costs in EUR for Wyoming, Delaware and New Mexico, the CRO €50 benchmark, and agency fees in the hundreds.",
   alternates: { canonical: "/guides/us-llc-cost-from-ireland" },
   openGraph: {
     title: "US LLC Cost from Ireland (2026) — Filing Fees in EUR",
     description:
-      "Forming a US LLC from Ireland? Year-1 and 5-year costs in EUR for Wyoming, Delaware and New Mexico, the CRO €50 benchmark, and agency fees of several hundred euros.",
+      "Forming a US LLC from Ireland? Year-1 and 5-year costs in EUR for Wyoming, Delaware and New Mexico, the CRO €50 benchmark, and agency fees in the hundreds.",
     type: "website",
     url: "/guides/us-llc-cost-from-ireland",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "US LLC Cost from Ireland (2026) — Filing Fees in EUR",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "US LLC Cost from Ireland (2026) — Filing Fees in EUR",
     description:
-      "Forming a US LLC from Ireland? Year-1 and 5-year costs in EUR for Wyoming, Delaware and New Mexico, the CRO €50 benchmark, and agency fees of several hundred euros.",
-    images: ["/twitter-image"],
+      "Forming a US LLC from Ireland? Year-1 and 5-year costs in EUR for Wyoming, Delaware and New Mexico, the CRO €50 benchmark, and agency fees in the hundreds.",
   },
 };
 
@@ -39,27 +31,33 @@ export default function UsLlcCostFromIrelandPage() {
 
   const faqs = [
     {
-      question: "What does it cost in EUR to keep a US LLC active every year from Ireland?",
-      answer: `A Wyoming LLC costs ${f.wyOngoingUsd} (${f.wyOngoingLocal} at the ${FX_RATE_DATE} rate of €${f.rate} per $1) a year to keep active — a ${f.wyAnnualReport} annual report plus a ${f.agentPerYear}-a-year registered agent. A New Mexico LLC costs ${f.nmOngoingUsd} (${f.nmOngoingLocal}) a year, because New Mexico charges no annual report fee and the only recurring cost is the agent. Those are the ongoing costs after year one; the calculator above shows the full Year-1 and 5-year totals.`,
+      question: "How much does a US LLC cost an Irish founder in EUR each year after year one?",
+      answer: `After year one the bill splits two ways. A New Mexico LLC costs ${f.nmOngoingUsd} (${f.nmOngoingLocal}) a year — the agent alone, since New Mexico charges no annual report fee. A Wyoming LLC costs ${f.wyOngoingUsd} (${f.wyOngoingLocal}) a year: the same ${f.agentPerYear} agent plus a ${f.wyAnnualReport} annual report. Converted figures are estimates at the ${FX_RATE_DATE} rate of €${f.rate} per $1.`,
     },
     {
-      question: "Why do online LLC packages cost several hundred euros when official US state fees start at $35?",
-      answer: `The official state filing fee is ${f.nmFormation} in New Mexico and ${f.wyFormation} in Wyoming — the same whether you file yourself or pay an agency. Agencies add several hundred euros for rush filing, document templates, EIN faxing, and Year-1 registered-agent bundles. The extra money buys services, not a different filing fee. Use the calculator above with the DIY EIN option ($0) to see the no-agency total for your state.`,
+      question: "What is the Section 137 bond, and does a US LLC need anything like it?",
+      answer: `An Irish limited company without an EEA-resident director must put up a Section 137 bond of €25,000. A US LLC has no director-residency rule at all, so there is no bond, no minimum capital and no resident-director requirement — the only mandatory US-side presence is a registered agent with a physical address in the formation state.`,
     },
     {
-      question: "Does a US LLC require an EEA-resident director or €25,000 bond like an Irish company?",
-      answer:
-        "No. A US LLC has no nationality or residency requirements for its members or managers — an Irish founder can own and run it 100% remotely. That is the key difference from an Irish limited company, which needs an EEA-resident director or, failing that, a Section 137 bond of €25,000. A US LLC only needs a registered agent with a physical address in the formation state.",
+      question: "How does an Irish founder get a US EIN without an SSN?",
+      answer: `The IRS issues EINs for $0. File Form SS-4 by fax or mail and write “Foreign” on Line 7b where it asks for a Social Security Number — the online EIN application does not work without an SSN or ITIN. Agencies charge $75–$300 to file the same free form; fax processing typically takes about a week.`,
     },
     {
-      question: "Can an Irish founder dissolve a US LLC remotely, and what are the official fees?",
-      answer: `Yes. Dissolution is filed online with the formation state's Secretary of State — no US visit is needed. The official filing fee is ${f.nmDissolution} in New Mexico and ${f.wyDissolution} in Wyoming. Once the filing is approved, the state stops billing future annual fees, so dissolving promptly is what stops the yearly cost. Make sure all annual fees or taxes are paid first, as some states will not accept a dissolution while money is owed.`,
+      question: "Can an Irish founder close a US LLC from Ireland, and what does it cost?",
+      answer: `Yes. Dissolution is filed online with the formation state’s Secretary of State — no US visit is needed. The official filing fee is ${f.nmDissolution} in New Mexico and ${f.wyDissolution} in Wyoming. Pay any annual fees or taxes still owed first, because some states will not accept a dissolution while money is owed, and once the filing is approved the state stops billing future annual fees.`,
     },
   ];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
+      <ArticleJsonLd
+        headline="US LLC Cost from Ireland (2026) — Filing Fees in EUR"
+        description="Forming a US LLC from Ireland? Year-1 and 5-year costs in EUR for Wyoming, Delaware and New Mexico, the CRO €50 benchmark, and agency fees in the hundreds."
+        datePublished="2026-11-19"
+        dateModified="2026-11-20"
+        url="https://www.getllccostcalculator.com/guides/us-llc-cost-from-ireland"
+      />
 
       <Breadcrumbs
         items={[
@@ -74,23 +72,11 @@ export default function UsLlcCostFromIrelandPage() {
       </h1>
 
       <p className="mt-4 max-w-3xl text-lg text-slate-600 leading-relaxed">
-        An Irish founder can form a US LLC entirely online — no US visit, no
-        EEA-resident director, and no minimum share capital. The calculator
-        below is pre-loaded with euros and Wyoming, the usual low-cost pick,
-        so you can see the Year-1 and 5-year totals in EUR before you choose a
-        state.
+        Forming a company in Ireland runs through the CRO: Form A1, a €50 online filing fee, and a €25,000 Section 137 bond unless one of the directors lives in the EEA. A US LLC works the other way round — one online filing with the Secretary of State, no director-residency rule, no bond and no minimum capital. The calculator below is pre-loaded in euros with Wyoming, so the Year-1 and 5-year totals are visible in EUR before any paperwork starts.
       </p>
 
       <p className="mt-3 max-w-3xl text-slate-600 leading-relaxed">
-        At a glance, with a {f.agentPerYear}-a-year registered agent: Wyoming
-        costs {f.wyYear1Usd} ({f.wyYear1Local}) in year one and{" "}
-        {f.wyFiveYearUsd} ({f.wyFiveYearLocal}) over five years; New Mexico
-        costs {f.nmYear1Usd} ({f.nmYear1Local}) in year one and{" "}
-        {f.nmFiveYearUsd} ({f.nmFiveYearLocal}) over five years; Delaware costs{" "}
-        {f.deYear1Usd} ({f.deYear1Local}) in year one and {f.deFiveYearUsd} (
-        {f.deFiveYearLocal}) over five years. Converted figures are estimates
-        at the {FX_RATE_DATE} rate of €{f.rate} per $1 — change the rate in
-        the calculator to match your bank or card provider.
+        Stretch the view to five years and the order stays the same: New Mexico {f.nmFiveYearUsd} ({f.nmFiveYearLocal}), Wyoming {f.wyFiveYearUsd} ({f.wyFiveYearLocal}) and Delaware {f.deFiveYearUsd} ({f.deFiveYearLocal}), each with a {f.agentPerYear}-a-year registered agent counted in. Year one is {f.nmYear1Usd} ({f.nmYear1Local}) in New Mexico, {f.wyYear1Usd} ({f.wyYear1Local}) in Wyoming and {f.deYear1Usd} ({f.deYear1Local}) in Delaware. Converted figures are estimates at the {FX_RATE_DATE} rate of €{f.rate} per $1 — the calculator lets you overwrite the rate with the one your bank quotes.
       </p>
 
       <div className="mt-10">
@@ -98,15 +84,7 @@ export default function UsLlcCostFromIrelandPage() {
       </div>
 
       <p className="mt-6 max-w-3xl text-sm text-slate-500">
-        Prefer the full tool? Open the{" "}
-        <Link href="/tools/non-resident-llc-cost-calculator?currency=EUR" className="text-[#1769AA] hover:underline">
-          Non-Resident LLC Cost Calculator in EUR
-        </Link>{" "}
-        or read the general{" "}
-        <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">
-          non-resident LLC guide
-        </Link>
-        .
+        The calculator on this page is a cut-down version. Open the <Link href="/tools/non-resident-llc-cost-calculator?currency=EUR" className="text-[#1769AA] hover:underline">Non-Resident LLC Cost Calculator in EUR</Link> to compare every state and change the agent price, the exchange rate and the EIN option, or read the general <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">non-resident LLC guide</Link> for the filing steps.
       </p>
 
       <section className="mt-12 max-w-3xl">
@@ -124,18 +102,19 @@ export default function UsLlcCostFromIrelandPage() {
           in Wyoming) plus a registered agent is the whole formation cost.
         </p>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          The ongoing picture is similar. An Irish company files an annual
-          return with the CRO every year; a US LLC in Wyoming pays a{" "}
-          {f.wyAnnualReport} annual report plus its agent, while a New Mexico
-          LLC pays no annual report fee at all. State fees alone over five
-          years are {f.nmFiveYearStateOnly} in New Mexico,{" "}
-          {f.wyFiveYearStateOnly} in Wyoming and {f.deFiveYearStateOnly} in
-          Delaware (Delaware&apos;s {f.deAnnualTax} yearly tax is the reason it
-          costs more).
-        </p>
+        The yearly rhythm is what differs most. An Irish company files an annual return with the CRO every year; a Wyoming LLC files a {f.wyAnnualReport} annual report plus its agent, and a New Mexico LLC files nothing annually — the agent is the only recurring line. That agent ({f.agentPerYear} a year in the calculator) is unavoidable for an Irish founder, because a foreign address does not qualify as a registered office.
+       Count state fees alone and five years come to {f.nmFiveYearStateOnly} in New Mexico, {f.wyFiveYearStateOnly} in Wyoming and {f.deFiveYearStateOnly} in Delaware — Delaware&apos;s {f.deAnnualTax} yearly tax is the whole reason its total runs higher.</p>
       </section>
 
-      <section className="mt-12 max-w-3xl">
+            <section className="mt-12 max-w-3xl">
+        <h2 className="text-xl font-semibold text-[#102A43]">
+          Paying the US fees from an Irish bank account
+        </h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          Every US state fee is charged in US dollars, so an Irish bank or card converts the payment from euros at its own rate on the day. The calculator on this page has a rate field for exactly that reason — set it to the rate your bank quotes and the EUR totals follow. The registered agent bills in dollars too, once a year. Keep the approved formation document and the EIN confirmation letter in one place once they arrive: banks and payment providers usually ask for both when you open a US business account.
+        </p>
+      </section>
+<section className="mt-12 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">Frequently asked questions</h2>
         <div className="mt-6 space-y-4">
           {faqs.map((faq, i) => (

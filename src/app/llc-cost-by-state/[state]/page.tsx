@@ -33,21 +33,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: `Official ${displayName} LLC formation and recurring costs with government source links.`,
       type: "article",
       url: `/llc-cost-by-state/${s.slug}`,
-      images: [
-        {
-          url: "/opengraph-image",
-          width: 1200,
-          height: 630,
-          alt: `LLC Cost in ${displayName} — Filing & Annual Fees`,
-        },
-      ],
     },
     twitter: {
       card: "summary_large_image",
       title: `LLC Cost in ${displayName} — Filing & Annual Fees`,
       description: `Official ${displayName} LLC formation and recurring costs with government source links.`,
-      images: ["/twitter-image"],
-    },
+      },
   };
 }
 
@@ -220,13 +211,13 @@ export default async function StateCostPage({ params }: Props) {
       <div className="mt-6 flex flex-wrap gap-3">
         <Link
           href="/llc-cost-calculator"
-          className="rounded-lg bg-[#102A43] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#1769AA]"
+          className="inline-flex min-h-[48px] items-center rounded-lg bg-[#102A43] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#1769AA]"
         >
           Open calculator
         </Link>
         <Link
           href="/how-to-form-an-llc"
-          className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-[#1769AA]"
+          className="inline-flex min-h-[48px] items-center rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-[#1769AA]"
         >
           How to form an LLC
         </Link>

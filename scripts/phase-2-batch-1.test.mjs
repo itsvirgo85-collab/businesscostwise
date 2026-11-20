@@ -157,28 +157,28 @@ for (const [key, cfg] of Object.entries(PAGES)) {
     const src = pageSrc(cfg.slug);
     const questions = {
       ireland: [
-        "What does it cost in EUR to keep a US LLC active every year from Ireland?",
-        "Why do online LLC packages cost several hundred euros when official US state fees start at $35?",
-        "Does a US LLC require an EEA-resident director or €25,000 bond like an Irish company?",
-        "Can an Irish founder dissolve a US LLC remotely, and what are the official fees?",
+        "How much does a US LLC cost an Irish founder in EUR each year after year one?",
+        "What is the Section 137 bond, and does a US LLC need anything like it?",
+        "How does an Irish founder get a US EIN without an SSN?",
+        "Can an Irish founder close a US LLC from Ireland, and what does it cost?",
       ],
       newZealand: [
-        "What is the Year-1 and annual renewal cost of a US LLC in NZD?",
-        "Does a US LLC require a New Zealand or Australian resident director?",
-        "Why do formation websites charge several hundred New Zealand dollars when state filing fees start at $35 USD?",
-        "What happens operationally if a New Zealand founder misses a US annual report deadline?",
+        "What does a US LLC cost in NZD in year one and every year after?",
+        "Does a US LLC need a director who lives in New Zealand or Australia?",
+        "Why do formation websites quote several hundred New Zealand dollars when the state fee starts at $35?",
+        "What happens if a New Zealand founder misses a US annual report deadline?",
       ],
       netherlands: [
-        "What is the real annual maintenance cost of a US LLC in Euros?",
-        "Which US state has the lowest 5-year EUR running cost for founders in the Netherlands?",
-        "Can a founder in the Netherlands get a US EIN for €0 without paying a formation agency?",
-        "What happens operationally if a Dutch founder misses a US state annual report deadline?",
+        "What is the yearly upkeep of a US LLC in euros for a Dutch founder?",
+        "Does a US LLC need a KvK registration or a UBO entry in the Netherlands?",
+        "Which US state is cheapest over five years in EUR?",
+        "Can a Dutch founder get a US EIN for €0 without a formation agency?",
       ],
       germany: [
-        "What are the exact ongoing US LLC fees in EUR for founders living in Germany?",
-        "Does forming a US LLC require a notary appointment or minimum share capital like a GmbH?",
-        "Which US states have no annual report to file at all, and what operational costs still apply?",
-        "Can a founder in Germany get a US EIN for €0 without paying a formation agency?",
+        "What are the ongoing US LLC costs in EUR for a founder in Germany?",
+        "Does forming a US LLC need a notary appointment or minimum capital like a GmbH?",
+        "Which US states charge no annual report fee at all?",
+        "Can a founder in Germany get a US EIN for €0?",
       ],
     }[key];
     for (const q of questions) {

@@ -77,7 +77,7 @@ test("Dissolution fees used by the Q5 FAQ: NM $25, NC $30, WY $60, max $220", ()
   assert.equal(fee("delaware"), 220);
 });
 
-test("Every page emits BreadcrumbList JSON-LD (Breadcrumbs or BreadcrumbJsonLd)", () => {
+test("Every page except the homepage emits BreadcrumbList JSON-LD", () => {
   const appDir = new URL("../src/app", import.meta.url).pathname;
   const pages = [];
   const walk = (dir) => {
@@ -89,10 +89,19 @@ test("Every page emits BreadcrumbList JSON-LD (Breadcrumbs or BreadcrumbJsonLd)"
   };
   walk(appDir);
   assert.ok(pages.length >= 40, `Expected 40+ pages, found ${pages.length}`);
-  const missing = pages.filter((p) => {
-    const src = readFileSync(p, "utf8");
-    return !src.includes("Breadcrumbs") && !src.includes("BreadcrumbJsonLd");
-  });
+  // The homepage is exempt: a single-item BreadcrumbList is invalid per
+  // Google (a BreadcrumbList needs at least two ListItems), and the
+  // homepage needs no breadcrumb trail at all (SEO guide audit, Nov 2026).
+  const homepage = join(appDir, "page.tsx");
+  const homeSrc = readFileSync(homepage, "utf8");
+  assert.doesNotMatch(homeSrc, /BreadcrumbList/);
+  assert.doesNotMatch(homeSrc, /BreadcrumbJsonLd/);
+  const missing = pages
+    .filter((p) => p !== homepage)
+    .filter((p) => {
+      const src = readFileSync(p, "utf8");
+      return !src.includes("Breadcrumbs") && !src.includes("BreadcrumbJsonLd");
+    });
   assert.deepEqual(missing, []);
 });
 

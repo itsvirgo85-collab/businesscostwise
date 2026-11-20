@@ -16,14 +16,12 @@ export const metadata: Metadata = {
       "Every LLC needs a registered agent in place. Compare commercial service costs vs serving as your own agent, with multi-year totals and the privacy trade-offs.",
     type: "website",
     url: "/tools/registered-agent-cost-calculator",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Registered Agent Cost Calculator (2026)" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Registered Agent Cost Calculator (2026)",
     description:
       "Every LLC needs a registered agent in place. Compare commercial service costs vs serving as your own agent, with multi-year totals and the privacy trade-offs.",
-    images: ["/twitter-image"],
   },
 };
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import ArticleJsonLd from "@/components/seo/ArticleJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import NonResidentCalculator from "@/components/calculators/NonResidentCalculator";
 import { FX_RATE_DATE, countryGuideFigures } from "@/lib/countryGuideFigures";
@@ -16,21 +17,12 @@ export const metadata: Metadata = {
       "Forming a US LLC from India? Year-1 and 5-year costs in INR for Wyoming, Delaware and New Mexico, the MCA SPICe+ ₹0 benchmark, and a US EIN for ₹0 without an SSN.",
     type: "website",
     url: "/guides/us-llc-cost-from-india",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "US LLC Cost from India (2026) — Filing Fees in INR",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "US LLC Cost from India (2026) — Filing Fees in INR",
     description:
       "Forming a US LLC from India? Year-1 and 5-year costs in INR for Wyoming, Delaware and New Mexico, the MCA SPICe+ ₹0 benchmark, and a US EIN for ₹0 without an SSN.",
-    images: ["/twitter-image"],
   },
 };
 
@@ -40,28 +32,32 @@ export default function UsLlcCostFromIndiaPage() {
   const faqs = [
     {
       question: "How much does a Wyoming or New Mexico LLC cost per year in INR?",
-      answer: `A Wyoming LLC costs ${f.wyYear1Usd} (${f.wyYear1Local}) in year one and ${f.wyOngoingUsd} (${f.wyOngoingLocal}) a year after that, with a ${f.agentPerYear}-a-year registered agent. A New Mexico LLC costs ${f.nmYear1Usd} (${f.nmYear1Local}) in year one and ${f.nmOngoingUsd} (${f.nmOngoingLocal}) a year after that, because New Mexico charges a $0 state renewal fee. Converted figures are estimates at the ${FX_RATE_DATE} rate of ${f.rate} INR per $1.`,
+      answer: `Wyoming costs ${f.wyYear1Usd} (${f.wyYear1Local}) in year one and ${f.wyOngoingUsd} (${f.wyOngoingLocal}) a year after that, with a ${f.agentPerYear}-a-year registered agent. New Mexico costs ${f.nmYear1Usd} (${f.nmYear1Local}) in year one and ${f.nmOngoingUsd} (${f.nmOngoingLocal}) a year after that, because New Mexico charges a $0 state renewal fee. Converted figures are estimates at the ${FX_RATE_DATE} rate of ${f.rate} INR per $1.`,
     },
     {
-      question: "Do Indian founders pay higher US state filing fees than US residents?",
-      answer:
-        "No. US state filing and renewal fees are identical regardless of nationality or Indian residency — an Indian founder pays the same official fee as a US citizen forming in the same state. The only extra cost for a non-resident is a commercial registered agent ($99–$150 a year), which provides the in-state street address the state requires because a foreign address does not qualify.",
+      question: "Do Indian founders pay higher US state fees than US residents?",
+      answer: `No. The state fee schedule makes no distinction by nationality — an Indian founder pays the same filing and renewal fees as a US citizen in the same state. The only additional cost is the commercial registered agent ($99–$150 a year), which provides the in-state street address the state requires.`,
     },
     {
       question: "Can an Indian resident get a US EIN for ₹0 without an SSN?",
-      answer:
-        "Yes. The IRS charges $0 (₹0) for an EIN: file Form SS-4 by fax or mail and write “Foreign” on Line 7b, since you have no SSN. No third-party filing fee is needed — agencies that charge for EIN filing are selling a convenience service for a free IRS form.",
+      answer: `Yes. The IRS charges $0 (₹0) for an EIN: file Form SS-4 by fax or mail and write “Foreign” on Line 7b, since you have no SSN. No third-party filing fee is needed — agencies that charge for EIN filing are selling a convenience service for a free IRS form.`,
     },
     {
-      question: "What is the difference between a Registered Agent address and a US Virtual Mailbox?",
-      answer:
-        "A registered agent ($99–$150 a year) is strictly for official Secretary of State and legal notices — it is the address the state has on record and where legal papers are served. A US virtual mailbox ($10–$30 a month) is for everyday mail: banking letters, vendor mail, and mail scanning. The agent cannot be replaced by a mailbox, and a mailbox cannot receive legal service.",
+      question: "What is the difference between a registered agent address and a US virtual mailbox?",
+      answer: `A registered agent ($99–$150 a year) is strictly for official Secretary of State and legal notices — it is the address the state has on record and where legal papers are served. A US virtual mailbox ($10–$30 a month) is for everyday mail: banking letters, vendor mail, and mail scanning. The agent cannot be replaced by a mailbox, and a mailbox cannot receive legal service.`,
     },
   ];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
+      <ArticleJsonLd
+        headline="US LLC Cost from India (2026) — Filing Fees in INR"
+        description="Forming a US LLC from India? Year-1 and 5-year costs in INR for Wyoming, Delaware and New Mexico, the MCA SPICe+ ₹0 benchmark, and a US EIN for ₹0 without an SSN."
+        datePublished="2026-11-19"
+        dateModified="2026-11-20"
+        url="https://www.getllccostcalculator.com/guides/us-llc-cost-from-india"
+      />
 
       <Breadcrumbs
         items={[
@@ -76,22 +72,11 @@ export default function UsLlcCostFromIndiaPage() {
       </h1>
 
       <p className="mt-4 max-w-3xl text-lg text-slate-600 leading-relaxed">
-        An Indian founder can form a US LLC entirely online — no US visit, no
-        SSN, and no US address of your own. The calculator below is pre-loaded
-        with Indian rupees and Wyoming, the usual low-cost pick, so you can
-        see the Year-1 and 5-year totals in INR before you choose a state.
+        Incorporating in India runs through the MCA and its SPICe+ form — the government filing fee is ₹0 up to ₹15 lakh of authorised capital, plus stamp duty, a ₹1,000 name reservation and DSC charges. A US LLC has no stamp-duty layer and no DSC: the state filing fee plus a registered agent is the whole formation cost. The calculator below is pre-loaded in rupees with Wyoming, so Year-1 and 5-year totals are in INR.
       </p>
 
       <p className="mt-3 max-w-3xl text-slate-600 leading-relaxed">
-        At a glance, with a {f.agentPerYear}-a-year registered agent: Wyoming
-        costs {f.wyYear1Usd} ({f.wyYear1Local}) in year one and{" "}
-        {f.wyFiveYearUsd} ({f.wyFiveYearLocal}) over five years; New Mexico
-        costs {f.nmYear1Usd} ({f.nmYear1Local}) in year one and{" "}
-        {f.nmFiveYearUsd} ({f.nmFiveYearLocal}) over five years; Delaware costs{" "}
-        {f.deYear1Usd} ({f.deYear1Local}) in year one and {f.deFiveYearUsd} (
-        {f.deFiveYearLocal}) over five years. Converted figures are estimates
-        at the {FX_RATE_DATE} rate of {f.rate} INR per $1 — change the rate in
-        the calculator to match your bank or card provider.
+        Five years with the agent: Wyoming {f.wyFiveYearUsd} ({f.wyFiveYearLocal}), New Mexico {f.nmFiveYearUsd} ({f.nmFiveYearLocal}), Delaware {f.deFiveYearUsd} ({f.deFiveYearLocal}). Year one: {f.wyYear1Usd} ({f.wyYear1Local}), {f.nmYear1Usd} ({f.nmYear1Local}), {f.deYear1Usd} ({f.deYear1Local}). All conversions use the {FX_RATE_DATE} rate of {f.rate} INR per $1 — change the rate in the calculator to match your bank or card provider.
       </p>
 
       <div className="mt-10">
@@ -99,15 +84,7 @@ export default function UsLlcCostFromIndiaPage() {
       </div>
 
       <p className="mt-6 max-w-3xl text-sm text-slate-500">
-        Prefer the full tool? Open the{" "}
-        <Link href="/tools/non-resident-llc-cost-calculator?currency=INR" className="text-[#1769AA] hover:underline">
-          Non-Resident LLC Cost Calculator in INR
-        </Link>{" "}
-        or read the general{" "}
-        <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">
-          non-resident LLC guide
-        </Link>
-        .
+        For every state and full control of the agent price, exchange rate and EIN option, open the <Link href="/tools/non-resident-llc-cost-calculator?currency=INR" className="text-[#1769AA] hover:underline">Non-Resident LLC Cost Calculator in INR</Link>. The general <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">non-resident LLC guide</Link> covers the filing steps.
       </p>
 
       <section className="mt-12 max-w-3xl">
@@ -115,11 +92,8 @@ export default function UsLlcCostFromIndiaPage() {
           Wyoming vs Delaware vs New Mexico — Year-1 and 5-year costs in INR
         </h2>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          The table below is calculated from the site&apos;s state fee data
-          with a {f.agentPerYear}-a-year registered agent included. Five-year
-          totals count five recurring payments, the same convention the site
-          uses everywhere.
-        </p>
+        The table adds up the same three states three ways: the one-off formation fee, the yearly state charge, and the year-one and five-year totals with the agent. Five-year totals count five recurring payments, the convention this site uses on every page.
+      </p>
         <div className="mt-4 overflow-x-auto">
           <table className="w-full min-w-[520px] border-collapse text-left text-sm">
             <thead>
@@ -157,12 +131,8 @@ export default function UsLlcCostFromIndiaPage() {
           </table>
         </div>
         <p className="mt-3 text-sm text-slate-500">
-          State fees alone over five years are {f.nmFiveYearStateOnly} in New
-          Mexico, {f.wyFiveYearStateOnly} in Wyoming and{" "}
-          {f.deFiveYearStateOnly} in Delaware, before the registered agent.
-          Delaware&apos;s {f.deAnnualTax} yearly tax is the reason it costs
-          more.
-        </p>
+        Count only what the states charge and five years come to {f.nmFiveYearStateOnly} in New Mexico, {f.wyFiveYearStateOnly} in Wyoming and {f.deFiveYearStateOnly} in Delaware. Delaware&apos;s {f.deAnnualTax} yearly tax is the whole reason its total runs higher.
+      </p>
       </section>
 
       <section className="mt-12 max-w-3xl">
@@ -180,17 +150,19 @@ export default function UsLlcCostFromIndiaPage() {
           a New Mexico LLC pays no annual report fee at all.
         </p>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          The ongoing picture is similar. An Indian company files annual
-          returns with the MCA every year; a US LLC in Wyoming pays a{" "}
-          {f.wyAnnualReport} annual report plus its agent, while a New Mexico
-          LLC pays only the agent. The agent ({f.agentPerYear} a year in the
-          calculator) is the one recurring service cost an Indian founder
-          cannot skip, because a foreign address does not qualify as a
-          registered office.
-        </p>
+        Yearly filings tell the same story. An Indian company files annual returns with the MCA every year; a Wyoming LLC files a {f.wyAnnualReport} annual report plus its agent, and a New Mexico LLC files no annual report at all. The agent ({f.agentPerYear} a year in the calculator) is the recurring line an Indian founder cannot drop, because a foreign address does not qualify as a registered office.
+      </p>
       </section>
 
-      <section className="mt-12 max-w-3xl">
+            <section className="mt-12 max-w-3xl">
+        <h2 className="text-xl font-semibold text-[#102A43]">
+          Paying US fees from India
+        </h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          The state filing fee and the agent are both paid in US dollars — usually by card or wire from an Indian bank, which converts the rupees at its own rate. Before you pay, set the calculator’s rate field to the rate your bank quotes, so the INR totals match the debit you will actually see. The agent renews in dollars once a year. The only other dollar payment in year one is the EIN — $0 from the IRS if you file Form SS-4 yourself.
+        </p>
+      </section>
+<section className="mt-12 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">Frequently asked questions</h2>
         <div className="mt-6 space-y-4">
           {faqs.map((faq, i) => (

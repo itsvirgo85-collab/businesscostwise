@@ -16,14 +16,12 @@ export const metadata: Metadata = {
       "Compare LLC costs in up to five states side by side — formation fees, annual reports, franchise taxes, and 5-year totals — using verified 2026 state fee data.",
     type: "website",
     url: "/tools/multi-state-llc-cost-comparator",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Multi-State LLC Cost Comparator (2026)" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Multi-State LLC Cost Comparator (2026)",
     description:
       "Compare LLC costs in up to five states side by side — formation fees, annual reports, franchise taxes, and 5-year totals — using verified 2026 state fee data.",
-    images: ["/twitter-image"],
   },
 };
 

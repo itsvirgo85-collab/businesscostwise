@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import ArticleJsonLd from "@/components/seo/ArticleJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
@@ -58,6 +59,13 @@ export default function RealEstateLlcPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
+      <ArticleJsonLd
+        headline="LLC for Rental Property & Real Estate (2026)"
+        description="An LLC shields your personal assets from rental property lawsuits. Compare one LLC per property vs a holding company vs a Series LLC, and the costs."
+        datePublished="2026-11-15"
+        dateModified="2026-11-20"
+        url="https://www.getllccostcalculator.com/guides/llc-for-real-estate"
+      />
 
       <Breadcrumbs
         items={[

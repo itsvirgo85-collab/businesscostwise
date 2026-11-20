@@ -16,14 +16,12 @@ export const metadata: Metadata = {
       "Compare Wyoming, New Mexico, Delaware and Nevada for LLC privacy: which states list member names on public filings, plus formation and 5-year costs.",
     type: "website",
     url: "/tools/anonymous-llc-state-finder",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Anonymous LLC State Finder: Privacy by State (2026)" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Anonymous LLC State Finder: Privacy by State (2026)",
     description:
       "Compare Wyoming, New Mexico, Delaware and Nevada for LLC privacy: which states list member names on public filings, plus formation and 5-year costs.",
-    images: ["/twitter-image"],
   },
 };
 

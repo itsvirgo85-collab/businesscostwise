@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { DISSOLUTION_FEES } from "@/data/dissolutionFees";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import ArticleJsonLd from "@/components/seo/ArticleJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import DissolutionChecklist from "@/components/calculators/DissolutionChecklist";
 
@@ -64,6 +65,13 @@ export default function DissolveLlcPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
+      <ArticleJsonLd
+        headline="How to Dissolve an LLC: Steps, Cost & Checklist (2026)"
+        description="Closing an LLC takes more than stopping work: vote to dissolve, settle debts, file with the state, and file a final tax return. Steps, costs, and checklist."
+        datePublished="2026-11-15"
+        dateModified="2026-11-20"
+        url="https://www.getllccostcalculator.com/guides/how-to-dissolve-an-llc"
+      />
 
       <Breadcrumbs
         items={[

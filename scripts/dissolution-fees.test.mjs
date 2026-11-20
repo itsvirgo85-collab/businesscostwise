@@ -28,15 +28,16 @@ test("officially confirmed dissolution fees match the research", () => {
   // not the $220 quoted by most secondary guides.
   assert.equal(getDissolutionFee("district-of-columbia")?.fee, 5);
   assert.equal(getDissolutionFee("district-of-columbia")?.confidence, "verified");
+  // Nebraska resolved 20 Nov 2026 against the official SOS Statement of
+  // Dissolution form itself: $25 online / $30 in office (21-148).
+  assert.equal(getDissolutionFee("nebraska")?.fee, 25);
+  assert.equal(getDissolutionFee("nebraska")?.confidence, "verified");
 });
 
 test("no dissolution fee is left flagged as conflicting", () => {
   for (const d of DISSOLUTION_FEES) {
     assert.notEqual(d.confidence, "conflicting", d.slug);
   }
-  // Nebraska resolved 15 Nov 2026 as an online/paper split: $25 online.
-  assert.equal(getDissolutionFee("nebraska")?.fee, 25);
-  assert.equal(getDissolutionFee("nebraska")?.confidence, "secondary");
 });
 
 test("zero-fee dissolutions are real states, not missing data", () => {

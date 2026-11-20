@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import ArticleJsonLd from "@/components/seo/ArticleJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import NonResidentCalculator from "@/components/calculators/NonResidentCalculator";
 import { FX_RATE_DATE, countryGuideFigures } from "@/lib/countryGuideFigures";
@@ -16,21 +17,12 @@ export const metadata: Metadata = {
       "Forming a US LLC from Dubai or the UAE? Year-1 and 5-year costs in AED for Wyoming, Delaware and New Mexico, the Free Zone licence benchmark, and IRS EIN costs.",
     type: "website",
     url: "/guides/us-llc-cost-from-dubai",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "US LLC Cost from Dubai & UAE (2026) — Fees in AED",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "US LLC Cost from Dubai & UAE (2026) — Fees in AED",
     description:
       "Forming a US LLC from Dubai or the UAE? Year-1 and 5-year costs in AED for Wyoming, Delaware and New Mexico, the Free Zone licence benchmark, and IRS EIN costs.",
-    images: ["/twitter-image"],
   },
 };
 
@@ -39,29 +31,33 @@ export default function UsLlcCostFromDubaiPage() {
 
   const faqs = [
     {
-      question: "What is the total Year-1 and annual renewal cost of a US LLC in AED?",
-      answer: `A Wyoming LLC costs ${f.wyYear1Usd} (${f.wyYear1Local}) in year one and ${f.wyOngoingUsd} (${f.wyOngoingLocal}) a year after that, with a ${f.agentPerYear}-a-year registered agent. A New Mexico LLC costs ${f.nmYear1Usd} (${f.nmYear1Local}) in year one and ${f.nmOngoingUsd} (${f.nmOngoingLocal}) a year after that, because New Mexico charges a $0 state renewal fee. Converted figures are estimates at the ${FX_RATE_DATE} rate of ${f.rate} AED per $1 — the dirham is pegged to the US dollar, so the rate barely moves.`,
+      question: "What is the total Year-1 and renewal cost of a US LLC in AED?",
+      answer: `Wyoming costs ${f.wyYear1Usd} (${f.wyYear1Local}) in year one and ${f.wyOngoingUsd} (${f.wyOngoingLocal}) a year after that, with a ${f.agentPerYear}-a-year registered agent. New Mexico costs ${f.nmYear1Usd} (${f.nmYear1Local}) in year one and ${f.nmOngoingUsd} (${f.nmOngoingLocal}) a year after that, because New Mexico charges a $0 state renewal fee. Converted figures are estimates at the ${FX_RATE_DATE} rate of ${f.rate} AED per $1 — the dirham is pegged to the US dollar, so the rate barely moves.`,
     },
     {
-      question: "Does a US LLC require an Ejari office lease or annual trade license renewal?",
-      answer:
-        `No. A US LLC needs no physical office lease, no Ejari registration, and no activity-based trade licence. The only mandatory recurring items are a commercial registered agent ($99–$150 a year) and a simple annual or biennial state report — Wyoming's is ${f.wyAnnualReport} a year, and New Mexico has no annual report at all.`,
+      question: "Does a US LLC need an Ejari office lease or annual trade licence renewal?",
+      answer: `No. A US LLC needs no physical office lease, no Ejari registration, and no activity-based trade licence. The only mandatory recurring items are a commercial registered agent ($99–$150 a year) and a simple annual or biennial state report — Wyoming’s is ${f.wyAnnualReport} a year, and New Mexico has no annual report at all.`,
     },
     {
-      question: "Can UAE residents (expats or citizens) form a US LLC remotely without visiting the US?",
-      answer:
-        "Yes. Formation is 100% online regardless of passport nationality or UAE residency — expats and UAE citizens alike can form without visiting the US. Your registered agent provides the mandatory in-state street address for official state and legal notices, and the IRS EIN is obtained by fax or mail.",
+      question: "Can UAE residents form a US LLC remotely without visiting the US?",
+      answer: `Yes. Formation is 100% online regardless of passport nationality or UAE residency — expats and UAE citizens alike can form without visiting the US. Your registered agent provides the mandatory in-state street address for official state and legal notices, and the IRS EIN is obtained by fax or mail.`,
     },
     {
       question: "How much does an IRS EIN cost for founders in Dubai?",
-      answer:
-        "An EIN costs $0 (0 AED) direct from the IRS: file Form SS-4 by fax or mail, writing “Foreign” on Line 7b if you have no SSN. Agencies charge $75–$300 only as an optional convenience fee for filing the same free form on your behalf — there is no IRS fee to pay.",
+      answer: `An EIN costs $0 (0 AED) direct from the IRS: file Form SS-4 by fax or mail, writing “Foreign” on Line 7b if you have no SSN. Agencies charge $75–$300 only as an optional convenience fee for filing the same free form on your behalf — there is no IRS fee to pay.`,
     },
   ];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
+      <ArticleJsonLd
+        headline="US LLC Cost from Dubai &amp; UAE (2026) — Fees in AED"
+        description="Forming a US LLC from Dubai or the UAE? Year-1 and 5-year costs in AED for Wyoming, Delaware and New Mexico, the Free Zone licence benchmark, and IRS EIN costs."
+        datePublished="2026-11-19"
+        dateModified="2026-11-20"
+        url="https://www.getllccostcalculator.com/guides/us-llc-cost-from-dubai"
+      />
 
       <Breadcrumbs
         items={[
@@ -76,24 +72,11 @@ export default function UsLlcCostFromDubaiPage() {
       </h1>
 
       <p className="mt-4 max-w-3xl text-lg text-slate-600 leading-relaxed">
-        A Dubai or UAE founder can form a US LLC entirely online — no US
-        visit, no office lease, and no trade licence. The calculator below is
-        pre-loaded with UAE dirhams and Wyoming, the usual low-cost pick, so
-        you can see the Year-1 and 5-year totals in AED before you choose a
-        state.
+        A UAE free-zone licence starts around AED 5,500 a year and a Dubai mainland licence from AED 12,000, before the Ejari office lease. A US LLC has no licence renewal and no office lease at all — the formation fee and a yearly agent are the whole bill. The calculator below is pre-loaded in dirhams with Wyoming, so Year-1 and 5-year totals are in AED.
       </p>
 
       <p className="mt-3 max-w-3xl text-slate-600 leading-relaxed">
-        At a glance, with a {f.agentPerYear}-a-year registered agent: Wyoming
-        costs {f.wyYear1Usd} ({f.wyYear1Local}) in year one and{" "}
-        {f.wyFiveYearUsd} ({f.wyFiveYearLocal}) over five years; New Mexico
-        costs {f.nmYear1Usd} ({f.nmYear1Local}) in year one and{" "}
-        {f.nmFiveYearUsd} ({f.nmFiveYearLocal}) over five years; Delaware costs{" "}
-        {f.deYear1Usd} ({f.deYear1Local}) in year one and {f.deFiveYearUsd} (
-        {f.deFiveYearLocal}) over five years. Converted figures are estimates
-        at the {FX_RATE_DATE} rate of {f.rate} AED per $1 — the dirham is
-        pegged to the US dollar, so you can change the rate in the calculator
-        if your bank applies a spread.
+        In dirhams, year one is {f.wyYear1Usd} ({f.wyYear1Local}) for Wyoming, {f.nmYear1Usd} ({f.nmYear1Local}) for New Mexico and {f.deYear1Usd} ({f.deYear1Local}) for Delaware, agent included at {f.agentPerYear} a year. Five years: {f.wyFiveYearUsd} ({f.wyFiveYearLocal}), {f.nmFiveYearUsd} ({f.nmFiveYearLocal}) and {f.deFiveYearUsd} ({f.deFiveYearLocal}). The dirham is pegged to the US dollar, so the {FX_RATE_DATE} rate of {f.rate} AED per $1 barely moves — the calculator still lets you change it.
       </p>
 
       <div className="mt-10">
@@ -101,15 +84,7 @@ export default function UsLlcCostFromDubaiPage() {
       </div>
 
       <p className="mt-6 max-w-3xl text-sm text-slate-500">
-        Prefer the full tool? Open the{" "}
-        <Link href="/tools/non-resident-llc-cost-calculator?currency=AED" className="text-[#1769AA] hover:underline">
-          Non-Resident LLC Cost Calculator in AED
-        </Link>{" "}
-        or read the general{" "}
-        <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">
-          non-resident LLC guide
-        </Link>
-        .
+        The full <Link href="/tools/non-resident-llc-cost-calculator?currency=AED" className="text-[#1769AA] hover:underline">Non-Resident LLC Cost Calculator in AED</Link> covers every state, with the agent price, exchange rate and EIN option adjustable. The general <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">non-resident LLC guide</Link> covers the filing steps.
       </p>
 
       <section className="mt-12 max-w-3xl">
@@ -117,11 +92,8 @@ export default function UsLlcCostFromDubaiPage() {
           Wyoming vs Delaware vs New Mexico — Year-1 and 5-year costs in AED
         </h2>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          The table below is calculated from the site&apos;s state fee data
-          with a {f.agentPerYear}-a-year registered agent included. Five-year
-          totals count five recurring payments, the same convention the site
-          uses everywhere.
-        </p>
+        The table prices the three US states the same way a licence quote is priced: a one-off formation fee, a yearly charge, and the year-one and five-year totals with the agent. Five-year totals count five recurring payments, the site-wide convention.
+      </p>
         <div className="mt-4 overflow-x-auto">
           <table className="w-full min-w-[520px] border-collapse text-left text-sm">
             <thead>
@@ -159,12 +131,8 @@ export default function UsLlcCostFromDubaiPage() {
           </table>
         </div>
         <p className="mt-3 text-sm text-slate-500">
-          State fees alone over five years are {f.nmFiveYearStateOnly} in New
-          Mexico, {f.wyFiveYearStateOnly} in Wyoming and{" "}
-          {f.deFiveYearStateOnly} in Delaware, before the registered agent.
-          Delaware&apos;s {f.deAnnualTax} yearly tax is the reason it costs
-          more.
-        </p>
+        Without the agent, five years of state fees alone are {f.nmFiveYearStateOnly} in New Mexico, {f.wyFiveYearStateOnly} in Wyoming and {f.deFiveYearStateOnly} in Delaware. Delaware&apos;s {f.deAnnualTax} yearly tax is what makes its row the most expensive of the three.
+      </p>
       </section>
 
       <section className="mt-12 max-w-3xl">
@@ -183,17 +151,19 @@ export default function UsLlcCostFromDubaiPage() {
           fee at all.
         </p>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          The ongoing picture is the same. A UAE licence renews every year
-          with its full package fee; a US LLC in Wyoming pays a{" "}
-          {f.wyAnnualReport} annual report plus its agent ({f.agentPerYear} a
-          year in the calculator), while a New Mexico LLC pays only the agent.
-          The agent is the one recurring service cost a UAE founder cannot
-          skip, because a foreign address does not qualify as a registered
-          office.
-        </p>
+        A UAE licence renews every year with its full package fee. A Wyoming LLC pays a {f.wyAnnualReport} annual report plus its agent ({f.agentPerYear} a year in the calculator), while a New Mexico LLC pays only the agent. The agent is the one recurring service a UAE founder cannot skip, because a foreign address does not qualify as a registered office.
+      </p>
       </section>
 
-      <section className="mt-12 max-w-3xl">
+            <section className="mt-12 max-w-3xl">
+        <h2 className="text-xl font-semibold text-[#102A43]">
+          The dirham peg makes the maths stable
+        </h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          The UAE dirham is pegged to the US dollar, so the AED figures on this page barely move between visits — the {FX_RATE_DATE} rate of {f.rate} AED per $1 is the rate your bank works from, give or take its own spread. The registered agent also bills in US dollars once a year. What does change year to year is the US side: the agent renewal and, in Wyoming, the {f.wyAnnualReport} annual report. New Mexico has no annual report, so the agent is the only recurring line there.
+        </p>
+      </section>
+<section className="mt-12 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">Frequently asked questions</h2>
         <div className="mt-6 space-y-4">
           {faqs.map((faq, i) => (

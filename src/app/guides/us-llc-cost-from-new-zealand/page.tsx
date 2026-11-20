@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import ArticleJsonLd from "@/components/seo/ArticleJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import NonResidentCalculator from "@/components/calculators/NonResidentCalculator";
 import { FX_RATE_DATE, countryGuideFigures } from "@/lib/countryGuideFigures";
@@ -16,21 +17,12 @@ export const metadata: Metadata = {
       "Forming a US LLC from New Zealand? Year-1 and 5-year costs in NZD for Wyoming, Delaware and New Mexico, the NZ$118.74 benchmark, and agency fees in the hundreds.",
     type: "website",
     url: "/guides/us-llc-cost-from-new-zealand",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "US LLC Cost from New Zealand (2026) — Official Fees in NZD",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "US LLC Cost from New Zealand (2026) — Official Fees in NZD",
     description:
       "Forming a US LLC from New Zealand? Year-1 and 5-year costs in NZD for Wyoming, Delaware and New Mexico, the NZ$118.74 benchmark, and agency fees in the hundreds.",
-    images: ["/twitter-image"],
   },
 };
 
@@ -39,28 +31,33 @@ export default function UsLlcCostFromNewZealandPage() {
 
   const faqs = [
     {
-      question: "What is the Year-1 and annual renewal cost of a US LLC in NZD?",
-      answer: `A Wyoming LLC costs ${f.wyYear1Usd} (${f.wyYear1Local}) in year one and ${f.wyOngoingUsd} (${f.wyOngoingLocal}) a year after that, with a ${f.agentPerYear}-a-year registered agent. A New Mexico LLC costs ${f.nmYear1Usd} (${f.nmYear1Local}) in year one and ${f.nmOngoingUsd} (${f.nmOngoingLocal}) a year after that. Over five years the totals are ${f.wyFiveYearUsd} (${f.wyFiveYearLocal}) for Wyoming and ${f.nmFiveYearUsd} (${f.nmFiveYearLocal}) for New Mexico. Converted figures are estimates at the ${FX_RATE_DATE} rate of NZ$${f.rate} per $1.`,
+      question: "What does a US LLC cost in NZD in year one and every year after?",
+      answer: `Start with Wyoming: ${f.wyYear1Usd} (${f.wyYear1Local}) in year one, then ${f.wyOngoingUsd} (${f.wyOngoingLocal}) a year, agent included. New Mexico is ${f.nmYear1Usd} (${f.nmYear1Local}) in year one and ${f.nmOngoingUsd} (${f.nmOngoingLocal}) a year after that. Over five years that is ${f.wyFiveYearUsd} (${f.wyFiveYearLocal}) for Wyoming and ${f.nmFiveYearUsd} (${f.nmFiveYearLocal}) for New Mexico, converted at the ${FX_RATE_DATE} rate of NZ$${f.rate} per $1.`,
     },
     {
-      question: "Does a US LLC require a New Zealand or Australian resident director?",
-      answer:
-        "No. A US LLC can be 100% owned and managed remotely — there is no nationality or residency requirement for members or managers. That is the key difference from a New Zealand company, which must have at least one director who lives in New Zealand or Australia. A US LLC only needs a registered agent with a physical address in the formation state.",
+      question: "Does a US LLC need a director who lives in New Zealand or Australia?",
+      answer: `No. A US LLC can be 100% owned and managed remotely — there is no nationality or residency requirement for members or managers. That is the key difference from a New Zealand company, which must have at least one director who lives in New Zealand or Australia. A US LLC only needs a registered agent with a physical address in the formation state.`,
     },
     {
-      question: "Why do formation websites charge several hundred New Zealand dollars when state filing fees start at $35 USD?",
-      answer: `The official state filing fee is ${f.nmFormation} in New Mexico and ${f.wyFormation} in Wyoming — the same whether you file yourself or pay an agency. Agencies add several hundred New Zealand dollars for rush filing, document templates, EIN faxing, and Year-1 registered-agent bundles. The extra money buys services, not a different filing fee. Use the calculator above with the DIY EIN option ($0) to see the no-agency total for your state.`,
+      question: "Why do formation websites quote several hundred New Zealand dollars when the state fee starts at $35?",
+      answer: `Because the state fee is only one line of their bundle. The official filing fee is ${f.nmFormation} in New Mexico and ${f.wyFormation} in Wyoming, whoever files it. Agencies add several hundred New Zealand dollars for rush filing, document templates, EIN faxing and a Year-1 registered-agent bundle — services, not a different state fee. Run the calculator above with the DIY EIN option ($0) to see the no-agency total.`,
     },
     {
-      question: "What happens operationally if a New Zealand founder misses a US annual report deadline?",
-      answer:
-        "The state adds a late penalty first — for example, $400 in Florida for a late annual report — and the LLC becomes delinquent. If the report stays unfiled, the state eventually dissolves the LLC administratively, which means it can no longer legally operate. Getting it back requires a reinstatement filing plus the reinstatement fee and all back-owed reports. Set a calendar reminder for the report deadline in your formation state.",
+      question: "What happens if a New Zealand founder misses a US annual report deadline?",
+      answer: `The state adds a late penalty first — for example, $400 in Florida for a late annual report — and the LLC becomes delinquent. If the report stays unfiled, the state eventually dissolves the LLC administratively, which means it can no longer legally operate. Getting it back requires a reinstatement filing plus the reinstatement fee and all back-owed reports. Set a calendar reminder for the report deadline in your formation state.`,
     },
   ];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
+      <ArticleJsonLd
+        headline="US LLC Cost from New Zealand (2026) — Official Fees in NZD"
+        description="Forming a US LLC from New Zealand? Year-1 and 5-year costs in NZD for Wyoming, Delaware and New Mexico, the NZ$118.74 benchmark, and agency fees in the hundreds."
+        datePublished="2026-11-19"
+        dateModified="2026-11-20"
+        url="https://www.getllccostcalculator.com/guides/us-llc-cost-from-new-zealand"
+      />
 
       <Breadcrumbs
         items={[
@@ -75,23 +72,11 @@ export default function UsLlcCostFromNewZealandPage() {
       </h1>
 
       <p className="mt-4 max-w-3xl text-lg text-slate-600 leading-relaxed">
-        A New Zealand founder can form a US LLC entirely online — no US visit,
-        no local director, and no minimum share capital. The calculator below
-        is pre-loaded with New Zealand dollars and Wyoming, the usual
-        low-cost pick, so you can see the Year-1 and 5-year totals in NZD
-        before you choose a state.
+        Incorporating at home means the Companies Office, NZ$118.74 plus GST, and a director who lives in New Zealand or Australia. A US LLC drops both conditions — no resident director and no local filing — and the whole formation is done online. The calculator below is pre-loaded in New Zealand dollars with Wyoming, so the Year-1 and 5-year totals are in NZD from the start.
       </p>
 
       <p className="mt-3 max-w-3xl text-slate-600 leading-relaxed">
-        At a glance, with a {f.agentPerYear}-a-year registered agent: Wyoming
-        costs {f.wyYear1Usd} ({f.wyYear1Local}) in year one and{" "}
-        {f.wyFiveYearUsd} ({f.wyFiveYearLocal}) over five years; New Mexico
-        costs {f.nmYear1Usd} ({f.nmYear1Local}) in year one and{" "}
-        {f.nmFiveYearUsd} ({f.nmFiveYearLocal}) over five years; Delaware costs{" "}
-        {f.deYear1Usd} ({f.deYear1Local}) in year one and {f.deFiveYearUsd} (
-        {f.deFiveYearLocal}) over five years. Converted figures are estimates
-        at the {FX_RATE_DATE} rate of NZ${f.rate} per $1 — change the rate in
-        the calculator to match your bank or card provider.
+        Year one breaks down as {f.wyYear1Usd} ({f.wyYear1Local}) for Wyoming, {f.nmYear1Usd} ({f.nmYear1Local}) for New Mexico and {f.deYear1Usd} ({f.deYear1Local}) for Delaware, with a {f.agentPerYear}-a-year registered agent counted in each. Over five years those become {f.wyFiveYearUsd} ({f.wyFiveYearLocal}), {f.nmFiveYearUsd} ({f.nmFiveYearLocal}) and {f.deFiveYearUsd} ({f.deFiveYearLocal}). Converted figures are estimates at the {FX_RATE_DATE} rate of NZ${f.rate} per $1; the calculator lets you swap in the rate your bank actually gives you.
       </p>
 
       <div className="mt-10">
@@ -99,15 +84,7 @@ export default function UsLlcCostFromNewZealandPage() {
       </div>
 
       <p className="mt-6 max-w-3xl text-sm text-slate-500">
-        Prefer the full tool? Open the{" "}
-        <Link href="/tools/non-resident-llc-cost-calculator?currency=NZD" className="text-[#1769AA] hover:underline">
-          Non-Resident LLC Cost Calculator in NZD
-        </Link>{" "}
-        or read the general{" "}
-        <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">
-          non-resident LLC guide
-        </Link>
-        .
+        For the full version, open the <Link href="/tools/non-resident-llc-cost-calculator?currency=NZD" className="text-[#1769AA] hover:underline">Non-Resident LLC Cost Calculator in NZD</Link> — it covers every state and lets you adjust the agent price, the exchange rate and the EIN option. The general <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">non-resident LLC guide</Link> covers the filing steps in order.
       </p>
 
       <section className="mt-12 max-w-3xl">
@@ -124,17 +101,19 @@ export default function UsLlcCostFromNewZealandPage() {
           of fees on the day you file, in case it has moved.
         </p>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          A US LLC is cheaper on the state-fee side and has no resident
-          director requirement. State fees alone over five years are{" "}
-          {f.nmFiveYearStateOnly} in New Mexico, {f.wyFiveYearStateOnly} in
-          Wyoming and {f.deFiveYearStateOnly} in Delaware, before the
-          registered agent. The agent ({f.agentPerYear} a year in the
-          calculator) is the one recurring service cost a New Zealand founder
-          cannot skip, because a foreign address does not qualify.
-        </p>
+        On the home side, a New Zealand company pays NZ$49.74 plus GST a year for its annual return. A Wyoming LLC pays a {f.wyAnnualReport} annual report plus the agent, and a New Mexico LLC pays no annual report at all — the {f.agentPerYear}-a-year agent is the only line that repeats every year, and it is the one a New Zealand founder cannot drop, because a foreign address does not qualify.
+       Strip the agent out and five years of state fees alone are {f.nmFiveYearStateOnly} in New Mexico, {f.wyFiveYearStateOnly} in Wyoming and {f.deFiveYearStateOnly} in Delaware; the Delaware gap is its {f.deAnnualTax} yearly tax, not the formation fee.</p>
       </section>
 
-      <section className="mt-12 max-w-3xl">
+            <section className="mt-12 max-w-3xl">
+        <h2 className="text-xl font-semibold text-[#102A43]">
+          What arrives by post, and where it goes
+        </h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          A registered agent receives official Secretary of State and legal notices at its in-state street address — that is the address the state has on record. Everyday mail such as banking letters and vendor mail goes elsewhere: a US virtual mailbox costs roughly $10–$30 a month and scans it for you. The two are not interchangeable — a mailbox cannot receive legal service, and an agent does not handle general commercial mail. If you run the business from New Zealand, plan for both addresses from the start.
+        </p>
+      </section>
+<section className="mt-12 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">Frequently asked questions</h2>
         <div className="mt-6 space-y-4">
           {faqs.map((faq, i) => (

@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: { absolute: "404 — Page Not Found | Get LLC Cost Calculator" },
   description:
     "The page you were looking for doesn't exist or has moved. Use the free LLC cost calculator to compare formation fees, annual reports and multi-year costs by state.",
+  robots: { index: false },
   openGraph: {
     title: "404 — Page Not Found | Get LLC Cost Calculator",
     description:

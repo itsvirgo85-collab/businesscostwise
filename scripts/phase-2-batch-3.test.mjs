@@ -205,22 +205,22 @@ for (const [key, cfg] of Object.entries(PAGES)) {
     const src = pageSrc(cfg.slug);
     const questions = {
       singapore: [
-        "How much does a Wyoming or Delaware LLC cost per year in SGD?",
-        "Does a US LLC require a locally resident director or company secretary like Singapore?",
-        "Are US state filing fees different for Singapore residents?",
+        "What is the yearly bill for a Wyoming or Delaware LLC in SGD?",
+        "Does a US LLC need a resident director or company secretary like a Singapore company?",
+        "Are US state fees different for Singapore residents?",
         "How much does it cost to dissolve a US LLC from Singapore?",
       ],
       dubai: [
-        "What is the total Year-1 and annual renewal cost of a US LLC in AED?",
-        "Does a US LLC require an Ejari office lease or annual trade license renewal?",
-        "Can UAE residents (expats or citizens) form a US LLC remotely without visiting the US?",
+        "What is the total Year-1 and renewal cost of a US LLC in AED?",
+        "Does a US LLC need an Ejari office lease or annual trade licence renewal?",
+        "Can UAE residents form a US LLC remotely without visiting the US?",
         "How much does an IRS EIN cost for founders in Dubai?",
       ],
       india: [
         "How much does a Wyoming or New Mexico LLC cost per year in INR?",
-        "Do Indian founders pay higher US state filing fees than US residents?",
+        "Do Indian founders pay higher US state fees than US residents?",
         "Can an Indian resident get a US EIN for ₹0 without an SSN?",
-        "What is the difference between a Registered Agent address and a US Virtual Mailbox?",
+        "What is the difference between a registered agent address and a US virtual mailbox?",
       ],
     }[key];
     for (const q of questions) {

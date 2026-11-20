@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import ArticleJsonLd from "@/components/seo/ArticleJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import NonResidentCalculator from "@/components/calculators/NonResidentCalculator";
 import { FX_RATE_DATE, countryGuideFigures } from "@/lib/countryGuideFigures";
@@ -16,21 +17,12 @@ export const metadata: Metadata = {
       "US LLC vs UK Ltd over 5 years in pure operational fees: UK Ltd £300 at Companies House vs New Mexico, Wyoming and Delaware LLCs with a registered agent.",
     type: "website",
     url: "/guides/us-llc-vs-uk-ltd-cost",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "US LLC vs. UK Ltd Cost (2026) — 5-Year Fee Comparison",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "US LLC vs. UK Ltd Cost (2026) — 5-Year Fee Comparison",
     description:
       "US LLC vs UK Ltd over 5 years in pure operational fees: UK Ltd £300 at Companies House vs New Mexico, Wyoming and Delaware LLCs with a registered agent.",
-    images: ["/twitter-image"],
   },
 };
 
@@ -55,6 +47,13 @@ export default function UsLlcVsUkLtdCostPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
+      <ArticleJsonLd
+        headline="US LLC vs. UK Ltd Cost (2026) — 5-Year Fee Comparison"
+        description="US LLC vs UK Ltd over 5 years in pure operational fees: UK Ltd £300 at Companies House vs New Mexico, Wyoming and Delaware LLCs with a registered agent."
+        datePublished="2026-11-19"
+        dateModified="2026-11-20"
+        url="https://www.getllccostcalculator.com/guides/us-llc-vs-uk-ltd-cost"
+      />
 
       <Breadcrumbs
         items={[
@@ -69,23 +68,11 @@ export default function UsLlcVsUkLtdCostPage() {
       </h1>
 
       <p className="mt-4 max-w-3xl text-lg text-slate-600 leading-relaxed">
-        This is a pure operational fee comparison — published registry and
-        filing fees only, no tax or legal analysis. The calculator below is
-        pre-loaded with pounds and Wyoming so you can test the US side in GBP
-        before comparing it with the Companies House figures in the table.
+        Only published registry and filing fees are compared here — this page carries no tax or legal analysis. Test the US side first: the calculator below opens in pounds with Wyoming selected, and the Companies House numbers sit in the table underneath it.
       </p>
 
       <p className="mt-3 max-w-3xl text-slate-600 leading-relaxed">
-        At a glance, with a {f.agentPerYear}-a-year registered agent: a UK Ltd
-        costs £100 to incorporate and £300 over five years. A New Mexico LLC
-        costs {f.nmYear1Usd} ({f.nmYear1Local}) in year one and{" "}
-        {f.nmFiveYearUsd} ({f.nmFiveYearLocal}) over five years; Wyoming costs{" "}
-        {f.wyYear1Usd} ({f.wyYear1Local}) in year one and {f.wyFiveYearUsd} (
-        {f.wyFiveYearLocal}) over five years; Delaware costs {f.deYear1Usd} (
-        {f.deYear1Local}) in year one and {f.deFiveYearUsd} (
-        {f.deFiveYearLocal}) over five years. Converted figures are estimates
-        at the {FX_RATE_DATE} rate of £{f.rate} per $1 — change the rate in
-        the calculator to match your bank or card provider.
+        A UK Ltd costs £100 to incorporate and £300 over five years. A New Mexico LLC, agent included at {f.agentPerYear} a year, is {f.nmYear1Usd} ({f.nmYear1Local}) in year one and {f.nmFiveYearUsd} ({f.nmFiveYearLocal}) over five years; Wyoming is {f.wyYear1Usd} ({f.wyYear1Local}) and {f.wyFiveYearUsd} ({f.wyFiveYearLocal}); Delaware is {f.deYear1Usd} ({f.deYear1Local}) and {f.deFiveYearUsd} ({f.deFiveYearLocal}). Conversions use the {FX_RATE_DATE} rate of £{f.rate} per $1 — the calculator lets you change the rate to match your bank or card provider.
       </p>
 
       <div className="mt-10">
@@ -93,15 +80,7 @@ export default function UsLlcVsUkLtdCostPage() {
       </div>
 
       <p className="mt-6 max-w-3xl text-sm text-slate-500">
-        Prefer the full tool? Open the{" "}
-        <Link href="/tools/non-resident-llc-cost-calculator?currency=GBP" className="text-[#1769AA] hover:underline">
-          Non-Resident LLC Cost Calculator in GBP
-        </Link>{" "}
-        or read the{" "}
-        <Link href="/guides/us-llc-cost-from-uk" className="text-[#1769AA] hover:underline">
-          US LLC cost guide for UK founders
-        </Link>
-        .
+        The full <Link href="/tools/non-resident-llc-cost-calculator?currency=GBP" className="text-[#1769AA] hover:underline">Non-Resident LLC Cost Calculator in GBP</Link> prices every state with the agent, exchange rate and EIN options adjustable, and the <Link href="/guides/us-llc-cost-from-uk" className="text-[#1769AA] hover:underline">US LLC cost guide for UK founders</Link> covers the filing steps.
       </p>
 
       <section className="mt-12 max-w-3xl">
@@ -109,14 +88,8 @@ export default function UsLlcVsUkLtdCostPage() {
           US LLC vs UK Ltd — Year-1 and 5-year operational fees
         </h2>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          The table below compares the UK Ltd registry fees published by
-          Companies House with US LLC costs calculated from the site&apos;s
-          state fee data, with a {f.agentPerYear}-a-year registered agent
-          included on the US side. Five-year totals count five recurring
-          payments, the same convention the site uses everywhere. The UK
-          confirmation statement is first due in year 2, so the 5-year UK
-          total is £100 incorporation plus four £50 statements.
-        </p>
+        The table puts the UK Ltd registry fees published by Companies House next to US LLC costs calculated from the site&apos;s state fee data, with a {f.agentPerYear}-a-year registered agent included on the US side. Five-year totals count five recurring payments, the same convention the site uses everywhere. The UK confirmation statement is first due in year 2, so the 5-year UK total is £100 incorporation plus four £50 statements.
+      </p>
         <div className="mt-4 overflow-x-auto">
           <table className="w-full min-w-[520px] border-collapse text-left text-sm">
             <thead>
@@ -161,14 +134,8 @@ export default function UsLlcVsUkLtdCostPage() {
           </table>
         </div>
         <p className="mt-3 text-sm text-slate-500">
-          State fees alone over five years are {f.nmFiveYearStateOnly} in New
-          Mexico, {f.wyFiveYearStateOnly} in Wyoming and{" "}
-          {f.deFiveYearStateOnly} in Delaware, before the registered agent.
-          Delaware&apos;s {f.deAnnualTax} yearly tax is the reason it costs
-          more. The UK Ltd side has no agent equivalent if you use your own UK
-          address — a UK founder forming a US LLC cannot skip the agent,
-          because a foreign address does not qualify as a registered office.
-        </p>
+        Before the agent, five years of state fees alone are {f.nmFiveYearStateOnly} in New Mexico, {f.wyFiveYearStateOnly} in Wyoming and {f.deFiveYearStateOnly} in Delaware — Delaware&apos;s {f.deAnnualTax} yearly tax is the gap. The UK side has no agent equivalent when you use your own UK address; a UK founder forming a US LLC cannot skip the agent, because a foreign address does not qualify as a registered office.
+      </p>
       </section>
 
       <section className="mt-12 max-w-3xl">
@@ -176,14 +143,8 @@ export default function UsLlcVsUkLtdCostPage() {
           Closing costs: UK strike-off vs US dissolution
         </h2>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          A UK Ltd voluntary strike-off (form DS01) costs £13 online or £18 on
-          paper. Closing a US LLC costs {f.nmDissolution} in New Mexico,{" "}
-          {f.wyDissolution} in Wyoming, or {f.deDissolution} in Delaware in
-          official dissolution filing fees, plus any final annual report or
-          tax still due — Delaware requires all annual LLC taxes to be paid
-          first. Dissolution is filed online with the formation state&apos;s
-          Secretary of State.
-        </p>
+        Ending a UK Ltd is a DS01 strike-off: £13 online, £18 on paper. Ending a US LLC is a dissolution filing with the formation state&apos;s Secretary of State — {f.nmDissolution} in New Mexico, {f.wyDissolution} in Wyoming, {f.deDissolution} in Delaware — plus any final annual report or tax still owed. Delaware will not accept the filing until all annual LLC taxes are paid, so settle arrears before filing.
+      </p>
       </section>
 
       <section className="mt-12 max-w-3xl">

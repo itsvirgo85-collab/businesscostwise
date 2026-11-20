@@ -20,10 +20,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/icon.svg",
   },
-  title: {
-    default: "Get LLC Cost Calculator — Free US LLC Filing Fees by State",
-    template: "%s | Get LLC Cost Calculator",
-  },
+  title: "Get LLC Cost Calculator — Free US LLC Filing Fees by State",
   description:
     "Free LLC cost calculator for all 50 US states and DC. Compare formation fees, annual filings, franchise taxes, and multi-year estimates with official government references.",
   applicationName: "Get LLC Cost Calculator",

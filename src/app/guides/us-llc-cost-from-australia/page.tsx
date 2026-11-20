@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import ArticleJsonLd from "@/components/seo/ArticleJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import NonResidentCalculator from "@/components/calculators/NonResidentCalculator";
 import { FX_RATE_DATE, countryGuideFigures } from "@/lib/countryGuideFigures";
@@ -8,29 +9,20 @@ import { FX_RATE_DATE, countryGuideFigures } from "@/lib/countryGuideFigures";
 export const metadata: Metadata = {
   title: { absolute: "US LLC Cost from Australia (2026) — Filing Fees in AUD" },
   description:
-    "Forming a US LLC from Australia? Year-1 and 5-year costs in AUD for Wyoming, New Mexico and Delaware, the ASIC A$636 benchmark, and a US EIN without an SSN or ITIN.",
+    "Forming a US LLC from Australia? Year-1 and 5-year costs in AUD for Wyoming, New Mexico and Delaware, the ASIC A$636 benchmark, and a US EIN without an SSN.",
   alternates: { canonical: "/guides/us-llc-cost-from-australia" },
   openGraph: {
     title: "US LLC Cost from Australia (2026) — Filing Fees in AUD",
     description:
-      "Forming a US LLC from Australia? Year-1 and 5-year costs in AUD for Wyoming, New Mexico and Delaware, the ASIC A$636 benchmark, and a US EIN without an SSN or ITIN.",
+      "Forming a US LLC from Australia? Year-1 and 5-year costs in AUD for Wyoming, New Mexico and Delaware, the ASIC A$636 benchmark, and a US EIN without an SSN.",
     type: "website",
     url: "/guides/us-llc-cost-from-australia",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "US LLC Cost from Australia (2026) — Filing Fees in AUD",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "US LLC Cost from Australia (2026) — Filing Fees in AUD",
     description:
-      "Forming a US LLC from Australia? Year-1 and 5-year costs in AUD for Wyoming, New Mexico and Delaware, the ASIC A$636 benchmark, and a US EIN without an SSN or ITIN.",
-    images: ["/twitter-image"],
+      "Forming a US LLC from Australia? Year-1 and 5-year costs in AUD for Wyoming, New Mexico and Delaware, the ASIC A$636 benchmark, and a US EIN without an SSN.",
   },
 };
 
@@ -40,27 +32,32 @@ export default function UsLlcCostFromAustraliaPage() {
   const faqs = [
     {
       question: "How much does a Wyoming or New Mexico LLC cost per year in AUD?",
-      answer: `A Wyoming LLC costs ${f.wyYear1Usd} (${f.wyYear1Local}) in year one and ${f.wyOngoingUsd} (${f.wyOngoingLocal}) a year after that, with a ${f.agentPerYear}-a-year registered agent. A New Mexico LLC costs ${f.nmYear1Usd} (${f.nmYear1Local}) in year one and ${f.nmOngoingUsd} (${f.nmOngoingLocal}) a year after that, because New Mexico charges no annual report fee and the only recurring cost is the agent. Converted figures are estimates at the ${FX_RATE_DATE} rate of A$${f.rate} per $1.`,
+      answer: `Wyoming costs ${f.wyYear1Usd} (${f.wyYear1Local}) in year one and ${f.wyOngoingUsd} (${f.wyOngoingLocal}) a year after that, with a ${f.agentPerYear}-a-year registered agent. New Mexico costs ${f.nmYear1Usd} (${f.nmYear1Local}) in year one and ${f.nmOngoingUsd} (${f.nmOngoingLocal}) a year after that, because New Mexico charges no annual report fee and the only recurring cost is the agent. Converted figures are estimates at the ${FX_RATE_DATE} rate of A$${f.rate} per $1.`,
     },
     {
       question: "Are US state filing fees higher for Australian non-residents?",
-      answer:
-        "No. US state filing fees are identical regardless of nationality or residency — an Australian founder pays the same official fee as a US citizen forming in the same state. The only extra cost for a non-resident is a commercial registered agent ($99–$150 a year), which provides the in-state street address the state requires because a foreign address does not qualify.",
+      answer: `No. The state charges the same filing fee to everyone — an Australian founder pays exactly what a US citizen pays in the same state. The one cost that only applies to non-residents is the commercial registered agent ($99–$150 a year), which supplies the in-state street address the state requires.`,
     },
     {
-      question: "Can an Australian resident obtain a US EIN without an SSN or ITIN?",
-      answer:
-        "Yes. The IRS issues an EIN for $0 — write \u201CForeign\u201D on Line 7b of Form SS-4 and submit it by fax or mail. No SSN or ITIN is needed, and no third-party service is required. Agencies charge $75–$300 to do the same filing, but the number itself is free from the IRS.",
+      question: "Can an Australian resident get a US EIN without an SSN or ITIN?",
+      answer: `Yes. An EIN is $0 from the IRS: file Form SS-4 by fax or mail and write “Foreign” on Line 7b. No SSN or ITIN is needed. Agencies charge $75–$300 to file the form for you, but they are selling a convenience service for a free IRS form.`,
     },
     {
-      question: "How much does it cost to close a US LLC from Australia compared to ASIC deregistration?",
-      answer: `Voluntary deregistration of an Australian company with ASIC (Form 6010) costs A$52. Closing a US LLC costs ${f.nmDissolution} in New Mexico and ${f.wyDissolution} in Wyoming in official dissolution filing fees, plus any final annual report or tax that is still due. Dissolution is filed online with the formation state's Secretary of State — no US visit is needed.`,
+      question: "What does closing a US LLC cost from Australia, versus ASIC deregistration?",
+      answer: `Voluntary deregistration of an Australian company with ASIC (Form 6010) costs A$52. Closing a US LLC costs ${f.nmDissolution} in New Mexico and ${f.wyDissolution} in Wyoming in official dissolution filing fees, plus any final annual report or tax that is still due. Dissolution is filed online with the formation state’s Secretary of State — no US visit is needed.`,
     },
   ];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
+      <ArticleJsonLd
+        headline="US LLC Cost from Australia (2026) — Filing Fees in AUD"
+        description="Forming a US LLC from Australia? Year-1 and 5-year costs in AUD for Wyoming, New Mexico and Delaware, the ASIC A$636 benchmark, and a US EIN without an SSN."
+        datePublished="2026-11-19"
+        dateModified="2026-11-20"
+        url="https://www.getllccostcalculator.com/guides/us-llc-cost-from-australia"
+      />
 
       <Breadcrumbs
         items={[
@@ -75,23 +72,11 @@ export default function UsLlcCostFromAustraliaPage() {
       </h1>
 
       <p className="mt-4 max-w-3xl text-lg text-slate-600 leading-relaxed">
-        An Australian founder can form a US LLC entirely online — no US visit,
-        no minimum share capital, and no local director. The calculator below
-        is pre-loaded with Australian dollars and Wyoming, the usual low-cost
-        pick, so you can see the Year-1 and 5-year totals in AUD before you
-        choose a state.
+        Registering a proprietary company with ASIC costs A$636, plus A$342 a year for the annual review and a Director ID for every director. A US LLC has no annual review fee in New Mexico, no Director ID, and no local director rule — the filing is a single online form. The calculator below is pre-loaded in Australian dollars with Wyoming, so the Year-1 and 5-year totals are in AUD.
       </p>
 
       <p className="mt-3 max-w-3xl text-slate-600 leading-relaxed">
-        At a glance, with a {f.agentPerYear}-a-year registered agent: Wyoming
-        costs {f.wyYear1Usd} ({f.wyYear1Local}) in year one and{" "}
-        {f.wyFiveYearUsd} ({f.wyFiveYearLocal}) over five years; New Mexico
-        costs {f.nmYear1Usd} ({f.nmYear1Local}) in year one and{" "}
-        {f.nmFiveYearUsd} ({f.nmFiveYearLocal}) over five years; Delaware costs{" "}
-        {f.deYear1Usd} ({f.deYear1Local}) in year one and {f.deFiveYearUsd} (
-        {f.deFiveYearLocal}) over five years. Converted figures are estimates
-        at the {FX_RATE_DATE} rate of A${f.rate} per $1 — change the rate in
-        the calculator to match your bank or card provider.
+        Year one, agent included: Wyoming {f.wyYear1Usd} ({f.wyYear1Local}), New Mexico {f.nmYear1Usd} ({f.nmYear1Local}), Delaware {f.deYear1Usd} ({f.deYear1Local}). The yearly cost after that is {f.wyOngoingUsd} ({f.wyOngoingLocal}) in Wyoming and {f.nmOngoingUsd} ({f.nmOngoingLocal}) in New Mexico. Five years out the totals are {f.wyFiveYearUsd} ({f.wyFiveYearLocal}), {f.nmFiveYearUsd} ({f.nmFiveYearLocal}) and {f.deFiveYearUsd} ({f.deFiveYearLocal}). Converted at the {FX_RATE_DATE} rate of A${f.rate} per $1; change the rate in the calculator to match your bank.
       </p>
 
       <div className="mt-10">
@@ -99,15 +84,7 @@ export default function UsLlcCostFromAustraliaPage() {
       </div>
 
       <p className="mt-6 max-w-3xl text-sm text-slate-500">
-        Prefer the full tool? Open the{" "}
-        <Link href="/tools/non-resident-llc-cost-calculator?currency=AUD" className="text-[#1769AA] hover:underline">
-          Non-Resident LLC Cost Calculator in AUD
-        </Link>{" "}
-        or read the general{" "}
-        <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">
-          non-resident LLC guide
-        </Link>
-        .
+        For every state and full control of the agent price, exchange rate and EIN option, open the <Link href="/tools/non-resident-llc-cost-calculator?currency=AUD" className="text-[#1769AA] hover:underline">Non-Resident LLC Cost Calculator in AUD</Link>. The general <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">non-resident LLC guide</Link> covers the filing steps.
       </p>
 
       <section className="mt-12 max-w-3xl">
@@ -115,11 +92,8 @@ export default function UsLlcCostFromAustraliaPage() {
           Wyoming vs Delaware vs New Mexico — Year-1 and 5-year costs in AUD
         </h2>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          The table below is calculated from the site&apos;s state fee data
-          with a {f.agentPerYear}-a-year registered agent included. Five-year
-          totals count five recurring payments, the same convention the site
-          uses everywhere.
-        </p>
+        Read the table left to right: what the state charges once, what it charges every year, and what year one and five years cost once the agent is counted in. Five-year totals count five recurring payments, the same convention this site uses on every state page.
+      </p>
         <div className="mt-4 overflow-x-auto">
           <table className="w-full min-w-[520px] border-collapse text-left text-sm">
             <thead>
@@ -157,12 +131,8 @@ export default function UsLlcCostFromAustraliaPage() {
           </table>
         </div>
         <p className="mt-3 text-sm text-slate-500">
-          State fees alone over five years are {f.nmFiveYearStateOnly} in New
-          Mexico, {f.wyFiveYearStateOnly} in Wyoming and{" "}
-          {f.deFiveYearStateOnly} in Delaware, before the registered agent.
-          Delaware&apos;s {f.deAnnualTax} yearly tax is the reason it costs
-          more.
-        </p>
+        State fees alone over five years come to {f.nmFiveYearStateOnly} in New Mexico, {f.wyFiveYearStateOnly} in Wyoming and {f.deFiveYearStateOnly} in Delaware, before the agent. Delaware&apos;s {f.deAnnualTax} yearly tax is the reason its total is the highest of the three.
+      </p>
       </section>
 
       <section className="mt-12 max-w-3xl">
@@ -179,17 +149,19 @@ export default function UsLlcCostFromAustraliaPage() {
           formation cost.
         </p>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          The ongoing picture is similar. An Australian company pays its
-          A$342 annual review fee every year; a US LLC in Wyoming pays a{" "}
-          {f.wyAnnualReport} annual report plus its agent, while a New Mexico
-          LLC pays only the agent. The agent ({f.agentPerYear} a year in the
-          calculator) is the one recurring service cost an Australian founder
-          cannot skip, because a foreign address does not qualify as a
-          registered office.
-        </p>
+        An Australian company pays its A$342 annual review fee every year. A Wyoming LLC pays a {f.wyAnnualReport} annual report plus its agent, while a New Mexico LLC pays only the agent. The agent ({f.agentPerYear} a year in the calculator) is the one recurring service an Australian founder cannot skip, because a foreign address does not qualify as a registered office.
+      </p>
       </section>
 
-      <section className="mt-12 max-w-3xl">
+            <section className="mt-12 max-w-3xl">
+        <h2 className="text-xl font-semibold text-[#102A43]">
+          Director ID and ABN have no US equivalent
+        </h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          Every director of an Australian company needs a Director ID, and the company needs an ABN — both are $0, but both are mandatory. A US LLC has neither: no director register, no Director ID, no ABN, and no local director rule at all. The only US-side requirement is the registered agent, and the only number you apply for after formation is the EIN — Form SS-4 by fax or mail, $0 from the IRS, with “Foreign” on Line 7b if you have no SSN.
+        </p>
+      </section>
+<section className="mt-12 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">Frequently asked questions</h2>
         <div className="mt-6 space-y-4">
           {faqs.map((faq, i) => (

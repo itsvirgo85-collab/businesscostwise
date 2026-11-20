@@ -152,7 +152,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-3 sm:px-6">
         <Link
           href="/"
-          className="flex min-h-[44px] shrink-0 items-center gap-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1769AA]"
+          className="flex min-h-[48px] shrink-0 items-center gap-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1769AA]"
         >
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#102A43] text-xs font-bold text-white">
             LLC
@@ -186,7 +186,7 @@ export default function Header() {
                   aria-haspopup="true"
                   aria-expanded={isOpen}
                   onClick={() => setOpenMenu(isOpen ? null : section.id)}
-                  className="flex min-h-[44px] items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-[#1769AA] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1769AA]"
+                  className="flex min-h-[48px] items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-[#1769AA] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1769AA]"
                 >
                   {section.label}
                   <Chevron open={isOpen} />
@@ -200,7 +200,7 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="flex min-h-[44px] items-center rounded-lg px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-[#1769AA] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1769AA]"
+              className="flex min-h-[48px] items-center rounded-lg px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-[#1769AA] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1769AA]"
             >
               {item.label}
             </Link>
@@ -208,7 +208,7 @@ export default function Header() {
 
           <Link
             href="/llc-cost-calculator"
-            className="ml-2 flex min-h-[44px] items-center rounded-lg bg-[#102A43] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1769AA] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1769AA] focus-visible:ring-offset-2"
+            className="ml-2 flex min-h-[48px] items-center rounded-lg bg-[#102A43] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1769AA] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1769AA] focus-visible:ring-offset-2"
           >
             Calculate Costs
           </Link>
@@ -216,7 +216,7 @@ export default function Header() {
 
         <button
           type="button"
-          className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg p-3 text-slate-600 transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1769AA] lg:hidden"
+          className="flex min-h-[48px] min-w-[48px] items-center justify-center rounded-lg p-3 text-slate-600 transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1769AA] lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
@@ -246,7 +246,7 @@ export default function Header() {
                   type="button"
                   aria-expanded={isOpen}
                   onClick={() => setMobileSection(isOpen ? null : section.id)}
-                  className="flex min-h-[44px] w-full items-center justify-between rounded-lg py-3 text-left text-sm font-semibold text-[#102A43] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1769AA]"
+                  className="flex min-h-[48px] w-full items-center justify-between rounded-lg py-3 text-left text-sm font-semibold text-[#102A43] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1769AA]"
                 >
                   {section.label}
                   <Chevron open={isOpen} />
@@ -256,7 +256,7 @@ export default function Header() {
                     <Link
                       href={section.href}
                       onClick={closeAll}
-                      className="block min-h-[44px] rounded-lg px-3 py-2.5 text-sm font-semibold text-[#1769AA] hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1769AA]"
+                      className="block min-h-[48px] rounded-lg px-3 py-2.5 text-sm font-semibold text-[#1769AA] hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1769AA]"
                     >
                       View all {section.label.toLowerCase()} →
                     </Link>
@@ -265,7 +265,7 @@ export default function Header() {
                         key={link.href}
                         href={link.href}
                         onClick={closeAll}
-                        className="block min-h-[44px] rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1769AA]"
+                        className="block min-h-[48px] rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1769AA]"
                       >
                         {link.label}
                       </Link>
@@ -280,7 +280,7 @@ export default function Header() {
                             key={link.href}
                             href={link.href}
                             onClick={closeAll}
-                            className="block min-h-[44px] rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1769AA]"
+                            className="block min-h-[48px] rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1769AA]"
                           >
                             {link.label}
                           </Link>
@@ -298,7 +298,7 @@ export default function Header() {
               key={item.href}
               href={item.href}
               onClick={closeAll}
-              className="block min-h-[44px] border-b border-slate-100 py-3 text-sm font-semibold text-[#102A43] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1769AA]"
+              className="block min-h-[48px] border-b border-slate-100 py-3 text-sm font-semibold text-[#102A43] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1769AA]"
             >
               {item.label}
             </Link>
@@ -307,7 +307,7 @@ export default function Header() {
           <Link
             href="/llc-cost-calculator"
             onClick={closeAll}
-            className="mt-4 flex min-h-[44px] items-center justify-center rounded-lg bg-[#102A43] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#1769AA] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1769AA]"
+            className="mt-4 flex min-h-[48px] items-center justify-center rounded-lg bg-[#102A43] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#1769AA] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1769AA]"
           >
             Calculate Costs
           </Link>

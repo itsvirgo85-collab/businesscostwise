@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
-import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: { absolute: "Free LLC Cost Calculator by State (2026)" },
@@ -185,7 +184,6 @@ export default function HomePage() {
   return (
     <div>
       <FaqJsonLd faqs={faqs} />
-      <BreadcrumbJsonLd items={[{ name: "Home", item: "/" }]} />
       {/* Hero */}
       <section className="bg-gradient-to-b from-[#102A43] to-[#1769AA] text-white">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">

@@ -16,14 +16,12 @@ export const metadata: Metadata = {
       "Answer three questions and compare states by 1-year and 5-year LLC cost, privacy, and investor fit. For most people the best state is their home state.",
     type: "website",
     url: "/tools/best-state-to-form-an-llc",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Best State to Form an LLC Finder (2026)" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Best State to Form an LLC Finder (2026)",
     description:
       "Answer three questions and compare states by 1-year and 5-year LLC cost, privacy, and investor fit. For most people the best state is their home state.",
-    images: ["/twitter-image"],
   },
 };
 

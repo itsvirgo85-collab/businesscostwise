@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import ArticleJsonLd from "@/components/seo/ArticleJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
@@ -80,6 +81,13 @@ export default function NonResidentLlcPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       <FaqJsonLd faqs={faqs} />
+      <ArticleJsonLd
+        headline="Can a Non-Resident Form an LLC in the USA? (2026)"
+        description="Yes — no SSN or US address is needed to form an LLC. Learn how non-residents get an EIN, which states work best, and the Form 5472 reporting trap."
+        datePublished="2026-11-15"
+        dateModified="2026-11-20"
+        url="https://www.getllccostcalculator.com/guides/non-resident-llc"
+      />
 
       <Breadcrumbs
         items={[

@@ -171,21 +171,21 @@ for (const [key, cfg] of Object.entries(PAGES)) {
     const questions = {
       uk: [
         "How much does a Wyoming or Delaware LLC cost per year in GBP?",
-        "Do UK residents pay higher US state filing fees than US citizens?",
-        "Can I form a US LLC from the UK without visiting the US or having a US address?",
-        "How much does it cost to close a US LLC from the UK compared to a UK Ltd strike-off?",
+        "Do UK founders pay higher US state fees than US residents?",
+        "Can a UK founder form a US LLC without visiting the US or having a US address?",
+        "What does closing a US LLC cost from the UK, versus a Ltd strike-off?",
       ],
       canada: [
-        "How much is a Wyoming vs. Delaware LLC in CAD over 5 years including agent renewal?",
-        "Do Canadian founders need a separate US virtual address on top of a Registered Agent?",
-        "Can Canadians obtain a US EIN without a Social Security Number (SSN)?",
-        "What is the difference between Foreign Qualification and forming a new US LLC from Canada?",
+        "How much is a Wyoming vs Delaware LLC in CAD over five years, agent included?",
+        "Do Canadian founders need a US virtual address as well as a registered agent?",
+        "Can Canadians get a US EIN without an SSN?",
+        "What is the difference between foreign qualification and forming a new US LLC?",
       ],
       australia: [
         "How much does a Wyoming or New Mexico LLC cost per year in AUD?",
         "Are US state filing fees higher for Australian non-residents?",
-        "Can an Australian resident obtain a US EIN without an SSN or ITIN?",
-        "How much does it cost to close a US LLC from Australia compared to ASIC deregistration?",
+        "Can an Australian resident get a US EIN without an SSN or ITIN?",
+        "What does closing a US LLC cost from Australia, versus ASIC deregistration?",
       ],
     }[key];
     for (const q of questions) {
