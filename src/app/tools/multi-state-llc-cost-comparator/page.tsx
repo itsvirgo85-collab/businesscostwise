@@ -26,17 +26,6 @@ export const metadata: Metadata = {
 };
 
 export default function MultiStateComparatorPage() {
-  const calculatorJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "Multi-State LLC Cost Comparator",
-    applicationCategory: "FinanceApplication",
-    operatingSystem: "Web",
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    description:
-      "Free educational tool to compare LLC formation and multi-year recurring state costs across multiple US states side-by-side.",
-  };
-
   const faqs = [
     {
       question: "What is the cheapest state to form an LLC in 2026?",
@@ -79,10 +68,6 @@ export default function MultiStateComparatorPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorJsonLd) }}
-      />
       <FaqJsonLd faqs={faqs} />
 
       <Breadcrumbs

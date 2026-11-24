@@ -26,17 +26,6 @@ export const metadata: Metadata = {
 };
 
 export default function BestStatePage() {
-  const calculatorJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "Best State to Form an LLC Finder",
-    applicationCategory: "FinanceApplication",
-    operatingSystem: "Web",
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    description:
-      "Free educational finder comparing US states for LLC formation by 1-year and 5-year cost, privacy, and investor fit, using verified state fee data.",
-  };
-
   const faqs = [
     {
       question: "What is the best state to form an LLC?",
@@ -79,10 +68,6 @@ export default function BestStatePage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorJsonLd) }}
-      />
       <FaqJsonLd faqs={faqs} />
 
       <Breadcrumbs

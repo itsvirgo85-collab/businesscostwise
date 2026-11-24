@@ -17,12 +17,12 @@ import {
 import { calculateFiveYearStateCost, calculateRecurringStateFees } from "@/lib/stateCost";
 
 export const metadata: Metadata = {
-  title: { absolute: "Non-Resident LLC Cost Calculator (2026) — Your Currency" },
+  title: { absolute: "Non Resident LLC Cost Calculator (2026) — Your Currency" },
   description:
     "Forming a US LLC from abroad? Year-1 and 5-year costs for Wyoming, Delaware, New Mexico and all 50 states in 9 currencies, with an editable exchange rate.",
   alternates: { canonical: "/tools/non-resident-llc-cost-calculator" },
   openGraph: {
-    title: "Non-Resident LLC Cost Calculator (2026) — Your Currency",
+    title: "Non Resident LLC Cost Calculator (2026) — Your Currency",
     description:
       "Forming a US LLC from abroad? Year-1 and 5-year costs for Wyoming, Delaware, New Mexico and all 50 states in 9 currencies, with an editable exchange rate.",
     type: "website",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Non-Resident LLC Cost Calculator (2026) — Your Currency",
+    title: "Non Resident LLC Cost Calculator (2026) — Your Currency",
     description:
       "Forming a US LLC from abroad? Year-1 and 5-year costs for Wyoming, Delaware, New Mexico and all 50 states in 9 currencies, with an editable exchange rate.",
   },
@@ -63,24 +63,26 @@ export default async function NonResidentCalculatorPage({
   const wy5Agent = wy5 + agent5;
   const de5Agent = de5 + agent5;
   const wyoming = getStateBySlug("wyoming")!;
+  const newMexico = getStateBySlug("new-mexico")!;
+  const delaware = getStateBySlug("delaware")!;
   const wy1Agent =
     (wyoming.formationFee ?? 0) +
     calculateRecurringStateFees(wyoming, 1) +
     DEFAULT_AGENT_COST_PER_YEAR;
+  const nm1 =
+    (newMexico.formationFee ?? 0) +
+    calculateRecurringStateFees(newMexico, 1);
+  const wy1 =
+    (wyoming.formationFee ?? 0) +
+    calculateRecurringStateFees(wyoming, 1);
+  const de1 =
+    (delaware.formationFee ?? 0) +
+    calculateRecurringStateFees(delaware, 1);
+  const nm1Agent = nm1 + DEFAULT_AGENT_COST_PER_YEAR;
+  const de1Agent = de1 + DEFAULT_AGENT_COST_PER_YEAR;
   const gbpRate = getDefaultRate("GBP");
   const wy1AgentGbp = formatConverted(convertUsd(wy1Agent, gbpRate), "GBP");
   const wy5AgentGbp = formatConverted(convertUsd(wy5Agent, gbpRate), "GBP");
-
-  const calculatorJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "Non-Resident LLC Cost Calculator",
-    applicationCategory: "FinanceApplication",
-    operatingSystem: "Web",
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    description:
-      "Free educational calculator for non-resident founders estimating Year-1 and 5-year US LLC costs by state, in nine home currencies with an editable exchange rate.",
-  };
 
   const faqs = [
     {
@@ -110,14 +112,22 @@ export default async function NonResidentCalculatorPage({
       question: "What is the cheapest state for a non-resident LLC?",
       answer: `New Mexico is the cheapest on state fees: ${formatUsd(getStateBySlug("new-mexico")!.formationFee ?? 0)} to form and no annual report, so ${formatUsd(nm5)} over five years. Wyoming costs ${formatUsd(wy5)} over five years but adds privacy and a well-known court system; Delaware costs ${formatUsd(de5)} because of its ${formatUsd(getStateBySlug("delaware")!.franchiseTax ?? 0)} yearly tax. With a $${DEFAULT_AGENT_COST_PER_YEAR}-a-year agent, the five-year totals are ${formatUsd(nm5Agent)}, ${formatUsd(wy5Agent)} and ${formatUsd(de5Agent)}.`,
     },
+    {
+      question: "How much is the non resident llc cost for a US LLC?",
+      answer: `State fees alone are ${formatUsd(nm5)} in New Mexico, ${formatUsd(wy5)} in Wyoming and ${formatUsd(de5)} in Delaware over five years, counting five recurring payments. With a $${DEFAULT_AGENT_COST_PER_YEAR}-a-year registered agent, the five-year totals become ${formatUsd(nm5Agent)}, ${formatUsd(wy5Agent)} and ${formatUsd(de5Agent)}. Price your exact state and currency here: /tools/non-resident-llc-cost-calculator?currency=GBP&state=wyoming`,
+    },
+    {
+      question: "How much does a US LLC for non residents cost in year one?",
+      answer: `Year one with a $${DEFAULT_AGENT_COST_PER_YEAR}-a-year registered agent costs ${formatUsd(nm1Agent)} in New Mexico, ${formatUsd(wy1Agent)} in Wyoming and ${formatUsd(de1Agent)} in Delaware, using verified state fees. The state part alone is ${formatUsd(nm1)}, ${formatUsd(wy1)} and ${formatUsd(de1)}, before the agent. Non-residents pay the same state fees as US residents, with no foreign-founder surcharge. Check your state here: /tools/non-resident-llc-cost-calculator?state=new-mexico`,
+    },
+    {
+      question: "What does the Wyoming LLC cost calculator show for a non-resident LLC?",
+      answer: `It shows Wyoming at ${formatUsd(wyoming.formationFee ?? 0)} to form plus ${formatUsd(wyoming.annualFee ?? 0)} a year, so ${formatUsd(wy1)} in year one and ${formatUsd(wy5)} over five years in state fees alone. With a $${DEFAULT_AGENT_COST_PER_YEAR}-a-year registered agent, the totals become ${formatUsd(wy1Agent)} in year one and ${formatUsd(wy5Agent)} over five years. Compare all three low-cost states here: /tools/non-resident-llc-cost-calculator?currency=GBP&state=wyoming`,
+    },
   ];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorJsonLd) }}
-      />
       <FaqJsonLd faqs={faqs} />
 
       <Breadcrumbs
@@ -132,7 +142,7 @@ export default async function NonResidentCalculatorPage({
       />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
-        Non-Resident LLC Cost Calculator 2026
+        Non Resident LLC Cost Calculator 2026
       </h1>
 
       <p className="mt-4 max-w-3xl text-lg text-slate-600 leading-relaxed">
@@ -241,6 +251,132 @@ export default async function NonResidentCalculatorPage({
           </Link>
           .
         </p>
+      </section>
+
+      <section className="mt-12 max-w-3xl">
+        <h2 className="text-xl font-semibold text-[#102A43]">
+          Wyoming LLC cost calculator — Wyoming vs Delaware vs New Mexico
+        </h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          Wyoming is the calculator&apos;s default state for non-residents:{" "}
+          {formatUsd(wyoming.formationFee ?? 0)} to form plus{" "}
+          {formatUsd(wyoming.annualFee ?? 0)} a year. The table below compares
+          the three lowest-cost states in state fees alone, and with a $
+          {DEFAULT_AGENT_COST_PER_YEAR}-a-year registered agent. Five-year
+          totals count five recurring payments.
+        </p>
+        <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white">
+          <table className="min-w-full text-left text-sm">
+            <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
+              <tr>
+                <th className="px-4 py-3 font-medium">State</th>
+                <th className="px-4 py-3 font-medium">Formation</th>
+                <th className="px-4 py-3 font-medium">Recurring / year</th>
+                <th className="px-4 py-3 font-medium">Year 1 (state only)</th>
+                <th className="px-4 py-3 font-medium">5-year (state only)</th>
+                <th className="px-4 py-3 font-medium">Year 1 with agent</th>
+                <th className="px-4 py-3 font-medium">5-year with agent</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              <tr>
+                <td className="px-4 py-3 font-semibold">Wyoming</td>
+                <td className="px-4 py-3">{formatUsd(wyoming.formationFee ?? 0)}</td>
+                <td className="px-4 py-3">{formatUsd(wyoming.annualFee ?? 0)}</td>
+                <td className="px-4 py-3">{formatUsd(wy1)}</td>
+                <td className="px-4 py-3 font-semibold">{formatUsd(wy5)}</td>
+                <td className="px-4 py-3">{formatUsd(wy1Agent)}</td>
+                <td className="px-4 py-3 font-semibold">{formatUsd(wy5Agent)}</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 font-semibold">New Mexico</td>
+                <td className="px-4 py-3">{formatUsd(newMexico.formationFee ?? 0)}</td>
+                <td className="px-4 py-3">$0</td>
+                <td className="px-4 py-3">{formatUsd(nm1)}</td>
+                <td className="px-4 py-3 font-semibold">{formatUsd(nm5)}</td>
+                <td className="px-4 py-3">{formatUsd(nm1Agent)}</td>
+                <td className="px-4 py-3 font-semibold">{formatUsd(nm5Agent)}</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 font-semibold">Delaware</td>
+                <td className="px-4 py-3">{formatUsd(delaware.formationFee ?? 0)}</td>
+                <td className="px-4 py-3">{formatUsd(delaware.franchiseTax ?? 0)}</td>
+                <td className="px-4 py-3">{formatUsd(de1)}</td>
+                <td className="px-4 py-3 font-semibold">{formatUsd(de5)}</td>
+                <td className="px-4 py-3">{formatUsd(de1Agent)}</td>
+                <td className="px-4 py-3 font-semibold">{formatUsd(de5Agent)}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-3 text-sm text-slate-600">
+          Delaware&apos;s recurring figure is its{" "}
+          {formatUsd(delaware.franchiseTax ?? 0)} yearly LLC tax — Delaware
+          LLCs file no annual report. New Mexico has no annual report fee.
+        </p>
+      </section>
+
+      <section className="mt-12 max-w-3xl">
+        <h2 className="text-xl font-semibold text-[#102A43]">
+          US LLC cost by home country
+        </h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          Each country guide prices a US LLC in your home currency. Open your
+          guide below, or use the calculator above with your currency
+          pre-selected.
+        </p>
+        <ul className="mt-4 space-y-2 text-sm">
+          <li>
+            <Link href="/guides/us-llc-cost-from-uk?currency=GBP" className="text-[#1769AA] hover:underline">
+              US LLC cost from the UK — in GBP
+            </Link>
+          </li>
+          <li>
+            <Link href="/guides/us-llc-cost-from-canada?currency=CAD" className="text-[#1769AA] hover:underline">
+              US LLC cost from Canada — in CAD
+            </Link>
+          </li>
+          <li>
+            <Link href="/guides/us-llc-cost-from-australia?currency=AUD" className="text-[#1769AA] hover:underline">
+              US LLC cost from Australia — in AUD
+            </Link>
+          </li>
+          <li>
+            <Link href="/guides/us-llc-cost-from-new-zealand?currency=NZD" className="text-[#1769AA] hover:underline">
+              US LLC cost from New Zealand — in NZD
+            </Link>
+          </li>
+          <li>
+            <Link href="/guides/us-llc-cost-from-germany?currency=EUR" className="text-[#1769AA] hover:underline">
+              US LLC cost from Germany — in EUR
+            </Link>
+          </li>
+          <li>
+            <Link href="/guides/us-llc-cost-from-netherlands?currency=EUR" className="text-[#1769AA] hover:underline">
+              US LLC cost from the Netherlands — in EUR
+            </Link>
+          </li>
+          <li>
+            <Link href="/guides/us-llc-cost-from-ireland?currency=EUR" className="text-[#1769AA] hover:underline">
+              US LLC cost from Ireland — in EUR
+            </Link>
+          </li>
+          <li>
+            <Link href="/guides/us-llc-cost-from-singapore?currency=SGD" className="text-[#1769AA] hover:underline">
+              US LLC cost from Singapore — in SGD
+            </Link>
+          </li>
+          <li>
+            <Link href="/guides/us-llc-cost-from-dubai?currency=AED" className="text-[#1769AA] hover:underline">
+              US LLC cost from Dubai &amp; the UAE — in AED
+            </Link>
+          </li>
+          <li>
+            <Link href="/guides/us-llc-cost-from-india?currency=INR" className="text-[#1769AA] hover:underline">
+              US LLC cost from India — in INR
+            </Link>
+          </li>
+        </ul>
       </section>
 
       <section className="mt-12 max-w-3xl">

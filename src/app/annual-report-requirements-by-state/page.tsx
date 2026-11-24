@@ -7,12 +7,12 @@ import AnnualReportCalculator from "@/components/calculators/AnnualReportCalcula
 import AnnualReportTable from "@/components/calculators/AnnualReportTable";
 
 export const metadata: Metadata = {
-  title: { absolute: "LLC Annual Report Fees by State 2026 — $0 States & Deadlines" },
+  title: { absolute: "LLC Annual Report Fee Calculator by State 2026 — $0 States" },
   description:
     "LLC annual report fees for all 50 states + DC: check any state's fee, frequency and 5-year renewal total, which states charge $0, and missed-deadline penalties.",
   alternates: { canonical: "/annual-report-requirements-by-state" },
   openGraph: {
-    title: "LLC Annual Report Fees by State 2026 — $0 States & Deadlines",
+    title: "LLC Annual Report Fee Calculator by State 2026 — $0 States",
     description:
       "LLC annual report fees for all 50 states + DC: check any state's fee, frequency and 5-year renewal total, which states charge $0, and missed-deadline penalties.",
     type: "article",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "LLC Annual Report Fees by State 2026 — $0 States & Deadlines",
+    title: "LLC Annual Report Fee Calculator by State 2026 — $0 States",
     description:
       "LLC annual report fees for all 50 states + DC: check any state's fee, frequency and 5-year renewal total, which states charge $0, and missed-deadline penalties.",
     images: ["/twitter-image"],
@@ -149,16 +149,15 @@ export default function AnnualReportPage() {
         </Link>
       </div>
 
-      <div className="mt-8">
-        <AnnualReportCalculator />
-      </div>
-
-      <section className="mt-12">
+      <section className="mt-8 rounded-2xl border border-[#1769AA]/30 bg-blue-50/60 p-6">
         <h2 className="text-2xl font-bold text-[#102A43]">
           States with no (or $0) recurring report fee
         </h2>
-        <p className="mt-2 text-slate-600">
-          Based on currently verified data. Some of these states may still require other filings or taxes.
+        <p className="mt-2 text-slate-700">
+          {noRecurring.length} of the 51 jurisdictions charge $0 in recurring
+          state report fees in verified data — including New Mexico, Arizona
+          and Ohio. Some of these states may still require the filing itself,
+          or other taxes, even when the report fee is $0.
         </p>
         <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
           {noRecurring.map((s) => (
@@ -177,6 +176,10 @@ export default function AnnualReportPage() {
           )}
         </div>
       </section>
+
+      <div className="mt-8">
+        <AnnualReportCalculator />
+      </div>
 
       <section className="mt-12">
         <h2 className="text-2xl font-bold text-[#102A43]">

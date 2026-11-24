@@ -42,6 +42,10 @@ export default function UsLlcVsUkLtdCostPage() {
       question: "Which entity is cheaper to close if a project stops operating?",
       answer: `A UK Ltd digital strike-off (form DS01) costs £13 online or £18 on paper. Closing a US LLC costs ${f.nmDissolution} (${f.nmDissolutionLocal}) in New Mexico, ${f.wyDissolution} (${f.wyDissolutionLocal}) in Wyoming, or ${f.deDissolution} (${f.deDissolutionLocal}) in Delaware in official dissolution filing fees, plus any final annual report or tax still due.`,
     },
+    {
+      question: "What is the US LLC vs UK Ltd cost over 5 years?",
+      answer: `A UK Ltd costs £300 over 5 years — £100 to incorporate plus four £50 confirmation statements. A US LLC is ${f.nmFiveYearUsd} (${f.nmFiveYearLocal}) in New Mexico, ${f.wyFiveYearUsd} (${f.wyFiveYearLocal}) in Wyoming and ${f.deFiveYearUsd} (${f.deFiveYearLocal}) in Delaware. Some comparison pages still show Delaware’s old $300 annual tax; the figure is {f.deAnnualTax} a year for tax year 2026, first payable 1 June 2027.`,
+    },
   ];
 
   return (

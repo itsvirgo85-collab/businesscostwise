@@ -26,17 +26,6 @@ export const metadata: Metadata = {
 };
 
 export default function ScorpSavingsPage() {
-  const calculatorJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "LLC vs S-Corp Tax Savings Calculator",
-    applicationCategory: "FinanceApplication",
-    operatingSystem: "Web",
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    description:
-      "Free educational calculator comparing LLC self-employment tax with S-corporation payroll tax on a reasonable salary, using 2026 federal figures.",
-  };
-
   const faqs = [
     {
       question: "How much does an LLC pay in self-employment tax?",
@@ -79,10 +68,6 @@ export default function ScorpSavingsPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorJsonLd) }}
-      />
       <FaqJsonLd faqs={faqs} />
 
       <Breadcrumbs

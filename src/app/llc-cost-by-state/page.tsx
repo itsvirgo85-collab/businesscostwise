@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { STATE_FEES } from "@/data/stateFees";
+import { STATE_FEES, getStateBySlug } from "@/data/stateFees";
+import { calculateFiveYearStateCost } from "@/lib/stateCost";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: { absolute: "LLC Costs by State 2026 — All 50 States + DC" },
+  title: { absolute: "LLC Cost by State 2026 — All 50 States + DC" },
   description:
     "LLC costs by state for all 50 states + DC: verified formation fees and recurring annual or biennial costs, with official source links and multi-year context.",
   alternates: { canonical: "/llc-cost-by-state" },
   openGraph: {
-    title: "LLC Costs by State 2026 — All 50 States + DC",
+    title: "LLC Cost by State 2026 — All 50 States + DC",
     description:
       "LLC costs by state for all 50 states + DC: verified formation fees and recurring annual or biennial costs, with official source links and multi-year context.",
     type: "article",
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "LLC Costs by State 2026 — All 50 States + DC",
+    title: "LLC Cost by State 2026 — All 50 States + DC",
     description:
       "LLC costs by state for all 50 states + DC: verified formation fees and recurring annual or biennial costs, with official source links and multi-year context.",
     images: ["/twitter-image"],
@@ -30,6 +31,7 @@ export default function LLCCostByStatePage() {
   const verified = STATE_FEES.filter((s) => s.status === "verified").sort((a, b) =>
     a.state.localeCompare(b.state)
   );
+  const delaware = getStateBySlug("delaware")!;
 
   const faqs = [
     {
@@ -66,7 +68,7 @@ export default function LLCCostByStatePage() {
       />
 
       <h1 className="text-3xl font-bold tracking-tight text-[#102A43] sm:text-4xl">
-        LLC Formation Costs by State (2026)
+        LLC Cost by State (2026)
       </h1>
 
       <p className="mt-4 max-w-3xl text-lg text-slate-600 leading-relaxed">
@@ -108,6 +110,13 @@ export default function LLCCostByStatePage() {
         >
           Hidden costs
         </Link>
+      </div>
+
+      <div className="mt-6 max-w-3xl rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm leading-relaxed text-amber-900">
+        <strong>Delaware correction:</strong> Delaware&apos;s LLC annual tax is ${delaware.franchiseTax} a year for tax
+        year 2026, first payable 1 June 2027 — up from $300. Many guides still show $300.
+        Delaware charges ${delaware.formationFee} to form and files no annual report, but the ${delaware.franchiseTax} tax is still due
+        every year: ${calculateFiveYearStateCost(delaware).toLocaleString()} over five years (${delaware.formationFee} to form plus five ${delaware.franchiseTax} annual tax payments).
       </div>
 
       <div className="mt-8 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">

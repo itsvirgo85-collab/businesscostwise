@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ForeignQualificationCalculator from "@/components/calculators/ForeignQualificationCalculator";
+import { getStateBySlug } from "@/data/stateFees";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
@@ -26,17 +27,16 @@ export const metadata: Metadata = {
 };
 
 export default function ForeignQualificationPage() {
-  const calculatorJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "Foreign Qualification Cost Calculator",
-    applicationCategory: "FinanceApplication",
-    operatingSystem: "Web",
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    description:
-      "Free educational calculator estimating the cost of foreign qualifying an existing LLC in another US state, including initial registration and dual-state recurring fees.",
-  };
-
+  // Recurring fees used in the FAQs below come from stateFees.ts: Wyoming's
+  // $60 annual report, California's $800 franchise tax, Delaware's $400
+  // annual tax. (California also has a separate $20 biennial Statement of
+  // Information, which the franchise-tax framing below excludes.)
+  const wyoming = getStateBySlug("wyoming")!;
+  const california = getStateBySlug("california")!;
+  const delaware = getStateBySlug("delaware")!;
+  const wyAnnual = wyoming.annualFee ?? 0;
+  const caFranchise = california.franchiseTax ?? 0;
+  const deTax = delaware.franchiseTax ?? 0;
   const faqs = [
     {
       question: "What is foreign qualification of an LLC?",
@@ -51,22 +51,22 @@ export default function ForeignQualificationPage() {
     {
       question: "Do I need to foreign qualify if I only sell online in other states?",
       answer:
-        "Usually not. Most states do not consider passive online sales alone as doing business. However, having employees, inventory, a physical office, or regularly performing services in a state often triggers the requirement. Rules differ by state.",
+        "Usually not. Most states do not consider passive online sales alone as doing business. However, having employees, inventory, a physical office, or regularly performing services in a state often triggers the requirement. Rules differ by state, so check the Secretary of State guidance where your customers and operations are.",
     },
     {
       question: "Can I foreign qualify in multiple states?",
       answer:
-        "Yes. Many businesses foreign qualify in several states. Each additional state adds registration fees, a registered agent requirement, and ongoing report obligations.",
+        "Yes. Many businesses foreign qualify in several states. Each additional state adds a registration fee, a registered agent requirement, and ongoing report obligations. Use the calculator above to add states one at a time and watch the combined 1-year and 5-year totals grow.",
     },
     {
       question: "What happens if I do business in a state without foreign qualifying?",
       answer:
-        "Possible consequences include monetary penalties, back fees, inability to sue in that state's courts, and in some cases challenges to limited liability protection. It is generally safer to register when required.",
+        "Possible consequences include monetary penalties, back fees, inability to sue in that state's courts, and in some cases challenges to limited liability protection. It is generally safer to register when required, and registering late usually costs more than registering on time because back fees can stack up.",
     },
     {
       question: "Is it cheaper to form in my home state instead of foreign qualifying?",
       answer:
-        "In the majority of cases for small businesses, yes. Forming directly in the state where you live and operate usually results in lower total compliance cost and less administrative burden over several years.",
+        "In the majority of cases for small businesses, yes. Forming directly in the state where you live and operate usually results in lower total compliance cost and less administrative burden over several years. The calculator above shows the comparison: one state's fees versus two states' fees, agents and reports combined.",
     },
     {
       question: "What is the difference between domestication and foreign qualification?",
@@ -79,20 +79,26 @@ export default function ForeignQualificationPage() {
     },
     {
       question: "Do I need to foreign qualify if I only sell online?",
-      answer: "Usually not if you have no physical presence in the other state — no office, employees, warehouse or regular in-person business there. Selling online to customers in a state, on its own, generally does not count as transacting business there. The line varies by state, and hiring an employee or signing a lease in a state almost always triggers the requirement. When in doubt, the state's Secretary of State guidance is the authority.",
+      answer: "Usually not if you have no physical presence in the other state — no office, employees, warehouse or business there. Selling online to customers in a state, on its own, generally does not count as transacting business there. Hiring an employee or signing a lease in a state almost always triggers the requirement, so check the Secretary of State guidance.",
     },
     {
       question: "What happens if I do business without foreign qualifying?",
-      answer: "Most states bar an unregistered foreign LLC from suing in their courts, and many impose fines or back fees when you finally register — sometimes for every year you operated unregistered. You can still be sued in that state, and your LLC's liability protection is not automatically lost, but the penalties and the inability to enforce contracts make it an expensive shortcut.",
+      answer: "Most states bar an unregistered foreign LLC from suing in their courts, and many impose fines or back fees when you finally register — sometimes for every year you operated unregistered. You can still be sued in that state, and your LLC's liability protection is not automatically lost, but the penalties and the inability to enforce contracts make it expensive.",
+    },
+    {
+      question: "How much does foreign qualification cost over 5 years?",
+      answer:
+        `It depends on the two states, because you keep paying both states every year. A Wyoming LLC foreign-qualified in California pays Wyoming's $${wyAnnual} annual report plus California's $${caFranchise} franchise tax, or $${(wyAnnual + caFranchise).toLocaleString()} a year in recurring fees — $${((wyAnnual + caFranchise) * 5).toLocaleString()} over five years before registration fees. Use the calculator above to price your own two states.`,
+    },
+    {
+      question: "How much does it cost to foreign qualify a Delaware LLC in California?",
+      answer:
+        `A Delaware LLC foreign-qualified in California pays Delaware's $${deTax} annual tax plus California's $${caFranchise} franchise tax, or $${(deTax + caFranchise).toLocaleString()} a year in recurring fees — $${((deTax + caFranchise) * 5).toLocaleString()} over five years before registration fees. That is why the calculator shows both states together: the home state's fees do not stop when you register elsewhere. Enter both states above for your exact total.`,
     },
   ];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorJsonLd) }}
-      />
       <FaqJsonLd faqs={faqs} />
 
       <Breadcrumbs

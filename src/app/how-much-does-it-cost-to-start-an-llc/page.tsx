@@ -7,14 +7,14 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import YearOneVsFiveYearCalculator from "@/components/calculators/YearOneVsFiveYearCalculator";
 
 export const metadata: Metadata = {
-  title: { absolute: "How Much Does It Cost to Start an LLC in 2026?" },
+  title: { absolute: "LLC Formation Cost 2026 — Filing Fees in All 50 States" },
   description:
-    "Starting an LLC costs $35–$500 in filing fees, plus yearly reports and taxes. See 1, 3 & 5-year totals for all 50 states + DC and find the cheapest option.",
+    "Starting an LLC means a state filing fee plus yearly reports and taxes. Compare 1, 3 & 5-year totals for all 50 states + DC and find the cheapest option.",
   alternates: { canonical: "/how-much-does-it-cost-to-start-an-llc" },
   openGraph: {
-    title: "How Much Does It Cost to Start an LLC in 2026?",
+    title: "LLC Formation Cost 2026 — Filing Fees in All 50 States",
     description:
-      "Starting an LLC costs $35–$500 in filing fees, plus yearly reports and taxes. See 1, 3 & 5-year totals for all 50 states + DC and find the cheapest option.",
+      "Starting an LLC means a state filing fee plus yearly reports and taxes. Compare 1, 3 & 5-year totals for all 50 states + DC and find the cheapest option.",
     type: "article",
     url: "/how-much-does-it-cost-to-start-an-llc",
     images: [
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "How Much Does It Cost to Start an LLC in 2026?",
+    title: "LLC Formation Cost 2026 — Filing Fees in All 50 States",
     description:
-      "Starting an LLC costs $35–$500 in filing fees, plus yearly reports and taxes. See 1, 3 & 5-year totals for all 50 states + DC and find the cheapest option.",
+      "Starting an LLC means a state filing fee plus yearly reports and taxes. Compare 1, 3 & 5-year totals for all 50 states + DC and find the cheapest option.",
     images: ["/twitter-image"],
   },
 };
@@ -43,6 +43,10 @@ export default function HowMuchDoesItCostPage() {
   const wyoming = verified.find((s) => s.slug === "wyoming");
   const delaware = verified.find((s) => s.slug === "delaware");
   const california = verified.find((s) => s.slug === "california");
+  const florida = verified.find((s) => s.slug === "florida");
+  const cheapestFive = [...verified]
+    .sort((a, b) => calculateFiveYearStateCost(a) - calculateFiveYearStateCost(b))
+    .slice(0, 5);
   const zeroReportStates = verified
     .filter((s) => (s.annualFee ?? null) === 0 && (s.franchiseTax ?? 0) === 0)
     .map((s) => s.state);
@@ -57,6 +61,11 @@ export default function HowMuchDoesItCostPage() {
       question: "How much does it cost to start an LLC in 2026?",
       answer:
         "State filing fees range from $35 in Montana to about $500 in Massachusetts. The median is roughly $100. Your total first-year cost is usually higher after annual reports, franchise taxes, registered agent fees, and any publication requirements. Use the free calculator for state-specific 1-, 3-, and 5-year estimates.",
+    },
+    {
+      question: "What is the cost of filing an LLC?",
+      answer:
+        `Filing fees range from $${cheapest[0]?.formationFee} in ${cheapest[0]?.state} to $${expensive[0]?.formationFee} in ${expensive[0]?.state}, with a median of about $100. Examples from verified state data are $${newMexico?.formationFee} in New Mexico, $${wyoming?.formationFee} in Wyoming, $${delaware?.formationFee} in Delaware and $${florida?.formationFee} in Florida. The filing fee is only the first cost — annual reports, franchise taxes and a registered agent add to the yearly total.`,
     },
     {
       question: "What is the cheapest state to form an LLC?",
@@ -206,6 +215,65 @@ export default function HowMuchDoesItCostPage() {
           How we source and verify fees →
         </Link>
       </p>
+
+      <section className="mt-8">
+        <h2 className="text-2xl font-bold text-[#102A43]">Cheapest states over 5 years</h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          If you are asking what does it cost to start an LLC over five years —
+          not just the filing fee — the table below ranks the cheapest states by
+          total state cost. The agent column adds a $125-a-year registered agent
+          for comparison; state fees alone are the middle column.
+        </p>
+        <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white">
+          <table className="min-w-full text-left text-sm">
+            <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
+              <tr>
+                <th className="px-4 py-3 font-medium">State</th>
+                <th className="px-4 py-3 font-medium">Formation fee</th>
+                <th className="px-4 py-3 font-medium">5-year state cost</th>
+                <th className="px-4 py-3 font-medium">5-year with $125/yr agent</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {cheapestFive.map((s) => (
+                <tr key={s.slug} className="hover:bg-slate-50">
+                  <td className="px-4 py-3 font-medium">
+                    <Link href={`/llc-cost-by-state/${s.slug}`} className="text-[#1769AA] hover:underline">
+                      {s.state}
+                    </Link>
+                  </td>
+                  <td className="px-4 py-3">${s.formationFee}</td>
+                  <td className="px-4 py-3 font-semibold text-[#102A43]">
+                    ${calculateFiveYearStateCost(s).toLocaleString()}
+                  </td>
+                  <td className="px-4 py-3">
+                    ${(calculateFiveYearStateCost(s) + agentFiveYear).toLocaleString()}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-3 text-sm text-slate-600">
+          Five-year totals count five recurring payments. See the full ranking on{" "}
+          <Link href="/cheapest-states-to-form-an-llc" className="text-[#1769AA] hover:underline">
+            Cheapest States to Form an LLC
+          </Link>
+          .
+        </p>
+      </section>
+
+      <section className="mt-12">
+        <h2 className="text-2xl font-bold text-[#102A43]">How much does an LLC cost per year?</h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          It depends on the state: several states charge $0 a year in report
+          fees, Delaware charges ${delaware?.franchiseTax} a year in LLC tax,
+          and California charges ${california?.franchiseTax} a year in franchise
+          tax. Most states fall between $25 and $150 a year, or every two years
+          for biennial reports. Use the calculator below to check your
+          state&apos;s exact yearly and 5-year renewal total.
+        </p>
+      </section>
 
       <div className="mt-8">
         <YearOneVsFiveYearCalculator />
@@ -426,6 +494,21 @@ export default function HowMuchDoesItCostPage() {
           <li>
             <Link href="/tools/llc-tax-estimator" className="text-[#1769AA] hover:underline">
               LLC Tax Estimator
+            </Link>
+          </li>
+          <li>
+            <Link href="/tools/llc-dissolution-cost-calculator" className="text-[#1769AA] hover:underline">
+              LLC Dissolution Cost Calculator
+            </Link>
+          </li>
+          <li>
+            <Link href="/tools/best-state-to-form-an-llc" className="text-[#1769AA] hover:underline">
+              Best State to Form an LLC
+            </Link>
+          </li>
+          <li>
+            <Link href="/tools/llc-vs-s-corp-tax-savings-calculator" className="text-[#1769AA] hover:underline">
+              LLC vs S-Corp Tax Savings Calculator
             </Link>
           </li>
           <li>

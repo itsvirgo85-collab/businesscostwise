@@ -4,12 +4,12 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: { absolute: "About Get LLC Cost Calculator" },
+  title: { absolute: "About Us — Verified LLC Cost Data & Methodology" },
   description:
     "Why Get LLC Cost Calculator exists: one platform for verified US LLC formation costs, state fees and structure guides. Meet the author and our data process.",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About Get LLC Cost Calculator",
+    title: "About Us — Verified LLC Cost Data & Methodology",
     description:
       "Why Get LLC Cost Calculator exists: one platform for verified US LLC formation costs, state fees and structure guides. Meet the author and our data process.",
     type: "article",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Get LLC Cost Calculator",
+    title: "About Us — Verified LLC Cost Data & Methodology",
     description:
       "Why Get LLC Cost Calculator exists: one platform for verified US LLC formation costs, state fees and structure guides. Meet the author and our data process.",
     images: ["/twitter-image"],

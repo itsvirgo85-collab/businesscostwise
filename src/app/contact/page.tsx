@@ -5,12 +5,12 @@ import ContactForm from "@/components/contact/ContactForm";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: { absolute: "Contact Get LLC Cost Calculator" },
+  title: { absolute: "Contact Us — LLC Fee Corrections, Questions & Feedback" },
   description:
     "Contact Get LLC Cost Calculator with questions about US LLC state fees, data corrections or guides. Use the secure contact form on this page for a reply.",
   alternates: { canonical: "/contact" },
   openGraph: {
-    title: "Contact Get LLC Cost Calculator",
+    title: "Contact Us — LLC Fee Corrections, Questions & Feedback",
     description:
       "Contact Get LLC Cost Calculator with questions about US LLC state fees, data corrections or guides. Use the secure contact form on this page for a reply.",
     type: "article",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Get LLC Cost Calculator",
+    title: "Contact Us — LLC Fee Corrections, Questions & Feedback",
     description:
       "Contact Get LLC Cost Calculator with questions about US LLC state fees, data corrections or guides. Use the secure contact form on this page for a reply.",
     images: ["/twitter-image"],

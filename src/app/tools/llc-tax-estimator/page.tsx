@@ -26,17 +26,6 @@ export const metadata: Metadata = {
 };
 
 export default function LlcTaxEstimatorPage() {
-  const calculatorJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "LLC Tax Estimator",
-    applicationCategory: "FinanceApplication",
-    operatingSystem: "Web",
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    description:
-      "Free educational estimator for an LLC's federal tax bill: self-employment tax, federal income tax, and quarterly estimated payments, using 2026 IRS figures.",
-  };
-
   const faqs = [
     {
       question: "How are LLCs taxed?",
@@ -74,10 +63,6 @@ export default function LlcTaxEstimatorPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorJsonLd) }}
-      />
       <FaqJsonLd faqs={faqs} />
 
       <Breadcrumbs

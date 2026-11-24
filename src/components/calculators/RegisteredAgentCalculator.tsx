@@ -174,6 +174,52 @@ export default function RegisteredAgentCalculator() {
           </dl>
         </div>
 
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h3 className="text-base font-semibold text-[#102A43]">
+            Renewal and 5-year cost comparison
+          </h3>
+          <p className="mt-1 text-sm text-slate-600">
+            First-year promotions usually end at renewal — compare the renewal price, not the
+            first-year price. Totals below use your entered annual rate
+            {useCommercial ? ` of $${results.yearly.toFixed(2)}` : ""}.
+          </p>
+          <table className="mt-4 w-full text-left text-sm">
+            <thead>
+              <tr className="border-b border-slate-200 text-xs uppercase tracking-wide text-slate-500">
+                <th className="py-2 pr-2 font-medium">Plan</th>
+                <th className="py-2 pr-2 font-medium">Year 1</th>
+                <th className="py-2 pr-2 font-medium">3 years</th>
+                <th className="py-2 font-medium">5 years</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              <tr>
+                <td className="py-2 pr-2 text-slate-700">Commercial, at your rate</td>
+                <td className="py-2 pr-2 font-medium">${(results.yearly * 1).toFixed(2)}</td>
+                <td className="py-2 pr-2 font-medium">${(results.yearly * 3).toFixed(2)}</td>
+                <td className="py-2 font-medium">${(results.yearly * 5).toFixed(2)}</td>
+              </tr>
+              <tr>
+                <td className="py-2 pr-2 text-slate-700">First year free, then renewal at your rate</td>
+                <td className="py-2 pr-2 font-medium">$0.00</td>
+                <td className="py-2 pr-2 font-medium">${(results.yearly * 2).toFixed(2)}</td>
+                <td className="py-2 font-medium">${(results.yearly * 4).toFixed(2)}</td>
+              </tr>
+              <tr>
+                <td className="py-2 pr-2 text-slate-700">Self-agent</td>
+                <td className="py-2 pr-2 font-medium">$0.00</td>
+                <td className="py-2 pr-2 font-medium">$0.00</td>
+                <td className="py-2 font-medium">$0.00</td>
+              </tr>
+            </tbody>
+          </table>
+          <p className="mt-3 text-xs text-slate-500">
+            At this page&apos;s default of $125 a year, a commercial agent costs $125 in year 1,
+            $375 over 3 years and $625 over 5 years; across the $99–$199 mid-range, the 5-year
+            total runs $495–$995.
+          </p>
+        </div>
+
         <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
           <p className="font-medium">Important</p>
           <p className="mt-1">

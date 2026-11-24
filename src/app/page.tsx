@@ -77,6 +77,11 @@ export default function HomePage() {
       desc: "Estimate commercial registered agent costs by state and see what the service typically adds each year.",
     },
     {
+      href: "/tools/non-resident-llc-cost-calculator",
+      title: "Non-Resident LLC Cost Calculator",
+      desc: "Year-1 and 5-year US LLC costs for founders abroad, in 9 home currencies with an editable exchange rate.",
+    },
+    {
       href: "/tools/llc-vs-s-corp-tax-savings-calculator",
       title: "LLC vs S-Corp Tax Savings Calculator",
       desc: "Compare LLC vs S-corp tax: see the break-even salary and the yearly saving on your profit.",
@@ -547,6 +552,17 @@ export default function HomePage() {
           </ul>
           <p className="mt-6 text-slate-600">
             Start with the cost calculator for your state, then review the formation guide and structure comparisons.
+          </p>
+          <p className="mt-4 text-slate-600">
+            Before you file, read{" "}
+            <Link href="/how-much-does-it-cost-to-start-an-llc" className="font-medium text-[#1769AA] hover:underline">
+              how much it costs to start an LLC
+            </Link>{" "}
+            and the{" "}
+            <Link href="/hidden-costs-of-forming-an-llc" className="font-medium text-[#1769AA] hover:underline">
+              hidden costs of forming an LLC
+            </Link>{" "}
+            — the filing fee is rarely the whole first-year bill.
           </p>
         </div>
       </section>

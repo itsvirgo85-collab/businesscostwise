@@ -144,8 +144,11 @@ test("Tool page is registered in the sitemap and the tools navigation", () => {
   assert.match(navigation, /href:\s*["']\/tools\/non-resident-llc-cost-calculator["']/);
 });
 
-test("Tool page has SoftwareApplication + FAQ JSON-LD, Breadcrumbs, and ?currency=/?state= support", () => {
-  assert.match(toolPage, /"@type":\s*"SoftwareApplication"/);
+test("Tool page has FAQ JSON-LD, Breadcrumbs, and ?currency=/?state= support", () => {
+  // No SoftwareApplication block: SEMrush flagged it as invalid (missing
+  // aggregateRating/review) and no real reviews exist, so the block was
+  // removed rather than inventing ratings. FAQPage JSON-LD stays.
+  assert.doesNotMatch(toolPage, /SoftwareApplication/);
   assert.match(toolPage, /FaqJsonLd faqs=\{faqs\}/);
   assert.match(toolPage, /Breadcrumbs/);
   assert.match(toolPage, /searchParams/);

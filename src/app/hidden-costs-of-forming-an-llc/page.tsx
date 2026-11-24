@@ -173,7 +173,11 @@ export default function HiddenCostsPage() {
       <section className="mt-12">
         <h2 className="text-2xl font-bold text-[#102A43]">1. Annual / Biennial Report Fees</h2>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          Most states require an annual or biennial report (sometimes called a statement of information or annual registration). The fee can be $0 in a few states and several hundred dollars in others. Missing the deadline often triggers late penalties and, eventually, administrative dissolution.
+          Most states require an annual or biennial report (sometimes called a statement of information or annual registration). The fee can be $0 in a few states and several hundred dollars in others. Missing the deadline often triggers late penalties and, eventually, administrative dissolution. If you are winding a business down instead, see what closing costs with the{" "}
+          <Link href="/tools/llc-dissolution-cost-calculator" className="text-[#1769AA] hover:underline">
+            LLC Dissolution Cost Calculator
+          </Link>
+          .
         </p>
         <p className="mt-3 text-slate-700">
           See the full overview on our{" "}
@@ -270,6 +274,17 @@ export default function HiddenCostsPage() {
         <p className="mt-3 text-slate-700 leading-relaxed">
           The free calculator on this site is designed to show 1-year, 3-year, and 5-year totals so you can see the long-term picture instead of only the first filing fee.
         </p>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          Two related tools help with the other end of the picture: the{" "}
+          <Link href="/tools/llc-dissolution-cost-calculator" className="text-[#1769AA] hover:underline">
+            LLC Dissolution Cost Calculator
+          </Link>{" "}
+          prices closing an LLC in every state, and the{" "}
+          <Link href="/tools/llc-tax-estimator" className="text-[#1769AA] hover:underline">
+            LLC Tax Estimator
+          </Link>{" "}
+          estimates the federal tax on your LLC&apos;s profit.
+        </p>
       </section>
 
       <section className="mt-12">
@@ -341,6 +356,11 @@ export default function HiddenCostsPage() {
           <li>
             <Link href="/tools/llc-dissolution-cost-calculator" className="text-[#1769AA] hover:underline">
               How Much Does It Cost to Dissolve an LLC?
+            </Link>
+          </li>
+          <li>
+            <Link href="/tools/llc-tax-estimator" className="text-[#1769AA] hover:underline">
+              LLC Tax Estimator
             </Link>
           </li>
           <li>

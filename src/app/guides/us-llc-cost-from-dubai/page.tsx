@@ -32,7 +32,7 @@ export default function UsLlcCostFromDubaiPage() {
   const faqs = [
     {
       question: "What is the total Year-1 and renewal cost of a US LLC in AED?",
-      answer: `Wyoming costs ${f.wyYear1Usd} (${f.wyYear1Local}) in year one and ${f.wyOngoingUsd} (${f.wyOngoingLocal}) a year after that, with a ${f.agentPerYear}-a-year registered agent. New Mexico costs ${f.nmYear1Usd} (${f.nmYear1Local}) in year one and ${f.nmOngoingUsd} (${f.nmOngoingLocal}) a year after that, because New Mexico charges a $0 state renewal fee. Converted figures are estimates at the ${FX_RATE_DATE} rate of ${f.rate} AED per $1 — the dirham is pegged to the US dollar, so the rate barely moves.`,
+      answer: `Five years with the agent come to ${f.nmFiveYearUsd} (${f.nmFiveYearLocal}) in New Mexico, ${f.wyFiveYearUsd} (${f.wyFiveYearLocal}) in Wyoming and ${f.deFiveYearUsd} (${f.deFiveYearLocal}) in Delaware. Year one is ${f.nmYear1Usd} (${f.nmYear1Local}), ${f.wyYear1Usd} (${f.wyYear1Local}) and ${f.deYear1Usd} (${f.deYear1Local}); after that the yearly cost is ${f.nmOngoingUsd} (${f.nmOngoingLocal}) in New Mexico and ${f.wyOngoingUsd} (${f.wyOngoingLocal}) in Wyoming. Converted figures are estimates at the ${FX_RATE_DATE} rate of ${f.rate} AED per $1 — the dirham is pegged to the US dollar, so the rate barely moves.`,
     },
     {
       question: "Does a US LLC need an Ejari office lease or annual trade licence renewal?",
@@ -45,6 +45,14 @@ export default function UsLlcCostFromDubaiPage() {
     {
       question: "How much does an IRS EIN cost for founders in Dubai?",
       answer: `An EIN costs $0 (0 AED) direct from the IRS: file Form SS-4 by fax or mail, writing “Foreign” on Line 7b if you have no SSN. Agencies charge $75–$300 only as an optional convenience fee for filing the same free form on your behalf — there is no IRS fee to pay.`,
+    },
+    {
+      question: "How do I form US LLC from Dubai?",
+      answer: `File online in Wyoming, New Mexico or Delaware — no US visit, no US address and no minimum capital are needed. Appoint a registered agent, file the Articles of Organization (${f.nmFormation} in New Mexico, ${f.wyFormation} in Wyoming), then get your EIN free from the IRS by faxing Form SS-4. No office lease, Ejari registration or trade licence is needed.`,
+    },
+    {
+      question: "What is the US LLC cost from Dubai?",
+      answer: `Year one with the agent is ${f.nmYear1Usd} (${f.nmYear1Local}) in New Mexico, ${f.wyYear1Usd} (${f.wyYear1Local}) in Wyoming and ${f.deYear1Usd} (${f.deYear1Local}) in Delaware. After that the yearly cost is ${f.nmOngoingUsd} (${f.nmOngoingLocal}), ${f.wyOngoingUsd} (${f.wyOngoingLocal}) and ${f.deOngoingUsd} (${f.deOngoingLocal}) — Delaware is dearest because of its {f.deAnnualTax} annual tax, while the dirham peg keeps the AED totals steady.`,
     },
   ];
 
@@ -80,19 +88,34 @@ export default function UsLlcCostFromDubaiPage() {
       </p>
 
       <div className="mt-10">
-        <NonResidentCalculator initialCurrencyCode="AED" initialStateSlug="wyoming" />
+        <NonResidentCalculator initialCurrencyCode="AED" initialStateSlug="wyoming"
+          compact
+          heading="Price it in dirhams — Wyoming first"
+          intro="Wyoming is the starting point below: a $60 annual report plus the agent, and no licence renewal or office lease anywhere in the bill. Switch to New Mexico or Delaware to compare."
+          stateNote="Wyoming, New Mexico and Delaware are the three states this guide prices. The full calculator covers all fifty."
+          currencyNote={`Default rate ${f.rate} AED per $1, as of ${FX_RATE_DATE} — the dirham is pegged to the US dollar, so the rate barely moves. Converted figures are estimates; your bank's spread still applies.`}
+          einNote="File Form SS-4 by fax or mail, writing “Foreign” on Line 7b if you have no SSN. The IRS charges $0 for the EIN itself."
+          agentHint="Agents typically charge $99–$199 a year — $125 is the figure this guide uses."
+          excludesBody="Taxes, bank fees, operating-agreement drafting and professional advice are not included. This tool shows operational and published state filing fees only — consult a qualified UAE or international tax adviser regarding local compliance, as the disclaimer below notes."
+          resultNote={`Converted at ${f.rate} AED per $1 (${FX_RATE_DATE}). State fees are from verified state data; dirham figures are estimates — the peg keeps them stable.`}
+          fiveYearNote="Five recurring payments over five years, plus formation and one-time items. Wyoming's yearly line is its $60 annual report plus the agent."
+          scenarioTitle="Year 1, 5 years and the cost of closing — in AED"
+          scenarioIntro="Same settings as above. The dissolution column is the official filing fee for closing the LLC in that state — there is no licence-renewal equivalent on the US side."
+          scenarioVariant="exit"
+          scenarioFootnote={`Five-year totals count five recurring payments. Dissolution filing fees come from the site's dissolution-fee table — confirm the current fee with the Secretary of State before filing. At the defaults above, five years in Wyoming are ${f.wyFiveYearLocal}.`}
+        />
       </div>
 
       <p className="mt-6 max-w-3xl text-sm text-slate-500">
-        The full <Link href="/tools/non-resident-llc-cost-calculator?currency=AED" className="text-[#1769AA] hover:underline">Non-Resident LLC Cost Calculator in AED</Link> covers every state, with the agent price, exchange rate and EIN option adjustable. The general <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">non-resident LLC guide</Link> covers the filing steps.
+        The calculator above covers Wyoming, Delaware and New Mexico in AED. The full <Link href="/tools/non-resident-llc-cost-calculator?currency=AED" className="text-[#1769AA] hover:underline">Non-Resident LLC Cost Calculator in AED</Link> covers every state, with the agent price, exchange rate and EIN option adjustable. The general <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">non-resident LLC guide</Link> covers the filing steps.
       </p>
 
       <section className="mt-12 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">
-          Wyoming vs Delaware vs New Mexico — Year-1 and 5-year costs in AED
+          Wyoming vs Delaware vs New Mexico — Year-1, 5-year and closing costs in AED
         </h2>
         <p className="mt-3 text-slate-700 leading-relaxed">
-        The table prices the three US states the same way a licence quote is priced: a one-off formation fee, a yearly charge, and the year-one and five-year totals with the agent. Five-year totals count five recurring payments, the site-wide convention.
+        The table prices the three US states the same way a licence quote is priced — and adds the closing fee, since a licence renewal has no US equivalent. Five-year totals count five recurring payments, the site-wide convention.
       </p>
         <div className="mt-4 overflow-x-auto">
           <table className="w-full min-w-[520px] border-collapse text-left text-sm">
@@ -102,7 +125,8 @@ export default function UsLlcCostFromDubaiPage() {
                 <th className="py-2 pr-3 font-semibold">Formation fee</th>
                 <th className="py-2 pr-3 font-semibold">Ongoing / year</th>
                 <th className="py-2 pr-3 font-semibold">Year 1 (with agent)</th>
-                <th className="py-2 font-semibold">5 years (with agent)</th>
+                <th className="py-2 pr-3 font-semibold">5 years (with agent)</th>
+                <th className="py-2 font-semibold">Dissolution fee</th>
               </tr>
             </thead>
             <tbody className="text-slate-700">
@@ -111,21 +135,24 @@ export default function UsLlcCostFromDubaiPage() {
                 <td className="py-2 pr-3">{f.wyFormation}</td>
                 <td className="py-2 pr-3">{f.wyOngoingUsd} ({f.wyOngoingLocal})</td>
                 <td className="py-2 pr-3">{f.wyYear1Usd} ({f.wyYear1Local})</td>
-                <td className="py-2">{f.wyFiveYearUsd} ({f.wyFiveYearLocal})</td>
+                <td className="py-2 pr-3">{f.wyFiveYearUsd} ({f.wyFiveYearLocal})</td>
+                <td className="py-2">{f.wyDissolution} ({f.wyDissolutionLocal})</td>
               </tr>
               <tr className="border-b border-slate-100">
                 <td className="py-2 pr-3 font-semibold text-[#102A43]">Delaware</td>
                 <td className="py-2 pr-3">{f.deFormation}</td>
                 <td className="py-2 pr-3">{f.deOngoingUsd} ({f.deOngoingLocal})</td>
                 <td className="py-2 pr-3">{f.deYear1Usd} ({f.deYear1Local})</td>
-                <td className="py-2">{f.deFiveYearUsd} ({f.deFiveYearLocal})</td>
+                <td className="py-2 pr-3">{f.deFiveYearUsd} ({f.deFiveYearLocal})</td>
+                <td className="py-2">{f.deDissolution} ({f.deDissolutionLocal})</td>
               </tr>
               <tr>
                 <td className="py-2 pr-3 font-semibold text-[#102A43]">New Mexico</td>
                 <td className="py-2 pr-3">{f.nmFormation}</td>
                 <td className="py-2 pr-3">{f.nmOngoingUsd} ({f.nmOngoingLocal})</td>
                 <td className="py-2 pr-3">{f.nmYear1Usd} ({f.nmYear1Local})</td>
-                <td className="py-2">{f.nmFiveYearUsd} ({f.nmFiveYearLocal})</td>
+                <td className="py-2 pr-3">{f.nmFiveYearUsd} ({f.nmFiveYearLocal})</td>
+                <td className="py-2">{f.nmDissolution} ({f.nmDissolutionLocal})</td>
               </tr>
             </tbody>
           </table>
@@ -163,7 +190,11 @@ export default function UsLlcCostFromDubaiPage() {
           The UAE dirham is pegged to the US dollar, so the AED figures on this page barely move between visits — the {FX_RATE_DATE} rate of {f.rate} AED per $1 is the rate your bank works from, give or take its own spread. The registered agent also bills in US dollars once a year. What does change year to year is the US side: the agent renewal and, in Wyoming, the {f.wyAnnualReport} annual report. New Mexico has no annual report, so the agent is the only recurring line there.
         </p>
       </section>
-<section className="mt-12 max-w-3xl">
+      <p className="mt-6 max-w-3xl text-sm text-slate-500">
+        Check any Delaware quote against the calculator above: several guides still show the old $300 annual tax, but Delaware charges {f.deAnnualTax} a year for tax year 2026 — first payable 1 June 2027 — on {f.deFormation} formation.
+      </p>
+
+      <section className="mt-12 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">Frequently asked questions</h2>
         <div className="mt-6 space-y-4">
           {faqs.map((faq, i) => (
@@ -184,20 +215,20 @@ export default function UsLlcCostFromDubaiPage() {
         <h2 className="text-lg font-semibold text-[#102A43]">Related guides &amp; tools</h2>
         <ul className="mt-3 space-y-2 text-sm">
           <li><Link href="/tools/non-resident-llc-cost-calculator?currency=AED" className="text-[#1769AA] hover:underline">Non-Resident LLC Cost Calculator — in AED</Link></li>
-          <li><Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">Non-Resident LLC Guide — Can a Non-Resident Form an LLC in the USA?</Link></li>
-          <li><Link href="/annual-report-requirements-by-state" className="text-[#1769AA] hover:underline">Annual Report Requirements by State</Link></li>
-          <li><Link href="/llc-cost-by-state/wyoming" className="text-[#1769AA] hover:underline">Wyoming LLC Cost — formation &amp; annual report fees</Link></li>
-          <li><Link href="/llc-cost-by-state/delaware" className="text-[#1769AA] hover:underline">Delaware LLC Cost — formation &amp; annual tax</Link></li>
-          <li><Link href="/llc-cost-by-state/new-mexico" className="text-[#1769AA] hover:underline">New Mexico LLC Cost — formation &amp; $0 annual report</Link></li>
-          <li><Link href="/guides/us-llc-cost-from-ireland" className="text-[#1769AA] hover:underline">US LLC Cost from Ireland — fees in EUR</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-india" className="text-[#1769AA] hover:underline">US LLC Cost from India — fees in INR</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-singapore" className="text-[#1769AA] hover:underline">US LLC Cost from Singapore — fees in SGD</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-australia" className="text-[#1769AA] hover:underline">US LLC Cost from Australia — fees in AUD</Link></li>
           <li><Link href="/guides/us-llc-cost-from-new-zealand" className="text-[#1769AA] hover:underline">US LLC Cost from New Zealand — fees in NZD</Link></li>
-          <li><Link href="/guides/us-llc-cost-from-netherlands" className="text-[#1769AA] hover:underline">US LLC Cost from the Netherlands — fees in EUR</Link></li>
-          <li><Link href="/guides/us-llc-cost-from-germany" className="text-[#1769AA] hover:underline">US LLC Cost from Germany — fees in EUR</Link></li>
           <li><Link href="/guides/us-llc-cost-from-uk" className="text-[#1769AA] hover:underline">US LLC Cost from the UK — fees in GBP</Link></li>
           <li><Link href="/guides/us-llc-cost-from-canada" className="text-[#1769AA] hover:underline">US LLC Cost from Canada — fees in CAD</Link></li>
-          <li><Link href="/guides/us-llc-cost-from-australia" className="text-[#1769AA] hover:underline">US LLC Cost from Australia — fees in AUD</Link></li>
-          <li><Link href="/guides/us-llc-cost-from-singapore" className="text-[#1769AA] hover:underline">US LLC Cost from Singapore — fees in SGD</Link></li>
-          <li><Link href="/guides/us-llc-cost-from-india" className="text-[#1769AA] hover:underline">US LLC Cost from India — fees in INR</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-ireland" className="text-[#1769AA] hover:underline">US LLC Cost from Ireland — fees in EUR</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-netherlands" className="text-[#1769AA] hover:underline">US LLC Cost from the Netherlands — fees in EUR</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-germany" className="text-[#1769AA] hover:underline">US LLC Cost from Germany — fees in EUR</Link></li>
+          <li><Link href="/llc-cost-by-state/wyoming" className="text-[#1769AA] hover:underline">Wyoming LLC Cost — formation &amp; annual report fees</Link></li>
+          <li><Link href="/llc-cost-by-state/new-mexico" className="text-[#1769AA] hover:underline">New Mexico LLC Cost — formation &amp; $0 annual report</Link></li>
+          <li><Link href="/llc-cost-by-state/delaware" className="text-[#1769AA] hover:underline">Delaware LLC Cost — formation &amp; annual tax</Link></li>
+          <li><Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">Non-Resident LLC Guide — Can a Non-Resident Form an LLC in the USA?</Link></li>
+          <li><Link href="/annual-report-requirements-by-state" className="text-[#1769AA] hover:underline">Annual Report Requirements by State</Link></li>
           <li><Link href="/guides/us-llc-vs-uk-ltd-cost" className="text-[#1769AA] hover:underline">US LLC vs. UK Ltd Cost — 5-year operational fee comparison</Link></li>
         </ul>
       </section>

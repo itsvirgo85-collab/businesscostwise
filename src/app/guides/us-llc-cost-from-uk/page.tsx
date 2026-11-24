@@ -32,7 +32,7 @@ export default function UsLlcCostFromUkPage() {
   const faqs = [
     {
       question: "How much does a Wyoming or Delaware LLC cost per year in GBP?",
-      answer: `Wyoming costs ${f.wyYear1Usd} (${f.wyYear1Local}) in year one and ${f.wyOngoingUsd} (${f.wyOngoingLocal}) a year after that, agent included at ${f.agentPerYear} a year. Delaware costs ${f.deYear1Usd} (${f.deYear1Local}) in year one and ${f.deOngoingUsd} (${f.deOngoingLocal}) a year after that, because Delaware charges a ${f.deAnnualTax} flat annual tax on top of the agent. Converted figures are estimates at the ${FX_RATE_DATE} rate of £${f.rate} per $1.`,
+      answer: `After year one the yearly bill is ${f.wyOngoingUsd} (${f.wyOngoingLocal}) in Wyoming — a ${f.wyAnnualReport} annual report plus the ${f.agentPerYear}-a-year agent — ${f.nmOngoingUsd} (${f.nmOngoingLocal}) in New Mexico, where the agent is the only recurring cost, and ${f.deOngoingUsd} (${f.deOngoingLocal}) in Delaware, because of its ${f.deAnnualTax} yearly tax. Converted figures are estimates at the ${FX_RATE_DATE} rate of £${f.rate} per $1.`,
     },
     {
       question: "Do UK founders pay higher US state fees than US residents?",
@@ -45,6 +45,14 @@ export default function UsLlcCostFromUkPage() {
     {
       question: "What does closing a US LLC cost from the UK, versus a Ltd strike-off?",
       answer: `A UK Ltd voluntary strike-off (form DS01) costs £13 online or £18 on paper. Closing a US LLC costs ${f.nmDissolution} in New Mexico and ${f.wyDissolution} in Wyoming in official dissolution filing fees, plus any final annual report or tax that is still due. Dissolution is filed online with the formation state’s Secretary of State — no US visit is needed.`,
+    },
+    {
+      question: "How do I form US LLC from UK?",
+      answer: `File online in Wyoming, New Mexico or Delaware — no US visit, no US address and no minimum capital are needed. Appoint a registered agent, file the Articles of Organization (${f.nmFormation} in New Mexico, ${f.wyFormation} in Wyoming), then get your EIN free from the IRS by faxing Form SS-4. Formation is online, like Companies House, with no US visit.`,
+    },
+    {
+      question: "What is the US LLC cost from UK?",
+      answer: `Year one with the agent is ${f.nmYear1Usd} (${f.nmYear1Local}) in New Mexico, ${f.wyYear1Usd} (${f.wyYear1Local}) in Wyoming and ${f.deYear1Usd} (${f.deYear1Local}) in Delaware. After that the yearly cost is ${f.nmOngoingUsd} (${f.nmOngoingLocal}), ${f.wyOngoingUsd} (${f.wyOngoingLocal}) and ${f.deOngoingUsd} (${f.deOngoingLocal}) — Delaware is dearest because of its {f.deAnnualTax} annual tax, against £100 to incorporate a Ltd at home.`,
     },
   ];
 
@@ -80,58 +88,81 @@ export default function UsLlcCostFromUkPage() {
       </p>
 
       <div className="mt-10">
-        <NonResidentCalculator initialCurrencyCode="GBP" initialStateSlug="wyoming" />
+        <NonResidentCalculator initialCurrencyCode="GBP" initialStateSlug="wyoming"
+          compact
+          heading="Price it in pounds — Wyoming first"
+          intro="Wyoming is the starting point below: a $60 annual report plus the agent. Switch to New Mexico in the buttons to see the cheapest five-year total, or to Delaware to compare."
+          stateNote="This guide prices Wyoming, Delaware and New Mexico — switch states with the buttons. The full calculator covers all fifty."
+          currencyNote={`Default rate £${f.rate} per $1, as of ${FX_RATE_DATE} (Bank of England spot rates and Federal Reserve H.10). Converted figures are estimates — set the rate field to the rate your bank quotes.`}
+          einNote="The IRS charges $0 for an EIN. File Form SS-4 by fax or mail with “Foreign” on Line 7b — the online form needs an SSN or ITIN, which a UK founder does not have."
+          agentHint="A commercial agent runs $99–$199 a year — $125 is the default here, and the only recurring service you cannot skip."
+          excludesBody="Taxes, bank fees, operating-agreement drafting and professional advice are not included. This tool shows operational and published state filing fees only — consult a qualified UK tax or legal adviser regarding HMRC and cross-border compliance, as the disclaimer below notes."
+          resultNote={`Converted at £${f.rate} per $1 (${FX_RATE_DATE}). State fees are from verified state data; pound figures are estimates.`}
+          fiveYearNote="Five recurring payments over five years, plus formation and one-time items. Wyoming's yearly line is its $60 annual report plus the agent; New Mexico's is the agent alone."
+          scenarioTitle="Year 1, 5 years and the cost of closing — in GBP"
+          scenarioIntro="Same settings as above. The dissolution column is the official filing fee for closing the LLC in that state — the figure this guide compares with the £13 Companies House strike-off."
+          scenarioVariant="exit"
+          scenarioFootnote={`Five-year totals count five recurring payments. Dissolution filing fees come from the site's dissolution-fee table — confirm the current fee with the Secretary of State before filing. At the defaults above, five years in Wyoming are ${f.wyFiveYearLocal}.`}
+        />
       </div>
 
       <p className="mt-6 max-w-3xl text-sm text-slate-500">
-        The full <Link href="/tools/non-resident-llc-cost-calculator?currency=GBP" className="text-[#1769AA] hover:underline">Non-Resident LLC Cost Calculator in GBP</Link> prices every state and lets you change the agent cost, the exchange rate and the EIN option. The general <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">non-resident LLC guide</Link> covers the filing steps.
+        The calculator above covers Wyoming, Delaware and New Mexico in GBP. The full <Link href="/tools/non-resident-llc-cost-calculator?currency=GBP" className="text-[#1769AA] hover:underline">Non-Resident LLC Cost Calculator in GBP</Link> prices every state and lets you change the agent cost, the exchange rate and the EIN option. The general <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">non-resident LLC guide</Link> covers the filing steps.
       </p>
 
       <section className="mt-12 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">
-          Wyoming vs Delaware vs New Mexico — Year-1 and 5-year costs in GBP
+          Wyoming vs Delaware vs New Mexico — priced by cost item, in GBP
         </h2>
         <p className="mt-3 text-slate-700 leading-relaxed">
-        The table below prices three US states against the same yardstick: the formation fee, the yearly state charge, and the year-one and five-year totals with the agent included. Five-year totals count five recurring payments, the same convention the site uses everywhere.
+        Turn the comparison round: each row is one cost line, each column is a state. Formation is paid once, the ongoing line repeats every year, and the last row is the cost of closing the LLC.
       </p>
         <div className="mt-4 overflow-x-auto">
           <table className="w-full min-w-[520px] border-collapse text-left text-sm">
             <thead>
               <tr className="border-b border-slate-200 text-slate-500">
-                <th className="py-2 pr-3 font-semibold">State</th>
-                <th className="py-2 pr-3 font-semibold">Formation fee</th>
-                <th className="py-2 pr-3 font-semibold">Ongoing / year</th>
-                <th className="py-2 pr-3 font-semibold">Year 1 (with agent)</th>
-                <th className="py-2 font-semibold">5 years (with agent)</th>
+                <th className="py-2 pr-3 font-semibold">Cost item</th>
+                <th className="py-2 pr-3 font-semibold">New Mexico</th>
+                <th className="py-2 pr-3 font-semibold">Wyoming</th>
+                <th className="py-2 font-semibold">Delaware</th>
               </tr>
             </thead>
             <tbody className="text-slate-700">
               <tr className="border-b border-slate-100">
-                <td className="py-2 pr-3 font-semibold text-[#102A43]">Wyoming</td>
+                <td className="py-2 pr-3 font-semibold text-[#102A43]">Formation fee</td>
+                <td className="py-2 pr-3">{f.nmFormation}</td>
                 <td className="py-2 pr-3">{f.wyFormation}</td>
-                <td className="py-2 pr-3">{f.wyOngoingUsd} ({f.wyOngoingLocal})</td>
-                <td className="py-2 pr-3">{f.wyYear1Usd} ({f.wyYear1Local})</td>
-                <td className="py-2">{f.wyFiveYearUsd} ({f.wyFiveYearLocal})</td>
+                <td className="py-2">{f.deFormation}</td>
               </tr>
               <tr className="border-b border-slate-100">
-                <td className="py-2 pr-3 font-semibold text-[#102A43]">Delaware</td>
-                <td className="py-2 pr-3">{f.deFormation}</td>
-                <td className="py-2 pr-3">{f.deOngoingUsd} ({f.deOngoingLocal})</td>
-                <td className="py-2 pr-3">{f.deYear1Usd} ({f.deYear1Local})</td>
+                <td className="py-2 pr-3 font-semibold text-[#102A43]">Ongoing / year (with agent)</td>
+                <td className="py-2 pr-3">{f.nmOngoingUsd} ({f.nmOngoingLocal})</td>
+                <td className="py-2 pr-3">{f.wyOngoingUsd} ({f.wyOngoingLocal})</td>
+                <td className="py-2">{f.deOngoingUsd} ({f.deOngoingLocal})</td>
+              </tr>
+              <tr className="border-b border-slate-100">
+                <td className="py-2 pr-3 font-semibold text-[#102A43]">Year 1 (with agent)</td>
+                <td className="py-2 pr-3">{f.nmYear1Usd} ({f.nmYear1Local})</td>
+                <td className="py-2 pr-3">{f.wyYear1Usd} ({f.wyYear1Local})</td>
+                <td className="py-2">{f.deYear1Usd} ({f.deYear1Local})</td>
+              </tr>
+              <tr className="border-b border-slate-100">
+                <td className="py-2 pr-3 font-semibold text-[#102A43]">5 years (with agent)</td>
+                <td className="py-2 pr-3">{f.nmFiveYearUsd} ({f.nmFiveYearLocal})</td>
+                <td className="py-2 pr-3">{f.wyFiveYearUsd} ({f.wyFiveYearLocal})</td>
                 <td className="py-2">{f.deFiveYearUsd} ({f.deFiveYearLocal})</td>
               </tr>
               <tr>
-                <td className="py-2 pr-3 font-semibold text-[#102A43]">New Mexico</td>
-                <td className="py-2 pr-3">{f.nmFormation}</td>
-                <td className="py-2 pr-3">{f.nmOngoingUsd} ({f.nmOngoingLocal})</td>
-                <td className="py-2 pr-3">{f.nmYear1Usd} ({f.nmYear1Local})</td>
-                <td className="py-2">{f.nmFiveYearUsd} ({f.nmFiveYearLocal})</td>
+                <td className="py-2 pr-3 font-semibold text-[#102A43]">Dissolution filing fee</td>
+                <td className="py-2 pr-3">{f.nmDissolution} ({f.nmDissolutionLocal})</td>
+                <td className="py-2 pr-3">{f.wyDissolution} ({f.wyDissolutionLocal})</td>
+                <td className="py-2">{f.deDissolution} ({f.deDissolutionLocal})</td>
               </tr>
             </tbody>
           </table>
         </div>
         <p className="mt-3 text-sm text-slate-500">
-        Take the agent out of the numbers and five years of state charges alone are {f.nmFiveYearStateOnly} in New Mexico, {f.wyFiveYearStateOnly} in Wyoming and {f.deFiveYearStateOnly} in Delaware. Almost the whole Delaware gap is its {f.deAnnualTax} yearly tax, not the formation fee.
+        The dissolution row is the official filing fee for closing the LLC — the figure the questions below compare with the £13 Companies House strike-off. Five-year totals count five recurring payments, the same convention the site uses everywhere.
       </p>
       </section>
 
@@ -162,7 +193,11 @@ export default function UsLlcCostFromUkPage() {
           The yearly routine is short but it does not run itself. A Wyoming LLC has an annual report of {f.wyAnnualReport} plus the agent renewal each year; a New Mexico LLC has the agent renewal only. Put a calendar reminder on the deadline in your formation state when the LLC is approved — a missed report brings a late fee first (Florida charges $400 for a late annual report), then delinquency, and eventually administrative dissolution if it stays unfiled.
         </p>
       </section>
-<section className="mt-12 max-w-3xl">
+      <p className="mt-6 max-w-3xl text-sm text-slate-500">
+        If a quote looks cheaper than the calculator above, check its Delaware line: several guides still show the old $300 annual tax, but Delaware charges {f.deAnnualTax} a year for tax year 2026 — first payable 1 June 2027 — on {f.deFormation} formation.
+      </p>
+
+      <section className="mt-12 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">Frequently asked questions</h2>
         <div className="mt-6 space-y-4">
           {faqs.map((faq, i) => (
@@ -183,20 +218,20 @@ export default function UsLlcCostFromUkPage() {
         <h2 className="text-lg font-semibold text-[#102A43]">Related guides &amp; tools</h2>
         <ul className="mt-3 space-y-2 text-sm">
           <li><Link href="/tools/non-resident-llc-cost-calculator?currency=GBP" className="text-[#1769AA] hover:underline">Non-Resident LLC Cost Calculator — in GBP</Link></li>
-          <li><Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">Non-Resident LLC Guide — Can a Non-Resident Form an LLC in the USA?</Link></li>
-          <li><Link href="/annual-report-requirements-by-state" className="text-[#1769AA] hover:underline">Annual Report Requirements by State</Link></li>
-          <li><Link href="/llc-cost-by-state/wyoming" className="text-[#1769AA] hover:underline">Wyoming LLC Cost — formation &amp; annual report fees</Link></li>
-          <li><Link href="/llc-cost-by-state/delaware" className="text-[#1769AA] hover:underline">Delaware LLC Cost — formation &amp; annual tax</Link></li>
-          <li><Link href="/llc-cost-by-state/new-mexico" className="text-[#1769AA] hover:underline">New Mexico LLC Cost — formation &amp; $0 annual report</Link></li>
           <li><Link href="/guides/us-llc-cost-from-ireland" className="text-[#1769AA] hover:underline">US LLC Cost from Ireland — fees in EUR</Link></li>
-          <li><Link href="/guides/us-llc-cost-from-new-zealand" className="text-[#1769AA] hover:underline">US LLC Cost from New Zealand — fees in NZD</Link></li>
           <li><Link href="/guides/us-llc-cost-from-netherlands" className="text-[#1769AA] hover:underline">US LLC Cost from the Netherlands — fees in EUR</Link></li>
           <li><Link href="/guides/us-llc-cost-from-germany" className="text-[#1769AA] hover:underline">US LLC Cost from Germany — fees in EUR</Link></li>
-          <li><Link href="/guides/us-llc-cost-from-canada" className="text-[#1769AA] hover:underline">US LLC Cost from Canada — fees in CAD</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-new-zealand" className="text-[#1769AA] hover:underline">US LLC Cost from New Zealand — fees in NZD</Link></li>
           <li><Link href="/guides/us-llc-cost-from-australia" className="text-[#1769AA] hover:underline">US LLC Cost from Australia — fees in AUD</Link></li>
-          <li><Link href="/guides/us-llc-cost-from-singapore" className="text-[#1769AA] hover:underline">US LLC Cost from Singapore — fees in SGD</Link></li>
-          <li><Link href="/guides/us-llc-cost-from-dubai" className="text-[#1769AA] hover:underline">US LLC Cost from Dubai &amp; UAE — fees in AED</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-canada" className="text-[#1769AA] hover:underline">US LLC Cost from Canada — fees in CAD</Link></li>
           <li><Link href="/guides/us-llc-cost-from-india" className="text-[#1769AA] hover:underline">US LLC Cost from India — fees in INR</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-singapore" className="text-[#1769AA] hover:underline">US LLC Cost from Singapore — fees in SGD</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-dubai" className="text-[#1769AA] hover:underline">US LLC Cost from Dubai & UAE — fees in AED</Link></li>
+          <li><Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">Non-Resident LLC Guide — Can a Non-Resident Form an LLC in the USA?</Link></li>
+          <li><Link href="/annual-report-requirements-by-state" className="text-[#1769AA] hover:underline">Annual Report Requirements by State</Link></li>
+          <li><Link href="/llc-cost-by-state/new-mexico" className="text-[#1769AA] hover:underline">New Mexico LLC Cost — formation &amp; $0 annual report</Link></li>
+          <li><Link href="/llc-cost-by-state/wyoming" className="text-[#1769AA] hover:underline">Wyoming LLC Cost — formation &amp; annual report fees</Link></li>
+          <li><Link href="/llc-cost-by-state/delaware" className="text-[#1769AA] hover:underline">Delaware LLC Cost — formation &amp; annual tax</Link></li>
           <li><Link href="/guides/us-llc-vs-uk-ltd-cost" className="text-[#1769AA] hover:underline">US LLC vs. UK Ltd Cost — 5-year operational fee comparison</Link></li>
         </ul>
       </section>

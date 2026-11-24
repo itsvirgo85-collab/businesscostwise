@@ -26,17 +26,6 @@ export const metadata: Metadata = {
 };
 
 export default function AnonymousLlcPage() {
-  const calculatorJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "Anonymous LLC State Finder",
-    applicationCategory: "FinanceApplication",
-    operatingSystem: "Web",
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    description:
-      "Free educational finder ranking US states for LLC privacy by what appears on the public record, with formation and 5-year costs.",
-  };
-
   const faqs = [
     {
       question: "Which state is best for an anonymous LLC?",
@@ -79,10 +68,6 @@ export default function AnonymousLlcPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorJsonLd) }}
-      />
       <FaqJsonLd faqs={faqs} />
 
       <Breadcrumbs

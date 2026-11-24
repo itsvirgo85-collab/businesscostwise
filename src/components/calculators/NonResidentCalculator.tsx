@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { STATE_FEES } from "@/data/stateFees";
+import { getDissolutionFee } from "@/data/dissolutionFees";
 import {
   DEFAULT_AGENT_COST_PER_YEAR,
   DEFAULT_EIN_SERVICE_COST,
@@ -10,6 +11,7 @@ import {
   FX_RATE_SOURCE,
   NON_RESIDENT_CURRENCIES,
   calculateNonResidentCost,
+  calculateStateOnlyTotals,
   convertUsd,
   formatConverted,
   formatUsd,
@@ -26,13 +28,57 @@ function parseNonNegative(value: string, fallback: number): number {
 const QUICK_STATES = ["wyoming", "delaware", "new-mexico"] as const;
 const SCENARIO_SLUGS = ["wyoming", "delaware", "new-mexico"] as const;
 
+/** Column shape of the three-state comparison table. */
+export type NonResidentScenarioVariant =
+  | "totals"
+  | "formation"
+  | "stateOnly"
+  | "exit";
+
+export interface NonResidentCalculatorProps {
+  initialCurrencyCode: NonResidentCurrencyCode;
+  initialStateSlug: string;
+  /**
+   * Guide embeds: hide the 51-state picker and the currency picker — the
+   * guide prices three states in one locked currency, and the full tool
+   * (linked below the calculator) covers every state. The standalone tool
+   * page leaves this off and renders exactly as before.
+   */
+  compact?: boolean;
+  /** Guide-specific copy; every field falls back to the standalone wording. */
+  heading?: string;
+  intro?: string;
+  stateNote?: string;
+  currencyNote?: string;
+  einNote?: string;
+  agentHint?: string;
+  excludesBody?: string;
+  resultNote?: string;
+  fiveYearNote?: string;
+  scenarioTitle?: string;
+  scenarioIntro?: string;
+  scenarioVariant?: NonResidentScenarioVariant;
+  scenarioFootnote?: string;
+}
+
 export default function NonResidentCalculator({
   initialCurrencyCode,
   initialStateSlug,
-}: {
-  initialCurrencyCode: NonResidentCurrencyCode;
-  initialStateSlug: string;
-}) {
+  compact = false,
+  heading,
+  intro,
+  stateNote,
+  currencyNote,
+  einNote,
+  agentHint,
+  excludesBody,
+  resultNote,
+  fiveYearNote,
+  scenarioTitle,
+  scenarioIntro,
+  scenarioVariant = "totals",
+  scenarioFootnote,
+}: NonResidentCalculatorProps) {
   const verified = useMemo(
     () => STATE_FEES.filter((s) => s.status === "verified"),
     [],
@@ -148,8 +194,11 @@ export default function NonResidentCalculator({
       <div className="grid gap-8 lg:grid-cols-5">
         <div className="space-y-5 rounded-xl border border-slate-200 bg-white p-6 shadow-sm lg:col-span-2">
           <h2 className="text-lg font-semibold text-[#102A43]">
-            Your LLC, your currency
+            {heading ?? "Your LLC, your currency"}
           </h2>
+          {intro ? (
+            <p className="text-sm leading-relaxed text-slate-600">{intro}</p>
+          ) : null}
 
           <div>
             <span
@@ -179,26 +228,31 @@ export default function NonResidentCalculator({
                 );
               })}
             </div>
-            <label
-              htmlFor="nr-state"
-              className="mb-1 mt-3 block text-sm font-medium text-slate-700"
-            >
-              Or pick any state
-            </label>
-            <select
-              id="nr-state"
-              value={stateSlug}
-              onChange={(e) => setStateSlug(e.target.value)}
-              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-[#1769AA] focus:outline-none focus:ring-1 focus:ring-[#1769AA]"
-            >
-              {verified.map((s) => (
-                <option key={s.slug} value={s.slug}>
-                  {s.state} ({s.abbreviation})
-                </option>
-              ))}
-            </select>
+            {compact ? null : (
+              <>
+                <label
+                  htmlFor="nr-state"
+                  className="mb-1 mt-3 block text-sm font-medium text-slate-700"
+                >
+                  Or pick any state
+                </label>
+                <select
+                  id="nr-state"
+                  value={stateSlug}
+                  onChange={(e) => setStateSlug(e.target.value)}
+                  className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-[#1769AA] focus:outline-none focus:ring-1 focus:ring-[#1769AA]"
+                >
+                  {verified.map((s) => (
+                    <option key={s.slug} value={s.slug}>
+                      {s.state} ({s.abbreviation})
+                    </option>
+                  ))}
+                </select>
+              </>
+            )}
             <p className="mt-1 text-xs text-slate-500">
-              Most non-residents pick Wyoming, Delaware or New Mexico.
+              {stateNote ??
+                "Most non-residents pick Wyoming, Delaware or New Mexico."}
             </p>
           </div>
 
@@ -209,20 +263,28 @@ export default function NonResidentCalculator({
             >
               Your home currency
             </label>
-            <select
-              id="nr-currency"
-              value={currencyCode}
-              onChange={(e) =>
-                onCurrencyChange(e.target.value as NonResidentCurrencyCode)
-              }
-              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-[#1769AA] focus:outline-none focus:ring-1 focus:ring-[#1769AA]"
-            >
-              {NON_RESIDENT_CURRENCIES.map((c) => (
-                <option key={c.code} value={c.code}>
-                  {c.label}
-                </option>
-              ))}
-            </select>
+            {compact ? (
+              <p className="text-sm font-medium text-slate-700">
+                {NON_RESIDENT_CURRENCIES.find((c) => c.code === currencyCode)
+                  ?.label ?? currencyCode}{" "}
+                — locked to this guide
+              </p>
+            ) : (
+              <select
+                id="nr-currency"
+                value={currencyCode}
+                onChange={(e) =>
+                  onCurrencyChange(e.target.value as NonResidentCurrencyCode)
+                }
+                className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-[#1769AA] focus:outline-none focus:ring-1 focus:ring-[#1769AA]"
+              >
+                {NON_RESIDENT_CURRENCIES.map((c) => (
+                  <option key={c.code} value={c.code}>
+                    {c.label}
+                  </option>
+                ))}
+              </select>
+            )}
             <div className="mt-3">
               <label
                 htmlFor="nr-fx-rate"
@@ -241,11 +303,15 @@ export default function NonResidentCalculator({
                 className="w-32 rounded border border-slate-300 px-2 py-1 text-sm"
                 aria-label={`Exchange rate, ${currencyCode} per 1 US dollar`}
               />
-              <p className="mt-1 text-xs text-slate-500">
-                Default rate {getDefaultRate(currencyCode)} {currencyCode} per
-                $1, as of {FX_RATE_DATE} ({FX_RATE_SOURCE}). Converted figures
-                are estimates, not bank rates.
-              </p>
+              {currencyNote ? (
+                <p className="mt-1 text-xs text-slate-500">{currencyNote}</p>
+              ) : (
+                <p className="mt-1 text-xs text-slate-500">
+                  Default rate {getDefaultRate(currencyCode)} {currencyCode}{" "}
+                  per $1, as of {FX_RATE_DATE} ({FX_RATE_SOURCE}). Converted
+                  figures are estimates, not bank rates.
+                </p>
+              )}
             </div>
           </div>
 
@@ -279,7 +345,7 @@ export default function NonResidentCalculator({
                   aria-label="Annual registered agent cost"
                 />
                 <p className="mt-1 text-xs text-slate-500">
-                  Typical range: $99–$199 per year
+                  {agentHint ?? "Typical range: $99–$199 per year"}
                 </p>
               </div>
             )}
@@ -358,8 +424,8 @@ export default function NonResidentCalculator({
               </div>
               {einService === "diy" ? (
                 <p className="mt-2 text-xs text-slate-500">
-                  File IRS Form SS-4 by fax or mail and write “Foreign” where
-                  it asks for an SSN. The IRS charges $0 for an EIN.
+                  {einNote ??
+                    "File IRS Form SS-4 by fax or mail and write “Foreign” where it asks for an SSN. The IRS charges $0 for an EIN."}
                 </p>
               ) : (
                 <div className="mt-2">
@@ -407,11 +473,15 @@ export default function NonResidentCalculator({
                 estimate
               </span>
             </p>
-            <p className="mt-1 text-xs text-slate-500">
-              Converted at {rate} {currencyCode} per $1 ({FX_RATE_DATE}). State
-              fees are from verified state data; converted figures are
-              estimates.
-            </p>
+            {resultNote ? (
+              <p className="mt-1 text-xs text-slate-500">{resultNote}</p>
+            ) : (
+              <p className="mt-1 text-xs text-slate-500">
+                Converted at {rate} {currencyCode} per $1 ({FX_RATE_DATE}).
+                State fees are from verified state data; converted figures are
+                estimates.
+              </p>
+            )}
           </div>
 
           <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -427,11 +497,15 @@ export default function NonResidentCalculator({
                 estimate
               </span>
             </p>
-            <p className="mt-1 text-xs text-slate-500">
-              Five recurring payments over five years, plus formation and
-              one-time items. Converted at {rate} {currencyCode} per $1 (
-              {FX_RATE_DATE}).
-            </p>
+            {fiveYearNote ? (
+              <p className="mt-1 text-xs text-slate-500">{fiveYearNote}</p>
+            ) : (
+              <p className="mt-1 text-xs text-slate-500">
+                Five recurring payments over five years, plus formation and
+                one-time items. Converted at {rate} {currencyCode} per $1 (
+                {FX_RATE_DATE}).
+              </p>
+            )}
 
             <dl className="mt-6 space-y-2 border-t border-slate-100 pt-4 text-sm">
               {totals.items.map((item) => (
@@ -452,10 +526,8 @@ export default function NonResidentCalculator({
           <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
             <p className="font-medium">What this does not include</p>
             <p className="mt-1">
-              Taxes, bank fees, operating-agreement drafting, and professional
-              advice are not included. This tool shows operational and
-              published state filing fees only — consult a qualified local
-              adviser for tax or legal compliance.
+              {excludesBody ??
+                "Taxes, bank fees, operating-agreement drafting, and professional advice are not included. This tool shows operational and published state filing fees only — consult a qualified local adviser for tax or legal compliance."}
             </p>
           </div>
         </div>
@@ -463,61 +535,229 @@ export default function NonResidentCalculator({
 
       <section className="mt-10">
         <h2 className="text-xl font-semibold text-[#102A43]">
-          Wyoming vs Delaware vs New Mexico — year 1 and 5 years
+          {scenarioTitle ?? "Wyoming vs Delaware vs New Mexico — year 1 and 5 years"}
         </h2>
-        <p className="mt-2 max-w-3xl text-sm text-slate-600">
-          Same settings as above (agent, mail forwarding and EIN choices
-          apply to all three). State fees come from verified state data; the{" "}
-          {currencyCode} column is an estimate at {rate} {currencyCode} per $1
-          ({FX_RATE_DATE}).
-        </p>
+        {scenarioIntro ? (
+          <p className="mt-2 max-w-3xl text-sm text-slate-600">
+            {scenarioIntro}
+          </p>
+        ) : (
+          <p className="mt-2 max-w-3xl text-sm text-slate-600">
+            Same settings as above (agent, mail forwarding and EIN choices
+            apply to all three). State fees come from verified state data; the{" "}
+            {currencyCode} column is an estimate at {rate} {currencyCode} per
+            $1 ({FX_RATE_DATE}).
+          </p>
+        )}
         <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200">
-          <table className="w-full min-w-[560px] border-collapse bg-white text-sm">
-            <thead>
-              <tr className="border-b border-slate-200 bg-slate-50 text-left">
-                <th className="px-4 py-3 font-semibold text-[#102A43]">State</th>
-                <th className="px-4 py-3 font-semibold text-[#102A43]">Year 1 (USD)</th>
-                <th className="px-4 py-3 font-semibold text-[#102A43]">
-                  Year 1 ({currencyCode}, est.)
-                </th>
-                <th className="px-4 py-3 font-semibold text-[#102A43]">5 years (USD)</th>
-                <th className="px-4 py-3 font-semibold text-[#102A43]">
-                  5 years ({currencyCode}, est.)
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {scenarios.map(({ state: scenarioState, totals: row }) => (
-                <tr
-                  key={scenarioState.slug}
-                  className="border-b border-slate-100 last:border-0"
-                >
-                  <td className="px-4 py-3 font-medium text-[#102A43]">
-                    {scenarioState.state}
-                  </td>
-                  <td className="px-4 py-3">{formatUsd(row.year1Usd)}</td>
-                  <td className="px-4 py-3">
-                    {formatConverted(convertUsd(row.year1Usd, rate), currencyCode)}
-                  </td>
-                  <td className="px-4 py-3">{formatUsd(row.fiveYearUsd)}</td>
-                  <td className="px-4 py-3">
-                    {formatConverted(convertUsd(row.fiveYearUsd, rate), currencyCode)}
-                  </td>
+          {scenarioVariant === "formation" ? (
+            <table className="w-full min-w-[560px] border-collapse bg-white text-sm">
+              <thead>
+                <tr className="border-b border-slate-200 bg-slate-50 text-left">
+                  <th className="px-4 py-3 font-semibold text-[#102A43]">State</th>
+                  <th className="px-4 py-3 font-semibold text-[#102A43]">Formation fee</th>
+                  <th className="px-4 py-3 font-semibold text-[#102A43]">Ongoing / year (USD)</th>
+                  <th className="px-4 py-3 font-semibold text-[#102A43]">
+                    Ongoing / year ({currencyCode}, est.)
+                  </th>
+                  <th className="px-4 py-3 font-semibold text-[#102A43]">
+                    5 years ({currencyCode}, est.)
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {scenarios.map(({ state: scenarioState, totals: row }) => {
+                  const item = (label: string) =>
+                    row.items.find((i) => i.label === label)?.year1 ?? 0;
+                  const ongoingUsd =
+                    item("Recurring state fees") +
+                    item("Registered agent") +
+                    item("US mail forwarding");
+                  return (
+                    <tr
+                      key={scenarioState.slug}
+                      className="border-b border-slate-100 last:border-0"
+                    >
+                      <td className="px-4 py-3 font-medium text-[#102A43]">
+                        {scenarioState.state}
+                      </td>
+                      <td className="px-4 py-3">
+                        {formatUsd(item("State formation filing"))}
+                      </td>
+                      <td className="px-4 py-3">{formatUsd(ongoingUsd)}</td>
+                      <td className="px-4 py-3">
+                        {formatConverted(
+                          convertUsd(ongoingUsd, rate),
+                          currencyCode,
+                        )}
+                      </td>
+                      <td className="px-4 py-3">
+                        {formatConverted(
+                          convertUsd(row.fiveYearUsd, rate),
+                          currencyCode,
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          ) : scenarioVariant === "stateOnly" ? (
+            <table className="w-full min-w-[560px] border-collapse bg-white text-sm">
+              <thead>
+                <tr className="border-b border-slate-200 bg-slate-50 text-left">
+                  <th className="px-4 py-3 font-semibold text-[#102A43]">State</th>
+                  <th className="px-4 py-3 font-semibold text-[#102A43]">Formation fee</th>
+                  <th className="px-4 py-3 font-semibold text-[#102A43]">
+                    5 years, state fees only (USD)
+                  </th>
+                  <th className="px-4 py-3 font-semibold text-[#102A43]">
+                    5 years, state fees only ({currencyCode}, est.)
+                  </th>
+                  <th className="px-4 py-3 font-semibold text-[#102A43]">
+                    5 years, as set above ({currencyCode}, est.)
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {scenarios.map(({ state: scenarioState, totals: row }) => {
+                  const stateOnly = calculateStateOnlyTotals(scenarioState);
+                  return (
+                    <tr
+                      key={scenarioState.slug}
+                      className="border-b border-slate-100 last:border-0"
+                    >
+                      <td className="px-4 py-3 font-medium text-[#102A43]">
+                        {scenarioState.state}
+                      </td>
+                      <td className="px-4 py-3">
+                        {formatUsd(scenarioState.formationFee ?? 0)}
+                      </td>
+                      <td className="px-4 py-3">
+                        {formatUsd(stateOnly.fiveYearUsd)}
+                      </td>
+                      <td className="px-4 py-3">
+                        {formatConverted(
+                          convertUsd(stateOnly.fiveYearUsd, rate),
+                          currencyCode,
+                        )}
+                      </td>
+                      <td className="px-4 py-3">
+                        {formatConverted(
+                          convertUsd(row.fiveYearUsd, rate),
+                          currencyCode,
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          ) : scenarioVariant === "exit" ? (
+            <table className="w-full min-w-[560px] border-collapse bg-white text-sm">
+              <thead>
+                <tr className="border-b border-slate-200 bg-slate-50 text-left">
+                  <th className="px-4 py-3 font-semibold text-[#102A43]">State</th>
+                  <th className="px-4 py-3 font-semibold text-[#102A43]">
+                    Year 1 ({currencyCode}, est.)
+                  </th>
+                  <th className="px-4 py-3 font-semibold text-[#102A43]">
+                    5 years ({currencyCode}, est.)
+                  </th>
+                  <th className="px-4 py-3 font-semibold text-[#102A43]">
+                    Dissolution filing fee
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {scenarios.map(({ state: scenarioState, totals: row }) => {
+                  const dissolutionFee =
+                    getDissolutionFee(scenarioState.slug)?.fee ?? 0;
+                  return (
+                    <tr
+                      key={scenarioState.slug}
+                      className="border-b border-slate-100 last:border-0"
+                    >
+                      <td className="px-4 py-3 font-medium text-[#102A43]">
+                        {scenarioState.state}
+                      </td>
+                      <td className="px-4 py-3">
+                        {formatConverted(
+                          convertUsd(row.year1Usd, rate),
+                          currencyCode,
+                        )}
+                      </td>
+                      <td className="px-4 py-3">
+                        {formatConverted(
+                          convertUsd(row.fiveYearUsd, rate),
+                          currencyCode,
+                        )}
+                      </td>
+                      <td className="px-4 py-3">
+                        {formatUsd(dissolutionFee)} (
+                        {formatConverted(
+                          convertUsd(dissolutionFee, rate),
+                          currencyCode,
+                        )}
+                        )
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          ) : (
+            <table className="w-full min-w-[560px] border-collapse bg-white text-sm">
+              <thead>
+                <tr className="border-b border-slate-200 bg-slate-50 text-left">
+                  <th className="px-4 py-3 font-semibold text-[#102A43]">State</th>
+                  <th className="px-4 py-3 font-semibold text-[#102A43]">Year 1 (USD)</th>
+                  <th className="px-4 py-3 font-semibold text-[#102A43]">
+                    Year 1 ({currencyCode}, est.)
+                  </th>
+                  <th className="px-4 py-3 font-semibold text-[#102A43]">5 years (USD)</th>
+                  <th className="px-4 py-3 font-semibold text-[#102A43]">
+                    5 years ({currencyCode}, est.)
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {scenarios.map(({ state: scenarioState, totals: row }) => (
+                  <tr
+                    key={scenarioState.slug}
+                    className="border-b border-slate-100 last:border-0"
+                  >
+                    <td className="px-4 py-3 font-medium text-[#102A43]">
+                      {scenarioState.state}
+                    </td>
+                    <td className="px-4 py-3">{formatUsd(row.year1Usd)}</td>
+                    <td className="px-4 py-3">
+                      {formatConverted(convertUsd(row.year1Usd, rate), currencyCode)}
+                    </td>
+                    <td className="px-4 py-3">{formatUsd(row.fiveYearUsd)}</td>
+                    <td className="px-4 py-3">
+                      {formatConverted(convertUsd(row.fiveYearUsd, rate), currencyCode)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
         </div>
-        <p className="mt-2 text-xs text-slate-500">
-          Five-year totals count five recurring payments (formation plus five
-          annual charges). At the default settings — $
-          {DEFAULT_AGENT_COST_PER_YEAR}-a-year registered agent, no mail
-          forwarding, DIY EIN — the five-year totals are{" "}
-          {defaultAgentFiveYear
-            .map((row) => `${formatUsd(row.fiveYearUsd)} (${row.state.state})`)
-            .join(", ")}
-          .
-        </p>
+        {scenarioFootnote ? (
+          <p className="mt-2 text-xs text-slate-500">{scenarioFootnote}</p>
+        ) : (
+          <p className="mt-2 text-xs text-slate-500">
+            Five-year totals count five recurring payments (formation plus five
+            annual charges). At the default settings — $
+            {DEFAULT_AGENT_COST_PER_YEAR}-a-year registered agent, no mail
+            forwarding, DIY EIN — the five-year totals are{" "}
+            {defaultAgentFiveYear
+              .map((row) => `${formatUsd(row.fiveYearUsd)} (${row.state.state})`)
+              .join(", ")}
+            .
+          </p>
+        )}
       </section>
     </div>
   );

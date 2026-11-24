@@ -8,12 +8,12 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 export const metadata: Metadata = {
   title: { absolute: "Can a Non-Resident Form an LLC in the USA? (2026)" },
   description:
-    "Yes — no SSN or US address is needed to form an LLC. Learn how non-residents get an EIN, which states work best, and the Form 5472 reporting trap.",
+    "Yes — no SSN or US address is needed to form an LLC. Learn how non-residents get an EIN, which states work best, and the Form 5472 reporting trap to avoid.",
   alternates: { canonical: "/guides/non-resident-llc" },
   openGraph: {
     title: "Can a Non-Resident Form an LLC in the USA? (2026)",
     description:
-      "Yes — no SSN or US address is needed to form an LLC. Learn how non-residents get an EIN, which states work best, and the Form 5472 reporting trap.",
+      "Yes — no SSN or US address is needed to form an LLC. Learn how non-residents get an EIN, which states work best, and the Form 5472 reporting trap to avoid.",
     type: "website",
     url: "/guides/non-resident-llc",
     images: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Can a Non-Resident Form an LLC in the USA? (2026)",
     description:
-      "Yes — no SSN or US address is needed to form an LLC. Learn how non-residents get an EIN, which states work best, and the Form 5472 reporting trap.",
+      "Yes — no SSN or US address is needed to form an LLC. Learn how non-residents get an EIN, which states work best, and the Form 5472 reporting trap to avoid.",
     images: ["/twitter-image"],
   },
 };
@@ -83,7 +83,7 @@ export default function NonResidentLlcPage() {
       <FaqJsonLd faqs={faqs} />
       <ArticleJsonLd
         headline="Can a Non-Resident Form an LLC in the USA? (2026)"
-        description="Yes — no SSN or US address is needed to form an LLC. Learn how non-residents get an EIN, which states work best, and the Form 5472 reporting trap."
+        description="Yes — no SSN or US address is needed to form an LLC. Learn how non-residents get an EIN, which states work best, and the Form 5472 reporting trap to avoid."
         datePublished="2026-11-15"
         dateModified="2026-11-20"
         url="https://www.getllccostcalculator.com/guides/non-resident-llc"
@@ -164,6 +164,25 @@ export default function NonResidentLlcPage() {
         />
         <figcaption className="mt-2 text-sm text-slate-500">No SSN needed: EIN by fax or phone with Form SS-4.</figcaption>
       </figure>
+      <section className="mt-10 max-w-3xl">
+        <h2 className="text-xl font-semibold text-[#102A43]">US LLC cost guides by country</h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          Each guide prices Wyoming, Delaware and New Mexico in the local currency, with the same calculator pre-loaded — open the guide for the fee tables, or jump straight to the calculator in your currency.
+        </p>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-slate-700">
+          <li><Link href="/guides/us-llc-cost-from-ireland" className="text-[#1769AA] hover:underline">US LLC Cost from Ireland — fees in EUR</Link> — <Link href="/tools/non-resident-llc-cost-calculator?currency=EUR" className="text-[#1769AA] hover:underline">calculator in EUR</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-new-zealand" className="text-[#1769AA] hover:underline">US LLC Cost from New Zealand — fees in NZD</Link> — <Link href="/tools/non-resident-llc-cost-calculator?currency=NZD" className="text-[#1769AA] hover:underline">calculator in NZD</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-australia" className="text-[#1769AA] hover:underline">US LLC Cost from Australia — fees in AUD</Link> — <Link href="/tools/non-resident-llc-cost-calculator?currency=AUD" className="text-[#1769AA] hover:underline">calculator in AUD</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-uk" className="text-[#1769AA] hover:underline">US LLC Cost from the UK — fees in GBP</Link> — <Link href="/tools/non-resident-llc-cost-calculator?currency=GBP" className="text-[#1769AA] hover:underline">calculator in GBP</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-canada" className="text-[#1769AA] hover:underline">US LLC Cost from Canada — fees in CAD</Link> — <Link href="/tools/non-resident-llc-cost-calculator?currency=CAD" className="text-[#1769AA] hover:underline">calculator in CAD</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-germany" className="text-[#1769AA] hover:underline">US LLC Cost from Germany — fees in EUR</Link> — <Link href="/tools/non-resident-llc-cost-calculator?currency=EUR" className="text-[#1769AA] hover:underline">calculator in EUR</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-netherlands" className="text-[#1769AA] hover:underline">US LLC Cost from the Netherlands — fees in EUR</Link> — <Link href="/tools/non-resident-llc-cost-calculator?currency=EUR" className="text-[#1769AA] hover:underline">calculator in EUR</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-singapore" className="text-[#1769AA] hover:underline">US LLC Cost from Singapore — fees in SGD</Link> — <Link href="/tools/non-resident-llc-cost-calculator?currency=SGD" className="text-[#1769AA] hover:underline">calculator in SGD</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-dubai" className="text-[#1769AA] hover:underline">US LLC Cost from Dubai & UAE — fees in AED</Link> — <Link href="/tools/non-resident-llc-cost-calculator?currency=AED" className="text-[#1769AA] hover:underline">calculator in AED</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-india" className="text-[#1769AA] hover:underline">US LLC Cost from India — fees in INR</Link> — <Link href="/tools/non-resident-llc-cost-calculator?currency=INR" className="text-[#1769AA] hover:underline">calculator in INR</Link></li>
+        </ul>
+      </section>
+
       <section className="mt-12 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">Frequently asked questions</h2>
         <div className="mt-6 space-y-4">
@@ -185,6 +204,16 @@ export default function NonResidentLlcPage() {
         <h2 className="text-lg font-semibold text-[#102A43]">Related guides &amp; tools</h2>
         <ul className="mt-3 space-y-2 text-sm">
           <li><Link href="/tools/non-resident-llc-cost-calculator" className="text-[#1769AA] hover:underline">Non-Resident LLC Cost Calculator — Year-1 & 5-year costs in your currency</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-ireland" className="text-[#1769AA] hover:underline">US LLC Cost from Ireland — fees in EUR</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-new-zealand" className="text-[#1769AA] hover:underline">US LLC Cost from New Zealand — fees in NZD</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-australia" className="text-[#1769AA] hover:underline">US LLC Cost from Australia — fees in AUD</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-uk" className="text-[#1769AA] hover:underline">US LLC Cost from the UK — fees in GBP</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-canada" className="text-[#1769AA] hover:underline">US LLC Cost from Canada — fees in CAD</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-germany" className="text-[#1769AA] hover:underline">US LLC Cost from Germany — fees in EUR</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-netherlands" className="text-[#1769AA] hover:underline">US LLC Cost from the Netherlands — fees in EUR</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-singapore" className="text-[#1769AA] hover:underline">US LLC Cost from Singapore — fees in SGD</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-dubai" className="text-[#1769AA] hover:underline">US LLC Cost from Dubai & UAE — fees in AED</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-india" className="text-[#1769AA] hover:underline">US LLC Cost from India — fees in INR</Link></li>
           <li><Link href="/how-to-get-an-ein-for-free" className="text-[#1769AA] hover:underline">How to Get an EIN for Free</Link></li>
           <li><Link href="/tools/best-state-to-form-an-llc" className="text-[#1769AA] hover:underline">Best State to Form an LLC Finder</Link></li>
           <li><Link href="/tools/anonymous-llc-state-finder" className="text-[#1769AA] hover:underline">Anonymous LLC State Finder</Link></li>

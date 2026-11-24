@@ -24,9 +24,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const feeText =
     s.formationFee != null ? `$${s.formationFee} formation fee` : "formation costs";
 
+  const description = `How much does it cost to form an LLC in ${displayName}? ${feeText}, recurring fees, renewal costs and 5-year totals, with official government source links.`;
+  // District of Columbia's 20-character name pushes the full text over 164
+  // chars, so long names get the shorter variant (still 150–164 chars).
+  const shortDescription = `How much does it cost to form an LLC in ${displayName}? ${feeText}, recurring fees, 5-year totals, with official government source links.`;
+
   return {
     title: { absolute: `LLC Cost in ${displayName} 2026 — Filing & Annual Fees` },
-    description: `How much does it cost to form an LLC in ${displayName}? ${feeText}, recurring report fees, 5-year totals and official government source links.`,
+    description: description.length <= 164 ? description : shortDescription,
     alternates: { canonical: `/llc-cost-by-state/${s.slug}` },
     openGraph: {
       title: `LLC Cost in ${displayName} — Filing & Annual Fees`,
@@ -50,6 +55,8 @@ export default async function StateCostPage({ params }: Props) {
   const yearlyApprox = calculateRecurringStateFees(s, 5) / 5;
   const fiveYear = calculateFiveYearStateCost(s);
   const firstYearStateCost = (s.formationFee ?? 0) + calculateRecurringStateFees(s, 1);
+  const delawareFee = getStateBySlug("delaware")!;
+  const newMexicoFee = getStateBySlug("new-mexico")!;
 
   const verifiedSorted = [...getVerifiedStates()].sort((a, b) => a.state.localeCompare(b.state));
   const currentIndex = verifiedSorted.findIndex((item) => item.slug === s.slug);
@@ -130,6 +137,22 @@ export default async function StateCostPage({ params }: Props) {
       question: `How much does it cost to renew an LLC in ${s.state}?`,
       answer: renewalAnswer,
     },
+    ...(s.slug === "wyoming"
+      ? [
+          {
+            question: "What does a Wyoming LLC cost calculator show for a Wyoming LLC?",
+            answer: `A Wyoming LLC costs $${s.formationFee} to form plus $${s.annualFee} a year, so $${Math.round(firstYearStateCost)} in year one and $${Math.round(fiveYear)} over five years in state fees alone, counting five annual payments. With a $125-a-year registered agent, the totals become $${Math.round(firstYearStateCost) + 125} in year one and $${Math.round(fiveYear) + 625} over five years. Compare the three low-cost states in the table below.`,
+          },
+        ]
+      : []),
+    ...(s.slug === "florida"
+      ? [
+          {
+            question: "What is the cost for llc in florida?",
+            answer: `Florida costs $${s.formationFee} to form and $${s.annualFee} a year for the annual report, so $${firstYearStateCost} in year one and about $${Math.round(fiveYear).toLocaleString()} over five years in state fees alone. A late annual report adds a $400 penalty, so file on time. Use the calculator above for your exact year-one and five-year totals.`,
+          },
+        ]
+      : []),
     ...(s.slug === "texas"
       ? [
           {
@@ -306,6 +329,90 @@ export default async function StateCostPage({ params }: Props) {
       <div className="mt-8">
         <YearOneVsFiveYearCalculator defaultStateSlug={s.slug} compact />
       </div>
+
+      {slug === "wyoming" && (
+        <section className="mt-10">
+          <h2 className="text-xl font-semibold text-[#102A43]">
+            Wyoming LLC cost calculator — Wyoming vs Delaware vs New Mexico
+          </h2>
+          <p className="mt-2 text-sm text-slate-600">
+            Wyoming costs ${s.formationFee} to form plus ${s.annualFee} a year
+            (the $60 minimum annual report license tax). The table compares the
+            three lowest-cost states in state fees alone, and with a $125-a-year
+            registered agent. Five-year totals count five recurring payments.
+          </p>
+          <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200 bg-white">
+            <table className="min-w-full text-left text-sm">
+              <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
+                <tr>
+                  <th className="px-4 py-3 font-medium">State</th>
+                  <th className="px-4 py-3 font-medium">Formation</th>
+                  <th className="px-4 py-3 font-medium">Recurring / year</th>
+                  <th className="px-4 py-3 font-medium">Year 1 (state only)</th>
+                  <th className="px-4 py-3 font-medium">5-year (state only)</th>
+                  <th className="px-4 py-3 font-medium">Year 1 with agent</th>
+                  <th className="px-4 py-3 font-medium">5-year with agent</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                <tr>
+                  <td className="px-4 py-3 font-semibold">Wyoming</td>
+                  <td className="px-4 py-3">${s.formationFee}</td>
+                  <td className="px-4 py-3">${s.annualFee}</td>
+                  <td className="px-4 py-3">${Math.round(firstYearStateCost).toLocaleString()}</td>
+                  <td className="px-4 py-3 font-semibold">${Math.round(fiveYear).toLocaleString()}</td>
+                  <td className="px-4 py-3">${Math.round(firstYearStateCost) + 125}</td>
+                  <td className="px-4 py-3 font-semibold">${Math.round(fiveYear) + 625}</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-semibold">New Mexico</td>
+                  <td className="px-4 py-3">${newMexicoFee.formationFee}</td>
+                  <td className="px-4 py-3">$0</td>
+                  <td className="px-4 py-3">
+                    ${Math.round((newMexicoFee.formationFee ?? 0) + calculateRecurringStateFees(newMexicoFee, 1)).toLocaleString()}
+                  </td>
+                  <td className="px-4 py-3 font-semibold">
+                    ${Math.round(calculateFiveYearStateCost(newMexicoFee)).toLocaleString()}
+                  </td>
+                  <td className="px-4 py-3">
+                    ${Math.round((newMexicoFee.formationFee ?? 0) + calculateRecurringStateFees(newMexicoFee, 1)) + 125}
+                  </td>
+                  <td className="px-4 py-3 font-semibold">
+                    ${Math.round(calculateFiveYearStateCost(newMexicoFee)) + 625}
+                  </td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 font-semibold">Delaware</td>
+                  <td className="px-4 py-3">${delawareFee.formationFee}</td>
+                  <td className="px-4 py-3">${delawareFee.franchiseTax}</td>
+                  <td className="px-4 py-3">
+                    ${Math.round((delawareFee.formationFee ?? 0) + calculateRecurringStateFees(delawareFee, 1)).toLocaleString()}
+                  </td>
+                  <td className="px-4 py-3 font-semibold">
+                    ${Math.round(calculateFiveYearStateCost(delawareFee)).toLocaleString()}
+                  </td>
+                  <td className="px-4 py-3">
+                    ${Math.round((delawareFee.formationFee ?? 0) + calculateRecurringStateFees(delawareFee, 1)) + 125}
+                  </td>
+                  <td className="px-4 py-3 font-semibold">
+                    ${Math.round(calculateFiveYearStateCost(delawareFee)) + 625}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-3 text-sm text-slate-600">
+            Delaware&apos;s recurring figure is its ${delawareFee.franchiseTax}{" "}
+            yearly LLC tax — Delaware LLCs file no annual report. New Mexico has
+            no annual report fee. Founders outside the US can price the same
+            three states in their home currency with the{" "}
+            <Link href="/tools/non-resident-llc-cost-calculator?state=wyoming" className="text-[#1769AA] hover:underline">
+              Non-Resident LLC Cost Calculator
+            </Link>
+            .
+          </p>
+        </section>
+      )}
 
       {s.notes && (
         <section className="mt-10">

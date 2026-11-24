@@ -26,17 +26,6 @@ export const metadata: Metadata = {
 };
 
 export default function RegisteredAgentPage() {
-  const calculatorJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "Registered Agent Cost Calculator",
-    applicationCategory: "FinanceApplication",
-    operatingSystem: "Web",
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    description:
-      "Free educational calculator for estimating commercial registered agent costs versus serving as your own agent for a US LLC.",
-  };
-
   const faqs = [
     {
       question: "How much does a registered agent cost?",
@@ -46,26 +35,26 @@ export default function RegisteredAgentPage() {
     {
       question: "Can I be my own registered agent?",
       answer:
-        "In most states, yes, provided you have a physical street address in that state and are available during normal business hours. Some states have additional rules. Your name and address will usually appear on public records.",
+        "In most states, yes, provided you have a physical street address in that state and are available there during normal business hours. Some states have additional rules, so check your state's requirements before deciding. Your name and address will usually appear on public records, which is the main privacy trade-off.",
     },
     {
       question: "Do I need a registered agent in every state where my LLC is registered?",
       answer:
-        "Yes. You need a registered agent in the domestic (formation) state and in every state where the LLC is foreign qualified.",
+        "Yes. You need a registered agent in the domestic (formation) state and in every state where the LLC is foreign qualified. Each state needs its own agent with a physical address in that state — one agent cannot cover two states unless it has an address in each. Budget for an agent in every state where you register.",
     },
     {
       question: "What happens if I don’t maintain a registered agent?",
       answer:
-        "The state may eventually administratively dissolve the LLC or revoke its good standing. You also risk missing important legal notices, which can lead to default judgments.",
+        "The state may eventually administratively dissolve the LLC or revoke its good standing, which blocks filings and can cost extra to fix. You also risk missing important legal notices, which can lead to default judgments against the LLC. Keep an agent in place at all times, even while the LLC is inactive.",
     },
     {
       question: "Is a registered agent the same as a virtual mailbox?",
       answer:
-        "No. A registered agent is a legal requirement: a person or company with a physical address in the formation state who accepts lawsuits and official state mail during business hours. A virtual mailbox only forwards ordinary mail (typically $10–$30 a month) and does not satisfy the agent requirement. Non-residents usually need both: an agent for legal mail and a mailbox for business mail.",
+        "No. A registered agent is a legal requirement: a person or company with a physical address in the formation state who accepts lawsuits and official state mail during business hours. A virtual mailbox only forwards ordinary mail (typically $10–$30 a month) and does not satisfy the agent requirement. Non-residents usually need both.",
     },
     {
       question: "How much does a registered agent cost per year in Texas?",
-      answer: "A commercial registered agent in Texas usually costs $50–$300 a year, the same range as in most states — the price is set by the service, not by Texas. You can also be your own registered agent in Texas for $0 if you have a Texas street address and are available there during business hours. Texas charges no annual LLC fee, so the agent is often the only recurring cost of a Texas LLC.",
+      answer: "A registered agent in Texas costs $50–$300 a year, the same range as in most states — the price is set by the service, not by Texas. You can also be your own agent for $0 with a Texas street address and availability during business hours. Texas charges no annual LLC fee, so the agent is the only recurring cost.",
     },
     {
       question: "Is it cheaper to be your own registered agent?",
@@ -73,20 +62,26 @@ export default function RegisteredAgentPage() {
     },
     {
       question: "What is the registered agent cost for an LLC in California vs Wyoming?",
-      answer: "The service price is the same in both states, roughly $50–$300 a year. The difference is what sits around it: California adds an $800 annual franchise tax, so the agent is a small part of the yearly cost, while Wyoming's $60 annual report makes the agent the largest recurring cost. Use the calculator above to see the agent cost inside each state's total.",
+      answer: "The service price is the same in both states, $50–$300 a year. The difference is what sits around it: California adds an $800 annual franchise tax, so the agent is a small part of the yearly cost, while Wyoming's $60 annual report makes the agent the largest recurring cost. Use the calculator to see the agent cost inside the total.",
     },
     {
       question: "Do I need a registered agent in every state where my LLC does business?",
       answer: "Yes, effectively. Every state where your LLC is formed or registered as a foreign LLC requires a registered agent with a physical address in that state. If you form in Wyoming and foreign-qualify in Texas and California, you need an agent in all three states — which is one reason forming out of state rarely saves money.",
     },
+    {
+      question: "How much does a registered agent cost over 5 years?",
+      answer:
+        "At this site's default of $125 a year, a registered agent costs $625 over five years. Across the mid-range prices on this page, $99 to $199 a year, the five-year total runs $495 to $995. Serving as your own agent costs $0 over five years, but your address goes on the public record. Use the calculator above for your rate.",
+    },
+    {
+      question: "What is the renewal cost for a registered agent?",
+      answer:
+        "The renewal price is what you pay each year after any first-year promotion ends, and it is often higher than the first year. Some formation companies include the first year free and then charge $99 to $199 a year at renewal. At this site's default of $125 a year, renewal costs $125 a year, or $625 over five years.",
+    },
   ];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorJsonLd) }}
-      />
       <FaqJsonLd faqs={faqs} />
 
       <Breadcrumbs

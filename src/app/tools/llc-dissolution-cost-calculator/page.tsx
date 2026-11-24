@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import DissolutionCalculator from "@/components/calculators/DissolutionCalculator";
+import { DISSOLUTION_FEES } from "@/data/dissolutionFees";
+import { STATE_FEES } from "@/data/stateFees";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
@@ -26,16 +28,9 @@ export const metadata: Metadata = {
 };
 
 export default function DissolutionCalculatorPage() {
-  const calculatorJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "LLC Dissolution Cost Calculator",
-    applicationCategory: "FinanceApplication",
-    operatingSystem: "Web",
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    description:
-      "Free educational calculator estimating the cost of dissolving a US LLC: state filing fee plus unpaid annual report and franchise tax fees.",
-  };
+  const ncDissolutionFee = DISSOLUTION_FEES.find((d) => d.slug === "north-carolina")?.fee ?? 0;
+  const nmDissolutionFee = DISSOLUTION_FEES.find((d) => d.slug === "new-mexico")?.fee ?? 0;
+  const wyDissolutionFee = DISSOLUTION_FEES.find((d) => d.slug === "wyoming")?.fee ?? 0;
 
   const faqs = [
     {
@@ -55,7 +50,22 @@ export default function DissolutionCalculatorPage() {
     },
     {
       question: "How much does it cost to dissolve an LLC in Delaware?",
-      answer: "The Certificate of Cancellation costs $220 ($200 filing fee plus a $20 municipality fee), and all outstanding annual taxes must be paid first — $400 for tax year 2026, with no proration. A Delaware LLC with one unpaid year costs about $620 to close; with two unpaid years, about $1,020. The calculator above adds the back taxes automatically when you select the unpaid years.",
+      answer: "The Certificate of Cancellation costs $220 ($200 filing fee plus a $20 municipality fee), and all outstanding annual taxes must be paid first — $400 for tax year 2026, with no proration. A Delaware LLC with one unpaid year costs about $620 to close; with two, about $1,020. The calculator above adds the taxes when you select the unpaid years.",
+    },
+    {
+      question: "How much does it cost to dissolve an LLC in North Carolina?",
+      answer:
+        `The Articles of Dissolution (Form L-07) cost $${ncDissolutionFee} to file in North Carolina, which is the state filing fee only. You must also settle any unpaid annual report fees first, since the state will not accept the dissolution until your account is current. Use the calculator above to add the $${ncDissolutionFee} fee and any unpaid years together for your total.`,
+    },
+    {
+      question: "How much does it cost to dissolve an LLC in New Mexico?",
+      answer:
+        `The Articles of Dissolution cost $${nmDissolutionFee} to file in New Mexico, which is the state filing fee only. You must also settle any unpaid amounts owed before filing, since the state will not accept the dissolution until your account is current. Use the calculator above to add the $${nmDissolutionFee} fee and any unpaid years together for your total closing cost.`,
+    },
+    {
+      question: "How much does it cost to dissolve an LLC in Wyoming?",
+      answer:
+        `The Articles of Dissolution cost $${wyDissolutionFee} to file in Wyoming, which is the state filing fee only. You must also settle any unpaid annual report fees first, since the state will not accept the dissolution until your account is current. Use the calculator above to add the $${wyDissolutionFee} fee and any unpaid years together for your total closing cost.`,
     },
     {
       question: "Do I need a tax clearance certificate to close my LLC in Texas?",
@@ -63,16 +73,15 @@ export default function DissolutionCalculatorPage() {
     },
     {
       question: "What happens if I just stop filing and let my LLC lapse?",
-      answer: "The state will eventually dissolve it administratively, but the fees keep accruing in the meantime — and in states like Delaware and California the annual tax keeps running until the LLC is formally closed. You also stay personally exposed for any debts or lawsuits filed against the LLC while it exists. A formal dissolution costs $0–$220 in filing fees and ends the liability; letting it lapse is the most expensive way to close.",
+      answer: "The state will eventually dissolve it administratively, but fees keep accruing — in Delaware and California the annual tax keeps running until the LLC is formally closed. You also stay personally exposed for debts or lawsuits filed against the LLC while it exists. Formal dissolution costs $0–$220 in filing fees; letting it lapse is the most expensive way to close.",
     },
   ];
 
+  const stateName = (slug: string) =>
+    STATE_FEES.find((s) => s.slug === slug)?.state ?? slug;
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorJsonLd) }}
-      />
       <FaqJsonLd faqs={faqs} />
 
       <Breadcrumbs
@@ -102,6 +111,40 @@ export default function DissolutionCalculatorPage() {
       <div className="mt-10">
         <DissolutionCalculator />
       </div>
+
+      <section className="mt-14" id="dissolution-fees-by-state">
+        <h2 className="text-xl font-semibold text-[#102A43]">LLC dissolution filing fee by state</h2>
+        <p className="mt-3 max-w-3xl text-slate-700 leading-relaxed">
+          Every state charges its own fee to accept a dissolution filing, from $0 to $220. The filing fee is only part of the closing cost — unpaid annual report fees and franchise tax are usually larger, and the calculator above adds them. Pick your state in the calculator to see your total.
+        </p>
+        <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+          <table className="min-w-full text-left text-sm">
+            <thead className="border-b border-slate-200 bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
+              <tr>
+                <th className="px-4 py-3 font-medium">State</th>
+                <th className="px-4 py-3 font-medium">Dissolution filing</th>
+                <th className="px-4 py-3 font-medium">Filing fee</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {DISSOLUTION_FEES.map((d) => (
+                <tr key={d.slug} className="hover:bg-slate-50">
+                  <td className="px-4 py-3 font-medium text-slate-900">
+                    <Link href={`/llc-cost-by-state/${d.slug}`} className="text-[#1769AA] hover:underline">
+                      {stateName(d.slug)}
+                    </Link>
+                  </td>
+                  <td className="px-4 py-3 text-slate-700">{d.label}</td>
+                  <td className="px-4 py-3 font-medium">${d.fee}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-3 max-w-3xl text-sm text-slate-500">
+          Delaware, Louisiana, DC and Nebraska fees are confirmed against official state schedules; the rest are 2026 secondary-source estimates — confirm the fee with the Secretary of State before filing.
+        </p>
+      </section>
 
       <section className="mt-14 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">What dissolution costs, beyond the filing fee</h2>

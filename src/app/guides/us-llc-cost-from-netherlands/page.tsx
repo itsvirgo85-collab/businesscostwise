@@ -32,7 +32,7 @@ export default function UsLlcCostFromNetherlandsPage() {
   const faqs = [
     {
       question: "What is the yearly upkeep of a US LLC in euros for a Dutch founder?",
-      answer: `After year one, Wyoming costs ${f.wyOngoingUsd} (${f.wyOngoingLocal}) a year — a ${f.wyAnnualReport} annual report plus a ${f.agentPerYear}-a-year registered agent. New Mexico costs ${f.nmOngoingUsd} (${f.nmOngoingLocal}) a year, because there is no annual report fee and the agent is the only recurring cost. Delaware costs ${f.deOngoingUsd} a year, driven by its ${f.deAnnualTax} yearly tax. Converted figures are estimates at the ${FX_RATE_DATE} rate of €${f.rate} per $1.`,
+      answer: `New Mexico. After year one it costs ${f.nmOngoingUsd} (${f.nmOngoingLocal}) a year — the ${f.agentPerYear}-a-year agent alone, because there is no annual report fee. Wyoming is next at ${f.wyOngoingUsd} (${f.wyOngoingLocal}) a year, a ${f.wyAnnualReport} annual report plus the agent, and Delaware is the most expensive at ${f.deOngoingUsd} (${f.deOngoingLocal}) a year, driven by its ${f.deAnnualTax} yearly tax. Converted figures are estimates at the ${FX_RATE_DATE} rate of €${f.rate} per $1.`,
     },
     {
       question: "Does a US LLC need a KvK registration or a UBO entry in the Netherlands?",
@@ -45,6 +45,14 @@ export default function UsLlcCostFromNetherlandsPage() {
     {
       question: "Can a Dutch founder get a US EIN for €0 without a formation agency?",
       answer: `Yes — and the number itself is free. The online EIN application needs an SSN or ITIN, so a Dutch founder files Form SS-4 by fax or mail instead, entering “Foreign” on Line 7b. The IRS charges $0; agencies charge $75–$300 for filing the same form, and fax processing typically takes about a week.`,
+    },
+    {
+      question: "How do I form US LLC from Netherlands?",
+      answer: `File online in Wyoming, New Mexico or Delaware — no US visit, no US address and no minimum capital are needed. Appoint a registered agent, file the Articles of Organization (${f.nmFormation} in New Mexico, ${f.wyFormation} in Wyoming), then get your EIN free from the IRS by faxing Form SS-4. The LLC itself needs no KvK registration or UBO entry.`,
+    },
+    {
+      question: "What is the US LLC cost from Netherlands?",
+      answer: `Year one with the agent is ${f.nmYear1Usd} (${f.nmYear1Local}) in New Mexico, ${f.wyYear1Usd} (${f.wyYear1Local}) in Wyoming and ${f.deYear1Usd} (${f.deYear1Local}) in Delaware. After that the yearly cost is ${f.nmOngoingUsd} (${f.nmOngoingLocal}), ${f.wyOngoingUsd} (${f.wyOngoingLocal}) and ${f.deOngoingUsd} (${f.deOngoingLocal}) — Delaware is dearest because of its {f.deAnnualTax} annual tax, and New Mexico charges no annual report fee.`,
     },
   ];
 
@@ -80,12 +88,36 @@ export default function UsLlcCostFromNetherlandsPage() {
       </p>
 
       <div className="mt-10">
-        <NonResidentCalculator initialCurrencyCode="EUR" initialStateSlug="wyoming" />
+        <NonResidentCalculator initialCurrencyCode="EUR" initialStateSlug="wyoming"
+          compact
+          heading="Your LLC in euros — Wyoming first"
+          intro="Wyoming is the starting point below. Switch to New Mexico in the buttons to see the cheapest five-year total — it files no annual report at all — or to Delaware to compare."
+          stateNote="The three states priced here are Wyoming, New Mexico and Delaware; the full calculator covers all fifty."
+          currencyNote={`The euro figures use the default rate of €${f.rate} per $1 (${FX_RATE_DATE}). That is an estimate, not a bank rate — your bank converts at its own rate on the day you pay.`}
+          einNote="The IRS charges $0 for an EIN. Because the online application needs an SSN or ITIN, a Dutch founder files Form SS-4 by fax or mail with “Foreign” on Line 7b."
+          agentHint="Most commercial agents charge $99–$199 a year — this guide uses $125."
+          excludesBody="Taxes, bank fees, operating-agreement drafting and professional advice are not included. This tool shows operational and published state filing fees only — consult a qualified Dutch tax or legal adviser regarding Belastingdienst and local compliance, as the disclaimer below notes."
+          resultNote={`Converted at €${f.rate} per $1 (${FX_RATE_DATE}) — state fees from verified state data, euro figures are estimates.`}
+          fiveYearNote="Five recurring payments over five years, plus formation and one-time items. The state-fees-only column is the bill before the agent — New Mexico's is just the $50 formation fee."
+          scenarioTitle="Five years of state fees, with and without the agent — in EUR"
+          scenarioIntro="Same settings as above. The middle columns strip the agent out, so you can see what the state itself charges over five years versus what the agent adds."
+          scenarioVariant="stateOnly"
+          scenarioFootnote={`Five-year totals count five recurring payments. The state-fees-only columns count formation plus five annual state charges, with no agent. At the defaults above, five years in Wyoming with the agent are ${f.wyFiveYearLocal}.`}
+        />
       </div>
 
       <p className="mt-6 max-w-3xl text-sm text-slate-500">
-        The full <Link href="/tools/non-resident-llc-cost-calculator?currency=EUR" className="text-[#1769AA] hover:underline">Non-Resident LLC Cost Calculator in EUR</Link> covers all fifty states and lets you change the agent price, the exchange rate and the EIN option. The general <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">non-resident LLC guide</Link> walks through the filing steps.
+        The calculator above covers Wyoming, Delaware and New Mexico in EUR. The full <Link href="/tools/non-resident-llc-cost-calculator?currency=EUR" className="text-[#1769AA] hover:underline">Non-Resident LLC Cost Calculator in EUR</Link> covers all fifty states and lets you change the agent price, the exchange rate and the EIN option. The general <Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">non-resident LLC guide</Link> walks through the filing steps.
       </p>
+
+            <section className="mt-12 max-w-3xl">
+        <h2 className="text-xl font-semibold text-[#102A43]">
+          Getting the EIN by fax from the Netherlands
+        </h2>
+        <p className="mt-3 text-slate-700 leading-relaxed">
+          The online EIN application asks for a Social Security Number or ITIN, which a Dutch founder does not have — so the route is Form SS-4 by fax or mail, with “Foreign” written on Line 7b. The IRS charges $0 for the number itself; fax processing typically takes about a week, and the confirmation letter arrives by post. Agencies charge $75–$300 to file the same free form, so the only thing you are paying for is someone else sending the fax.
+        </p>
+      </section>
 
       <section className="mt-12 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">
@@ -105,15 +137,56 @@ export default function UsLlcCostFromNetherlandsPage() {
       </p>
       </section>
 
-            <section className="mt-12 max-w-3xl">
+      <section className="mt-12 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">
-          Getting the EIN by fax from the Netherlands
+          KvK registration vs US LLC — one-off and yearly fees
         </h2>
         <p className="mt-3 text-slate-700 leading-relaxed">
-          The online EIN application asks for a Social Security Number or ITIN, which a Dutch founder does not have — so the route is Form SS-4 by fax or mail, with “Foreign” written on Line 7b. The IRS charges $0 for the number itself; fax processing typically takes about a week, and the confirmation letter arrives by post. Agencies charge $75–$300 to file the same free form, so the only thing you are paying for is someone else sending the fax.
+          The Dutch side is a single €85.15 visit with no yearly charge; the US side is a small filing fee plus a yearly agent. The table puts both shapes next to each other.
+        </p>
+        <div className="mt-4 overflow-x-auto">
+          <table className="w-full min-w-[520px] border-collapse text-left text-sm">
+            <thead>
+              <tr className="border-b border-slate-200 text-slate-500">
+                <th className="py-2 pr-3 font-semibold">Item</th>
+                <th className="py-2 pr-3 font-semibold">Netherlands</th>
+                <th className="py-2 font-semibold">US LLC</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              <tr className="border-b border-slate-100">
+                <td className="py-2 pr-3 font-semibold text-[#102A43]">Registration / formation fee</td>
+                <td className="py-2 pr-3">€85.15 one-off (KvK)</td>
+                <td className="py-2">New Mexico {f.nmFormation} · Wyoming {f.wyFormation}</td>
+              </tr>
+              <tr className="border-b border-slate-100">
+                <td className="py-2 pr-3 font-semibold text-[#102A43]">Yearly registry fee</td>
+                <td className="py-2 pr-3">€0 — no annual KvK fee</td>
+                <td className="py-2">Wyoming {f.wyAnnualReport} annual report · New Mexico $0</td>
+              </tr>
+              <tr className="border-b border-slate-100">
+                <td className="py-2 pr-3 font-semibold text-[#102A43]">Registered agent</td>
+                <td className="py-2 pr-3">Not required</td>
+                <td className="py-2">{f.agentPerYear} a year (calculator default)</td>
+              </tr>
+              <tr>
+                <td className="py-2 pr-3 font-semibold text-[#102A43]">UBO / owner register</td>
+                <td className="py-2 pr-3">UBO entry for Dutch entities</td>
+                <td className="py-2">No KvK or UBO entry</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-3 text-sm text-slate-500">
+          The agent is the line a KvK registration does not have — it repeats every year, while the KvK fee is paid once.
         </p>
       </section>
-<section className="mt-12 max-w-3xl">
+
+      <p className="mt-6 max-w-3xl text-sm text-slate-500">
+        Before you compare quotes, check the Delaware line: several guides still show the old $300 annual tax, but Delaware charges {f.deAnnualTax} a year for tax year 2026 — first payable 1 June 2027 — on {f.deFormation} formation.
+      </p>
+
+            <section className="mt-12 max-w-3xl">
         <h2 className="text-xl font-semibold text-[#102A43]">Frequently asked questions</h2>
         <div className="mt-6 space-y-4">
           {faqs.map((faq, i) => (
@@ -134,20 +207,20 @@ export default function UsLlcCostFromNetherlandsPage() {
         <h2 className="text-lg font-semibold text-[#102A43]">Related guides &amp; tools</h2>
         <ul className="mt-3 space-y-2 text-sm">
           <li><Link href="/tools/non-resident-llc-cost-calculator?currency=EUR" className="text-[#1769AA] hover:underline">Non-Resident LLC Cost Calculator — in EUR</Link></li>
-          <li><Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">Non-Resident LLC Guide — Can a Non-Resident Form an LLC in the USA?</Link></li>
-          <li><Link href="/annual-report-requirements-by-state" className="text-[#1769AA] hover:underline">Annual Report Requirements by State</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-germany" className="text-[#1769AA] hover:underline">US LLC Cost from Germany — fees in EUR</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-ireland" className="text-[#1769AA] hover:underline">US LLC Cost from Ireland — fees in EUR</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-uk" className="text-[#1769AA] hover:underline">US LLC Cost from the UK — fees in GBP</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-australia" className="text-[#1769AA] hover:underline">US LLC Cost from Australia — fees in AUD</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-canada" className="text-[#1769AA] hover:underline">US LLC Cost from Canada — fees in CAD</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-new-zealand" className="text-[#1769AA] hover:underline">US LLC Cost from New Zealand — fees in NZD</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-india" className="text-[#1769AA] hover:underline">US LLC Cost from India — fees in INR</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-singapore" className="text-[#1769AA] hover:underline">US LLC Cost from Singapore — fees in SGD</Link></li>
+          <li><Link href="/guides/us-llc-cost-from-dubai" className="text-[#1769AA] hover:underline">US LLC Cost from Dubai & UAE — fees in AED</Link></li>
+          <li><Link href="/llc-cost-by-state/new-mexico" className="text-[#1769AA] hover:underline">New Mexico LLC Cost — formation &amp; $0 annual report</Link></li>
           <li><Link href="/llc-cost-by-state/wyoming" className="text-[#1769AA] hover:underline">Wyoming LLC Cost — formation &amp; annual report fees</Link></li>
           <li><Link href="/llc-cost-by-state/delaware" className="text-[#1769AA] hover:underline">Delaware LLC Cost — formation &amp; annual tax</Link></li>
-          <li><Link href="/llc-cost-by-state/new-mexico" className="text-[#1769AA] hover:underline">New Mexico LLC Cost — formation &amp; $0 annual report</Link></li>
-          <li><Link href="/guides/us-llc-cost-from-ireland" className="text-[#1769AA] hover:underline">US LLC Cost from Ireland — fees in EUR</Link></li>
-          <li><Link href="/guides/us-llc-cost-from-new-zealand" className="text-[#1769AA] hover:underline">US LLC Cost from New Zealand — fees in NZD</Link></li>
-          <li><Link href="/guides/us-llc-cost-from-germany" className="text-[#1769AA] hover:underline">US LLC Cost from Germany — fees in EUR</Link></li>
-          <li><Link href="/guides/us-llc-cost-from-uk" className="text-[#1769AA] hover:underline">US LLC Cost from the UK — fees in GBP</Link></li>
-          <li><Link href="/guides/us-llc-cost-from-canada" className="text-[#1769AA] hover:underline">US LLC Cost from Canada — fees in CAD</Link></li>
-          <li><Link href="/guides/us-llc-cost-from-australia" className="text-[#1769AA] hover:underline">US LLC Cost from Australia — fees in AUD</Link></li>
-          <li><Link href="/guides/us-llc-cost-from-singapore" className="text-[#1769AA] hover:underline">US LLC Cost from Singapore — fees in SGD</Link></li>
-          <li><Link href="/guides/us-llc-cost-from-dubai" className="text-[#1769AA] hover:underline">US LLC Cost from Dubai &amp; UAE — fees in AED</Link></li>
-          <li><Link href="/guides/us-llc-cost-from-india" className="text-[#1769AA] hover:underline">US LLC Cost from India — fees in INR</Link></li>
+          <li><Link href="/guides/non-resident-llc" className="text-[#1769AA] hover:underline">Non-Resident LLC Guide — Can a Non-Resident Form an LLC in the USA?</Link></li>
+          <li><Link href="/annual-report-requirements-by-state" className="text-[#1769AA] hover:underline">Annual Report Requirements by State</Link></li>
           <li><Link href="/guides/us-llc-vs-uk-ltd-cost" className="text-[#1769AA] hover:underline">US LLC vs. UK Ltd Cost — 5-year operational fee comparison</Link></li>
         </ul>
       </section>

@@ -4,12 +4,12 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 
 export const metadata: Metadata = {
-  title: { absolute: "Sources & Methodology" },
+  title: { absolute: "LLC Fee Sources & Methodology — How We Verify Costs" },
   description:
     "How we verify US LLC fees: official state sources, verification dates, automated monitoring and known limits — including Alabama, now verified and included.",
   alternates: { canonical: "/about/sources-and-methodology" },
   openGraph: {
-    title: "Sources & Methodology",
+    title: "LLC Fee Sources & Methodology — How We Verify Costs",
     description:
       "How we verify US LLC fees: official state sources, verification dates, automated monitoring and known limits — including Alabama, now verified and included.",
     type: "article",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sources & Methodology",
+    title: "LLC Fee Sources & Methodology — How We Verify Costs",
     description:
       "How we verify US LLC fees: official state sources, verification dates, automated monitoring and known limits — including Alabama, now verified and included.",
     images: ["/twitter-image"],

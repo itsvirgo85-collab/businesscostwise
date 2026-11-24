@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import LLCCostCalculator from "@/components/calculators/LLCCostCalculator";
+import { getStateBySlug } from "@/data/stateFees";
+import { calculateFiveYearStateCost } from "@/lib/stateCost";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
@@ -28,17 +30,7 @@ export const metadata: Metadata = {
 };
 
 export default function LLCCostCalculatorPage() {
-  const calculatorJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "LLC Cost Calculator by State",
-    applicationCategory: "FinanceApplication",
-    operatingSystem: "Web",
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    description:
-      "Free educational calculator for estimated LLC formation and fixed recurring state fees across verified US states and DC. Includes official source links and multi-year totals.",
-  };
-
+  const delaware = getStateBySlug("delaware")!;
   const faqs = [
     {
       question: "What does this LLC cost calculator include?",
@@ -81,10 +73,6 @@ export default function LLCCostCalculatorPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorJsonLd) }}
-      />
       <FaqJsonLd faqs={faqs} />
 
       <Breadcrumbs
@@ -123,6 +111,12 @@ export default function LLCCostCalculatorPage() {
         >
           How we keep fees current →
         </Link>
+      </div>
+
+      <div className="mt-6 max-w-3xl rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm leading-relaxed text-amber-900">
+        <strong>Delaware correction:</strong> Delaware&apos;s LLC annual tax is ${delaware.franchiseTax} a year for tax
+        year 2026, first payable 1 June 2027 — up from $300. Many calculators still show $300.
+        In the calculator below, Delaware shows ${delaware.formationFee} to form plus ${delaware.franchiseTax} a year, or ${calculateFiveYearStateCost(delaware).toLocaleString()} over five years.
       </div>
 
       <div className="mt-10">
