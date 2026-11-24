@@ -153,6 +153,22 @@ export default async function StateCostPage({ params }: Props) {
           },
         ]
       : []),
+    ...(s.slug === "nebraska"
+      ? [
+          {
+            question: "How to form an LLC in Nebraska?",
+            answer: `File a Certificate of Organization with the Nebraska Secretary of State for $${s.formationFee} online ($110 in office). Then file a $${s.annualFee} biennial report in the first odd-numbered year after formation, and every other odd-numbered year after that. Publication requirements may also apply in Nebraska. Use the calculator above for your year-one and five-year totals.`,
+          },
+        ]
+      : []),
+    ...(s.slug === "new-jersey"
+      ? [
+          {
+            question: "How to form an LLC in NJ?",
+            answer: `File a Certificate of Formation with the New Jersey Division of Revenue for $${s.formationFee}, then file a $${s.annualFee} annual report each year, due on the last day of your formation month. The state fees total $${Math.round(firstYearStateCost)} in year one and $${Math.round(fiveYear)} over five years. Use the calculator above for your exact year-one and five-year totals.`,
+          },
+        ]
+      : []),
     ...(s.slug === "texas"
       ? [
           {
