@@ -52,11 +52,11 @@ export default function UsLlcCostFromAustraliaPage() {
     },
     {
       question: "What is the US LLC cost for Australian citizen?",
-      answer: `Year one with the agent is ${f.nmYear1Usd} (${f.nmYear1Local}) in New Mexico, ${f.wyYear1Usd} (${f.wyYear1Local}) in Wyoming and ${f.deYear1Usd} (${f.deYear1Local}) in Delaware. After that the yearly cost is ${f.nmOngoingUsd} (${f.nmOngoingLocal}), ${f.wyOngoingUsd} (${f.wyOngoingLocal}) and ${f.deOngoingUsd} (${f.deOngoingLocal}) — Delaware is dearest because of its {f.deAnnualTax} annual tax, while New Mexico has no annual report at all.`,
+      answer: `Year one with the agent is ${f.nmYear1Usd} (${f.nmYear1Local}) in New Mexico, ${f.wyYear1Usd} (${f.wyYear1Local}) in Wyoming and ${f.deYear1Usd} (${f.deYear1Local}) in Delaware. After that the yearly cost is ${f.nmOngoingUsd} (${f.nmOngoingLocal}), ${f.wyOngoingUsd} (${f.wyOngoingLocal}) and ${f.deOngoingUsd} (${f.deOngoingLocal}) — Delaware is dearest because of its ${f.deAnnualTax} annual tax, while New Mexico has no annual report at all.`,
     },
     {
       question: "Is a Wyoming LLC for Australian founders the cheapest US option?",
-      answer: `Wyoming is usually the cheapest of the three states priced here: ${f.wyYear1Usd} (${f.wyYear1Local}) in year one and ${f.wyOngoingUsd} (${f.wyOngoingLocal}) a year after that, agent included. New Mexico is cheaper still on state fees alone, at ${f.nmFiveYearStateOnly} over five years, while Delaware costs the most because of its {f.deAnnualTax} annual tax.`,
+      answer: `Wyoming is usually the cheapest of the three states priced here: ${f.wyYear1Usd} (${f.wyYear1Local}) in year one and ${f.wyOngoingUsd} (${f.wyOngoingLocal}) a year after that, agent included. New Mexico is cheaper still on state fees alone, at ${f.nmFiveYearStateOnly} over five years, while Delaware costs the most because of its ${f.deAnnualTax} annual tax.`,
     },
   ];
 
