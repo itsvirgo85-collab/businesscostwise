@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T01:30:04.943Z",
+  "generatedAt": "2026-11-26T22:50:27.767Z",
   "applied": [],
   "reverted": false,
   "review": [
@@ -32,6 +32,16 @@
       "confidence": "review",
       "evidence": "form available; please see our Conversions page for more information. $60 Domestication - changing state of formation only, not entity type. No form available; please see our Domestication",
       "sourceUrl": "https://business.ct.gov/knowledge-base/articles/domestic-limited-liability-companies-forms-and-fees"
+    },
+    {
+      "slug": "delaware",
+      "state": "Delaware",
+      "field": "annualFee",
+      "oldValue": null,
+      "newValue": 400,
+      "confidence": "review",
+      "evidence": "n annual tax of $400.00. There is no requirement to file an Annual Report. The annual taxes for the prior year are due on or before June 1st. Failure to pay the required annual taxes will resul",
+      "sourceUrl": "https://corp.delaware.gov/alt-entitytaxinstructions/"
     },
     {
       "slug": "florida",
@@ -94,6 +104,16 @@
       "sourceUrl": "https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports"
     },
     {
+      "slug": "rhode-island",
+      "state": "Rhode Island",
+      "field": "formationFee",
+      "oldValue": 150,
+      "newValue": 230,
+      "confidence": "review",
+      "evidence": "neral Partnership Sole Proprietor Initial RI Dept. of State Filing Fee $230 $230 $230 $150 $20 $20 RI Dept. of State Annual Report $50 $60 $50 $50 $0 $0 RI Division of Taxation Minimum Corpo",
+      "sourceUrl": "https://www.sos.ri.gov/divisions/business-services/business-basics/costs-and-fees"
+    },
+    {
       "slug": "washington",
       "state": "Washington",
       "field": "formationFee",
@@ -112,12 +132,6 @@
       "confidence": "review",
       "evidence": "tatement will require an annual report fee for each year an annual report was not filed. In addition, a penalty fee of $140 is assessed. Failure to file within the 5-year window of the business",
       "sourceUrl": "https://www.sos.wa.gov/corporations-charities/business-entities/limited-liability-company-llc-professional-llc-pllc-filing-resource-page"
-    },
-    {
-      "slug": "new-mexico",
-      "state": "New Mexico",
-      "sourceUrl": "https://enterprise.sos.nm.gov/",
-      "error": "Extracted text was empty or too short"
     }
   ]
 }
