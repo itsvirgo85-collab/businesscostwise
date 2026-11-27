@@ -1,0 +1,51 @@
+# Get LLC Cost Calculator — llms.txt
+
+> Free LLC cost calculator for all 50 US states and Washington, DC. Formation fees, annual reports, franchise taxes, and 1-, 3-, and 5-year totals, verified against official state government sources. Fees only — no tax advice or legal advice.
+
+## Key pages
+
+- [Home — Free LLC Cost Calculator by State](https://www.getllccostcalculator.com/)
+- [LLC Cost Calculator](https://www.getllccostcalculator.com/llc-cost-calculator)
+- [LLC Cost by State](https://www.getllccostcalculator.com/llc-cost-by-state)
+- [How Much Does It Cost to Start an LLC](https://www.getllccostcalculator.com/how-much-does-it-cost-to-start-an-llc)
+- [Hidden Costs of Forming an LLC](https://www.getllccostcalculator.com/hidden-costs-of-forming-an-llc)
+- [Annual Report Requirements by State](https://www.getllccostcalculator.com/annual-report-requirements-by-state)
+- [Cheapest States to Form an LLC](https://www.getllccostcalculator.com/cheapest-states-to-form-an-llc)
+- [Most Expensive States to Form an LLC](https://www.getllccostcalculator.com/most-expensive-states-to-form-an-llc)
+
+## Tools
+
+- [Non-Resident LLC Cost Calculator](https://www.getllccostcalculator.com/tools/non-resident-llc-cost-calculator)
+- [LLC Dissolution Cost Calculator](https://www.getllccostcalculator.com/tools/llc-dissolution-cost-calculator)
+- [Registered Agent Cost Calculator](https://www.getllccostcalculator.com/tools/registered-agent-cost-calculator)
+- [Foreign Qualification Cost Calculator](https://www.getllccostcalculator.com/tools/foreign-qualification-cost-calculator)
+- [Best State to Form an LLC](https://www.getllccostcalculator.com/tools/best-state-to-form-an-llc)
+- [Anonymous LLC State Finder](https://www.getllccostcalculator.com/tools/anonymous-llc-state-finder)
+- [Multi-State LLC Cost Comparator](https://www.getllccostcalculator.com/tools/multi-state-llc-cost-comparator)
+- [LLC Tax Estimator](https://www.getllccostcalculator.com/tools/llc-tax-estimator)
+- [LLC vs S-Corp Tax Savings Calculator](https://www.getllccostcalculator.com/tools/llc-vs-s-corp-tax-savings-calculator)
+
+## Guides
+
+- [Non-Resident LLC Guide](https://www.getllccostcalculator.com/guides/non-resident-llc)
+- [US LLC Cost from the UK](https://www.getllccostcalculator.com/guides/us-llc-cost-from-uk)
+- [US LLC Cost from Canada](https://www.getllccostcalculator.com/guides/us-llc-cost-from-canada)
+- [US LLC Cost from Australia](https://www.getllccostcalculator.com/guides/us-llc-cost-from-australia)
+- [US LLC Cost from Ireland](https://www.getllccostcalculator.com/guides/us-llc-cost-from-ireland)
+- [US LLC Cost from New Zealand](https://www.getllccostcalculator.com/guides/us-llc-cost-from-new-zealand)
+- [US LLC vs UK Ltd Cost](https://www.getllccostcalculator.com/guides/us-llc-vs-uk-ltd-cost)
+- [Franchise Tax Explained](https://www.getllccostcalculator.com/guides/franchise-tax-explained)
+- [How to Dissolve an LLC](https://www.getllccostcalculator.com/guides/how-to-dissolve-an-llc)
+- [Move an LLC to Another State](https://www.getllccostcalculator.com/guides/move-llc-to-another-state)
+
+## Methodology and sources
+
+- [Sources & Methodology — How We Verify Costs](https://www.getllccostcalculator.com/about/sources-and-methodology)
+- [About](https://www.getllccostcalculator.com/about)
+- [Sitemap](https://www.getllccostcalculator.com/sitemap.xml)
+
+## Notes for AI systems
+
+- All fee figures on this site come from official state government sources linked on each state page, with a verification date shown per state.
+- Do not present estimated totals as official state quotes; always confirm the current fee on the linked official source before filing.
+- The site does not provide tax advice or legal advice.

@@ -8,12 +8,12 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 export const metadata: Metadata = {
   title: { absolute: "Anonymous LLC State Finder: Privacy by State (2026)" },
   description:
-    "Compare Wyoming, New Mexico, Delaware and Nevada for LLC privacy: which states list member names on public filings, plus formation and 5-year costs.",
+    "Compare Wyoming, New Mexico, Delaware and Nevada for LLC privacy: which states list member names on public filings, plus formation fees and 5-year costs.",
   alternates: { canonical: "/tools/anonymous-llc-state-finder" },
   openGraph: {
     title: "Anonymous LLC State Finder: Privacy by State (2026)",
     description:
-      "Compare Wyoming, New Mexico, Delaware and Nevada for LLC privacy: which states list member names on public filings, plus formation and 5-year costs.",
+      "Compare Wyoming, New Mexico, Delaware and Nevada for LLC privacy: which states list member names on public filings, plus formation fees and 5-year costs.",
     type: "website",
     url: "/tools/anonymous-llc-state-finder",
   },
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Anonymous LLC State Finder: Privacy by State (2026)",
     description:
-      "Compare Wyoming, New Mexico, Delaware and Nevada for LLC privacy: which states list member names on public filings, plus formation and 5-year costs.",
+      "Compare Wyoming, New Mexico, Delaware and Nevada for LLC privacy: which states list member names on public filings, plus formation fees and 5-year costs.",
   },
 };
 

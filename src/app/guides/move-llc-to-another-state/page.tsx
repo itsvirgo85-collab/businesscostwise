@@ -8,12 +8,12 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 export const metadata: Metadata = {
   title: { absolute: "How to Move an LLC to Another State (2026)" },
   description:
-    "Moving an LLC means domestication, foreign qualification, or dissolving and reforming. Compare the three routes, their costs, and when each one fits.",
+    "Moving an LLC means domestication, foreign qualification, or dissolving and reforming. Compare the three routes, their state fees and costs, and when each one fits.",
   alternates: { canonical: "/guides/move-llc-to-another-state" },
   openGraph: {
     title: "How to Move an LLC to Another State (2026)",
     description:
-      "Moving an LLC means domestication, foreign qualification, or dissolving and reforming. Compare the three routes, their costs, and when each one fits.",
+      "Moving an LLC means domestication, foreign qualification, or dissolving and reforming. Compare the three routes, their state fees and costs, and when each one fits.",
     type: "website",
     url: "/guides/move-llc-to-another-state",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "How to Move an LLC to Another State (2026)" }],
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "How to Move an LLC to Another State (2026)",
     description:
-      "Moving an LLC means domestication, foreign qualification, or dissolving and reforming. Compare the three routes, their costs, and when each one fits.",
+      "Moving an LLC means domestication, foreign qualification, or dissolving and reforming. Compare the three routes, their state fees and costs, and when each one fits.",
     images: ["/twitter-image"],
   },
 };
@@ -61,7 +61,7 @@ export default function MoveLlcPage() {
       <FaqJsonLd faqs={faqs} />
       <ArticleJsonLd
         headline="How to Move an LLC to Another State (2026)"
-        description="Moving an LLC means domestication, foreign qualification, or dissolving and reforming. Compare the three routes, their costs, and when each one fits."
+        description="Moving an LLC means domestication, foreign qualification, or dissolving and reforming. Compare the three routes, their state fees and costs, and when each one fits."
         datePublished="2026-11-15"
         dateModified="2026-11-20"
         url="https://www.getllccostcalculator.com/guides/move-llc-to-another-state"

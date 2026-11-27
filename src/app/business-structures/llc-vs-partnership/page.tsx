@@ -7,12 +7,12 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 export const metadata: Metadata = {
   title: { absolute: "LLC vs Partnership: Liability, Taxes & Cost (2026)" },
   description:
-    "A partnership is cheap to start but leaves every partner personally liable. Compare LLC vs partnership on liability, taxes, management, and cost.",
+    "A partnership is cheap to start but leaves every partner personally liable. Compare LLC vs partnership on liability, taxes, management, formation and yearly cost.",
   alternates: { canonical: "/business-structures/llc-vs-partnership" },
   openGraph: {
     title: "LLC vs Partnership: Liability, Taxes & Cost (2026)",
     description:
-      "A partnership is cheap to start but leaves every partner personally liable. Compare LLC vs partnership on liability, taxes, management, and cost.",
+      "A partnership is cheap to start but leaves every partner personally liable. Compare LLC vs partnership on liability, taxes, management, formation and yearly cost.",
     type: "website",
     url: "/business-structures/llc-vs-partnership",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "LLC vs Partnership: Liability, Taxes & Cost (2026)" }],
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "LLC vs Partnership: Liability, Taxes & Cost (2026)",
     description:
-      "A partnership is cheap to start but leaves every partner personally liable. Compare LLC vs partnership on liability, taxes, management, and cost.",
+      "A partnership is cheap to start but leaves every partner personally liable. Compare LLC vs partnership on liability, taxes, management, formation and yearly cost.",
     images: ["/twitter-image"],
   },
 };

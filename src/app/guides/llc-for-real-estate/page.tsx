@@ -8,12 +8,12 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 export const metadata: Metadata = {
   title: { absolute: "LLC for Rental Property & Real Estate (2026)" },
   description:
-    "An LLC shields your personal assets from rental property lawsuits. Compare one LLC per property vs a holding company vs a Series LLC, and the costs.",
+    "An LLC shields your personal assets from rental property lawsuits. Compare one LLC per property vs a holding company vs a Series LLC, formation and yearly costs.",
   alternates: { canonical: "/guides/llc-for-real-estate" },
   openGraph: {
     title: "LLC for Rental Property & Real Estate (2026)",
     description:
-      "An LLC shields your personal assets from rental property lawsuits. Compare one LLC per property vs a holding company vs a Series LLC, and the costs.",
+      "An LLC shields your personal assets from rental property lawsuits. Compare one LLC per property vs a holding company vs a Series LLC, formation and yearly costs.",
     type: "website",
     url: "/guides/llc-for-real-estate",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "LLC for Rental Property & Real Estate (2026)" }],
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "LLC for Rental Property & Real Estate (2026)",
     description:
-      "An LLC shields your personal assets from rental property lawsuits. Compare one LLC per property vs a holding company vs a Series LLC, and the costs.",
+      "An LLC shields your personal assets from rental property lawsuits. Compare one LLC per property vs a holding company vs a Series LLC, formation and yearly costs.",
     images: ["/twitter-image"],
   },
 };
@@ -61,7 +61,7 @@ export default function RealEstateLlcPage() {
       <FaqJsonLd faqs={faqs} />
       <ArticleJsonLd
         headline="LLC for Rental Property & Real Estate (2026)"
-        description="An LLC shields your personal assets from rental property lawsuits. Compare one LLC per property vs a holding company vs a Series LLC, and the costs."
+        description="An LLC shields your personal assets from rental property lawsuits. Compare one LLC per property vs a holding company vs a Series LLC, formation and yearly costs."
         datePublished="2026-11-15"
         dateModified="2026-11-20"
         url="https://www.getllccostcalculator.com/guides/llc-for-real-estate"
