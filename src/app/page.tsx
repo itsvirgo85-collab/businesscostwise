@@ -1,23 +1,25 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { STATE_FEES, getStateBySlug } from "@/data/stateFees";
+import { calculateFiveYearStateCost } from "@/lib/stateCost";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 
 export const metadata: Metadata = {
-  title: { absolute: "Free LLC Cost Calculator by State (2026)" },
+  title: { absolute: "Free LLC Cost Calculator by State (2026) — All 50 States" },
   description:
     "Free LLC cost calculator for all 50 states + DC. Compare formation fees, annual reports, franchise taxes and 1, 3 & 5-year totals with official source links.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Free LLC Cost Calculator by State (2026)",
+    title: "Free LLC Cost Calculator by State (2026) — All 50 States",
     description:
       "Free LLC cost calculator for all 50 states + DC. Compare formation fees, annual reports, franchise taxes and 1, 3 & 5-year totals with official source links.",
     type: "website",
     url: "/",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Free LLC Cost Calculator by State (2026)" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Free LLC Cost Calculator by State (2026) — All 50 States" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free LLC Cost Calculator by State (2026)",
+    title: "Free LLC Cost Calculator by State (2026) — All 50 States",
     description:
       "Free LLC cost calculator for all 50 states + DC. Compare formation fees, annual reports, franchise taxes and 1, 3 & 5-year totals with official source links.",
     images: ["/twitter-image"],
@@ -25,6 +27,28 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+  // All fee figures on this page are derived from the verified state records —
+  // no fee is hardcoded. Five-year totals count five recurring payments.
+  const verified = STATE_FEES.filter((s) => s.status === "verified");
+  const withFormationFee = verified.filter((s) => s.formationFee != null);
+  const minFormation = withFormationFee.reduce((a, b) =>
+    (a.formationFee ?? Infinity) < (b.formationFee ?? Infinity) ? a : b,
+  );
+  const maxFormation = withFormationFee.reduce((a, b) =>
+    (a.formationFee ?? 0) > (b.formationFee ?? 0) ? a : b,
+  );
+  const minFormationFee = minFormation.formationFee ?? 0;
+  const maxFormationFee = maxFormation.formationFee ?? 0;
+  const byFiveYear = [...verified]
+    .map((s) => ({ fee: s, total: calculateFiveYearStateCost(s) }))
+    .sort((a, b) => a.total - b.total);
+  const cheapestFiveYear = byFiveYear[0];
+  const priciestFiveYear = byFiveYear[byFiveYear.length - 1];
+  // California is the priciest state over five years in the verified data;
+  // its $800-a-year franchise tax drives almost all of that total.
+  const california = getStateBySlug("california")!;
+  const californiaAnnualTax = california.franchiseTax ?? 0;
+
   const tools = [
     {
       href: "/llc-cost-calculator",
@@ -232,7 +256,7 @@ export default function HomePage() {
           <div className="grid gap-6 sm:grid-cols-3">
             <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
               <p className="text-sm font-medium text-slate-500">Typical filing fee range</p>
-              <p className="mt-1 text-2xl font-bold text-[#102A43]">$35 – $500</p>
+              <p className="mt-1 text-2xl font-bold text-[#102A43]">{`$${minFormationFee} – $${maxFormationFee}`}</p>
               <p className="mt-1 text-sm text-slate-600">Varies widely by state</p>
             </div>
             <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -255,6 +279,77 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Key points */}
+      <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+        <h2 className="text-2xl font-bold text-[#102A43]">Key points</h2>
+        <ul className="mt-4 space-y-3 text-slate-700">
+          <li>
+            → Filing fees run from {`$${minFormationFee}`} in{" "}
+            <Link
+              href={`/llc-cost-by-state/${minFormation.slug}`}
+              className="font-medium text-[#1769AA] hover:underline"
+            >
+              {minFormation.state}
+            </Link>{" "}
+            to {`$${maxFormationFee}`} in{" "}
+            <Link
+              href={`/llc-cost-by-state/${maxFormation.slug}`}
+              className="font-medium text-[#1769AA] hover:underline"
+            >
+              {maxFormation.state}
+            </Link>
+            .{" "}
+            <Link href="/llc-cost-by-state" className="font-medium text-[#1769AA] hover:underline">
+              See all state costs →
+            </Link>
+          </li>
+          <li>
+            → Over five years, {cheapestFiveYear.fee.state} is cheapest at{" "}
+            {`$${cheapestFiveYear.total}`} in total state fees, while{" "}
+            {priciestFiveYear.fee.state} is priciest at{" "}
+            {`$${priciestFiveYear.total.toLocaleString()}`}.{" "}
+            <Link
+              href="/cheapest-states-to-form-an-llc"
+              className="font-medium text-[#1769AA] hover:underline"
+            >
+              Cheapest states
+            </Link>
+            {" · "}
+            <Link
+              href="/most-expensive-states-to-form-an-llc"
+              className="font-medium text-[#1769AA] hover:underline"
+            >
+              Most expensive states
+            </Link>
+          </li>
+          <li>
+            → Yearly costs matter more than the filing fee: {priciestFiveYear.fee.state}
+            &rsquo;s {`$${californiaAnnualTax}`}-a-year franchise tax makes it the priciest
+            state over five years at {`$${priciestFiveYear.total.toLocaleString()}`}.{" "}
+            <Link
+              href="/hidden-costs-of-forming-an-llc"
+              className="font-medium text-[#1769AA] hover:underline"
+            >
+              Hidden costs to watch for →
+            </Link>
+          </li>
+          <li>
+            → Forming an LLC takes seven practical steps: pick a state and name, file, get an EIN,
+            and stay compliant.{" "}
+            <Link href="/how-to-form-an-llc" className="font-medium text-[#1769AA] hover:underline">
+              Read the formation guide →
+            </Link>
+          </li>
+          <li>
+            → Get your exact number: the free calculator shows 1-, 3- and 5-year totals for your
+            state.{" "}
+            <Link href="/llc-cost-calculator" className="font-medium text-[#1769AA] hover:underline">
+              Open the calculator →
+            </Link>
+          </li>
+        </ul>
       </section>
 
       {/* Why this platform */}
@@ -301,10 +396,10 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
         <h2 className="text-2xl font-bold text-[#102A43]">What is an LLC?</h2>
         <p className="mt-3 max-w-3xl text-slate-600">
-          A Limited Liability Company (LLC) is a state-recognized business structure that separates
-          your personal assets from the business’s debts and legal claims. It offers liability
-          protection, flexible tax treatment, and a more professional image than a sole proprietorship,
-          while remaining simpler than a corporation for most small businesses.
+          A Limited Liability Company (LLC) is a business structure set up under state law. It keeps
+          your personal assets apart from the business’s debts and legal claims. It protects you from
+          liability and lets you choose how the business is taxed. It looks more professional than a
+          sole proprietorship, yet it is simpler than a corporation for most small businesses.
         </p>
         <ul className="mt-4 grid gap-2 text-slate-700 sm:grid-cols-2">
           <li className="flex items-start gap-2">
@@ -317,7 +412,7 @@ export default function HomePage() {
           </li>
           <li className="flex items-start gap-2">
             <span className="mt-1 text-[#1769AA]">✓</span>
-            Relatively simple formation and ongoing formalities
+            Simple to form, with few ongoing formalities
           </li>
           <li className="flex items-start gap-2">
             <span className="mt-1 text-[#1769AA]">✓</span>
@@ -336,13 +431,13 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
           <h2 className="text-2xl font-bold text-[#102A43]">How much does an LLC really cost in 2026?</h2>
           <p className="mt-2 max-w-3xl text-slate-600">
-            The state filing fee is only the starting point. Recurring annual reports, franchise taxes,
-            registered agent fees, and occasional publication requirements can significantly change the total.
+            The filing fee is only the start. Annual reports, franchise taxes, and registered agent fees
+            add to it. A few states also require publication. Together, these can change the total a lot.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <div className="rounded-lg border border-slate-200 bg-white p-4">
               <p className="text-sm font-medium text-slate-500">State filing fee</p>
-              <p className="mt-1 font-semibold text-[#102A43]">$35 – $500</p>
+              <p className="mt-1 font-semibold text-[#102A43]">{`$${minFormationFee} – $${maxFormationFee}`}</p>
             </div>
             <div className="rounded-lg border border-slate-200 bg-white p-4">
               <p className="text-sm font-medium text-slate-500">Registered agent</p>
@@ -378,7 +473,8 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
         <h2 className="text-2xl font-bold text-[#102A43]">Forming an LLC in seven practical steps</h2>
         <p className="mt-2 max-w-3xl text-slate-600">
-          Forming an LLC is a state-level process. The exact forms and fees differ, but the sequence is similar everywhere.
+          Forming an LLC happens at the state level. Forms and fees differ by state. But the steps are
+          the same almost everywhere.
         </p>
         <ol className="mt-8 space-y-4">
           {[
@@ -542,7 +638,9 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
           <h2 className="text-2xl font-bold text-[#102A43]">Should you form an LLC?</h2>
           <p className="mt-2 max-w-3xl text-slate-600">
-            An LLC is often a good fit when you want clearer separation between personal and business assets, plan to grow, hire, or work with clients who expect a formal entity. It is not always necessary for very small, low-risk activities.
+            An LLC is often a good fit if you want to keep your personal and business assets separate. It
+            also helps if you plan to grow, hire, or work with clients who expect a formal business. For a
+            very small, low-risk activity, it is not always needed.
           </p>
           <ul className="mt-6 space-y-2 text-slate-700">
             <li>→ Do you want liability protection beyond a sole proprietorship?</li>
@@ -551,7 +649,7 @@ export default function HomePage() {
             <li>→ Will a formal entity help with banking, payments, or client trust?</li>
           </ul>
           <p className="mt-6 text-slate-600">
-            Start with the cost calculator for your state, then review the formation guide and structure comparisons.
+            Start with the cost calculator for your state. Then read the formation guide and the structure comparisons.
           </p>
           <p className="mt-4 text-slate-600">
             Before you file, read{" "}
@@ -561,8 +659,8 @@ export default function HomePage() {
             and the{" "}
             <Link href="/hidden-costs-of-forming-an-llc" className="font-medium text-[#1769AA] hover:underline">
               hidden costs of forming an LLC
-            </Link>{" "}
-            — the filing fee is rarely the whole first-year bill.
+            </Link>
+            {". The filing fee is rarely the whole first-year bill."}
           </p>
         </div>
       </section>
